@@ -1,0 +1,63 @@
+﻿#bcc-div {
+    background-color: white;
+    width: 2400px;
+    padding: 10px 10px;
+}
+
+.bcc-td-ngay {
+    width: 45px;
+}
+
+#bcc-tbl-dscong {
+    height: 10px;
+    visibility: hidden;
+    font-size: 0.1px;
+}
+
+#bcc-tbl-bangcong td {
+    font-size: 80%;
+}
+
+.bcc-tr-bg {
+    color: red;
+}
+
+#bcc-tbl-bangcong {
+    background-color: white;
+}
+
+#bcc-div-bangcong div {
+    background-color: white;
+}
+
+#bcc-sl-chonnam {
+    width: 100px;
+}
+
+#bcc-sl-chonthang {
+    width: 80px;
+}
+
+#bcc-sl-chonnhom {
+    width: 150px;
+}
+
+#bcc-div-chonthoigian table tr {
+    margin-bottom: 15px;
+}
+
+#bcc-div-chonthoigian table td {
+    padding-right: 15px;
+}
+
+#bcc-div-chonthoigian {
+    margin-bottom: 20px;
+}
+
+    #bcc-div-chonthoigian .bcc-tr-trangthai {
+        height: 40px;
+    }
+
+        #bcc-div-chonthoigian .bcc-tr-trangthai td {
+            text-align: left;
+        }

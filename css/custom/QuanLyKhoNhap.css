@@ -1,0 +1,99 @@
+﻿#tbl-rqlkt
+{
+    background-color:white;
+}
+
+#title-show-khohang{
+    color:white;
+    font-size:18px;
+}
+
+#tbl-rqlkt_filter {
+    color: white;
+}
+table thead {
+    font-weight: bold;
+}
+
+#show-pcs {
+    color: white;
+    font-weight: bold;
+}
+
+.colorWeight {
+    color: white;
+    font-weight: bold;
+}
+
+.truyvandnn-left {
+    float: left;
+    width: 180px;
+    margin-right: 10px;
+}
+
+/*.tbl-truyvandnn {
+    width: 700px;
+}*/
+
+.truyvandnn-mid {
+    float: left;
+}
+
+.panel {
+    min-width: 1000px;
+}
+
+#tvdnnr-tieude {
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+}
+
+.btn-truyvan {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.txtlistdsdnn {
+    margin-top: 10px;
+}
+
+.btn-taixuong {
+    width: 103px;
+}
+
+/*#tvdnnr-tieude {
+    width: 700px;
+}*/
+
+#tbl1 thead tr th {
+    text-align: center;
+}
+
+.truyvandnn-mid div {
+    margin-bottom: 10px;
+        margin-right:10px;
+}
+
+.btn-kichthuoc-120 {
+    width: 120px;
+}
+
+.truyvandnn-mid {
+    padding-top: 60px;
+}
+
+#modalThemProductCode .modal-full {
+    width: 80%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#tbl-rqlkt_info{
+    color:white;
+}
+
+#select_filter_connect{
+   color:black;
+}

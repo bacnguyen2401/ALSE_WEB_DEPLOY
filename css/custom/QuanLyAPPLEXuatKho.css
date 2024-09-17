@@ -1,0 +1,127 @@
+﻿.div_quanlyapplexuatkho-main {
+    background-color: white;
+    padding: 5px;
+}
+
+thead {
+    font-weight: 600;
+}
+
+.div_quanlyapplexuatkho-main_title {
+    text-align: center;
+}
+.table-background-white{
+    background-color:white;
+}
+
+
+.btn {
+    cursor: pointer;
+}
+
+.tomautr{
+    background-color:aqua;
+}
+
+/*.modal-full {
+    width: 80%;
+    margin-left: 3%;
+    margin-right: 3%;
+}*/
+
+.txt1 {
+    float: left;
+    margin-right: 20px;
+}
+
+.btnn-x {
+    width: 100px;
+}
+
+.btnn-in {
+    width: 100px;
+}
+
+.cb-date {
+    height: 34px;
+}
+
+.khthse {
+    margin-bottom: 10px;
+}
+
+.headergrid {
+    height: 30px;
+}
+
+.tg {
+    background-color: white;
+    font-family: 'Times New Roman';
+}
+
+.auto-style2 {
+    text-align: left;
+    font-size: large;
+}
+
+.auto-style3 {
+    font-size: large;
+}
+
+.div-tbl {
+    display: none;
+}
+
+#tbl-kehoachlayhang td {
+    font-size: 90%;
+}
+
+.td-MAWB, td-HAWB {
+    width: 109px;
+}
+
+.tr-print {
+    /*display: none;*/
+}
+
+#btn-kehoachlayhang-xem {
+    width: 100px;
+}
+
+#tbl-kehoachlayhang thead {
+    font-weight: bold;
+}
+
+.title-font {
+    font-weight: bold;
+}
+
+@media print {
+    .tg thead td.nobd {
+        border-color: white !important;
+    }
+
+    .tg thead td.bdbl {
+        border: 1px solid !important;
+    }
+
+    .tg tbody td.bdbl {
+        border: 1px solid !important;
+    }
+
+    #footer {
+        display: none !important;
+    }
+
+    tr.kchuky {
+        page-break-after: always;
+    }
+
+    .div-tbl {
+        display: block;
+    }
+
+    .div_quanlyapplexuatkho-main {
+        display: none;
+    }
+}

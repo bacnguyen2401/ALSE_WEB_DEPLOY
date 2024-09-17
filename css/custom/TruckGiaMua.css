@@ -1,0 +1,72 @@
+﻿#div-giamua{
+    background-color: white;    
+    padding-top: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#tbl-giamua {
+    background-color: white;
+    
+}
+#tbl-giamua_wrapper #tbl-giamua {
+    width: 2300px !important;
+}
+#tbl-giamua_wrapper thead tr th {
+    text-align: center;
+    vertical-align: middle;
+    background-color: white;
+}
+#tbl-giamua_wrapper tbody tr {
+    height: 32px !important;
+}
+#tbl-giamua_wrapper td, #tbl-giamua_wrapper th {
+    font-size: 85%;
+}
+    #div-giamua h3{
+    text-align: center;
+}
+.giamua-tuyen{
+    cursor: pointer;
+}
+    .giamua-tuyen:hover {
+        border-color: #9ecaed;
+        box-shadow: 0 0 20px #9ecaed;
+        font-weight: bold;
+        color: blue;
+      
+    }
+
+.giamua-origin{
+    width: 100px;
+}
+.giamua-remark{
+    cursor: pointer;
+    
+}
+    .giamua-remark:hover{
+        color: blue;
+        text-decoration: underline;
+    }
+    .giamua-destination {
+        width: 130px;
+    }
+
+.giamua-trucking-code {
+    background-color: pink;
+    font-weight: bold;
+}
+.giamua-maximum-dention-cost{
+    width: 200px;
+}
+.giamua-customs-supervise-cost-redcd {
+    width: 250px;
+}
+.giamua-origin-city{
+    width: 100px;
+}
+.giamua-destination-city{
+    width: 80px;
+}
+#tbl-giamua thead{
+    display: none;
+}

@@ -1,0 +1,11 @@
+﻿
+thead {
+    background-color: rgba(0, 255, 144, 0.52);
+}
+
+table thead.thead-ct {
+    background-color: rgba(0, 255, 255, 0.73);
+}
+h1{
+    text-align:center;
+}

@@ -1,0 +1,29 @@
+﻿.header {
+    display: flex;
+    flex: 0 0 auto;
+    color: white;
+}
+
+#table-show-chamcong{
+    background-color:white;
+}
+
+.colorRed{
+    color:red;
+}
+
+.backgroupRed{
+    background-color:red;
+}
+
+thead{
+    font-weight:700;
+}
+
+.td-left{
+    text-align:left;
+}
+
+.td-width{
+    width:200px;
+}

@@ -1,0 +1,378 @@
+﻿.mainEI{
+    margin:0px;
+    width:106mm;
+    height:156mm;
+    background-color:white;
+    padding:50px 45px;
+}
+
+.headerEI {
+    display: flex;
+    position: relative;
+    height: 4%;
+    width: inherit;
+    margin-top: 20px;
+}
+.headerEI-airline {
+    transform: rotate(270deg);
+    position:absolute;
+    font-size:14px;
+    left: -15px;
+}
+
+.headerEI-name-airline{
+    font-size:35px;
+    position:absolute;
+    left:30px;
+}
+
+.barcode-mawbEI {
+    height: 120px;
+}
+
+.barcodecss{
+    width:340px;
+}
+
+.masterEI {
+    display: flex;
+    flex-direction: column;
+}
+
+.masterEI-mawb{
+    font-size:45px;
+}
+
+.masterEI-title {
+    font-size: 12px;
+}
+
+.masterEI-des-price{
+    display:flex;
+
+}
+
+.moment-master-house {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+
+/*    padding-right: 20px;
+    text-align: center;*/
+}
+
+.masterEI-des {
+    padding-right: 50px;
+    border-left: none;
+    text-align: center;
+}
+
+
+.masterEI-price {
+    padding-right: 20px;
+    text-align: center;
+    border-right: none;
+    border-left: none;
+}
+
+
+.masterEI-house-desc-price {
+    display: flex;
+    height:50px;
+}
+.house-des {
+    border-left: none;
+    border-bottom: none;
+    padding-right: 60px;
+    text-align: center;
+}
+
+.house-prices {
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+    padding-right: 30px;
+    text-align: center;
+}
+
+.barcode-hawbEI{
+    height:120px;
+}
+
+.font-size24{
+    font-size:24px;
+    font-weight:400;
+}
+
+
+
+
+/*.mainDHL {
+    margin: 0px;
+    padding: 0px;
+    width: 102mm;
+    height: 154mm;
+    background-color: #fff;
+    display:flex;
+}
+.temDHL {
+    margin:auto;*/
+    /*background-color: #000;*/
+    /*width: 100mm;
+    height: 150mm;
+}
+
+.airLine{
+    width:100%;
+    height:10px;
+    display:flex;
+    justify-content:space-between;
+    font-size:10px;
+}
+
+.airLine__hangbay {
+    width: 100%;
+    background-color: #000000 !important;
+    height: 55px;
+    display: flex;
+}
+
+.airLine__hangbay-name{
+    margin:auto;
+    color:white;
+    font-size:40px;
+}
+
+.barcode__MAWB span{
+    font-family:'Code 128';
+    font-size:20px;
+}*/
+
+
+/*In phiếu cân OPS*/
+
+/*.phieucan {
+    width: 210mm;
+    min-height: 297mm;
+    background: white;
+    padding: 0px;
+    margin: 0px;
+    display: block;
+    font-family:Tahoma sans-serif;
+}
+
+.shipper {
+    padding-top: 75px;
+    text-align: center;
+    height: 115px;
+}
+
+.shipper_one{
+
+}
+
+.shipper_two {
+}
+
+.mst {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+    height: 35px;
+}
+
+.mst_chungnhan{
+
+}
+
+.mst_mst{
+
+}
+
+.cnee {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    height: 80px;
+}
+
+.cnee_one{
+
+}
+
+.cnee_two {
+    width: 65%;
+    word-wrap: break-word;
+    position: absolute;
+    right: 120px;
+}
+
+.mawbfltplt {
+    margin-top: 65px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.han {
+    display: flex;
+    justify-content: space-around;
+}
+
+.commondity {
+    padding-left: 70px;
+}
+
+.handling_info {
+    margin-top: 70px;
+    padding-left: 70px;
+}
+
+.notealsc {
+    margin-top: 70px;
+    padding-left: 70px;
+    width:55%;
+}
+
+.remark_sli {
+    margin-top: 70px;
+    padding-left: 70px;
+    width: 55%;
+}
+
+.fullname {
+    margin-top: 220px;
+    padding-left: 70px;
+    text-align: center;
+}*/
+
+
+/*.phieucanACSV {
+    width: 210mm;
+    min-height: 297mm;
+    background: white;
+    padding: 0px;
+    margin: 0px;
+    display: block;
+    font-family: Tahoma sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.mawbNo {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    padding-top: 200px;
+    position: relative;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 10px;
+}
+
+.mawbNo_sodau {
+    padding-right: 50px;
+    padding-left: 165px;
+}
+
+.mawbNo_socuoi{
+
+}
+
+.Airport {
+    display: flex;
+    flex-direction: row;
+    margin-top: 90px;
+    justify-content: space-around;
+    line-height: 2.6rem;
+}
+
+.information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 20px;
+    position: relative;
+}
+
+.information-pieces {
+    position: absolute;
+    left: 170px;
+}
+
+.information-grossweight {
+    position: absolute;
+    left: 440px;    
+}
+
+.information-package {
+    position: absolute;
+    right: 35px;
+}
+
+.commodity {
+    padding-left: 180px;
+    padding-top: 10px;
+    height:26px;
+}
+
+.shipperadd {
+    text-align: center;
+    padding-top: 15px;
+    height:75px;
+}
+
+.cneeadd {
+    text-align: center;
+    padding-top: 85px;
+    height: 160px;
+    position: relative;
+}
+
+.cneeadd_two {
+    width: 65%;
+    position: absolute;
+    bottom: 15px;
+    right: 150px;
+}
+
+.handlinginfo {
+    margin-top: 90px;
+    padding-left: 370px;
+    width: 100%;
+    margin-bottom:5px;
+}
+
+.handlinginfo-title {
+    width: 88%;
+    text-align: justify;
+    height:40px;
+}
+
+.remarksli {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    text-align: justify;
+    height:80px;
+}
+
+.remarksli-title{
+    flex:1;
+    width:50%;
+    padding-right:55px;
+}
+
+.remarksli-title2{
+    flex: 1;
+    width: 50%;
+}
+
+.fullnameACS {
+    padding: 125px 0 0 190px    ;
+}*/
+

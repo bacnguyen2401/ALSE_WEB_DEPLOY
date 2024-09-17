@@ -1,0 +1,78 @@
+﻿#div-quanlyloi-main{
+    background-color: white;
+    padding: 5px;
+}
+#div-quanlyloi-main h3{
+    text-align: center;
+}
+.tr-quanlyloi-extend{
+    display: none;
+}
+.tbl-quanlyloi-extend tr td{
+    text-align: left;
+}
+#ui-datepicker-div {
+    z-index: 9999 !important;
+}
+#myModalViewQuanLyLoi .btn-toolbar {
+    display: none;
+}
+#myModalViewQuanLyLoi  textarea{
+    padding: 10px 10px;
+    background-color: white;
+    border: 1px solid #808080;
+}
+#myModalViewQuanLyLoi .div-quanlyloi-group{
+    width: 100%;
+}
+    #myModalViewQuanLyLoi .div-quanlyloi-group .span-textarea {
+        width: 230px;
+    }
+.btn-quanlyloi-trangthai{
+    cursor: pointer;
+}
+    .btn-quanlyloi-trangthai:hover {
+        border-color: #9ecaed;
+        box-shadow: 0 0 20px #9ecaed;
+    }
+
+.btn-quanlyloi-action{
+    width: 80px;
+}
+.span-quanlyloi-capnhat{
+  float:right;
+    font-style:italic;
+    font-size:90%;
+}
+    .span-quanlyloi-capnhat span {
+        color:red;
+    }
+#tbl-quanlyloi-danhsach thead{
+    font-weight:bold;
+}
+#btn-quanlyloi-them{
+    float:right;
+}
+.td-quanlyloi-noidung{
+    text-align:left;
+}
+.tbl-quanlyloi-extend tr td:first-child{
+    width: 220px;
+}
+.td-quanlyloi-noidung{
+    width: 500px;
+}
+.tr-quanlyloi-kdy-lydo {
+    display: none;
+}
+.tr-quanlyloi-kd-kiemtra-bienphap{
+    display:none;
+}
+#myModalViewQuanLyLoiHuongDan .modal-body img {
+    max-width: 800px;
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}

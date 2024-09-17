@@ -1,0 +1,15 @@
+﻿#div-thanhtoan-khachhangdoitac{
+    background-color: white;
+    
+    padding: 10px 5px;
+}
+    #div-thanhtoan-khachhangdoitac h3 {
+        text-align: center;
+        text-transform: uppercase;
+    }
+#tbl-khachhangdoitac tbody tr td input:first-child{
+    margin-right: 5px;
+}
+.inp-khdt-btn {
+    margin-bottom: 7px;
+}

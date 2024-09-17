@@ -1,0 +1,29 @@
+﻿.tbl-dimuon{
+    background-color: white;
+}
+    .tbl-dimuon thead{
+        background-color:aquamarine;
+    }
+    .tbl-dimuon thead tr td {
+        font-weight: bold;
+        
+    }
+    .tbl-dimuon tbody tr td{
+        font-size: 90%;
+    }
+    .tbl-dimuon tbody tr td input[type=button] {
+        margin-right: 2px;
+    }
+    h3{
+        color: white;
+        margin-top: 5px;
+        text-align: center;
+    }
+.td-admin{
+    display: none;
+}
+.tbl-dimuon tbody tr:hover{
+    color: red;
+    background-color: khaki;
+    font-weight: bold;
+}

@@ -1,0 +1,184 @@
+﻿.title-header {
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+.fullscreen {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.table-width {
+    margin-top: 15px;
+    /*width: 800px;*/
+}
+
+#tbl_POD tbody {
+    background-color: white;
+}
+
+#thead-POD {
+    font-weight: 600;
+    background-color: #A3C0E8 !important;
+}
+
+
+/*css in POD */
+
+.inPOD {
+    background-color: white;
+    min-height: 210mm;
+    width: 345mm;
+    display:none;
+}
+
+.textCenter {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.ClassfontSize8 {
+    font-size: 10px;
+    text-align: left;
+    font-family: 'Times New Roman'
+}
+
+.textNone {
+    width: 70px;
+}
+
+.textwidthMathe {
+    width: 70px;
+}
+
+.textwidthNgayGiao {
+    width: 30px;
+}
+
+.textwidthSoKien {
+    width: 55px;
+}
+
+.textDam {
+    font-weight: bold;
+}
+
+.trColor {
+    background-color: beige;
+}
+
+.textwidth {
+    width: 130px;
+}
+
+.textwidth1 {
+    width: 100px;
+}
+
+
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 5px;
+    line-height: 1.42857143;
+    vertical-align: top;
+}
+
+.font-size12 {
+    font-size: 12px;
+}
+
+.span-sua {
+    cursor: pointer;
+}
+
+.span-xoa {
+    cursor: pointer;
+}
+
+
+
+@media print {
+    .tbl-table, .title-header-refresh {
+        display: none;
+    }
+
+    .inPOD{
+        display:block;
+    }
+
+    .textDam {
+        font-weight: bold;
+    }
+
+    .trColor {
+        background-color: beige !important;
+    }
+
+    .textNone {
+        width: 70px;
+    }
+
+    .buttonNone {
+        display: none !important;
+    }
+
+    #footer {
+        display: none !important;
+    }
+
+    .nobdInput {
+        border-color: white !important;
+        background: transparent !important;
+        border: none;
+    }
+
+    #btn-printPOD {
+        display: none
+    }
+
+    #btn-truck {
+        display: none
+    }
+
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+        border: 1px solid #000 !important;
+    }
+}
+
+.tdwidth {
+    width: 150px;
+}
+
+.div-action{
+    display:flex;
+}
+.radio-button {
+    display: flex;
+    padding-left:20px;
+}
+
+.title-radio{
+    color:white;
+}
+
+.span-sua {
+    color: dodgerblue;
+}
+
+.span-xoa {
+    color: red;
+}
+
+.span-red {
+    cursor:pointer;
+    color: red;
+}
+
+
+.span-dodgerblue {
+    cursor: pointer;
+    color: dodgerblue;
+}

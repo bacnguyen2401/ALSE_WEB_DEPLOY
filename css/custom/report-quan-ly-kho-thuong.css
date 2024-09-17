@@ -1,0 +1,77 @@
+﻿#div-rqlkt-data{
+    padding: 5px;
+    background: white;
+    border: 3px;
+}
+#div-rqlkt-data-tieude {
+    text-align: center;
+}
+#div-rqlkt-data-tieude span {
+    font-size: 17pt;
+    font-weight: bold;
+}
+#tooltip-storage{
+    color: white;
+    background: #4a525a;
+    padding: 7px;
+    border-radius: 5px;
+    display: none;
+}
+.input-rqlkt-show-data{
+    width: auto;
+    margin-right: 10px;
+} 
+.input-rqlkt-show-data[value="Storage"]:hover + #tooltip-storage {
+    display: inline;
+}
+    .input-rqlkt-show-data[value="StorageEXP"]:hover + #tooltip-storage {
+        display: inline;
+    }
+#div-rqlkt-thongke{
+    background-color: white;
+}
+#div-rqlkt-thongke span {
+    color: red;
+    font-weight: bold;
+}
+.a-hover-cursor-pointer:hover {
+    cursor: pointer;
+    font-style: italic;
+}
+.btn-group .dropdown-menu li:hover{
+    
+}
+.td-kt-tenhang{
+    text-align: left;
+}
+.td-ht-hidden {
+    text-indent: 100%;
+}
+.td-ht-bold{
+    font-weight: bold;
+}
+.table-ht-font-size-9pt {
+    font-size: 9pt;
+}
+#div-rqlkt-data-table{
+    background-color: white;
+}
+#tbl-rqlkt {
+    background-color: white;
+}
+    #tbl-rqlkt td {
+        vertical-align: middle;
+    }
+#btn-export-excel {
+    display: none;
+}
+#newTheadTr{
+    background-color: aquamarine;
+}
+#newTheadTr td{
+    color: red;
+    font-weight: bold;
+}
+.check-StorageProjectEXP{
+    display: none;
+}

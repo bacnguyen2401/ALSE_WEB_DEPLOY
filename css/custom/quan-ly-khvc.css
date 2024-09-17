@@ -1,0 +1,111 @@
+﻿#div-xz {
+    background-color: white;
+    max-width: 1207px;
+    margin-top: 3px;
+    margin-bottom: -18px;
+}
+#tablexz {
+    background-color: white;
+}
+#tablexz thead {
+    background-color: rgba(2, 171, 235, 0.19);
+    font-weight: bold;
+}
+#tablexz td.td-kh-sh {
+    padding: 0;
+}
+
+table#tablexz tbody tr td div.progress {
+    margin-bottom: 0px;
+}
+
+#tablexz .progress-bar {
+    color: black;
+}
+.khvc-color-du {
+    background-color:rgb(120, 198, 250);
+}
+.khvc-color-thua {
+    background-color:rgb(246, 246, 177);
+}
+.btn-khvc {
+    margin-left: 10px;
+    width: 60px;
+}
+#div-xz td {
+    font-size: 12px ;
+    font-family:Tahoma;
+}
+.td-kh-sh:hover {
+     box-shadow: 0px 0px 5px rgb(128, 128, 128);
+    cursor: pointer;
+}
+.td-khvc-dam {
+    font-weight: bold;
+}
+#tablexz .td-sub-hawb {
+    cursor: pointer;
+}
+#tablexz tr.tr-sub-temp{
+    background-color:rgba(255, 106, 0, 0.36) ;
+    max-height: 5px;
+    line-height: 5px;
+}
+    #tablexz tr.tr-sub-temp td {
+        height: 5px;
+        
+        padding: 0 0;
+    }
+.td-tooltip-hawb {
+    background-color: rgba(0, 188, 212, 0.63);
+    font-size:x-large;
+    color: red;
+}
+.td-tooltip-cw {
+    color: red;
+}
+.td-tooltip-cantrai {
+    text-align:left;
+}
+.span-text-pcs-xanh {
+    color: green;
+}
+.span-text-pcs-vang {
+    color: #ff0000;
+}
+.td-show-tooltip .progress-bar {
+    font-weight: bold;
+    font-size: 8pt;
+}
+    .td-show-tooltip:hover {
+        cursor: pointer;
+
+    }
+.khvc-text-du {
+     color: green;
+}
+.khvc-text-thieu {
+    color: #ff0000;
+   
+}
+.khvc-flight-alert {
+    background-color: #78C6FA;
+}
+.tooltipster-sidetip.tooltipster-noir .tooltipster-box {
+    border-color:#11a3b2;
+}
+.tooltipster-sidetip.tooltipster-top .tooltipster-arrow-border {
+    border-top-color: #11a3b2;
+}
+.tooltipster-sidetip.tooltipster-right .tooltipster-arrow-border {
+    border-right-color: #11a3b2;
+}
+.tooltipster-sidetip.tooltipster-left .tooltipster-arrow-border {
+    border-left-color: #11a3b2;
+}
+.tooltipster-sidetip.tooltipster-bottom .tooltipster-arrow-border {
+    border-bottom-color: #11a3b2;
+}
+.td-mawb {
+    cursor: pointer;
+}

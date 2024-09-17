@@ -1,0 +1,50 @@
+﻿#div-denghicapphat-title {
+    color: white;
+}
+
+#btn-ThemDong {
+    margin-bottom: 5px;
+}
+
+.xoaTable {
+    color: red;
+    cursor: pointer;
+}
+
+#tbl-LoadDeNghiCapPhat {
+    background-color: white;
+    margin-top: 5px;
+}
+
+.td-xem-cap-phat {
+    cursor: pointer;
+    /*color: aqua;*/
+}
+
+
+#btn-Khong-Phe-Duyet {
+    margin-left: 5px;
+}
+#tbl-show-de-nghi-cap-phat tbody tr td {
+    text-align: left;
+}
+.tomau-chuaduyet{
+    color:red;
+}
+.tomau-dacapvattu {
+    color: green;
+}
+.tomau-daduyet {
+    color: #FFCC33;
+}
+.IdChiTiet{
+    display:none;
+}
+
+.select-vattu{
+    width:422px;
+}
+
+.select2-selection__rendered {
+    text-align: left;
+}

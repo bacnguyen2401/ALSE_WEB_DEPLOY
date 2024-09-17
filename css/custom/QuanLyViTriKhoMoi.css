@@ -1,0 +1,23 @@
+﻿#qlvtkm-right {
+    width: 1000px;
+    height: 900px;
+    background-color: white;
+    float:left;
+}
+
+#qlvtkm-left {
+    width: 320px;
+    height: 900px;
+    background-color: aqua;
+    float: right;
+}
+
+td:hover{
+    background-color:red;
+    color:white;
+}
+
+
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    padding:0;
+}

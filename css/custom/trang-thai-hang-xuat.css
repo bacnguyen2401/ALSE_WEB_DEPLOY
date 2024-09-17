@@ -1,0 +1,110 @@
+﻿td {
+    color: black;
+}
+
+.dxgvDataRow_Aqua:hover {
+    background-color: #d0ecbd;
+}
+
+.auto-style2 {
+    width: 194px;
+    text-align: right;
+}
+
+.auto-style4 {
+    height: 20px;
+    width: 53px;
+}
+
+.tablehx td {
+    padding: 2px 4px;
+    font-size: smaller;
+}
+
+.auto-style5 {
+    width: 53px;
+}
+
+.auto-style20 {
+    text-align: center;
+}
+
+td.dxgvDetailCell_Aqua {
+    padding-left: 100px;
+}
+
+    td.dxgvDetailCell_Aqua .dxgvControl_Aqua {
+        margin-left: 200px;
+    }
+
+.btn-hx-rf {
+    height: 30px;
+}
+
+.hx-vitri {
+    color: white;
+    float: left;
+    font-size: small;
+}
+
+.lbUID {
+    visibility: hidden;
+}
+
+.slide-uctb {
+    visibility: hidden;
+}
+
+.hx-vitri p {
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.com-ngayxuat-not-today-d0ecbd {
+    background-color: #d0ecbd;
+}
+
+#mo-table tr td label {
+    float: left;
+}
+
+#mo-mawb {
+    font-size: large;
+}
+
+.webtiker li {
+    color: white;
+    font-size: small;
+}
+
+.bn-data {
+    color: red;
+}
+
+.hp-data {
+    color: blue;
+}
+
+.hx-value {
+    font-weight: bold;
+}
+
+.chx-name {
+    color: white;
+    font-weight: bold;
+}
+#td-exp-today{
+    cursor: pointer;
+}
+#td-exp-today:hover {
+    color: red;
+}
+.tr-thead {
+    height: 40px;
+    background-color: #cfeffb;
+    border-bottom: 2px solid #808080;
+}
+    .tr-thead td {
+        border: 1px solid #ddd;
+        font-weight: bold;
+    }

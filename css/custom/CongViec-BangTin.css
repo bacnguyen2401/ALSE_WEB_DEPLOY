@@ -1,0 +1,184 @@
+﻿#div-bangtin-main {
+    background-color: white;
+    padding: 5px;
+}
+
+    #div-bangtin-main h3 {
+        text-align: center;
+    }
+
+.tbl-bangtin thead {
+    background-color: aquamarine;
+}
+
+    .tbl-bangtin thead tr td {
+        font-weight: bold;
+        vertical-align: middle;
+    }
+
+#tbl-bangtin td {
+    font-size: 90%;
+}
+
+.td-stt {
+    width: 30px;
+}
+
+.td-trangthai {
+    width: 64px;
+}
+
+.td-ngaybatdau {
+    width: 50px;
+}
+
+.td-hanketthuc {
+    width: 50px;
+}
+
+.td-doituong {
+}
+
+.td-noidung {
+    width: 450px;
+}
+
+#tbl-bangtin tbody .td-noidung {
+    text-align: left;
+}
+
+    #tbl-bangtin tbody .td-noidung:hover {
+        font-size: 93%;
+    }
+
+.td-thuchien {
+    width: 300px;
+}
+
+#tbl-bangtin tbody .td-thuchien {
+    padding-right: 0px;
+}
+
+.td-thuchien table {
+    width: 100%;
+}
+
+    .td-thuchien table td {
+        padding-right: 3px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+.td-thuchien-user {
+    color: red;
+    font-weight: bold;
+    width: 70px;
+}
+
+.td-thuchien-ngaygio {
+    color: blue;
+    width: 50px;
+}
+
+.td-thuchien-noidung {
+    cursor: pointer;
+}
+
+    .td-thuchien-noidung:hover {
+        color: red;
+    }
+
+.td-chucnang {
+    width: 128px;
+}
+
+    .td-chucnang input[type="button"], .td-trangthai span {
+        width: 60px;
+        margin-right: 2px;
+        margin-top: 2px;
+    }
+
+#ui-datepicker-div {
+    z-index: 9999 !important;
+}
+
+.td-taosua {
+    padding: 0px 0px !important;
+    text-align: left;
+    font-size: 80% !important;
+    font-style: italic;
+}
+
+.tr-first-complete {
+    border-top: 3px dotted aquamarine;
+}
+
+.tr-complete {
+    background-color: rgba(92, 184, 92, 0.3803921568627451);
+}
+
+    .tr-complete td {
+        font-style: italic;
+    }
+
+.span-phanloai-exp {
+    background-color: red;
+    color: white;
+    padding: 2px 2px;
+    font-weight: bold;
+}
+
+.span-phanloai-imp {
+    background-color: greenyellow;
+    padding: 2px 2px;
+    font-weight: bold;
+}
+
+.span-phanloai-log {
+    background-color: blue;
+    color: white;
+    padding: 2px 2px;
+    font-weight: bold;
+}
+
+.span-phanloai-nwh {
+    background-color: coral;
+    color: white;
+    padding: 2px 2px;
+    font-weight: bold;
+}
+
+#select-bangtin-phanloai-loc {
+    width: 120px;
+    float: left;
+    margin-right: 10px;
+}
+
+#input-noidung-timkiem {
+    width: 200px;
+    float: left;
+}
+
+#btn-noidung-timkiem {
+    float: right;
+}
+
+#tr-tiendo {
+    background-color: white;
+    padding: 0 0;
+}
+
+    #tr-tiendo td {
+        padding: 0 0 0 5px;
+        text-align: left;
+        color: red;
+        font-size: 85%;
+    }
+
+#span-huongdan {
+    font-style: italic;
+}
+
+.md-editor > textarea {
+    background-color: rgba(187, 187, 187, 0.5607843137254902);
+}

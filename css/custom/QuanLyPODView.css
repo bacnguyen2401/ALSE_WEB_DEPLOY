@@ -1,0 +1,176 @@
+﻿.span-sua {
+    color: dodgerblue;
+}
+
+.span-xoa {
+    color: red;
+}
+
+td {
+    height: 60px;
+}
+
+.my-tableHeader {
+    margin: 0px;
+}
+
+.my-tableMid {
+    margin: 0px;
+}
+
+.my-tablefooter {
+    margin: 0px;
+}
+
+.inPOD {
+    background-color: white;
+    min-height: 210mm;
+    width: 345mm;
+}
+
+.textCenter {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.ClassfontSize8 {
+    font-size: 10px;
+    text-align: left;
+    font-family: 'Times New Roman'
+}
+
+.textNone {
+    width: 70px;
+}
+
+.textwidthMathe {
+    width: 70px;
+}
+
+.textwidthNgayGiao {
+    width: 30px;
+}
+
+.textwidthSoKien {
+    width: 55px;
+}
+
+.textDam {
+    font-weight: bold;
+}
+
+.trColor {
+    background-color: beige;
+}
+
+.textwidth {
+    width: 130px;
+}
+
+.textwidth1 {
+    width: 100px;
+}
+
+
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 5px;
+    line-height: 1.42857143;
+    vertical-align: top;
+}
+
+.font-size12 {
+    font-size: 12px;
+}
+
+.span-sua {
+    cursor: pointer;
+}
+
+.span-xoa {
+    cursor: pointer;
+}
+
+@media print {
+    .textDam {
+        font-weight: bold;
+    }
+
+    .trColor {
+        background-color: beige !important;
+    }
+
+    .textNone {
+        width: 70px;
+    }
+
+    .buttonNone {
+        display: none !important;
+    }
+
+    #footer {
+        display: none !important;
+    }
+
+    /*.inPOD {
+        width: 297mm;
+        height: 210mm;
+        background: white;
+        display: block;
+    }*/
+
+    /*.nobd {
+        border-color: white !important;
+        background: transparent !important;
+        border: none;
+    }
+
+
+    #tablePOD thead td.nobd {
+        border-color: white !important;
+    }
+
+    #tablePOD thead td.bdbl {
+        border: 1px solid !important;
+    }
+
+    #tablePOD thead td.nobdTop {
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid !important;
+    }
+
+    #tablePOD tbody td.nobodyTop {
+        border: 2px double !important;
+    }*/
+
+    .nobdInput {
+        border-color: white !important;
+        background: transparent !important;
+        border: none;
+    }
+
+    #btn-printPOD {
+        display: none
+    }
+
+    #btn-truck {
+        display: none
+    }
+
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+        border: 1px solid #000 !important;
+    }
+}
+
+.tdwidth {
+    width: 150px;
+}
+.div-button{
+    padding-left:15px;
+    padding-bottom:20px;
+}
+
+.tdwidth50 {
+    width: 50px;
+}

@@ -1,0 +1,21 @@
+﻿#div-baocaongay-main{
+    background-color: white;
+}
+#modalCEBaoCao .modal-dialog,
+.modal-content {
+    /* 80% of window height */
+    height: 97%;
+}
+#modalCEBaoCao .modal-body {
+    /* 100% = dialog height, 120px = header + footer */
+    height: 80%;
+    overflow-y: scroll;
+}
+#div-baocaongay-main-head h3{
+    padding-top: 10px;
+}
+.td-baocao-xem:hover {
+    border-color: #6fb7ef;
+    box-shadow: 0 0 30px #6fb7ef;
+    cursor: pointer;
+}

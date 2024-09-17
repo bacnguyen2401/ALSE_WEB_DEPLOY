@@ -1,0 +1,26 @@
+﻿#div-nhapvattu-title
+{
+    color:white;
+}
+
+#btn-ThemDong{
+    margin-bottom:5px;
+}
+
+.select-vattu {
+    width: 330px;
+}
+
+#tbl-LoadNhapVatTu{
+    margin-top:5px;
+    background-color:white;
+}
+
+.xoaTable{
+    cursor:pointer;
+    color:red;
+}
+
+.col-sm-2 {
+    width: 95px;
+}

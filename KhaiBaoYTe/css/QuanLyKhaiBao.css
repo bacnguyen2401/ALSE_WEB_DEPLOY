@@ -1,0 +1,12 @@
+﻿#tbl-QuanLyKhaiBao thead tr td{
+    text-align:center;
+}
+#tbl-QuanLyKhaiBao td{
+    font-size: 85%;
+}
+.td-hoten{
+    width: 200px;
+}
+.td-quoctich{
+    width: 150px;
+}

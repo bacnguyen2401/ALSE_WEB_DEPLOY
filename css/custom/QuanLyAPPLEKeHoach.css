@@ -1,0 +1,33 @@
+﻿.div_quanlyapple-main {
+    background-color: white;
+    padding: 5px;
+}
+
+thead{
+    font-weight:600;
+}
+
+.div_quanlyapple-main_title{
+    text-align:center;
+}
+
+.btn-sua{
+    color:blue;
+    cursor:pointer;
+}
+
+.btn-xoa {
+    color: red;
+    cursor: pointer;
+}
+
+.modal-full {
+    width: 94%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.backGroupAqua {
+    background-color: #F08080;
+}
+

@@ -1,0 +1,489 @@
+﻿#div-print{
+    display: none;
+}
+
+#div-dgr-top{
+    margin-bottom: 10px;
+}
+#span-menu-button-tieude{
+    color: white;
+    font-size: 18pt;
+}
+#div-top-menu-button{
+    float:left;
+}
+/*#div-header{
+    text-align:center;
+}*/
+
+#div-dgr-mid {
+    background-color: white;
+}
+#table-mid-status thead{
+    background-color: rgba(2, 171, 235, 0.19);
+    font-weight: bold;
+}
+#table-mid-status{
+    background-color: white;
+}
+#table-mid-status td{
+    font-size: 9pt;
+
+
+}
+#myModalInputMawb .modal-body, #myModalInputMawbNew .modal-body, #myModalNewDGR .modal-body, #myModalNewDGR-Edit .modal-body {
+    height: auto;
+    overflow: hidden;
+}
+
+#table-mid-status td{
+    vertical-align: middle;
+}
+
+#myModalInputMawb .modal-dialog, #myModalInputMawbNew .modal-dialog, #myModalNewDGR .modal-dialog, #myModalNewDGR-Edit .modal-dialog {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#myModalInputMawb .modal-content, #myModalInputMawbNew .modal-content, #myModalNewDGR .modal-content, #myModalNewDGR-Edit .modal-content {
+    height: auto;
+    min-height: 100%;
+    border-radius: 0;
+}
+#myModalInputMawb .modal-content #div-input .ht_master .wtHolder{
+    height: auto !important;
+    min-height: 300px !important;
+}
+
+.td-status img{
+    width: 32px;
+    height: 32px;
+}
+.tr-sub .btn{
+    margin-right: 5px;
+    margin-bottom: 10px;
+    width: 80px;
+}
+.table-sub tbody tr td{
+    vertical-align: middle;
+
+}
+.td-status {
+    width: 80px;
+}
+.td-mawb{
+    width: 110px;
+}
+.td-bold{
+    font-weight: bold;
+}
+.td-xanh{
+    background-color: rgba(2, 171, 235, 0.19)
+}
+.td-color-do{
+    color: red;
+}
+.td-img-plan{
+    background: url("../../images/plan.png") no-repeat center;
+    background-size: 60px auto;
+    
+}
+.td-img-checking {
+    background: url("../../images/COMPLETE.png") no-repeat center;    
+        background-size: 60px auto;
+
+}
+
+/*modal activity*/
+
+#myModalActivity .modal-body {
+    height: auto;
+}
+
+.modal-div-right {
+    float: right;
+    width: 20%;
+}
+
+.modal-div-left {
+    float: left;
+    width: 80%;
+}
+.modal-div-right ul {
+    list-style: none;
+}
+
+    .modal-div-right ul li a {
+        width: 120px;
+        text-align: left;
+    }
+
+        .modal-div-right ul li a i {
+            margin-right: 10px;
+        }
+
+    .modal-div-right ul li {
+        margin-bottom: 5px;
+    }
+
+    .modal-div-right h4 {
+    text-align: center;
+}
+
+#left-textarea-ghichu {
+    margin-bottom: 5px;
+}
+
+#left-textarea-binhluan {
+    margin-bottom: 5px;
+    
+}
+.md-editor .modal-textarea{
+    overflow: hidden;
+    resize: none;
+    padding-left: 5px;
+}
+a#left-a-chinhsuanoidung {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.modal-content {
+    background-color: #EDEFF0;
+}
+
+table#left-table-binhluan-box {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#left-div-hanhdong-box {
+    margin-top: 10px;
+}
+
+.span-hanhdong-thoigian {
+    color: #8c8c8c;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+    .span-hanhdong-thoigian:hover {
+        text-decoration: underline;
+    }
+
+.div-hanhdong-ngandong {
+    border-bottom: 1px solid #d0d0d0;
+    margin-bottom: 3px;
+}
+
+    .div-hanhdong-ngandong:last-child {
+        border-bottom: none;
+        margin-bottom: 20px;
+    }
+
+.hanhdong-tomau {
+    background: rgba(190, 233, 255, 0.45);
+    border-left: 5px solid #0079BF;
+    padding-left: 10px;
+}
+
+.div-hanhdong-con {
+    line-height: 23pt;
+}
+
+.div-binhluan .span-hanhdong-thoigian {
+}
+
+.div-binhluan .span-nguoitao {
+    display: block;
+}
+
+.div-hop-binhluan {
+    padding: 3px 11px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 3px 4px rgba(0,0,0,.23);
+    display: inline-block;
+}
+.div-hop-binhluan p{
+    /*display:table-caption;
+    word-spacing: 9999rem;*/
+    margin-bottom: 0px;
+    max-width: 650px;
+    word-wrap: break-word;
+}
+.div-binhluan-tuychon {
+    color: #8c8c8c;
+    font-size: 12px;
+    display: block;
+}
+
+    .div-binhluan-tuychon a {
+        color: #8c8c8c;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+#div-hanhdong-loading{
+    text-align:center;
+}
+.div-checklist-list-sub{
+    margin-bottom: 8px;
+        
+}
+.input-checklist-checkbox{
+    height:18px;
+    width: 18px;
+    padding-top: 3px;
+}
+.span-checklist-content{
+    padding: 5px 9pt;
+   
+}
+.td-pointer{
+    cursor:pointer;
+    
+}
+.td-underline-hover:hover{
+    text-decoration: underline;
+}
+.td-nghieng{
+    font-style: italic;
+}
+#span-hide-hanhdong-khac, #span-showall-hanhdong{
+    float:right;
+}
+.color-8c8c8c {
+    color: #8c8c8c;
+}
+
+td#left-table-tr-td-avatar {
+    width: 35px;
+    vertical-align: top;
+    padding-top: 3px;
+}
+
+    td#left-table-tr-td-avatar img {
+        border-radius: 4px;
+    }
+#btn-gui-binhluan{
+    margin-top: 5px;
+}
+.activity-icon {
+    float: left;
+    padding-top:5px;
+    font-size: 14pt;
+    margin-right: 10px;
+    
+
+}
+.activity-text {
+    font-size: 15pt;
+    
+}
+.img-pre-upload{
+    margin: 5px 5px;
+    max-width: 80px;
+    max-height: 80px;
+}
+#f_UploadImage{
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+.div-upload-group{
+    margin-bottom: 20px;
+}
+.input-width-100px{
+    width: 100px;
+}
+.input-width-150px{
+    width: 150px;
+}
+.color-red{
+    color:red;
+}
+#tbl-samedata{
+    width: 70%;
+}
+
+#div-alert-msg table tbody tr td{
+    text-align: left;
+    border: none;
+}
+.font-weight-bold{
+    font-weight:bold;
+}
+.font-size-13pt{
+      font-size: 13pt;
+}
+#btn-caidat-nangcao{
+    float:right;
+}
+#before-send-emaillist{
+    border: dashed 1px #8c8c8c;
+    padding:10px 10px;
+    margin-top: 5px;
+}
+#before-send-checkdone{
+border: dashed 1px #8c8c8c;
+padding-left: 10px;
+    margin-top: 5px;
+}
+#before-send-checkdone .checkbox label{
+    
+    
+}
+#div-before-send label:hover {
+    color: #2689cb;
+}
+#tbl-dgrpin td{
+    font-size: 9.5pt;
+}
+.handsontable table thead th {
+font-size: 9pt;
+}
+/*.handsontable table tbody td {
+font-size: 9pt;
+}*/
+.div-pin-button{
+    margin-bottom: 10px;
+}
+#table-print thead tr td{
+    font-weight: bold;
+    
+    
+}
+
+#div-print h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+#div-print table td{
+    font-size: 8pt;
+}
+#table-print tr td{
+    border-right: solid 1px;
+    border-left: solid 1px;
+    padding: 4px !important;
+}
+#table-print thead tr {
+    border-top: solid 2px;
+    border-bottom: solid 2px;
+    
+}
+
+#table-print tbody tr{
+    
+    border-bottom: dotted 2px #8c8c8c;
+}
+#table-print tbody tr:last-child{
+    border-bottom: solid 2px;
+    
+}
+#table-print-sameinf td {
+    font-weight: bold;
+    border-top: 1px solid #8c8c8c;
+    border-bottom: 1px solid #8c8c8c;
+    
+    
+}
+
+    #table-print-sameinf td:nth-child(2n+1) {
+        border-left: 1px solid #8c8c8c;
+    }
+#table-print-sameinf td:last-child {
+        border-right: 1px solid #8c8c8c;
+    }
+.td-sameinf{
+    text-align: left;
+    font-size: 12pt !important;
+    
+    
+}
+.td-sameinf-name{
+    text-align: right;
+   
+    vertical-align: middle!important;
+}
+.td-print-gio{
+    min-width: 100px;
+}
+#table-print-sign tr:first-child td {
+    text-align: left;
+}
+
+#table-print-sign td{
+    border: none;
+    font-size: 9.5pt !important;
+}
+.td-checklist-noidung{
+    text-align: left;
+}
+#table-print-checklist td{
+    padding: 2px;
+}
+.td-checklist-tieudemuc{
+    font-weight: bold;
+    text-align:left;
+}
+.td-checklist-tieude{
+    font-weight: bold;
+    font-size: 12pt!important;
+}
+.td-checklist-checkbox{
+    width: 33px;
+        vertical-align: middle!important;
+
+}
+.t-checkbox{
+    position: relative;
+
+}
+.i-checkbox{
+    position: absolute;
+    top: 0;
+    right: 0;
+    outline: 1px solid black;
+    margin: 0!important;
+    display: none;
+}
+#div-upload-btn i {
+    margin-right: 3px;
+}
+#span-overpack-alert{
+    font-size: 18pt;
+    font-weight: bold;
+    color: red;
+    text-transform: uppercase;
+}
+
+.div-dgr-edit-group span{
+    width: 100px;
+    text-align: left;
+}
+#ui-datepicker-div{
+    z-index:9999!important;
+}
+#input-checklist-checkbox-checkall {
+    height: 18px;
+    width: 18px;
+}
+.span-checklist-content {
+    padding-top:0px;
+}
+#btn-dgr-taobaocao{
+    float: right;
+}
+
+/*Bacnq*/
+#select-year{
+    margin-bottom:5px;
+}

@@ -1,0 +1,41 @@
+﻿#header h2 {
+    text-align: center;
+    color: wheat
+}
+
+#tbl_CanDim {
+    margin-top: 5px;
+    background-color: white;
+    vertical-align: middle;
+}
+
+.table-hawb {
+    background-color: white;
+    vertical-align: middle;
+}
+
+#tbl_CanDim td {
+    vertical-align: middle;
+}
+
+#tbl_CanDimhawb {
+    margin-top: 5px;
+    background-color: white;
+    vertical-align: middle;
+}
+
+    #tbl_CanDimhawb td {
+        vertical-align: middle;
+    }
+
+.style-tong {
+    color: white;
+}
+
+.float-left {
+    text-align: left;
+}
+
+.titleShow {
+    color: aquamarine;
+}

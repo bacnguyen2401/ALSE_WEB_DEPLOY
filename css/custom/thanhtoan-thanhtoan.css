@@ -1,0 +1,311 @@
+﻿#div-thanhtoan-button {
+    margin-bottom: 10px;
+}
+
+.tbl-thanhtoan tbody {
+    background-color: white;
+}
+
+.tbl-thanhtoan thead {
+    background-color: #64c0ee;
+    font-weight: bold;
+}
+
+    .tbl-thanhtoan thead tr td {
+        font-size: 10pt;
+        vertical-align: middle;
+    }
+
+.tbl-thanhtoan thead tr:first-child td:first-child {
+    border-top-left-radius: 10px;
+    border-top: none;
+}
+
+.tbl-thanhtoan thead tr:first-child td:last-child {
+    border-top-right-radius: 10px;
+}
+
+.tbl-thanhtoan td {
+    padding: 3px !important;
+}
+
+#div-button-table {
+    margin-bottom: 10px;
+    display:flex;
+}
+#div-button-table button{
+    margin-right: 5px;
+}
+.tbl-thanhtoan tbody tr td {
+    vertical-align: middle;
+}
+
+#p-thanhtoan-tieude {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18pt;
+    text-transform: uppercase;
+    color: white;
+}
+/*.div-thanhtoan-group{
+      width: 410px;
+  }*/
+
+.span-ngaygio-bangke {
+    width: 140px !important;
+    text-align: left
+}
+
+.span-gio-bangke {
+    width: 115px !important;
+    text-align: left;
+}
+
+
+
+#div-thanhtoan-button-luu {
+    margin-bottom: 10px;
+}
+/*VIEW*/
+.td-trangthai-css {
+    width: 90px;
+    cursor: pointer;
+}
+
+#div-thanhtoan-button-luu button {
+    margin-right: 10px;
+}
+
+    #div-thanhtoan-button-luu button span {
+        margin-right: 5px;
+    }
+
+.td-trangthai-css .span-trangthai-kehoach {
+    background-color: #557a92;
+}
+
+.td-trangthai-css .span-trangthai-gui {
+    background-color: #a94442;
+}
+
+.td-trangthai-css .span-trangthai-xacnhan {
+    background-color: #8a6d3b;
+}
+
+.td-trangthai-css .span-trangthai-ketoan {
+    background-color: #5cb85c;
+}
+
+.td-trangthai-css .span-trangthai-hoanthanh {
+    background-color: #8034af;
+}
+
+
+.td-trangthai-css .span-trangthai-daxuathoadon {
+    background-color: deepskyblue;
+}
+
+.td-trangthai-css .span-trangthai {
+    font-size: 8pt;
+    color: white;
+    font-weight: bold;
+    border-radius: 2px;
+    padding: 6px;
+    width: 80px;
+    display: inline-block;
+}
+
+#div-thanhtoan-dinhkem {
+    margin: 10px 20px;
+}
+
+#div-thanhtoan-group-button {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+#div-thanhtoan-button-luu {
+    float: right;
+}
+
+#div-thanhtoan-button-chucnangkhac {
+    float: left;
+}
+
+.img-pre-upload {
+    margin: 5px 5px;
+    max-width: 80px;
+    max-height: 80px;
+}
+
+#f_UploadImage {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#div-upload-btn a {
+    margin-left: 10px;
+}
+
+#div-upload-btn i {
+    margin-right: 5px;
+}
+
+#div-upload-btn {
+    margin-bottom: 20px;
+}
+
+#table-filedinhkem tbody tr td a {
+    padding: 5px 7px 5px 7px;
+}
+
+#tbl-thanhtoan-tonghop {
+    margin: 0 auto;
+    background-color: white;
+    width: auto;
+}
+
+.i-dinhkem {
+    margin-left: 2px;
+    color: white;
+}
+
+.td-ketoan-color1 {
+    background-color: rgba(255, 228, 35, 0.35) !important;
+}
+
+.td-ketoan-color0 {
+    background-color: rgba(82, 159, 77, 0.78) !important;
+}
+#tbl-congno{
+    margin-top: 10px;
+}
+#tbl-congno td {
+    font-size: 85%;
+}
+
+#myModalViewThanhToan-CongNo .modal-body {
+    height: auto;
+    overflow: hidden;
+}
+
+#myModalViewThanhToan-CongNo .modal-dialog {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#myModalViewThanhToan-CongNo .modal-content {
+    height: auto;
+    min-height: 100%;
+    border-radius: 0;
+}
+
+.td-cn-khachhang {
+    width: 80px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.td-cn-thang {
+    width: 90px;
+}
+
+#tbl-congno tbody tr.tr-cn-tongfn td {
+    font-weight: bold;
+    color: red;
+}
+
+#tbl-congno thead {
+    background-color: #f5c9aa;
+    font-weight: bold;
+}
+
+    #tbl-congno thead td {
+        vertical-align: middle;
+        font-size: 100%;
+    }
+
+#tbl-congno tbody tr:hover {
+    background-color: #eed2be;
+    color: red;
+}
+
+@media screen and (min-width:1369px ) {
+    .modal-title {
+        color: red;
+    }
+
+    .td-cn-thang {
+        min-width: 90px;
+        width: auto;
+    }
+
+    .td-cn-tong-daily {
+        max-width: 200px;
+    }
+}
+
+@media screen and (max-height:750px ) {
+    #spreadsheet {
+        height: 500px;
+    }
+}
+
+#myModalNewThanhToan .modal-dialog {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#myModalNewThanhToan .modal-content {
+    height: auto;
+    min-height: 100%;
+    border-radius: 0;
+}
+
+.spreadsheet-width-auto {
+    width: auto;
+}
+/*.td-ghichu{
+    color: red;
+    font-style:italic;
+    font-size: 80%;
+    text-align: left;    
+}*/
+.td-taosua {
+    color: #585869;
+    font-style: italic;
+    font-size: 80%;
+    text-align: right;
+}
+.tr-thanhtoan:hover {
+    background-color: #f5c9aa;
+}
+.tr-thanhtoan-sub:hover {
+    background-color: #f5c9aa;
+}
+.background-color-thanhtoan-hover {
+    background-color: #f5c9aa;
+}
+#btn-quanly-showThongKe{
+    display: none;
+}
+
+.lable-title{
+    color:white;
+}
+
+.postionSticky{
+    position:sticky;
+    top:0;
+}

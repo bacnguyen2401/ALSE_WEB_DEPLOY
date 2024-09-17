@@ -1,0 +1,17 @@
+﻿.theadColor {
+    font-weight: bold;
+    background-color: #cfeffb !important;
+}
+
+.td-left{
+    text-align:left;
+}
+
+.modal-lg {
+    width: 1180px;
+}
+
+.btn-click {
+    width: 120px;
+    text-align: center;
+}

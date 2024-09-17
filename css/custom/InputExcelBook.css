@@ -1,0 +1,977 @@
+﻿.td-bold {
+    font-weight: bold;
+}
+
+.tr-fixed {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/*Css in label*/
+
+#temIn {
+    display: none;
+    margin-top: -20px;
+}
+
+#temULI {
+    display: none;
+}
+
+
+/* in tem trắng ULI*/
+
+.pageULITrang {
+    width: 105mm;
+    min-height: 133mm;
+    margin-top: 5px;
+    margin-left: 0px;
+    background: white;
+    font-family: Calibri
+}
+
+.positionMAWB {
+    position: relative;
+}
+
+.positionMater {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+}
+
+.positionSoMAWB {
+    position: absolute;
+}
+
+.positionUnique {
+    position: absolute;
+    left: 20px;
+}
+
+.positionIata {
+    position: relative;
+    top: 0px;
+    left: 75px;
+}
+
+.positionHAWB {
+    position: absolute;
+    left: 155px;
+}
+
+.positionPCS {
+    position: relative;
+    right: 50px;
+}
+
+.font-weight {
+    font-weight: bold;
+}
+
+
+.td-heightTrang {
+    height: 120px;
+}
+
+.font35 {
+    font-size: 35px;
+}
+
+.styleImage {
+    width: 120px;
+    height: 60px;
+}
+
+.td-border1Trang {
+    border: 1px solid !important;
+}
+
+
+@media print {
+    .myPageBreak {
+        page-break-before: always;
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+
+    .inlabel {
+        width: 80mm;
+        height: 95mm;
+    }
+
+    td {
+        color: black;
+        font-size: 87%;
+        padding: 0px 0px !important;
+    }
+
+    .tablelabel thead td.nobd {
+        border-color: white !important;
+        padding: 0px !important;
+    }
+
+    .tablelabel tbody td.nobd {
+        border-color: white !important;
+        padding: 0px !important;
+    }
+
+    #btn-button {
+        display: none
+    }
+
+
+    #id-table {
+        display: none
+    }
+
+    .blockPage {
+        display: block;
+    }
+
+    .nonePage {
+        display: none;
+    }
+
+
+    #temIn {
+        display: block;
+    }
+
+    #temULI {
+        display: block;
+    }
+
+    .noneULI {
+        display: none;
+    }
+
+    .noneEFL {
+        display: none;
+    }
+}
+
+.nobd {
+    border-color: white !important;
+}
+
+.page {
+    /*width: 210mm;
+    height: 297mm;*/
+    width: 83mm;
+    height: 100mm;
+    margin-top: -8px;
+    margin-left: 10px;
+    background: white;
+    font-family: 'Times New Roman';
+}
+
+.myPageBreak {
+    margin: 10px 0 0 0;
+    padding: 10px 0;
+}
+
+.inlabel {
+    width: 80mm;
+    height: 95mm;
+}
+
+.barcodeText {
+    text-align: center;
+}
+
+
+.barcodeMAWBHAWB {
+    font-family: 'Code 128';
+    font-size: 42px;
+    text-align: center;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 0px;
+    /*line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;*/
+}
+
+
+.textcenter {
+    text-align: center;
+}
+
+.fontSize8 {
+    font-size: 8px;
+}
+
+.fontSize10 {
+    font-size: 10px;
+}
+
+.fontSize14 {
+    font-size: 20px;
+}
+
+.textalignLeft {
+    text-align: left;
+}
+
+.fontWeight {
+    font-weight: bold;
+}
+
+fontSize15 {
+    font-size: 15px;
+}
+
+.fontSize25 {
+    font-size: 25px;
+}
+
+.fontSize30 {
+    font-size: 30px;
+}
+
+.positonA {
+    position: relative;
+}
+
+.positonB {
+    position: absolute;
+    top: 52px;
+    left: 125px;
+}
+
+/*in tem ULI*/
+.pageULI {
+    width: 100mm;
+    min-height: 133mm;
+    margin-top: 5px;
+    margin-left: 0px;
+    background: white;
+    font-family: Calibri
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 0px;
+    /*line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;*/
+}
+
+.font-weight {
+    font-weight: bold;
+}
+
+.td-height {
+    height: 31.5px;
+}
+
+.td-border1 {
+    border: 1px solid black !important;
+}
+
+.font9 {
+    font-size: 9px;
+    text-decoration: underline;
+}
+
+.font24 {
+    font-size: 24px;
+}
+
+.font26 {
+    font-size: 26px;
+}
+
+.td-class2 {
+    position: relative;
+}
+
+.textAirwaybill {
+    /*position: absolute;
+    top: 0px;
+    left: 10px;*/
+}
+
+.classTextMAWB {
+    font-size: 35px;
+}
+
+.td-height1 {
+    height: 65px;
+    text-align: left;
+    font-size: 20px;
+}
+
+.td-height2 {
+    height: 100px;
+}
+
+.td-height3 {
+    height: 75px;
+}
+
+.td-height4 {
+    height: 30px;
+}
+
+.td-height5 {
+    height: 115px;
+}
+
+.td-class5 {
+    position: relative;
+    text-align: left;
+}
+
+
+.textHAWB {
+    /*position: absolute;
+    right: 115px;
+    top: 50px;*/
+}
+
+.td-height6 {
+    height: 60px;
+}
+
+.barcode {
+    height: 90px;
+    width: 350px;
+}
+
+.text-alignCenter {
+    text-align: center;
+}
+
+.code39 {
+    font-family: 'Code 128'
+}
+
+svg {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    background-color: yellow;
+}
+
+.td-border1Trang1 {
+    border-right: 1px solid black;
+}
+
+.barcode39 {
+    font-family: 'Code39', sans-serif;
+    font-size: 40px;
+}
+
+/*Bắc sửa ULI lần 1*/
+
+.div-tem-uli-container {
+    width: 83mm;
+    height: 100mm;
+    background: white;
+    font-family: 'Times New Roman';
+    margin-left: -10px;
+}
+
+.top-barcode-mawb {
+    text-align: center;
+    margin-top: -12px;
+}
+
+.span-barcode-mawb {
+    font-family: Code39;
+    font-size: 50px;
+}
+
+.span-text-mawb {
+    font-weight: bold;
+}
+
+.title-mawb {
+    text-align: center;
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.sizeAirline26 {
+    font-size: 26px;
+}
+
+.sizeAirline18 {
+    font-size: 18px;
+}
+
+.span-airline {
+    font-size: 12px;
+    /*padding-left: 10px;*/
+    padding: 2px 0px 0px 10px;
+}
+
+.span-padding {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.destall {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.destallHAWB {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#barcodeEPL {
+    width: 200px;
+    height: 100px;
+    margin-top: -10px;
+    margin-bottom: -20px;
+}
+
+.destallorg {
+    padding-left: 45px;
+}
+
+.destalltotal {
+    padding-left: 40px;
+}
+
+.destallHAWBDesc {
+    padding-left: 20px;
+}
+
+/*ULI CSS Màu*/
+
+.tem-main {
+    position: relative;
+    width: 105mm;
+    height: 134mm;
+    background: white;
+    font-family: Calibri;
+    margin-left: -15px;
+}
+
+.tem-uli {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 100mm;
+    height: 130mm;
+    border: 1px solid black;
+}
+
+.title-air {
+    width: 100%;
+    height: 21mm;
+    border-bottom: 1px solid black;
+    text-align: center;
+    padding: 10px;
+}
+
+.master-air-way-bill {
+    width: 100%;
+    height: 30mm;
+    border-bottom: 1px solid black;
+}
+
+.text-decoration {
+    text-decoration: underline;
+}
+
+.destmawb-totalmawb {
+    width: 100%;
+    height: 20mm;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.unique-logistic {
+    width: 100%;
+    height: 10mm;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.hawb-no {
+    width: 100%;
+    height: 34mm;
+    border-bottom: 1px solid black;
+}
+
+.desthawb {
+    width: 100%;
+    height: 15mm;
+    text-align: center;
+}
+
+.fontsize10 {
+    font-size: 10px;
+}
+
+.fontsize30 {
+    font-size: 30px;
+}
+
+.fontsize32 {
+    font-size: 32px;
+}
+
+.fontsize36 {
+    font-size: 36px;
+    padding: 65px;
+}
+
+/*.fontsize40 {
+    font-size: 40px;
+}*/
+
+
+span {
+    font-weight: bold;
+}
+
+.floatleft25 {
+    width: 25%;
+    float: left;
+    height: 100%;
+    border-right: 1px solid black;
+}
+
+.floatright25 {
+    width: 25%;
+    float: right;
+    height: 100%;
+}
+
+.floatleft50 {
+    width: 50%;
+    float: left;
+    height: 100%;
+    border-right: 1px solid black;
+}
+
+.floatright50 {
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+
+#barcodeULI {
+    width: 350px;
+    height: 40px;
+}
+
+
+/*ULI Trắng*/
+.tem-main {
+    position: relative;
+    width: 105mm;
+    height: 134mm;
+    background: white;
+    font-family: Calibri;
+    margin-left: -15px;
+}
+
+.tem-uli-trang {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 100mm;
+    height: 130mm;
+    border: 1px solid black;
+}
+
+.tem-header {
+    width: 100%;
+    height: 19mm;
+    border-bottom: 1px solid black;
+}
+
+.floatleft35 {
+    width: 40%;
+    height: 100%;
+    float: left;
+    border-right: 1px solid black;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.image-air {
+    padding-top: 1px;
+    width: 100%;
+    height: 97%;
+}
+
+.text-air30 {
+    padding-top: 10px;
+    width: 100%;
+    height: 97%;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.text-air25 {
+    padding-top: 10px;
+    width: 100%;
+    height: 97%;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.floatleft65 {
+    width: 60%;
+    height: 100%;
+    float: right;
+}
+
+.tem-body1 {
+    position: relative;
+    width: 100%;
+    height: 31mm;
+    border-bottom: 1px solid black;
+}
+
+.text-decoration {
+    text-decoration: none;
+}
+
+.tem-body2 {
+    width: 100%;
+    height: 19mm;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.floatleft33 {
+    width: 33.33%;
+    height: 100%;
+    float: left;
+}
+
+.border-right {
+    border-right: 1px solid black;
+}
+
+.tem-body3 {
+    width: 100%;
+    height: 19mm;
+    border-bottom: 1px solid black;
+}
+
+.floatleft70 {
+    width: 70%;
+    float: left;
+    height: 99%;
+}
+
+.floatright30 {
+    width: 30%;
+    float: right;
+    height: 99%;
+}
+
+.tem-body4 {
+    width: 100%;
+    height: 33mm;
+    border-bottom: 1px solid black;
+    text-align: center;
+    position: relative;
+}
+
+
+.fontsize10 {
+    font-size: 10px;
+}
+
+.fontsize36 {
+    font-size: 36px;
+    padding-left: 65px;
+}
+
+.barcodeULI-trang {
+    width: 100%;
+    height: 60px;
+}
+
+.positionMAWB {
+    position: absolute;
+    bottom: 55px;
+}
+
+.positionHAWB {
+    position: absolute;
+    top: 2px;
+    left: 25px;
+}
+
+.positionHAWBCode {
+    position: absolute;
+    top: 45px;
+    right: 45px;
+}
+.positionMAWBCode {
+    position: absolute;
+    top: 55px;
+}
+
+.fontsize32 {
+    font-size: 32px;
+}
+
+.fontweght {
+    font-weight: bold;
+}
+
+.image-unique {
+    width: 80%;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.image-iata {
+    width: 60%;
+    margin-left: 20px;
+    margin-top: 6px;
+}
+
+.float70 {
+    width: 70%;
+    height: 100%;
+    float: left;
+    border-right: 1px solid black;
+}
+
+.float30 {
+    width: 30%;
+    height: 100%;
+    float: right;
+}
+
+
+.fontsize40 {
+    font-size: 38px;
+}
+
+.tem-body5 {
+    width: 100%;
+    height: 8mm;
+    text-align: center;
+}
+
+/*Tem  ULI update 11/11/2021 */
+
+.TemULI {
+    width: 105mm;
+    height: 134mm;
+    background: white;
+    font-family: Calibri;
+    display: flex;
+}
+
+.TemULI__border {
+    width: 100mm;
+    height: 130mm;
+    border: 1px solid black;
+    margin: auto;
+}
+
+.TemULI__border-header {
+    width: 100%;
+    height: 12mm;
+    background-image: linear-gradient(0,#ccc,#ccc);
+}
+
+.TemULI__border-header--chuyenbay {
+    width: 80%;
+    float: left;
+    display: flex;
+    height: 100%;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.TemULI__border-header--item {
+    margin: auto;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.TemULI__border-header--machuyenbay {
+    width: 20%;
+    float: right;
+    height: 100%;
+    display: flex;
+    border-bottom: 1px solid #000;
+}
+
+.TemULI__border-mawb {
+    width: 100%;
+    height: 34mm;
+    border-bottom: 1px solid black;
+    position: relative;
+}
+
+
+.TemULI__border-mawb--item {
+    font-weight: 600;
+}
+
+.TemULI__border-mawb--item-barcode {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+#barcodeULI-MAWB {
+    width: 100%;
+    height: 60px;
+}
+
+.TemULI__border-mawb--item--child {
+    text-align: center;
+    font-size: 44px;
+}
+
+.TemULI__border-origin {
+    width: 100%;
+    height: 18mm;
+    border-bottom: 1px solid black;
+}
+
+.TemULI__border-origin--item {
+    width: 33.33333%;
+    float: left;
+    text-align: center;
+    font-weight: 600;
+    /*line-height: 1.2;*/
+}
+
+    .TemULI__border-origin--item + .TemULI__border-origin--item {
+        border-left: 1px solid black;
+    }
+
+.TemULI__border-origin--item--tilte {
+}
+
+.TemULI__border-origin--item--child {
+    font-size: 33px;
+    margin-bottom: 1px;
+}
+
+.TemULI__border-img {
+    width: 100%;
+    height: 12mm;
+    border-bottom: 1px solid black;
+}
+
+    .TemULI__border-img img {
+        width: 100%;
+        height: 45px;
+        padding: 4px;
+    }
+
+.TemULI__border-hawb {
+    width: 100%;
+    height: 38mm;
+    border-bottom: 1px solid black;
+}
+
+.TemULI__border-hawb--left {
+    width: 66.6666%;
+    float: left;
+}
+
+.TemULI__border-hawb--left--item {
+    font-weight: 600;
+}
+
+    .TemULI__border-hawb--left--item:nth-child(2) {
+        text-align: center;
+        font-size: 30px;
+    }
+
+.TemULI__border-hawb--right {
+    width: 33.3333%;
+    float: right;
+    height: 100%;
+    border-left: 1px solid black;
+}
+
+.TemULI__border-hawb--right--header {
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-weight: 600;
+    height: 20px;
+}
+
+.TemULI__border-hawb--right--body {
+    font-weight: 600;
+    font-size: 13px;
+    height: 125px;
+}
+
+.TemULI__border-hawb--right--body--left {
+    width: 50%;
+    height: 124px;
+    border-right: 1px solid black;
+    float: left;
+    display: flex;
+}
+
+.TemULI__border-hawb--right--body--right {
+    float: right;
+    width: 50%;
+    height: 124px;
+    display: flex;
+}
+
+.TemULI__border-hawb--right--body--item {
+    margin: auto;
+}
+
+#barcodeULI-HAWB {
+    width: 100%;
+    height: 60px;
+}
+
+.TemULI__border--footer {
+    height: 81px;
+    width: 100%;
+    font-weight: 600;
+}
+
+.TemULI__border--footer--left {
+    width: 66.6666%;
+    height: 58px;
+    border-right: 1px solid black;
+    float: left;
+    text-align: center;
+}
+
+
+.TemULI__border--footer--right {
+    width: 33.3333%;
+    float: right;
+    height: 81px;
+    text-align: center;
+}
+
+.font-size40 {
+    font-size: 40px;
+}
+
+.font-size33 {
+    font-size: 33px;
+}
+
+.font__size20px {
+    font-size: 20px;
+}

@@ -1,0 +1,38 @@
+﻿@media print {
+    /*html, body {
+        width: 106mm !important;
+        height: 160mm !important;
+    }*/
+
+    #div-ops {
+        display: none;
+    }
+
+    #div-ops-mid {
+        display: none;
+    }
+
+    #container-inlabel {
+        display: block;
+    }
+
+    .page {
+        margin: 0;
+        padding: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+    }
+
+    .noneMNF {
+        display: none;
+    }
+
+    .noneLable {
+        display: none;
+    }
+}

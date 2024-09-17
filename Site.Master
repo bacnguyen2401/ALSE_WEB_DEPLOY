@@ -1,0 +1,387 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ALSE.SiteMaster" %>
+<%@ Register Assembly="DevExpress.Web.v14.2" Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%--<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>--%>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
+<%@ Import Namespace="Versioned" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head id="Head1" runat="server">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <%--<meta name="viewport" content="width=device-width, initial-scale=1">--%>
+    <title>CARGO</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+     <link href="css/select2.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link href='https://fonts.googleapis.com/css?family=Libre Barcode 39' rel='stylesheet'>
+     <%# VersionedFiles.ScriptHelper.Render("js","../js/namnh.js") %>
+
+    <link href="css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="../js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../js/dataTables.fixedColumns.min.js"></script>
+
+    <script src="../js/linq.min.js" type="text/javascript"></script>
+    <!-- Magnific Popup core CSS file -->
+    <link type="text/css" rel="stylesheet" href="css/magnific-popup.css" />
+
+    <!-- Magnific Popup core JS file -->
+    <script type="text/javascript" src="../js/jquery.magnific-popup.js"></script>
+
+    <link media="screen" href="css/handsontable.full.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/notify.js"></script>
+    <script type="text/javascript" src="js/notify.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.droptabs.js"></script>
+    <script type="text/javascript" src="../js/jquery.droptabs.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.formance.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
+    <script type="text/javascript" src="../js/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="../js/widget-editable.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../js/select2.min.js"></script>
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <link href="css/jquery.timepicker.css" rel="stylesheet" />
+    <script src="../js/jquery.timepicker.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/jquery.ui.position.js"></script>
+    <script type="text/javascript" src="../js/jquery.contextMenu.js"></script>
+    <link href="css/jquery.contextMenu.css" rel="stylesheet" />
+    <script src="../js/canvasjs.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.number.min.js"  type="text/javascript"></script>
+    <script src="../js/jquery.floatThead.min.js" type="text/javascript"></script>
+    <script  type="text/javascript"  src="../js/JsBarcode.all.min.js"></script>
+    <script type="text/javascript" src="../js/handsontable.full.min.js"></script>
+  
+     <%--webticker--%>
+    <script src="/DataRoot/js/jquery.webticker.min.js" type="text/javascript"></script>
+    <%--end webticker--%>
+    <link href="css/tooltipster/tooltipster.bundle.min.css" rel="stylesheet" />
+    <link href="css/tooltipster/theme/tooltipster-sideTip-borderless.min.css" rel="stylesheet" />
+    <link href="css/tooltipster/theme/tooltipster-sideTip-light.min.css" rel="stylesheet" />
+    <link href="css/tooltipster/theme/tooltipster-sideTip-noir.min.css" rel="stylesheet" />
+    <link href="css/tooltipster/theme/tooltipster-sideTip-punk.min.css" rel="stylesheet" />
+    <link href="css/tooltipster/theme/tooltipster-sideTip-shadow.min.css" rel="stylesheet" />
+    <script src="../js/tooltipster.bundle.min.js" type="text/javascript"></script>
+   <link href="css/bootstrap-markdown.min.css" rel="stylesheet" />
+     <script src="../js/bootstrap-markdown.js" type="text/javascript"></script>
+    <script src="../js/marked.js" type="text/javascript"></script>
+    <script src="../js/moment.js" type="text/javascript"></script>
+    <script src="../js/extensions/jszip.min.js" type="text/javascript"></script>
+    <link href="css/bootstrap-tagsinput.css" rel="stylesheet" />
+    <script src="../js/typeahead.bundle.min.js"  type="text/javascript"></script>
+    <script src="../js/bootstrap-tagsinput.min.js" type="text/javascript"></script>
+    <%-- QR Code --%>
+      <script type="text/javascript" src="js/extensions/qrcode.js"></script>
+      <script type="text/javascript" src="js/extensions/qrcode.min.js"></script>
+    <%----------%>
+
+    <%# Versioned.VersionedFiles.ScriptHelper.Render("css","../css/site-master.css") %>
+    <%# VersionedFiles.ScriptHelper.Render("js","../js/site-master.js") %>
+
+    <%----------%>
+    <script type="text/javascript" src="../js/jQuery.print.js"></script>
+    <%--// kendo--%>
+    <%--<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.common.min.css" />--%>
+    <%--<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.rtl.min.css" />--%>
+    <%--<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.silver.min.css" />--%>
+    <%--<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.mobile.all.min.css" />--%>
+    <link href="css/kendo.common.min.css" rel="stylesheet" />
+    <link href="css/kendo.rtl.min.css" rel="stylesheet" />
+    <link href="css/kendo.silver.min.css" rel="stylesheet" />
+    <link href="css/kendo.mobile.all.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/extensions/kendo.all.min.js"></script>
+
+    <link href="css/sweetalert2.min.css?ver=2" rel="stylesheet" />
+    <script type="text/javascript" src="../js/sweetalert2.min.js?ver=2"></script>
+
+    <script src="../js/custom/gen-table.js" type="text/javascipt"></script>
+    
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="document">
+        <form id="Form1" runat="server">
+
+                <div class="navbar navbar-inverse" id="div-navbar-sm" role="navigation">
+ <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                           <%-- <li><a href="../Default.aspx">HOME</a></li>--%>
+
+                            <li runat="server" id="vExportSafo"><a href="../QuanLyKHVC.aspx">Export </a></li>
+                            <li runat="server" id="vTTHX"><a href="../TrangThaiHangXuat.aspx">Export</a></li>
+                             <li runat="server" id="vQuanLyHangXuat"><a href="../QuanLyHangXuat.aspx">Export</a></li>
+                            <li runat="server" id="vTTHN"><a href="../TrangThaiHangNhap.aspx">Import</a></li>
+                            <li runat="server" id="vQuanLyHangNhap"><a href="../QuanLyHangNhap.aspx">Import</a></li>
+
+                            <li runat="server" id="vQuanLyKhoThuong"><a href="../ReportQuanLyKhoThuong.aspx">Warehouse</a></li>
+                            <li id="vQuanLyLogistic" runat="server"><a href="../QuanLyLogistics.aspx">Logistics</a></li>
+
+                            <li runat="server" id="vTTHXASG"><a href="../TrangThaiHangXuatASG.aspx">Export</a></li>
+                            <li runat="server" id="vTTHNASG"><a href="../TrangThaiHangNhapASG.aspx">Import</a></li>
+
+                            <li runat="server" id="VKT"><a href="../ReportQuanLyKhoThuong.aspx">EUSU REPORT</a></li>
+                            <li runat="server" id="vExportEFL"><a href="../QuanLyKHVC2.aspx">Manager Export Cargo</a></li>
+                            <li runat="server" id="vExportAPX"><a href="../QuanLyKHVC3.aspx">Manager Export Cargo</a></li>
+                            <li runat="server" id="vMEG"><a href="../QuanLyKHVC.aspx">Manager Export Cargo</a></li>
+                             <li runat="server" id="vTTHNKhachHang"><a href="../QuanLyHangNhapKhachHang.aspx">Import</a></li>
+                             <li runat="server" id="vMEGHangXuatKH"><a href="../QuanLyHangXuatKhachHang.aspx">Manager Export Cargo</a></li>
+
+                            <li id="DGR" runat="server"><a href="../DGR.aspx">DGR</a></li>
+                             <li id="vOPS" runat="server"><a href="../OPS.aspx">OPS</a></li>
+                             <%--<li id="vPOD" runat="server"><a href="../QuanLyPOD.aspx">POD</a></li>--%>
+
+                            <li runat="server" id="vKSHSC"><a href="../KiemSoatHSC.aspx">X-Ray List</a></li>
+
+                            <li runat="server" id="vThongBao"><a href="../ThongBao.aspx">Notices</a></li>
+                            <li runat="server" id="vDSLoi"><a href="../QuanLyLoi.aspx">Mistakes</a></li>
+                            <li runat="server" id="vQLBC"><a href="../QuanLyBaoCaoNgay.aspx">Daily Report</a></li>
+                            <li runat="server" id="vOtherTool">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                  Other Tools
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li id="vQLI" runat="server"><a href="../QueryListInVoices.aspx">Query List Invoice</a></li>
+                                    <li id="vFFM" runat="server"><a href="../QueryListFFM.aspx">Query List FFM</a></li>
+                                    <li id="VDSDNNPT" runat="server"><a href="../DanhSachDNN.aspx?AdminSet=PT">Invoice List Pantos</a></li>
+
+                                    <li id="vInputExcel" runat="server"><a href="../InputExcel.aspx">Input Excel</a></li>
+                                    <li runat="server" id="vXBC"><a href="../XuatBaoCao.aspx">Reports</a></li>
+                                    <li runat="server" id="vDVAIPS"><a href="../DVAIPS.aspx">ASG</a></li>
+                                    <li runat="server" id="vPO"><a href="../TruyVanPO.aspx">Truy vấn PO</a></li>
+                                    <li runat="server" id="vDNNSHIPMENT"><a href="../TraCuuDNN.aspx">Truy vấn DNN SHIPMENT</a></li>
+                                    <li runat="server" id="vIntem"><a href="QuanLyInTem.aspx">In Tem KUEHNE NAGEL</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li id="vQuanLyKhoThuong1" runat="server"><a href="../ReportQuanLyKhoThuong.aspx">Quản Lý Kho Thường</a></li>
+                            <li id="vQuanLyKhoThuong2" runat="server"><a href="../ReportQuanLyKhoThuong.aspx">Warehouse</a></li>
+                            <li id="vLogisticsManager" runat="server"><a href="../QuanLyLogistics.aspx">Logistics Management</a></li>
+
+                              <li id="vQuanLyKhoHang" runat="server"><a href="../QuanLyKhoHang.aspx">Quản Lý Kho Hàng</a></li>
+
+                            <li runat="server" id="vChamCong"><a href="../ChamCong/TrangThai.aspx">TimeSheets</a></li>
+                            <li runat="server" id="vThanhToan"><a href="../ThanhToan/ThanhToan.aspx">Billing</a></li>
+                             <li runat="server" id="vDistribution">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                  Distribution
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li id="Li1" runat="server"><a href="../Distribution/DeliveryOrders.aspx">1. Delivery Orders</a></li>                                 
+                                    <li id="Li3" runat="server"><a href="../Distribution/Products.aspx">2. Products</a></li>
+                                    <li id="Li4" runat="server"><a href="../Distribution/Customers.aspx">3. Customers</a></li>
+                                    <li id="Li2" runat="server"><a href="../Distribution/Route.aspx">4. Route</a></li>
+                                  
+                                </ul>
+                            </li>
+                            <li runat="server" id="vTruck">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                  Truck
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li id="vTruckTraCuu" runat="server"><a href="../Truck/TraCuu.aspx">Tra cứu cước vận tải</a></li>
+                                    <li id="vTruckTuyen" runat="server"><a href="../Truck/Tuyen.aspx">Quản lý Tuyến</a></li>
+                                    <li id="vTruckGiaMua" runat="server"><a href="../Truck/GiaMua.aspx">Quản lý giá mua</a></li>
+                                    <li id="vTruckGiaBan" runat="server"><a href="../Truck/GiaBan.aspx">Quản lý giá bán</a></li>
+                                    <li id="vTruckKhachHang" runat="server"><a href="../Truck/KhachHang.aspx">Quản lý khách hàng</a></li>
+                                </ul>
+                            </li>
+                             <li runat="server" id="vVattu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                 Supplies
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li id="vDanhSachVatTu" runat="server"><a href="../DanhSachVatTu/DanhSachVatTu.aspx">Danh Sách Vật Tư</a></li>
+                                    <li id="vNhapVatTu" runat="server"><a href="../DanhSachVatTu/QuanLyNhapVatTu.aspx">Nhập vật tư</a></li>
+                                    <li id="vDeNghiCapPhat" runat="server"><a href="../DanhSachVatTu/DeNghiCapPhat.aspx">Đề nghị cấp phát</a></li>
+                                </ul>
+                            </li>
+                            <li runat="server" id="vCongViec"><a href="../CongViec/BangTin.aspx">Tasks</a></li>
+                            <li runat="server" id="vCongVanHQ"><a href="../QuanLyCongVanHQ.aspx">CV HQ</a></li>
+                              <li runat="server" id="vTrienKhaiCV"><a href="../TrienKhaiVanBan.aspx">Sổ tay công việc</a></li>
+                             <li runat="server" id="vTraCuuDim"><a href="../XemCanDIM.aspx">Tra cứu DIM</a></li>
+                             <li runat="server" id="vCPN"><a href="chuyenphatnhanhCPN.aspx">CPN</a></li>
+
+                            <li class="dropdown litaikhoan" runat="server">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    <span id="username" <asp:Literal ID="ltrUGroup" runat="server"></asp:Literal>>
+                                        <asp:Literal ID="ltridname" runat="server"></asp:Literal>
+                                        <i class="caret"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../DoiThongTin.aspx">Đổi Thông Tin</a></li>
+                                    <li id="uthoat" runat="server"><a href="../Thoat.aspx">Thoát</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+
+    <div id="mcontent" class="container">
+
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
+    <div id="modalPhanQuyen" class="modal fade in qllModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h5 class="modal-title"></h5>
+                </div>
+
+                <div class="modal-body">
+                    <div class="grid">
+                        <div class="row">
+                            <div class="form-group col-lg-12">
+                                <h4>Quản lý thanh toán</h4>
+                                     <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="THANHTOAN_XEM" value="THANHTOAN_XEM" />Xem
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="THANHTOAN_THEM_DOANHTHU" value="THANHTOAN_THEM_DOANHTHU" />Thêm doanh thu
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="THANHTOAN_SUA_DOANHTHU" value="THANHTOAN_SUA_DOANHTHU" />Sửa doanh thu
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="THANHTOAN_THEM_CHIPHI" value="THANHTOAN_THEM_CHIPHI" />Thêm chi phí
+                                    </label>
+
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="THANHTOAN_SUA_THONGTINCOBAN" value="THANHTOAN_SUA_THONGTINCOBAN" />Thông tin cơ bản
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="THANHTOAN_SUA_GUIBANGKE" value="THANHTOAN_SUA_GUIBANGKE" />Gửi bản kê
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="THANHTOAN_SUA_XACNHANBANGKE" value="THANHTOAN_SUA_XACNHANBANGKE" />Xác nhận bản kê
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="THANHTOAN_SUA_CHUYENKETOAN" value="THANHTOAN_SUA_CHUYENKETOAN" />Chuyển kế toán
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="THANHTOAN_SUA_CHUYENHOADON" value="THANHTOAN_SUA_CHUYENHOADON" />Chuyển hóa đơn
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="THANHTOAN_SUA_DATHANHTOAN" value="THANHTOAN_SUA_DATHANHTOAN" />Đã thanh toán
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="THANHTOAN_XOA_DOANHTHU" value="THANHTOAN_XOA_DOANHTHU" />Xóa doanh thu
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="THANHTOAN_XOA_CHIPHI" value="THANHTOAN_XOA_CHIPHI" />Xóa chi phí
+                                    </label>
+                                 <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="THANHTOAN_THEM_DINHKEM" value="THANHTOAN_THEM_DINHKEM" />Thêm đính kèm
+                                    </label>
+                                 <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="THANHTOAN_XOA_DINHKEM" value="THANHTOAN_XOA_DINHKEM" />Xóa đính kèm
+                                    </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-12">
+                                <h4>Quản lý LOGISTIC</h4>
+                                     <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="QUANLY_LOGISTIC_XEM" value="QUANLYLOGISTIC_XEM" />Xem
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="QUANLY_LOGISTIC_THEM" value="QUANLY_LOGISTIC_THEM" />Thêm
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="QUANLY_LOGISTIC_XEMCHITIET" value="QUANLY_LOGISTIC_XEMCHITIET" />Xem chi tiết
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="QUANLY_LOGISTIC_XOA" value="QUANLY_LOGISTIC_XOA" />Xóa
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="QUANLY_LOGISTIC_SUA_KEHOACH" value="QUANLY_LOGISTIC_XOA" />Sửa kế hoạch
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="QUANLY_LOGISTIC_SUA_BANGIAOCHUNGTU" value="QUANLY_LOGISTIC_SUA_BANGIAOCHUNGTU" />Sửa bàn giao chứng từ
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="QUANLY_LOGISTIC_THEM_THONGTINTOKHAI" value="QUANLY_LOGISTIC_THEM_THONGTINTOKHAI" />Thêm thông tin tờ khai
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="QUANLY_LOGISTIC_SUA_THONGTINTOKHAI" value="QUANLY_LOGISTIC_SUA_THONGTINTOKHAI" />Sửa thông tin tờ khai
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="QUANLY_LOGISTIC_XOA_THONGTINTOKHAI" value="QUANLY_LOGISTIC_XOA_THONGTINTOKHAI" />Xóa thông tin tờ khai
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="QUANLY_LOGISTIC_SUA_THUTUCGIAMSATHAIQUAN" value="QUANLY_LOGISTIC_SUA_THUTUCGIAMSATHAIQUAN" />Sửa thủ tục giám sát hat quan
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="QUANLY_LOGISTIC_SUA_THONGTINVANCHUYEN" value="QUANLY_LOGISTIC_XOA" />Sửa thông tin vận chuyển
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="QUANLY_LOGISTIC_SUA_GIAOHANG" value="QUANLY_LOGISTIC_XOA" />Sửa giao hàng
+                                    </label>
+                                <label class="checkbox-inline">
+                                      <input type="checkbox" class="cb-phanquyen" id="QUANLY_LOGISTIC_VIET_BINHLUAN" value="QUANLY_LOGISTIC_VIET_BINHLUAN" />Viết thảo luận
+                                    </label>
+                                </div>
+                        </div>
+                        <div>
+                            <label class="checkbox-inline">
+                                      <input type="checkbox" class="" id="cb-phanquyen-nhomcon" value="" />Phân quyền các quyền mới cho các nhóm con
+                                    </label>
+                            <label class="checkbox-inline">
+                                      <input type="checkbox" class="" id="cb-phanquyen-taikhoan" value="" />Phân quyền các quyền mới cho các tài khoản thuộc nhóm
+                                    </label>
+                            <label class="checkbox-inline">
+                                      <input type="checkbox" class="" id="cb-dongbo-nhomcon" value="" />Đồng bộ cho các nhóm con
+                                    </label>
+                            <label class="checkbox-inline">
+                                      <input type="checkbox" class="" id="cb-dongbo-taikhoan" value="" />Đồng bộ cho các tài khoản thuộc nhóm
+                                    </label>
+                                </div>
+                        </div>
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-link" data-dismiss="modal">Đóng</button>
+                    <button type="button" id="btn-phanquyen-luu" class="btn btn-primary">Lưu thay đổi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="clear">
+    </div>
+    <div id="footer">
+
+        <div>
+            <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+            <p class="muted credit" style="color: #999999; float: right">Website thuộc về <a href="http://alse.vn">ALS EAST HANOI.</a></p>
+        </div>
+    </div>
+    </form>
+    </div>
+
+    <div id="div-wait">
+    </div>
+</body>
+</html>

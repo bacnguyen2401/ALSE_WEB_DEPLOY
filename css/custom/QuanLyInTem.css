@@ -1,0 +1,8 @@
+﻿.btn-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-pdf{
+    display:flex;
+}

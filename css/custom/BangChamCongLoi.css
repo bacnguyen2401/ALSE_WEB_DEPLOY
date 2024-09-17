@@ -1,0 +1,139 @@
+﻿#tbl-chamcongloi {
+    background-color: white;
+}
+
+
+.td-hoten, .td-sdt {
+    text-align: left;
+}
+
+.td-hoten {
+    cursor: pointer;
+}
+
+.td-hoten {
+    color: #428bca;
+}
+
+    .td-hoten:hover {
+        text-decoration: underline;
+    }
+
+.div-row-trangthai {
+    display: none;
+}
+
+.tbl-chamcong-trangthai tbody tr:hover {
+    background-color: aquamarine;
+}
+
+.td-cc {
+    cursor: pointer;
+}
+
+    .td-cc:hover {
+        color: red;
+    }
+
+#tbl-chitietcong thead tr:first-child {
+    font-weight: bold;
+}
+
+.td-cc-ghichu {
+    color: red;
+    font-weight: bold;
+}
+
+#tbl-chitietcong thead #tr-danhso td {
+    font-size: 7pt;
+}
+
+#tbl-chitietcong tbody {
+    font-size: 9.5pt;
+}
+
+    #tbl-chitietcong tbody tr:hover {
+        background-color: #f3d1e3;
+    }
+
+#span-tongcong-tieng {
+    color: blue;
+}
+
+#span-tongcong {
+    color: red;
+}
+
+#span-chitietcong-tennhanvien {
+    color: red;
+    font-weight: bold;
+}
+
+#span-chitietcong-thang, #span-chitietcong-nam {
+    font-weight: bold;
+    color: blue;
+}
+
+.span-thoigiannghi {
+    font-size: 10pt;
+    font-style: italic;
+}
+
+.td-working {
+    background-color: #ffa3a0;
+}
+
+.btn-tsc {
+    margin-left: 20px !important;
+    width: 100px;
+}
+
+#btn-tsc-xoa {
+    display: none;
+}
+
+.td-ctcl-noidung {
+    text-align: left;
+}
+
+#btn-ctc-thenchamcong {
+    display: none;
+}
+
+.btndsdimuon {
+    display: none;
+}
+
+#myModalKPI .modal-dialog {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#myModalKPI .modal-content {
+    height: auto;
+    min-height: 100%;
+    border-radius: 0;
+}
+
+#div-kpi-button {
+    margin-bottom: 10px;
+}
+
+#tbl-kpi td {
+    font-size: 85%;
+}
+
+#tbl-kpi thead tr:not(:last-child) td {
+    font-weight: bold;
+}
+
+.td-kpi-hoten {
+    text-align: left;
+}
+
+.tr-total td {
+    color: red;
+    font-weight: bold;
+}

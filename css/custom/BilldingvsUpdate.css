@@ -1,0 +1,337 @@
+﻿* {
+    margin: 0;
+    padding: 0
+}
+
+/*body {
+    background-color: white;
+}*/
+
+td {
+    color: black;
+    font-size: 87%;
+    padding: 3px 3px !important;
+}
+
+#div-TrangThaiHangXuat table tbody tr td {
+    background-color: white;
+}
+/*Css chỉnh cột trong bảng*/
+.td-img {
+    width: 90px;
+    padding: 1px 1px !important;
+}
+    /*.td-img img{
+    width: 90px!important;
+}*/
+    .td-img img {
+        width: 88px !important;
+    }
+
+.td-mawb {
+    width: 105px !important;
+    font-weight: bold;
+}
+
+.td-pcs {
+    width: 40px !important;
+}
+
+.td-gw {
+    width: 50px !important;
+}
+
+.td-fltNo {
+    width: 70px !important;
+}
+
+.td-fltD {
+    width: 70px !important;
+    font-weight: bold;
+}
+
+.td-fltT {
+    width: 53px !important;
+    font-weight: bold;
+}
+
+.td-NBA {
+    width: 53px !important;
+}
+
+.td-ALSE {
+    width: 53px !important;
+}
+
+.td-dest {
+    width: 50px !important;
+}
+
+.td-sliD {
+    width: 70px !important;
+}
+
+.td-sliT {
+    width: 53px !important;
+}
+
+.td-truckId {
+    width: 130px !important;
+}
+
+.td-truckD {
+    width: 70px !important;
+    font-weight: bold;
+}
+
+.td-truckT {
+    width: 53px !important;
+    font-weight: bold;
+}
+
+.td-fwd {
+    width: 66px !important;
+}
+
+.td-wh {
+    width: 56px !important;
+}
+
+.td-remark {
+    width: 85px !important;
+    font-size: 80%;
+}
+
+.tr-hover:hover {
+    background-color: #d0ecbd !important;
+}
+/*Margin table*/
+.table {
+    margin: 0px;
+    border-bottom: none;
+    background-color: white;
+}
+/*Tô màu*/
+.com-ngayxuat-not-today-d0ecbd {
+    background-color: #d0ecbd !important;
+}
+
+.background-color-gioxuat {
+    background-color: pink !important;
+}
+
+.background-color-gioxuat1 {
+    background-color: #F6F6B1 !important;
+}
+
+.setbackgroupAndColor {
+    background-color: red !important;
+    color: white !important;
+}
+
+.setbackgroupAndColor1 {
+    background-color: yellow !important;
+}
+
+.setbackgroupBKS {
+    background-color: rgb(246, 246, 177) !important;
+}
+
+.setbacgroupFltdAndFltNo {
+    background-color: #78C6FA !important;
+}
+
+.tr-thead {
+    height: 40px;
+    background-color: #cfeffb !important;
+    border-bottom: 2px solid #808080;
+}
+
+    .tr-thead td {
+        border: 1px solid #ddd;
+        font-weight: bold;
+        vertical-align: middle;
+    }
+
+/* Table header*/
+
+.title-export {
+    font-size: 30px;
+    text-align: right;
+}
+
+.header-table-export {
+    width: 1495px;
+    margin: -3px;
+}
+
+.table-export {
+    border-bottom: none;
+}
+
+.margin-saisokien {
+    margin-right: 35px;
+}
+
+.hx-vitri {
+    color: white;
+}
+
+    .hx-vitri p {
+        margin-bottom: 0px;
+    }
+
+#countdown {
+    float: left;
+}
+
+label {
+    float: left;
+    margin-bottom: 0px;
+    font-weight: 100;
+}
+
+#div-getkiemton {
+    float: left;
+}
+
+.bn-data {
+    color: red;
+    font-weight: bold;
+}
+
+.hp-data {
+    color: blue;
+    font-weight: bold;
+}
+
+#td-exp-today:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.mo-mawbCss {
+    background-color: red !important;
+    font-weight: bold;
+}
+
+/*Modal trạng thái hàng xuất css*/
+
+#mo-table {
+    font-size: 125%;
+}
+
+    #mo-table tr td label {
+        float: left;
+    }
+
+#mo-mawb {
+    font-size: large;
+}
+
+/*Css modal Báo cáo sản lượng*/
+.modal-style-padding {
+    padding: 0px;
+}
+
+#thongbao {
+    float: left;
+    color: red;
+}
+
+.text-center-button {
+    text-align: right;
+}
+
+.lable-title {
+    font-weight: bold;
+}
+
+.td-no {
+    width: 41px;
+}
+
+#header-fixed {
+    position: fixed;
+    top: 0px;
+    display: none;
+    background-color: white !important;
+}
+
+.tbl-header-fixed tbody {
+    border-bottom: 2px solid #ccc;
+}
+
+.color-text-tksl {
+    color: #BB0000;
+}
+
+.color-sokien {
+    color: blue;
+}
+
+/*.width-tksl-year {
+    
+}*/
+.width-tksl-thang {
+    width: 10%;
+}
+
+.width-tksl {
+    font-weight: bold;
+    width: 110px;
+}
+
+.td-KhachHang-Tong {
+    background-color: #e0eaf3 !important;
+}
+
+#date-tksl {
+    margin-bottom: 5px;
+}
+
+.margin-botton-table {
+    margin-bottom: 20px;
+}
+
+.modal-body-tksl {
+    font-size: 90%;
+}
+
+.span-duyet {
+    font-size: 70%;
+    font-style: italic;
+    color: red;
+}
+
+.span-DuyetCoDOC {
+    float: left;
+    margin-left: 10px;
+}
+
+.span-DuyetGiaoDoc {
+    float: right;
+    margin-right: 10px;
+}
+
+
+.fix-line-css {
+    /*display: block;*/
+    /*display: -webkit-box;*/
+    max-width: 120px;
+    height: 50px;
+    /*height: 16px*1.3*3;*/ /* Fallback for non-webkit */
+    margin: 0 auto;
+    line-height: 1.3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: tomato;
+    font-size: 87%;
+    color: black;
+}
+
+#table-export {
+    width: 100%;
+}

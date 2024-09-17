@@ -1,0 +1,62 @@
+﻿#tbl-trangthai-giaodoc > thead > tr {
+    background-color: #A3C0E8 !important;   
+}
+
+.tbl-show-xe-giao > thead > tr {
+    background-color: #A3C0E8 !important;
+}
+.tbl_show_mawb_xe > thead > tr {
+    background-color: #A3C0E8 !important;
+}
+
+.selected {
+    background-color: brown;
+    color: #FFF;
+}
+
+.img-pre-upload {
+    margin: 5px 5px;
+    max-width: 80px;
+    max-height: 80px;
+}
+
+#f_UploadImage {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.div-upload-group {
+    margin-bottom: 20px;
+}
+
+.color-8c8c8c {
+    color: #8c8c8c;
+}
+
+.activity-icon {
+    float: left;
+    padding-top: 5px;
+    font-size: 14pt;
+    margin-right: 10px;
+}
+
+.activity-text {
+    font-size: 15pt;
+}
+
+.td-bold {
+    font-weight: bold;
+}
+
+
+#thongtintheoxe {
+    width: 100%;
+    overflow: hidden; /* Ẩn thanh cuộn */
+    resize: none; /* Vô hiệu hóa việc thay đổi kích thước */
+}

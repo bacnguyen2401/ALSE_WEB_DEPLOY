@@ -1,0 +1,98 @@
+﻿.div-trienkhai-main {
+    background-color: white;
+    padding: 5px;
+}
+
+    .div-trienkhai-main h3 {
+        text-align: center;
+    }
+
+#tbl-trienkhai thead tr td {
+    background-color: #04529a;
+    color: white;
+}
+
+.td-trangthai {
+    padding: 5px;
+    border-radius: 50px;
+}
+
+.backgroudColor-yellow{
+    background-color: yellow;
+    color:black;
+}
+
+.backgroudColor-green {
+    background-color: green;
+    color: white;
+}
+
+.backgroudColor-pink {
+    background-color: deeppink;
+    color: white;
+}
+
+.backgroudColor-red {
+    background-color: red;
+    color: white;
+}
+
+.tr-sub-hide{
+    display: none;
+}
+
+.text-style {
+    font-size: 14px;
+    font-weight: bold;
+    width:150px;
+}
+
+#f_UploadImage {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.div-upload-group {
+    margin-bottom: 20px;
+}
+
+.img-pre-upload {
+    margin: 5px 5px;
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.color-8c8c8c {
+    color: #8c8c8c;
+}
+
+.activity-icon {
+    padding-top: 5px;
+    font-size: 14pt;
+    margin-right: 10px;
+}
+
+.activity-text {
+    font-size: 15pt;
+}
+
+.td-bold {
+    font-weight: bold;
+}
+
+#tbl-ynghia thead tr td {
+    background-color: #04529a;
+    color: white;
+}
+
+#myModalViewTrienKhai textarea {
+    padding: 10px 10px;
+    background-color: white;
+    border: 1px solid #808080;
+}

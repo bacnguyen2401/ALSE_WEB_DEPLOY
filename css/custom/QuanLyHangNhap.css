@@ -1,0 +1,298 @@
+﻿
+
+
+body {
+    /*background-color: white;*/
+}
+
+#div-TrangThaiHangNhap table tbody tr td {
+    background-color: white;
+}
+
+.fullscreen {
+    width: 100%;
+}
+
+.hide-show-table {
+    display: none;
+    font-size: 85%;
+    padding: 0px;
+    margin: 0px;
+}
+
+    .hide-show-table tr:hover {
+        background-color: #d0ecbd !important;
+    }
+
+    .hide-show-table th {
+        background-color: #A3C0E8 !important;
+        text-align: center;
+    }
+
+    .hide-show-table .td-img {
+        width: 90px;
+        padding: 1px 1px !important;
+    }
+
+.td-img img {
+    width: 90px;
+}
+
+.hide-show-table .td-mawb {
+    width: 90px !important;
+}
+
+.hide-show-table .td-hawb {
+    width: 105px !important;
+}
+
+.hide-show-table .td-pcs {
+    width: 47px !important;
+}
+
+.hide-show-table .td-cm {
+    width: 47px !important;
+}
+
+.hide-show-table .td-flt {
+    width: 71px !important;
+    font-weight: bold;
+}
+
+.hide-show-table .td-date {
+    width: 77px !important;
+}
+
+.hide-show-table .td-time {
+    width: 48px !important;
+}
+
+.hide-show-table .td-code {
+    width: 52px !important;
+}
+
+.hide-show-table .td-truckID {
+    width: 130px !important;
+}
+
+.hide-show-table .td-fwd {
+    width: 65px !important;
+}
+
+.font-weight-css {
+    font-weight: bold;
+}
+
+.ngayyctrahang {
+    color: blue;
+    font-weight: bold;
+}
+
+#countdown {
+    color: white;
+}
+
+.title {
+    float: right;
+    width: 800px
+}
+
+.title-header {
+    font-size: 30px;
+    text-align: left;
+    color: white;
+}
+
+.gioyctrahang {
+    color: blue;
+    font-weight: bold;
+}
+
+.backgroup-color-ftldatetime {
+    background-color: #78C6FA !important;
+}
+
+.backgroup-color-ngaygiotrahang {
+    background-color: rgba(39, 233, 39, 0.53) !important;
+}
+
+.backgroup-color-red {
+    background-color: red !important;
+}
+
+.backgroup-color-yellow {
+    background-color: yellow !important;
+}
+
+.backgroup-color-pink {
+    background-color: pink !important;
+}
+
+.table {
+    margin: 0px;
+    border-bottom: none;
+    background-color: white;
+}
+
+.div-ThongKeHangNhap {
+    margin-bottom: 10px;
+}
+
+#tbl-ThongKeHangNhap tbody td {
+    font-size: 85%;
+    padding: 2px 2px !important;
+}
+
+.div-trangthaihangnhap-button {
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
+.td-no {
+    width: 42px;
+}
+
+.classtomauCompletetest-pink {
+    background-color: pink;
+}
+
+.classtomauCompletetest-xanh {
+    background-color: rgba(39, 233, 39, 0.53) !important;
+}
+
+.lable-title {
+    font-weight: bold;
+    color: white;
+}
+
+#tbl-help thead tr td {
+    font-weight: bold;
+}
+
+.classHQGS {
+    color: red;
+    font-size: 9px;
+}
+
+#tableGTK {
+    font-size: 80%;
+}
+
+#tablePOD {
+    font-size: 80%;
+}
+
+/*.spreadsheet-height-400 {
+    height: 600px;
+}*/
+.fullscreen {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.textleft {
+    text-align: left;
+}
+
+.dataTables_scrollBody thead tr[role="row"] {
+    visibility: collapse !important;
+}
+
+.tr-HQGS {
+    background-color: aqua;
+    font-weight: bold;
+}
+
+.tomauWH {
+    background-color: red !important;
+}
+
+.colorText {
+    color: blue;
+}
+
+.backgroupRed {
+    background-color: red !important
+}
+
+.qrCode {
+    margin: 20px;
+    border: 3px solid red;
+    display: inline-block
+}
+
+.information {
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    left: 165px;
+    line-height: 2.4;
+}
+
+
+
+.label-qrcode {
+    display: none;
+    position: relative;
+}
+
+.main-luukho {
+    display: none;
+}
+
+@media print {
+    .title-header-refresh {
+        display: none;
+    }
+
+    .div-trangthaihangnhap-button {
+        display: none;
+    }
+
+    .div-ThongKeHangNhap {
+        display: none;
+    }
+
+    #div-checkbox {
+        display: none;
+    }
+
+    #div-checkbox-makho {
+        display: none;
+    }
+
+    #div-TrangThaiHangNhap {
+        display: none;
+    }
+
+    .label-qrcode {
+        display: block !important;
+    }
+
+
+    .main-luukho {
+        display: block;
+    }
+}
+
+#tbl-dienXML > thead > tr {
+    background-color: #04529a;
+    color: white;
+}
+
+.daguixml {
+    color: chartreuse;
+}
+
+.chuaguixml {
+    color: red;
+}
+
+.main-luukho-chuky {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}

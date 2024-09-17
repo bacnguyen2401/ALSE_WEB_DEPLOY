@@ -1,0 +1,119 @@
+﻿#div-tracuu {
+    background-color: white;
+    padding-top: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    margin-top: 5px;
+}
+#div-tracuu h3{
+    text-align: center;
+}
+#tbl-giamua_info{
+    display: none;
+}
+#tbl-giamua-dabao_info {
+    display: none;
+}
+.tbl-giamua thead {
+    display: none;
+}
+#tbl-giamua_wrapper #tbl-giamua {
+    width: 1600px !important;
+}
+
+#tbl-giamua_wrapper thead tr th {
+    text-align: center;
+    vertical-align: middle;
+    background-color: white;
+}
+
+#tbl-giamua_wrapper tbody tr {
+    height: 32px !important;
+}
+
+#tbl-giamua_wrapper td, #tbl-giamua_wrapper th {
+    font-size: 85%;
+}
+#tbl-giamua-dabao_wrapper #tbl-giamua-dabao {
+    width: 1600px !important;
+}
+
+#tbl-giamua-dabao_wrapper thead tr th {
+    text-align: center;
+    vertical-align: middle;
+    background-color: white;
+}
+
+#tbl-giamua-dabao_wrapper tbody tr {
+    height: 32px !important;
+}
+
+#tbl-giamua-dabao_wrapper td, #tbl-giamua-dabao_wrapper th {
+    font-size: 85%;
+}
+.giamua-origin {
+    width: 100px;
+}
+
+.giamua-remark {
+    cursor: pointer;
+}
+
+    .giamua-remark:hover {
+        color: blue;
+        text-decoration: underline;
+    }
+
+.giamua-destination {
+    width: 150px;
+}
+
+.giamua-trucking-code {
+    background-color: pink;
+    font-weight: bold;
+}
+
+.giamua-maximum-dention-cost {
+    width: 200px;
+}
+
+.giamua-customs-supervise-cost-redcd {
+    width: 250px;
+}
+
+.giamua-origin-city {
+    width: 100px;
+}
+
+.giamua-destination-city {
+    width: 80px;
+}
+.div-tracuu-group .input-group-addon{
+    width: 160px!important;
+    text-align: left;
+}
+.width-120{
+    width: 120px !important;
+}
+.width-150 {
+    width: 200px !important;
+}
+
+.tbl-giamua-header{
+    float: left;
+    color: red;
+}
+.row-tracuu{
+    margin-top: 15px;
+}
+input[disabled] {
+    cursor: not-allowed;
+}
+.giamua-EquipmentType {
+    background-color: #65a3dc;
+    font-weight: bold;
+}
+.dataTables_scrollHeadInner{
+    padding-right: 17px!important;
+}

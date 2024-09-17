@@ -1,0 +1,118 @@
+﻿#div-export-status {
+    background-color: white;
+}
+.tbl-booking-tbody-tr-tdStatus {
+    
+    background:  url('../../images/export/booking.png') no-repeat center;
+    
+}
+.tbl-pre-accept-tbody-tr-tdStatus {
+    
+    background:  url('../../images/export/preaccept.png') no-repeat center;
+    
+}
+.tbl-accept-tbody-tr-tdStatus{
+    background:  url('../../images/export/accept.png') no-repeat center;
+
+}
+.tbl-loading-on-truck-tbody-tr-tdStatus{
+    background:  url('../../images/export/loadingontruck.png') no-repeat center;
+
+}
+.tbl-trucking-to-nba-tbody-tr-tdStatus{
+    background:  url('../../images/export/truckingtonba.png') no-repeat center;
+
+}
+.tbl-airport-tbody-tr-tdStatus{
+    background:  url('../../images/export/airport.png') no-repeat center;
+
+}
+.tbl-complete-tbody-tr-tdStatus{
+    background:  url('../../images/export/complete.png') no-repeat center;
+
+}
+
+table.table-export{
+    margin-bottom: 0px;
+}
+table tr td.status{
+    width: 101px;
+
+}
+table tr td.mawb{
+    width: 90px;
+    font-weight: bold;
+}
+table tr td.pcs{
+    width: 39px;
+}
+table tr td.gw{
+    width: 56px;
+}
+table tr td.flightNo{
+    width: 65px;
+}
+table tr td.flightDate{
+    width: 81px;
+    font-weight: bold;
+}
+table tr td.flightTime{
+    width: 49px;
+    font-weight: bold;
+}
+table tr td.cutot{
+    width: 50px;
+}
+table tr td.cute{
+    width: 50px;
+}
+table tr td.dest{
+    width: 50px;
+}
+table tr td.sliDate{
+    width: 81px;
+}
+table tr td.sliTime{
+    width: 49px;
+}
+table tr td.truckId{
+    width: 90px;
+}
+table tr td.exportDate{
+    width: 81px;
+    font-weight: bold;
+}
+table tr td.exportTime{
+    width: 49px;
+    font-weight: bold;
+}
+table tr td.fwd{
+    width: 68px;
+}
+table tr td.warehouse{
+    width: 51px;
+}
+table thead{
+    background-color: rgba(0, 148, 255, 0.36);
+}
+table thead tr td{
+    font-size: 8pt;
+    
+}
+table.table-bordered tbody tr td {
+    border: 1px Solid #BED6F6;
+    padding: 4px 5px 5px;
+    vertical-align: middle;
+}
+table tr td{
+    font-size: 9.5pt;
+}
+table tr td.background-color-F6F6B1 {
+    background-color: #F6F6B1;
+}
+table tr td.background-color-red {
+    background-color: red;
+}
+table tr td.background-color-yellow {
+    background-color: yellow;
+}
