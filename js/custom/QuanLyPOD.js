@@ -198,9 +198,12 @@ function fncClick() {
             "NguoiNhan": $("#input-nguoinhan").val(),
             "SDT": $("#input-sdtkho").val(),
             "SoBU": $("#input-soBU").val(),
+            "ThoiGianNhanHang": $("#input-thoigiannhanhang").val(),
         }
         jsonData = JSON.stringify({ item });
         //$("#div-wait").show();rehangNhapPODTimKiem
+
+        //console.log(jsonData)
         $.ajax({
             type: "POST",
             url: "QuanLyPOD.aspx/InsertUpdateThongTinKho",
@@ -1567,10 +1570,11 @@ function fncThongTinKho() {
             $.each(d, function (key, val) {
                 html_body += "<tr>";
                 html_body += "<td>" + (key + 1) + "</td>";
-                html_body += "<td class=\"text-left\">" + val.DiaChiGiaoHang + "</td>";
-                html_body += "<td class=\"text-left\">" + val.SDT + "</td>";
-                html_body += "<td class=\"text-left\">" + val.NguoiNhan + "</td>";
                 html_body += "<td class=\"text-left\">" + val.SoBU + "</td>";
+                html_body += "<td class=\"text-left\">" + val.DiaChiGiaoHang + "</td>";
+                html_body += "<td class=\"text-left\">" + val.ThoiGianNhanHang +"</td>";
+                html_body += "<td class=\"text-left\">" + val.NguoiNhan + "</td>";
+                html_body += "<td class=\"text-left\">" + val.SDT + "</td>";
                 html_body += "<td><span class=\"span-suakho span-dodgerblue\" IdAttr=\"" + val.Id + "\">Sửa</span> <span class=\"span-xoakho span-red\"  IdAttr=\"" + val.Id + "\">Xóa</span></td>";
                 html_body += "</tr>";
             });

@@ -466,10 +466,11 @@
                         <thead>
                             <tr>
                                 <td>STT</td>
-                                <td>Địa chỉ giao hàng</td>
-                                <td>Số điện thoại</td>
-                                <td>Người nhận</td>
                                 <td>Số BU</td>
+                                <td>Kho giao hàng</td>
+                                <td>Thời gian nhận hàng</td>
+                                <td>Người nhận</td>
+                                <td>Số điện thoại</td>
                                 <td>Chức năng</td>
                             </tr>
                         </thead>
@@ -517,6 +518,13 @@
                             <div class="input-group div-nhanvien-group">
                                 <span class="input-group-addon" id="">Số BU</span>
                                 <input type="text" class="form-control " id="input-soBU" />
+                            </div>
+                        </div>
+
+                         <div class="form-group col-sm-12">
+                            <div class="input-group div-nhanvien-group">
+                                <span class="input-group-addon" id="">Thời gian nhận hàng</span>
+                                <input type="text" class="form-control " id="input-thoigiannhanhang" />
                             </div>
                         </div>
                     </div>
