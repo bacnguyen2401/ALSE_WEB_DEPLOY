@@ -2222,9 +2222,9 @@ function fncClick() {
             }
         }
 
-        console.log(checkIntem)
-        console.log(checkMAWB)
-        console.log(checkDatetime)
+        //console.log(checkIntem)
+        //console.log(checkMAWB)
+        //console.log(checkDatetime)
 
         if (checkIntem) {
             alert("Vui lòng nhập thông tin in tem là 0 hoặc 1 để có cho in tem!");
