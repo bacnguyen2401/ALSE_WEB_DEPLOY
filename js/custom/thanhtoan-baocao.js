@@ -6,7 +6,7 @@
 
 
 function fncClick() {
-    // ngày hiện tại
+    // ngày hiện tại deploy 20/09
     var d_now_20180131 = new Date();
     //>>>>> hàng không
     ///// click nút báo cáo hàng không
