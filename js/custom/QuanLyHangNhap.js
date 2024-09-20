@@ -818,8 +818,21 @@ function fncLoad() {
             var html_DanhSachFWDS = "";
             html_DanhSachFWDS += "<label class=\"checkbox-inline  lable-title\">FWD: </label>";
             html_DanhSachFWDS += "<label class=\"checkbox-inline color-white\"><input type=\"checkbox\" class=\"cb-qll cb-qll-child\" checked id=\"cb-ALL\" value=\"ALL\" />" + "ALL" + "</label>";
+            var count  = 0;
             $.each(d.danhSachFWDs, function (item, val) {
-                html_DanhSachFWDS += "<label class=\"checkbox-inline color-white\"><input type=\"checkbox\" class=\"cb-qll cb-qll-child\" checked id=\"cb-" + val.fwd.replace(".", "-") + "\" value=\"" + val.fwd.replace(".", "-") + "\" />" + val.fwd + "</label>";
+                if (count == 0) {
+                    if (val.fwd == "GTT" || val.fwd == "GTV" || val.fwd == "GTE" || val.fwd == "GTS") {
+                        html_DanhSachFWDS += "<label class=\"checkbox-inline color-white\"><input type=\"checkbox\" class=\"cb-qll cb-qll-child\" checked id=\"cb-GTT\" value=\"GTT\" />GTT</label>";
+                        count++;
+                    } else {
+                        html_DanhSachFWDS += "<label class=\"checkbox-inline color-white\"><input type=\"checkbox\" class=\"cb-qll cb-qll-child\" checked id=\"cb-" + val.fwd.replace(".", "-") + "\" value=\"" + val.fwd.replace(".", "-") + "\" />" + val.fwd + "</label>";
+                    }
+                } else {
+                    if (val.fwd != "GTT" && val.fwd != "GTV" && val.fwd != "GTE" && val.fwd != "GTS") {
+                        html_DanhSachFWDS += "<label class=\"checkbox-inline color-white\"><input type=\"checkbox\" class=\"cb-qll cb-qll-child\" checked id=\"cb-" + val.fwd.replace(".", "-") + "\" value=\"" + val.fwd.replace(".", "-") + "\" />" + val.fwd + "</label>";
+                    }
+                  
+                }
             })
             $("#div-checkbox").append(html_DanhSachFWDS);
 
@@ -1863,227 +1876,35 @@ function fncChanges() {
             }
         } else {
             if (this.checked) {
-                $(".tr-qll-fwd-" + cb_value).show();
-
-                //$("#tbl_ArrivalNotice tbody tr").each(function (index) {
-                //    var attrValueArrivalNotice = $(this).attr("style");
-                //    if (attrValueArrivalNotice != "display: none;") {
-                //        $("#thead-ArrivalNotice").show();
-                //    }
-                //});
-
-                //$("#tbl_DelyvryPlan tbody tr").each(function (index) {
-                //    var attrValueDelyvryPlan = $(this).attr("style");
-                //    if (attrValueDelyvryPlan != "display: none;") {
-                //        $("#thead-DelyvryPlan").show();
-                //    }
-                //});
-
-                //$("#tbl_LoadingOnTruck tbody tr").each(function (index) {
-                //    var attrValueTruckingAlse = $(this).attr("style");
-                //    if (attrValueTruckingAlse != "display: none;") {
-                //        $("#thead-TruckingAlse").show();
-                //    }
-                //});
-
-                //$("#tbl_AlseWarehouse tbody tr").each(function (index) {
-                //    var attrValueAlseWarehouse = $(this).attr("style");
-                //    if (attrValueAlseWarehouse != "display: none;") {
-                //        $("#thead-AlseWarehouse").show();
-                //    }
-                //});
-
-                //$("#tbl_ClearCustom tbody tr").each(function (index) {
-                //    var attrValueClearCustom = $(this).attr("style");
-                //    if (attrValueClearCustom != "display: none;") {
-                //        $("#thead-ClearCustom").show();
-                //    }
-                //});
-
-                //$("#tbl_Delyvering tbody tr").each(function (index) {
-                //    var attrValueDelyvering = $(this).attr("style");
-                //    if (attrValueDelyvering != "display: none;") {
-                //        $("#thead-Delyvering").show();
-                //    }
-                //});
-
-                //$("#tbl_Complete tbody tr").each(function (index) {
-                //    var attrValueComplete = $(this).attr("style");
-                //    if (attrValueComplete != "display: none;") {
-                //        $("#thead-Complete").show();
-                //    }
-                //});
-
-                //$('#tbl_ArrivalNotice [style=""]').removeClass('tr-showhide-ArrivalNotice');
-                //$('#tbl_DelyvryPlan [style=""]').removeClass('tr-showhide-DelyvryPlan');
-                //$('#tbl_LoadingOnTruck [style=""]').removeClass('tr-showhide-TruckingAlse');
-                //$('#tbl_AlseWarehouse [style=""]').removeClass('tr-showhide-AlseWarehouse');
-                //$('#tbl_ClearCustom [style=""]').removeClass('tr-showhide-ClearCustom');
-                //$('#tbl_Delyvering [style=""]').removeClass('tr-showhide-Delyvering');
-                //$('#tbl_Complete [style=""]').removeClass('tr-showhide-Complete');
-
-                //if ($('#tbl_ArrivalNotice tbody tr.tr-showhide-ArrivalNotice').length != $('#tbl_ArrivalNotice tbody tr').length) {
-                //    $("#thead-ArrivalNotice").show();
-                //}
-
-                //if ($('#tbl_DelyvryPlan tbody tr.tr-showhide-DelyvryPlan').length != $('#tbl_DelyvryPlan tbody tr').length) {
-                //    $("#thead-DelyvryPlan").show();
-                //}
-
-                //if ($('#tbl_LoadingOnTruck tbody tr.tr-showhide-TruckingAlse').length != $('#tbl_LoadingOnTruck tbody tr').length) {
-                //    $("#thead-TruckingAlse").show();
-                //}
-
-                //if ($('#tbl_AlseWarehouse tbody tr.tr-showhide-AlseWarehouse').length != $('#tbl_AlseWarehouse tbody tr').length) {
-                //    $("#thead-AlseWarehouse").show();
-                //}
-
-                //if ($('#tbl_ClearCustom tbody tr.tr-showhide-ClearCustom').length != $('#tbl_ClearCustom tbody tr').length) {
-                //    $("#thead-ClearCustom").show();
-                //}
-
-                //if ($('#tbl_Delyvering tbody tr.tr-showhide-Delyvering').length != $('#tbl_Delyvering tbody tr').length) {
-                //    $("#thead-Delyvering").show();
-                //}
-
-                //if ($('#tbl_Complete tbody tr.tr-showhide-Complete').length != $('#tbl_Complete tbody tr').length) {
-                //    $("#thead-Complete").show();
-                //}
-
-                $(".hide-show-table").each(function () {
-                    if ($(this).find("tbody tr[style=\"display: none;\"]").length != $(this).find("tbody tr").length) {
-                        $(this).find("thead").show();
-                    }
-                })
+                if (cb_value == "GTT") {
+                    $(".tr-qll-fwd-GTT").show();
+                    $(".tr-qll-fwd-GTE").show();
+                    $(".tr-qll-fwd-GTS").show();
+                    $(".tr-qll-fwd-GTV").show();
+                } else {
+                    $(".tr-qll-fwd-" + cb_value).show();
+                    $(".hide-show-table").each(function () {
+                        if ($(this).find("tbody tr[style=\"display: none;\"]").length != $(this).find("tbody tr").length) {
+                            $(this).find("thead").show();
+                        }
+                    })
+                }
+              
 
             } else {
-                $(".tr-qll-fwd-" + cb_value).hide();
-
-                //// hide header ArrivalNotice
-
-                //var countDisplayNoneArrivalNotice = 0;
-                //$("#tbl_ArrivalNotice tbody tr").each(function (index) {
-                //    var attrValueArrivalNotice = $(this).attr("style");
-                //    if (attrValueArrivalNotice == "display: none;") {
-                //        countDisplayNoneArrivalNotice++;
-                //    }
-                //    if (countDisplayNoneArrivalNotice == $('#tbl_ArrivalNotice tbody tr').length) {
-                //        $("#thead-ArrivalNotice").hide();
-                //    }
-                //});
-
-                //// hide header tbl_DelyvryPlan
-                //var countDisplayDelyvryPlan = 0;
-                //$("#tbl_DelyvryPlan tbody tr").each(function (index) {
-                //    var attrValueDelyvryPlan = $(this).attr("style");
-                //    if (attrValueDelyvryPlan == "display: none;") {
-                //        countDisplayDelyvryPlan++;
-                //    }
-                //    if (countDisplayDelyvryPlan == $('#tbl_DelyvryPlan tbody tr').length) {
-                //        $("#thead-DelyvryPlan").hide();
-                //    }
-                //});
-
-                //// hide header TruckingAlse
-                //var countDisplayTruckingAlse = 0;
-                //$("#tbl_LoadingOnTruck tbody tr").each(function (index) {
-                //    var attrValueTruckingAlse = $(this).attr("style");
-                //    if (attrValueTruckingAlse == "display: none;") {
-                //        countDisplayTruckingAlse++;
-                //    }
-                //    if (countDisplayTruckingAlse == $('#tbl_LoadingOnTruck tbody tr').length) {
-                //        $("#thead-TruckingAlse").hide();
-                //    }
-                //});
-
-                //// hide header AlseWarehouse
-                //var countDisplaytbl_AlseWarehouse = 0;
-                //$("#tbl_AlseWarehouse tbody tr").each(function (index) {
-                //    var attrValueAlseWarehouse = $(this).attr("style");
-                //    if (attrValueAlseWarehouse == "display: none;") {
-                //        countDisplaytbl_AlseWarehouse++;
-                //    }
-                //    if (countDisplaytbl_AlseWarehouse == $('#tbl_AlseWarehouse tbody tr').length) {
-                //        $("#thead-AlseWarehouse").hide();
-                //    }
-                //});
-                //// hide header ClearCustom
-                //var countDisplayClearCustom = 0;
-                //$("#tbl_ClearCustom tbody tr").each(function (index) {
-                //    var attrValueClearCustom = $(this).attr("style");
-                //    if (attrValueClearCustom == "display: none;") {
-                //        countDisplayClearCustom++;
-                //    }
-                //    if (countDisplayClearCustom == $('#tbl_ClearCustom tbody tr').length) {
-                //        $("#thead-ClearCustom").hide();
-                //    }
-                //});
-
-                //// hide header Delyvering
-                //var countDisplayDelyvering = 0;
-                //$("#tbl_Delyvering tbody tr").each(function (index) {
-                //    var attrValueDelyvering = $(this).attr("style");
-                //    if (attrValueDelyvering == "display: none;") {
-                //        countDisplayDelyvering++;
-                //    }
-                //    if (countDisplayDelyvering == $('#tbl_Delyvering tbody tr').length) {
-                //        $("#thead-Delyvering").hide();
-                //    }
-                //});
-
-                //// hide header Complete
-                //var countDisplayComplete = 0;
-                //$("#tbl_Complete tbody tr").each(function (index) {
-                //    var attrValueComplete = $(this).attr("style");
-                //    if (attrValueComplete == "display: none;") {
-                //        countDisplayComplete++;
-                //    }
-                //    if (countDisplayComplete == $('#tbl_Complete tbody tr').length) {
-                //        $("#thead-Complete").hide();
-                //    }
-                //});
-
-                //$('#tbl_ArrivalNotice [style="display: none;"]').addClass('tr-showhide-ArrivalNotice');
-                //$('#tbl_DelyvryPlan [style="display: none;"]').addClass('tr-showhide-DelyvryPlan');
-                //$('#tbl_LoadingOnTruck [style="display: none;"]').addClass('tr-showhide-TruckingAlse');
-                //$('#tbl_AlseWarehouse [style="display: none;"]').addClass('tr-showhide-AlseWarehouse');
-                //$('#tbl_ClearCustom [style="display: none;"]').addClass('tr-showhide-ClearCustom');
-                //$('#tbl_Delyvering [style="display: none;"]').addClass('tr-showhide-Delyvering');
-                //$('#tbl_Complete [style="display: none;"]').addClass('tr-showhide-Complete');
-
-                //if ($('#tbl_ArrivalNotice tbody tr.tr-showhide-ArrivalNotice').length == $('#tbl_ArrivalNotice tbody tr').length) {
-                //    $("#thead-ArrivalNotice").hide();
-                //}
-
-                //if ($('#tbl_DelyvryPlan tbody tr.tr-showhide-DelyvryPlan').length == $('#tbl_DelyvryPlan tbody tr').length) {
-                //    $("#thead-DelyvryPlan").hide();
-                //}
-
-                //if ($('#tbl_LoadingOnTruck tbody tr.tr-showhide-TruckingAlse').length == $('#tbl_LoadingOnTruck tbody tr').length) {
-                //    $("#thead-TruckingAlse").hide();
-                //}
-
-                //if ($('#tbl_AlseWarehouse tbody tr.tr-showhide-AlseWarehouse').length == $('#tbl_AlseWarehouse tbody tr').length) {
-                //    $("#thead-AlseWarehouse").hide();
-                //}
-
-                //if ($('#tbl_ClearCustom tbody tr.tr-showhide-ClearCustom').length == $('#tbl_ClearCustom tbody tr').length) {
-                //    $("#thead-ClearCustom").hide();
-                //}
-
-                //if ($('#tbl_Delyvering tbody tr.tr-showhide-Delyvering').length == $('#tbl_Delyvering tbody tr').length) {
-                //    $("#thead-Delyvering").hide();
-                //}
-
-                //if ($('#tbl_Complete tbody tr.tr-showhide-Complete').length == $('#tbl_Complete tbody tr').length) {
-                //    $("#thead-Complete").hide();
-                //}
-
-                $(".hide-show-table").each(function () {
-                    if ($(this).find("tbody tr[style=\"display: none;\"]").length == $(this).find("tbody tr").length) {
-                        $(this).find("thead").hide();
-                    }
-                })
+                if (cb_value == "GTT") {
+                    $(".tr-qll-fwd-GTT").hide();
+                    $(".tr-qll-fwd-GTE").hide();
+                    $(".tr-qll-fwd-GTS").hide();
+                    $(".tr-qll-fwd-GTV").hide();
+                } else {
+                    $(".tr-qll-fwd-" + cb_value).hide();
+                    $(".hide-show-table").each(function () {
+                        if ($(this).find("tbody tr[style=\"display: none;\"]").length == $(this).find("tbody tr").length) {
+                            $(this).find("thead").hide();
+                        }
+                    })
+                }
 
             }
         }

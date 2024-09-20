@@ -139,15 +139,15 @@
     <div class="col-sm-12" id="div-checkbox-makho">
         <label class="checkbox-inline  lable-title">WAREHOUSE: </label>
         <label class="checkbox-inline color-white">
-            <input type="checkbox" class="cb-makho" checked id="cb-makho-all" value="ALL" />ALL</label>
+            <input type="checkbox" class="cb-makho" checked="checked" id="cb-makho-all" value="ALL" />ALL</label>
         <label class="checkbox-inline color-white">
-            <input type="checkbox" class="cb-makho cb-makho-child" checked id="cb-makho-ALSC" value="ALSC" />ALSC</label>
+            <input type="checkbox" class="cb-makho cb-makho-child" checked="checked"  id="cb-makho-ALSC" value="ALSC" />ALSC</label>
         <label class="checkbox-inline color-white">
-            <input type="checkbox" class="cb-makho cb-makho-child" checked id="cb-makho-NCTS" value="NCTS" />NCTS</label>
+            <input type="checkbox" class="cb-makho cb-makho-child" checked="checked"  id="cb-makho-NCTS" value="NCTS" />NCTS</label>
         <label class="checkbox-inline color-white">
-            <input type="checkbox" class="cb-makho cb-makho-child" checked id="cb-makho-ACS" value="ACS" />ACS</label>
+            <input type="checkbox" class="cb-makho cb-makho-child" checked="checked"  id="cb-makho-ACS" value="ACS" />ACS</label>
         <label class="checkbox-inline color-white">
-            <input type="checkbox" class="cb-makho cb-makho-child" checked id="cb-makho-CPN" value="CPN" />CPN</label>
+            <input type="checkbox" class="cb-makho cb-makho-child" checked="checked"  id="cb-makho-CPN" value="CPN" />CPN</label>
     </div>
     <%-- <div class="col-sm-12" id="div-checkbox-hq">
         <label class="checkbox-inline  lable-title">SERVICE: </label>
