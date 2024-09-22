@@ -401,7 +401,7 @@ function fncClick() {
         fncLoadTruckPOD();
     });
 
-    // Xuất báo cáo 
+    // Xuất báo cáo sản lượng
     $("#btn-xuatbaocao").click(function () {
         var g_tenfile = "GTTvsGTVBaoCao";
         var ajaxGet3 = { "get1": g_tenfile, "get2": "", "get3": 3 };
