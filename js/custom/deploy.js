@@ -1,4 +1,4 @@
 ﻿$(docment).ready(function () {
-    // deploy 230924 -v1
+    // deploy 230924 -v2
 
 })
