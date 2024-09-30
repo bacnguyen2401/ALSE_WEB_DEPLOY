@@ -13,71 +13,35 @@
 
     <div class="chiho-button margin-bottom-5px">
         <button type="button" class="btn btn-primary btn-chiho-kehoach">Thêm chi hộ</button>
+        <button type="button" class="btn btn-info btn-chiho-kehoach-excel">Thêm chi hộ excel</button>
+        <a href="QuanLyChiHoNCC.aspx" type="button" class="btn btn-success btn-chiho-ncc">Nhà cung cấp</a>
     </div>
 
     <div class="main-chiho-body">
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="tbl-chiho">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>NCU</th>
-                    <th>Loại hình</th>
-                    <th>Ngày CK</th>
-                    <th>Khách hàng</th>
-                    <th>AWB/BILL</th>
-                    <th>Ký hiệu HĐ</th>
-                    <th>Số HĐ</th>
-                    <th>Ngày HĐ</th>
-                    <th>Tên người bán</th>
-                    <th>Số trước thuế</th>
-                    <th>Thành tiền</th>
-                    <th>Check</th>
-                    <th>Ghi chú</th>
-                    <th>Trạng thái DNTT</th>
-                    <th>Trạng thái đối chiếu khách</th>
-                    <th>ID nhập</th>
+                    <td>ID</td>
+                    <td>NCU</td>
+                    <td>Loại hình</td>
+                    <td>Ngày CK</td>
+                    <td>Khách hàng</td>
+                    <td>AWB/BILL</td>
+                    <td>Ký hiệu HĐ</td>
+                    <td>Số HĐ</td>
+                    <td>Ngày HĐ</td>
+                    <td>Tên người bán</td>
+                    <td>Số trước thuế</td>
+                    <td>Thành tiền</td>
+                    <td>Check</td>
+                    <td>Ghi chú</td>
+                    <td>Trạng thái DNTT</td>
+                    <td>Trạng thái đối chiếu khách</td>
+                    <td>ID nhập</td>
+                    <td>Chức năng</td>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>yusen</td>
-                    <td>IMP</td>
-                    <td>9/11/2024</td>
-                    <td></td>
-                    <td>YJP48255104</td>
-                    <td>1K24TNS</td>
-                    <td>00007369</td>
-                    <td>9/11/2024</td>
-                    <td>CÔNG TY TNHH YUSEN LOGISTICS (VIỆT NAM)</td>
-                    <td>Phí chứng từ hàng nhập</td>
-                    <td>915000</td>
-                    <td>988200</td>
-                    <td></td>
-                    <td>0</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <!-- Thêm các hàng dữ liệu khác ở đây, lặp lại cấu trúc <tr>...</tr> -->
-                <tr>
-                    <td>2</td>
-                    <td>kmg</td>
-                    <td></td>
-                    <td>9/11/2024</td>
-                    <td></td>
-                    <td>SEC22407485</td>
-                    <td>1C24THN</td>
-                    <td>00035024</td>
-                    <td>9/12/2024</td>
-                    <td>Công ty TNHH Toàn Cầu Khải Minh</td>
-                    <td>Phí chứng từ hàng nhập</td>
-                    <td>867300</td>
-                    <td>936684</td>
-                    <td></td>
-                    <td>0</td>
-                    <td></td>
-                    <td></td>
-                </tr>
                 <!-- Thêm nhiều hàng hơn theo cách tương tự -->
             </tbody>
         </table>
@@ -106,21 +70,26 @@
                         <div class="row">
                             <div class="form-group col-sm-4">
                                 <div class="input-group div-chiho-group">
-                                    <span class="input-group-addon" id="">NCU</span>
-                                    <input type="text" class="form-control input-sm input-chiho-clear" id="input-chiho-ncu" />
+                                    <span class="input-group-addon" id="">NCC</span>
+                                    <input type="text" class="form-control input-sm input-chiho-clear" id="input-chiho-ncu" list="sltNCC" />
+                                    <datalist class="nobdInput" id="sltNCC">
+                                    </datalist>
                                 </div>
                             </div>
                             <div class="form-group col-sm-4">
                                 <div class="input-group div-chiho-group">
                                     <span class="input-group-addon" id="span-chiho-loaihinh-modify">Loại hình</span>
                                     <select class="form-control input-sm" id="select-chiho-loaihinh">
-                                        <option>Phí chứng từ hàng nhập</option>
+                                        <option value="IMP">IMPORT</option>
+                                        <option value="EXP">EXPORT</option>
+                                        <option value="TRUCK">TRUCK</option>
+                                        <%-- <option>Phí chứng từ hàng nhập</option>
                                         <option>Phí an ninh soi chiếu</option>
                                         <option>Phí nâng hạ</option>
                                         <option>Phí cơ sở hạ tầng</option>
                                         <option>Phí local charge</option>
                                         <option>Phí THC</option>
-                                        <option>Phí lưu kho</option>
+                                        <option>Phí lưu kho</option>--%>
                                     </select>
                                 </div>
                             </div>
@@ -171,13 +140,13 @@
                             <div class="form-group col-sm-4">
                                 <div class="input-group div-chiho-group">
                                     <span class="input-group-addon" id="">Số tiền thuế</span>
-                                    <input type="text" class="form-control input-chiho-clear" id="input-chiho-sotienthue" />
+                                    <input type="text" class="form-control input-thanhtoan-number input-chiho-clear" id="input-chiho-sotienthue" />
                                 </div>
                             </div>
                             <div class="form-group col-sm-4">
                                 <div class="input-group div-chiho-group">
                                     <span class="input-group-addon" id="">Thành tiền</span>
-                                    <input type="text" class="form-control input-chiho-clear" id="input-chiho-thanhtien" />
+                                    <input type="text" class="form-control input-thanhtoan-number input-chiho-clear" id="input-chiho-thanhtien" />
                                 </div>
                             </div>
                         </div>
@@ -188,7 +157,9 @@
                             <div class="form-group col-sm-4">
                                 <div class="input-group div-chiho-group">
                                     <span class="input-group-addon" id="">Khách hàng</span>
-                                    <input type="text" class="form-control input-chiho-clear" id="input-chiho-khachhang" />
+                                    <input type="text" class="form-control input-chiho-clear" id="input-chiho-khachhang" list="sltKhachHang" />
+                                    <datalist class="nobdInput" id="sltKhachHang">
+                                    </datalist>
                                 </div>
                             </div>
                             <div class="form-group col-sm-4">
@@ -234,7 +205,7 @@
                             <div class="form-group col-sm-12">
                                 <div class="input-group div-chiho-group">
                                     <span class="input-group-addon" id="">Ghi Chú</span>
-                                    <input type="text" class="form-control input-chiho-clear" id="input-chiho-ghichu-modify" />
+                                    <input type="text" class="form-control input-chiho-clear" id="input-chiho-ghichu" />
                                 </div>
                             </div>
                         </div>
@@ -242,13 +213,36 @@
                     </div>
                     <%--END Grid--%>
                     <div class="modal-footer">
-
+                        <button type="button" class="btn btn-primary" id="btn-luu-chiho">Lưu</button>
+                        <button type="button" class="btn btn-warning" id="btn-capnhat-chiho" attrid="">Cập nhật</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" id="modalQuanLyChiHoExcel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">THÊM MỚI CHI HỘ</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Đóng</button>
+                        <button type="button" id="btn-chiho-excel-luu" class="btn btn-primary">Lưu</button>
+                    </div>
+                    <div id="spreadsheet" class="spreadsheet-width-auto spreadsheet-height-400"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <%# Versioned.VersionedFiles.ScriptHelper.Render("js","js/custom/QuanLyChiHo.js") %>
 </asp:Content>

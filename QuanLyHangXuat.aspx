@@ -53,7 +53,7 @@
                     <a href="#" class="mani-btn btn btn-info btn-sm" id="update-hawb">Update HAWB</a>
                     <%--<a href="InputExcelBook.aspx" class="mani-btn btn btn-info btn-sm">BOOKING HP</a>--%>
                     <a href="TruyVanHangXuat.aspx" class="mani-btn btn btn-success btn-sm">Truy Vấn Hàng Xuất</a>
-                    <a href="DanhSachDNN.aspx" class="mani-btn btn btn-primary btn-sm">DS DNN</a>
+                    <a href="DanhSachDNN.aspx" class="mani-btn btn btn-primary btn-sm">Tồn Kho</a>
                     <a href="TruyVanDNN.aspx" class="mani-btn btn btn-info btn-sm">Truy Vấn DNN</a>
                     <a href="XemCanDIM.aspx" class="mani-btn btn btn-success btn-sm">Tra Cứu HX</a>
                     <a href="QuanLyKhoHang.aspx" class="mani-btn btn btn-primary btn-sm">Storage</a>
@@ -64,10 +64,10 @@
 
                     <a href="#" class="mani-btn btn btn-info btn-sm" id="abchx">Báo Cáo Sản Lượng</a>
                     <a href="#" class="mani-btn btn btn-success btn-sm" id="btn-chuyenbay">Chuyến bay</a>
-                    <a href="KeHoachDetails.aspx" class="mani-btn btn btn-primary btn-sm">Chi tiết kế hoạch</a>
-                    <a href="#" class="mani-btn btn btn-info btn-sm" id="btn-kehoach-view">Ý nghĩa màu kế hoạch</a>
+                    <a href="KeHoachDetails.aspx" class="mani-btn btn btn-primary btn-sm">Chi Tiết Kế Hoạch</a>
+                    <a href="#" class="mani-btn btn btn-info btn-sm" id="btn-kehoach-view">Ý Nghĩa Màu Kế Hoạch</a>
                     <a href="QuanLyGiaoNhanDOC.aspx" class="mani-btn btn btn-success btn-sm">Giao DOC</a>
-                    <a href="QuanLyInTem.aspx" class="mani-btn btn btn-primary btn-sm">Kế hoạch KUEHNE NAGEL</a>
+                    <a href="QuanLyInTem.aspx" class="mani-btn btn btn-primary btn-sm">Kế Hoạch KUEHNE NAGEL</a>
                 </td>
                 <td></td>
                 <td>
@@ -1062,11 +1062,11 @@
     <%-- Modal Add Mawb--%>
 
     <div class="modal fade" id="modalEditHAWB" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-lx" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Sửa HAWB</h4>
+                    <h4 class="modal-title">CẬP NHẬT THÔNG TIN THAY ĐỔI CHO HAWB</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
