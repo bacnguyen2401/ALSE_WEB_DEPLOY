@@ -169,6 +169,7 @@
                     <th>HAWB</th>
                     <th>PCS</th>
                     <th>G.W</th>
+                    <th>CW</th>
                     <th>FLT</th>
                     <th>FLT.DATE</th>
                     <th>FLT.T</th>
@@ -199,6 +200,7 @@
                     <th>HAWB</th>
                     <th>PCS</th>
                     <th>G.W</th>
+                    <th>CW</th>
                     <th>FLT</th>
                     <th>FLT.DATE</th>
                     <th>FLT.T</th>
@@ -229,6 +231,7 @@
                     <th>HAWB</th>
                     <th>PCS</th>
                     <th>G.W</th>
+                    <th>CW</th>
                     <th>FLT</th>
                     <th>FLT.D</th>
                     <th>FLT.T</th>
@@ -260,6 +263,7 @@
                     <th>HAWB</th>
                     <th>PCS</th>
                     <th>G.W</th>
+                    <th>CW</th>
                     <th>FLT</th>
                     <th>FLT.D</th>
                     <th>FLT.T</th>
@@ -292,6 +296,7 @@
                     <th>HAWB</th>
                     <th>PCS</th>
                     <th>G.W</th>
+                    <th>CW</th>
                     <th>FLT</th>
                     <th>FLT.D</th>
                     <th>FLT.T</th>
@@ -323,6 +328,7 @@
                     <th>HAWB</th>
                     <th>PCS</th>
                     <th>G.W</th>
+                    <th>CW</th>
                     <th>FLT</th>
                     <th>FLT.D</th>
                     <th>FLT.T</th>
@@ -353,6 +359,7 @@
                     <th>HAWB</th>
                     <th>PCS</th>
                     <th>G.W</th>
+                    <th>CW</th>
                     <th>FLT</th>
                     <th>FLT.D</th>
                     <th>FLT.T</th>
@@ -384,6 +391,7 @@
                     <th>HAWB</th>
                     <th>PCS</th>
                     <th>G.W</th>
+                    <th>CW</th>
                     <th>FLT</th>
                     <th>FLT.D</th>
                     <th>FLT.T</th>
@@ -414,6 +422,7 @@
                     <th>HAWB</th>
                     <th>PCS</th>
                     <th>G.W</th>
+                    <th>CW</th>
                     <th>FLT</th>
                     <th>FLT.D</th>
                     <th>FLT.T</th>

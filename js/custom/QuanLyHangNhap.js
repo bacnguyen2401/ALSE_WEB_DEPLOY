@@ -170,6 +170,7 @@ function fncLoad() {
                     html_ArrivalNotice += "<td class=\"td-hawb  " + tomauWH + "\">" + val.HawbArrivalNotice + textHQGS + "</td>";
                     html_ArrivalNotice += "<td class=\"td-pcs\">" + val.SoKienTBArrivalNotice + "</td>";
                     html_ArrivalNotice += "<td class=\"td-cm\">" + val.GMArrivalNotice + "</td>";
+                    html_ArrivalNotice += "<td class=\"td-cm\">" + val.CMArrivalNotice + "</td>";
                     html_ArrivalNotice += "<td class=\"td-flt\">" + val.ChuyenBayTBArrivalNotice + "</td>";
                     html_ArrivalNotice += "<td class=\"td-date fltdate " + tomaucotfltDateTime + "\">" + convertDate(val.NgayGioBayTBArrivalNotice)[1] + "</td>";
                     html_ArrivalNotice += "<td class=\"td-time flttime " + tomaucotfltDateTime + "\">" + (convertDate(val.NgayGioBayTBArrivalNotice)[3] == "00:00" ? "" : convertDate(val.NgayGioBayTBArrivalNotice)[3]) + "</td>";
@@ -261,6 +262,7 @@ function fncLoad() {
                     html_DelyvryPlan += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\">" + val.HawbDelyveryPlan + textHQGS + "</td>";
                     html_DelyvryPlan += "<td class=\"td-pcs\">" + val.SoKienTBDelyveryPlan + "</td>";
                     html_DelyvryPlan += "<td class=\"td-cm\">" + val.GMDelyveryPlan + "</td>";
+                    html_DelyvryPlan += "<td class=\"td-cm\">" + val.CMDelyveryPlan + "</td>";
                     html_DelyvryPlan += "<td class=\"td-flt\">" + val.ChuyenBayTBDelyveryPlan + "</td>";
                     html_DelyvryPlan += "<td class=\"td-date fltdate " + tomaucotFLTdt + "\">" + convertDate(val.NgayGioBayTBDelyveryPlan)[1] + "</td>";
                     html_DelyvryPlan += "<td class=\"td-time flttime " + tomaucotFLTdt + "\">" + (convertDate(val.NgayGioBayTBDelyveryPlan)[3] == "00:00" ? "" : convertDate(val.NgayGioBayTBDelyveryPlan)[3]) + "</td>";
@@ -321,6 +323,7 @@ function fncLoad() {
                     html_CargoReady += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\">" + val.HawbCargoReady + textHQGS + "</span>" + "</td>";
                     html_CargoReady += "<td class=\"td-pcs\">" + val.SoKienTBCargoReady + "</td>";
                     html_CargoReady += "<td class=\"td-cm\">" + val.GMCargoReady + "</td>";
+                    html_CargoReady += "<td class=\"td-cm\">" + val.CMCargoReady + "</td>";
                     html_CargoReady += "<td class=\"td-flt\">" + val.ChuyenBayTBCargoReady + "</td>";
                     html_CargoReady += "<td class=\"td-date\">" + convertDate(val.NgayGioBayTBCargoReady)[1] + "</td>";
                     html_CargoReady += "<td class=\"td-time\">" + (convertDate(val.NgayGioBayTBCargoReady)[3] == "00:00" ? "" : convertDate(val.NgayGioBayTBCargoReady)[3]) + "</td>";
@@ -381,6 +384,7 @@ function fncLoad() {
                     html_LoadingOnTruck += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\">" + val.HawbLoadingOnTruck + textHQGS + "</td>";
                     html_LoadingOnTruck += "<td class=\"td-pcs\">" + val.SoKienTBLoadingOnTruck + "</td>";
                     html_LoadingOnTruck += "<td class=\"td-cm\">" + val.GMLoadingOnTruck + "</td>";
+                    html_LoadingOnTruck += "<td class=\"td-cm\">" + val.CMLoadingOnTruck + "</td>";
                     html_LoadingOnTruck += "<td class=\"td-flt\">" + val.ChuyenBayTBLoadingOnTruck + "</td>";
                     html_LoadingOnTruck += "<td class=\"td-date\">" + convertDate(val.NgayGioBayTBLoadingOnTruck)[1] + "</td>";
                     html_LoadingOnTruck += "<td class=\"td-time\">" + (convertDate(val.NgayGioBayTBLoadingOnTruck)[3] == "00:00" ? "" : convertDate(val.NgayGioBayTBLoadingOnTruck)[3]) + "</td>";
@@ -441,6 +445,7 @@ function fncLoad() {
                     html_TruckingAlse += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\">" + val.HawbTruckingALSE + textHQGS + "</td>";
                     html_TruckingAlse += "<td class=\"td-pcs\">" + val.SoKienTBTruckingALSE + "</td>";
                     html_TruckingAlse += "<td class=\"td-cm\">" + val.GMTruckingALSE + "</td>";
+                    html_TruckingAlse += "<td class=\"td-cm\">" + val.CMTruckingALSE + "</td>";
                     html_TruckingAlse += "<td class=\"td-flt\">" + val.ChuyenBayTBTruckingALSE + "</td>";
                     html_TruckingAlse += "<td class=\"td-date\">" + convertDate(val.NgayGioBayTBTruckingALSE)[1] + "</td>";
                     html_TruckingAlse += "<td class=\"td-time\">" + (convertDate(val.NgayGioBayTBTruckingALSE)[3] == "00:00" ? "" : convertDate(val.NgayGioBayTBTruckingALSE)[3]) + "</td>";
@@ -611,6 +616,7 @@ function fncLoad() {
                     html_ClearCustom += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\">" + val.HawbClearCustom + textHQGS + "</span>" + "</td>";
                     html_ClearCustom += "<td class=\"td-pcs\">" + val.SoKienThucClearCustom + "</td>";
                     html_ClearCustom += "<td class=\"td-cm\">" + val.SoCanThucClearCustom + "</td>";
+                    html_ClearCustom += "<td class=\"td-cm\">" + val.CW + "</td>";
                     html_ClearCustom += "<td class=\"td-flt\">" + val.ChuyenBayTTClearCustom + "</td>";
                     html_ClearCustom += "<td class=\"td-date ngaybaytt\">" + convertDate(val.NgayGioBayTTClearCustom)[1] + "</td>";
                     html_ClearCustom += "<td class=\"td-time giobaytt\">" + (convertDate(val.NgayGioBayTTClearCustom)[3] == "00:00" ? "" : convertDate(val.NgayGioBayTTClearCustom)[3]) + "</td>";
@@ -698,6 +704,7 @@ function fncLoad() {
                     html_Delyvering += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\">" + val.HawbDelyvering + textHQGS + "</td>";
                     html_Delyvering += "<td class=\"td-pcs\">" + val.SoKienThucDelyvering + "</td>";
                     html_Delyvering += "<td class=\"td-cm\">" + val.SoCanThucDelyvering + "</td>";
+                    html_Delyvering += "<td class=\"td-cm\">" + val.CW + "</td>";
                     html_Delyvering += "<td class=\"td-flt\">" + val.ChuyenBayTTDelyvering + "</td>";
                     html_Delyvering += "<td class=\"td-date ngaybaytt\">" + convertDate(val.NgayGioBayTTDelyvering)[1] + "</td>";
                     html_Delyvering += "<td class=\"td-time giobaytt\">" + (convertDate(val.NgayGioBayTTDelyvering)[3] == "00:00" ? "" : convertDate(val.NgayGioBayTTDelyvering)[3]) + "</td>";
@@ -789,6 +796,7 @@ function fncLoad() {
                     html_Complete += "<td class=\"td-hawb " + tomauMAWBHAWB + " font-weight-css  " + tomauWH + "\">" + val.HawbComplete + textHQGS + "</td>";
                     html_Complete += "<td class=\"td-pcs\">" + val.SoKienThucComplete + "</td>";
                     html_Complete += "<td class=\"td-cm\">" + val.SoCanThucComplete + "</td>";
+                    html_Complete += "<td class=\"td-cm\">" + val.CW + "</td>";
                     html_Complete += "<td class=\"td-flt\">" + val.ChuyenBayTTComplete + "</td>";
                     html_Complete += "<td class=\"td-date ngaybaytt\">" + convertDate(val.NgayGioBayTTComplete)[1] + "</td>";
                     html_Complete += "<td class=\"td-time giobaytt\">" + (convertDate(val.NgayGioBayTTComplete)[3] == "00:00" ? "" : convertDate(val.NgayGioBayTTComplete)[3]) + "</td>";
