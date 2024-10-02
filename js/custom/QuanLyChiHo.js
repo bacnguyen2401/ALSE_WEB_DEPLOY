@@ -6,6 +6,7 @@ var ajaxGet3;
 var html_option;
 var chiHo;
 var arrayNCC;
+var mawbhawb;
 $(document).ready(function () {
     fncLoad();
     fncClick();
@@ -14,6 +15,8 @@ $(document).ready(function () {
 
     // load ncc
     loadNCC();
+    // load mawb hawb
+    reMawbHawb();
 });
 
 function fncLoad() {
@@ -44,7 +47,7 @@ function fncLoad() {
                 html_body += "<td>" + val.SoHD + "</td>";
                 html_body += "<td>" + convertDate(val.NgayHD)[1] + "</td>";
                 html_body += "<td>" + val.TenNguoiBan + "</td>";
-                //html_body += "<td>" + val.PhiChungTuNhap + "</td>";
+                html_body += "<td>" + val.PhiChungTuNhap + "</td>";
                 html_body += "<td>" + fncTachPhanNghin(val.SoTruocThue) + "đ" + "</td>";
                 html_body += "<td>" + fncTachPhanNghin(val.ThanhTien) + "đ" + "</td>";
                 html_body += "<td>" + val.Check_ChiHo + "</td>";
@@ -359,7 +362,7 @@ function fncClick() {
     });
 
     $("#tbl-chiho").on("click", ".btn-chiho-sua", function () {
-        $("#myModalViewChiHo").modal("show");
+        $("#myModalViewChiHo").modal({ backdrop: 'static' }, "show");
         $("#btn-capnhat-chiho").attr("attrid", $(this).attr("attrID"))
         $("#h4-chiho-view-tieude").empty().append("Cập nhật chi hộ");
         $("#btn-luu-chiho").hide();
@@ -406,7 +409,7 @@ function fncClick() {
     });
 
     $(".btn-chiho-kehoach").click(function () {
-        $("#myModalViewChiHo").modal("show");
+        $("#myModalViewChiHo").modal({ backdrop: 'static' }, "show");
         $("#h4-chiho-view-tieude").empty().append("Thêm mới chi hộ");
         $("#btn-luu-chiho").show();
         $("#btn-capnhat-chiho").hide();
@@ -420,6 +423,31 @@ function fncClick() {
 }
 
 function fncChange() {
+
+    $("#myModalViewChiHo").on("change", "#select-chiho-loaihinh", function () {
+        var cb_value = $(this).val();
+        $("#input-chiho-awbbill").val("");
+        if (cb_value == "IMP") {
+            html_option = "<option value=\"\"></option>"
+            $.each(mawbhawb.hawbChiHos, function (key, val) {
+                html_option += "<option value=\"" + val.HAWB + "\">" + val.HAWB + "</option>"
+            });
+            $("#sltawb").empty().append(html_option);
+        }
+
+        if (cb_value == "EXP") {
+            html_option = "<option value=\"\"></option>"
+            $.each(mawbhawb.mawbChiHos, function (key, val) {
+                html_option += "<option value=\"" + val.SoMAWB + "\">" + val.SoMAWB + "</option>"
+            });
+            $("#sltawb").empty().append(html_option);
+        }
+
+        if (cb_value == "TRUCK") {
+            $("#sltawb").empty();
+        }
+    })
+
     $("#myModalViewChiHo").on("change", "#input-chiho-ncu", function () {
         if ($(this).val() === "") {
             $("#input-chiho-kihieuhd").val("");
@@ -511,6 +539,34 @@ function loadKH() {
     });
 }
 
+function reMawbHawb() {
+    ajaxGet = { "get": "" };
+    jsonData = JSON.stringify({ ajaxGet });
+
+    $.ajax({
+        type: "POST",
+        url: "QuanLyChiHo.aspx/reMawbHawb",
+        data: jsonData,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        success: function (responsive) {
+            d = responsive.d;
+            console.log(d);
+            mawbhawb = d;
+            //html_option = "<option value=\"\"></option>"
+            //$.each(d, function (key, val) {
+            //    html_option += "<option value=\"" + val.KhachHang + "\">" + val.KhachHang + "</option>"
+            //});
+            //$("#sltKhachHang").empty().append(html_option);
+        },
+        error: function (responsive) {
+            alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
+        }
+
+    });
+}
+
 function fncLoadOrigin(input) {
     // BEGIN AJAX LOAD
     //TODO 1.
@@ -551,7 +607,7 @@ function InsertUpdateChiHo(Id) {
         "SoHD": $("#input-chiho-sohd").val(),
         "NgayHD": dmy2ymd($("#input-chiho-ngayhd").val()),
         "TenNguoiBan": $("#input-chiho-tennguoiban").val(),
-        "PhiChungTuNhap": "",
+        "PhiChungTuNhap": $("#input-chiho-phichungtunhap").val(),
         "SoTruocThue": $("#input-chiho-sotienthue").val().replace(/,/g, ""),
         "ThanhTien": $("#input-chiho-thanhtien").val().replace(/,/g, ""),
         "HoaDonKhach": $("#input-chiho-tt-dck").val(),

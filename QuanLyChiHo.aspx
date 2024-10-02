@@ -31,6 +31,7 @@
                     <td>Số HĐ</td>
                     <td>Ngày HĐ</td>
                     <td>Tên người bán</td>
+                    <td>Phí chứng từ</td>
                     <td>Số trước thuế</td>
                     <td>Thành tiền</td>
                     <td>Check</td>
@@ -66,6 +67,24 @@
 
                     <%--Grid--%>
                     <div class="grid">
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <div class="input-group div-chiho-group">
+                                    <span class="input-group-addon" id="">Tên phí</span>
+                                    <input type="text" class="form-control input-sm input-chiho-clear" id="input-chiho-phichungtunhap" list="sltphichungtu" />
+                                    <datalist class="nobdInput" id="sltphichungtu">
+                                        <option value="Phí chứng từ hàng nhập">Phí chứng từ hàng nhập</option>
+                                        <option value="Phí an ninh soi chiếu">Phí an ninh soi chiếu</option>
+                                        <option value="Phí nâng hạ">Phí nâng hạ</option>
+                                        <option value="Phí cơ sở hạ tầng">Phí cơ sở hạ tầng</option>
+                                        <option value="Phí Local charge">Phí Local charge</option>
+                                        <option value="Phí THC">Phí THC</option>
+                                        <option value="Phí Lưu kho">Phí Lưu kho</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+
                         <%--NCU, loại hình , ngày chuyển khoản--%>
                         <div class="row">
                             <div class="form-group col-sm-4">
@@ -80,6 +99,7 @@
                                 <div class="input-group div-chiho-group">
                                     <span class="input-group-addon" id="span-chiho-loaihinh-modify">Loại hình</span>
                                     <select class="form-control input-sm" id="select-chiho-loaihinh">
+                                        <option value=""></option>
                                         <option value="IMP">IMPORT</option>
                                         <option value="EXP">EXPORT</option>
                                         <option value="TRUCK">TRUCK</option>
@@ -165,7 +185,9 @@
                             <div class="form-group col-sm-4">
                                 <div class="input-group div-chiho-group">
                                     <span class="input-group-addon" id="">AWB/BILL</span>
-                                    <input type="text" class="form-control input-chiho-clear" id="input-chiho-awbbill" />
+                                    <input type="text" class="form-control input-chiho-clear" id="input-chiho-awbbill" list="sltawb"/>
+                                    <datalist class="nobdInput" id="sltawb">
+                                    </datalist>
                                 </div>
                             </div>
                             <div class="form-group col-sm-4">
