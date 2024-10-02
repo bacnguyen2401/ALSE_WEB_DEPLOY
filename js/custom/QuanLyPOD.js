@@ -575,35 +575,36 @@ function fncClick() {
                 alert("Số INVOICE " + cell_Invoice + " chưa được cập nhật vui lòng kiểm tra lại")
                 checkTMS = false;
             } else {
-                if (DiaChiArr.indexOf(cell_DiaChi.toString().trim().replace(/ /g, '')) == -1 || SoBuArr.indexOf(cell_BU.toString().trim().replace(/ /g, '')) == -1) {
-                    alert("Địa chỉ " + cell_DiaChi + " hoặc Số BU " + cell_BU + " không có trong kho hàng vui lòng kiểm tra lại.");
-                    checkTMS = false;
-                } else {
-                    DataInputInsert.push(
-                        {
-                            "ID": ""
-                            , "SoKien": ""
-                            , "INVOICE": String(cell_Invoice).trim().replace(/ /g, '')
-                            , "NgayGioGiao": ""
-                            , "DiaChiGiaoHang": String(cell_DiaChi).trim().replace(/ /g, '')
-                            , "NguoiNhanHang": ""
-                            , "SoDienThoaiNguoiNhan": ""
-                            , "SoBU": String(cell_BU).trim().replace(/ /g, '')
-                            , "REMARK": String(cell_Ghichu).trim().replace(/ /g, '')
-                            , "HienThi": ""
-                            , "NguoiTao": ""
-                            , "NgayTao": ""
-                            , "NguoiSua": ""
-                            , "NgaySua": ""
-                            , "SoTMS": String(cell_tms).trim().replace(/ /g, '')
-                            , "SoPOD": ""
-                            , "DonDieuPhoi": ""
-                            , "TaiTrong": ""
-                            , "GW": ""
-                            , "CBM": ""
+                //if (DiaChiArr.indexOf(cell_DiaChi.toString().trim().replace(/ /g, '')) == -1 || SoBuArr.indexOf(cell_BU.toString().trim().replace(/ /g, '')) == -1) {
+                //    alert("Địa chỉ " + cell_DiaChi + " hoặc Số BU " + cell_BU + " không có trong kho hàng vui lòng kiểm tra lại.");
+                //    checkTMS = false;
+                //} else {
+                // A Quyết bảo bỏ check địa chỉ và BU
+                DataInputInsert.push(
+                    {
+                        "ID": ""
+                        , "SoKien": ""
+                        , "INVOICE": String(cell_Invoice).trim().replace(/ /g, '')
+                        , "NgayGioGiao": ""
+                        , "DiaChiGiaoHang": String(cell_DiaChi).trim().replace(/ /g, '')
+                        , "NguoiNhanHang": ""
+                        , "SoDienThoaiNguoiNhan": ""
+                        , "SoBU": String(cell_BU).trim().replace(/ /g, '')
+                        , "REMARK": String(cell_Ghichu).trim().replace(/ /g, '')
+                        , "HienThi": ""
+                        , "NguoiTao": ""
+                        , "NgayTao": ""
+                        , "NguoiSua": ""
+                        , "NgaySua": ""
+                        , "SoTMS": String(cell_tms).trim().replace(/ /g, '')
+                        , "SoPOD": ""
+                        , "DonDieuPhoi": ""
+                        , "TaiTrong": ""
+                        , "GW": ""
+                        , "CBM": ""
 
-                        });
-                }
+                    });
+                //}
             }
         });
 
@@ -1572,7 +1573,7 @@ function fncThongTinKho() {
                 html_body += "<td>" + (key + 1) + "</td>";
                 html_body += "<td class=\"text-left\">" + val.SoBU + "</td>";
                 html_body += "<td class=\"text-left\">" + val.DiaChiGiaoHang + "</td>";
-                html_body += "<td class=\"text-left\">" + val.ThoiGianNhanHang +"</td>";
+                html_body += "<td class=\"text-left\">" + val.ThoiGianNhanHang + "</td>";
                 html_body += "<td class=\"text-left\">" + val.NguoiNhan + "</td>";
                 html_body += "<td class=\"text-left\">" + val.SDT + "</td>";
                 html_body += "<td><span class=\"span-suakho span-dodgerblue\" IdAttr=\"" + val.Id + "\">Sửa</span> <span class=\"span-xoakho span-red\"  IdAttr=\"" + val.Id + "\">Xóa</span></td>";
