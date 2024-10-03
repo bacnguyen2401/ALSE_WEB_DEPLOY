@@ -522,6 +522,7 @@ function fncLoad() {
                     if (val.MaKho == "") {
                         tomauWH = "tomauWH";
                     }
+                    // thêm cw
                     html_AlseWarehouse += "<tr class=\"tr-qll-view tr-makho-view tr-qll-fwd-" + val.FWDSAlseWarehouse.replace(".", "-") + " tr-makho-" + val.MaKho + " tr-hqgs-" + val.DVHQ_NBA + " tr-do-" + val.DO + "\">";
                     html_AlseWarehouse += "<td class=\"td-no\">" + (item + 1) + "</td>";
                     html_AlseWarehouse += "<td class=\"td-img\" attrMAWB=\"" + val.MawbAlseWarehouse + "\"  attrHAWB=\"" + val.HawbAlseWarehouse + "\" attrSoKien=\"" + val.SoKienThucAlseWarehouse + "\">" + "<img src=\"images/alsewh.png\"  />" + "</td>";
