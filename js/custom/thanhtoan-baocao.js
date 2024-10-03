@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
-    
+
     fncClick();
-   
+
 });
 
 
@@ -12,7 +12,7 @@ function fncClick() {
     ///// click nút báo cáo hàng không
     $("#baocao-hangkhong").click(function () {
         // Load khách hàng
-      
+
         //
         $(".div-thanhtoan-deltail").hide();
         $("#div-detail-hangkhong").show();
@@ -79,15 +79,15 @@ function fncClick() {
         LoadHangThuongCustomersList();
         var x = document.getElementById("select-hangthuong-khachhang");
         x.remove(0);
-       
-       
+
+
         //
         $(".div-thanhtoan-deltail").hide();
         $("#div-detail-hangthuong").show();
         $("#input-baocao-hangthuong-tu-ngay").datepicker("setDate", new Date(d_now_20180131.getFullYear(), d_now_20180131.getMonth(), 1));
         $("#input-baocao-hangthuong-den-ngay").datepicker("setDate", new Date(d_now_20180131.getFullYear(), d_now_20180131.getMonth() + 1, 0));
         $("#input-baocao-hangthuong-tenfile").val($("#select-hangthuong-khachhang").val() + "_" + convertDate($("#input-baocao-hangthuong-tu-ngay").datepicker("getDate"))[8] + "_to_" + convertDate($("#input-baocao-hangthuong-den-ngay").datepicker("getDate"))[8]);
-    })    
+    })
     ///// click nút tạo báo cáo hàng thường
     $("#btn-baocao-hangthuong-taobaocao").click(function () {
         // $("#span-text-taobaocao").show();
@@ -140,7 +140,7 @@ function fncClick() {
 
     /// DGR
     $("#baocao-dgr").click(function () {
-        
+
         $(".div-thanhtoan-deltail").hide();
         $("#div-detail-dgr").show();
         $("#input-baocao-dgr-tu-ngay").datepicker("setDate", new Date(d_now_20180131.getFullYear(), d_now_20180131.getMonth(), 1));
@@ -190,8 +190,8 @@ function fncClick() {
     /// LOGISTICS   
     ///// click nút dịch vụ logistics
     $("#baocao-logistics").click(function () {
-       
-     
+
+
         $(".div-thanhtoan-deltail").hide();
         $("#div-detail-logistics").show();
         $("#input-baocao-logistics-tu-ngay").datepicker("setDate", new Date(d_now_20180131.getFullYear(), d_now_20180131.getMonth(), 1));
@@ -223,11 +223,11 @@ function fncClick() {
             data: jsonData,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            async: false,           
+            async: false,
             success: function (responsive) {
                 d = responsive.d;
                 //console.log(d);
-               window.open("../DownloadFile.aspx?Root=ThanhToan&Folder=BAOCAO&FileName=" + g_tenfile + ".xlsx");
+                window.open("../DownloadFile.aspx?Root=ThanhToan&Folder=BAOCAO&FileName=" + g_tenfile + ".xlsx");
             },
             error: function (request, status, error) {
                 console.log(request.responseText);
@@ -238,7 +238,7 @@ function fncClick() {
 
         });
     })
-   
+
     $("#div-detail-logistics").on("change", ".logistics-data-change", function () {
         $("#input-baocao-logistics-tenfile").val($("#select-logistics-khachhang").val() + "_" + convertDate($("#input-baocao-logistics-tu-ngay").datepicker("getDate"))[8] + "_to_" + convertDate($("#input-baocao-logistics-den-ngay").datepicker("getDate"))[8]);
     })
@@ -256,6 +256,8 @@ function fncClick() {
         //fncNhaCungCapVanTai();
 
     })
+
+
     ///// click button kiết xuất bản kê logistic
     $("#btn-baocao-chitietvantai-taobaocao").click(function () {
         var g_tungay = dmy2ymd($("#input-baocao-chitietvantai-tu-ngay").val());
@@ -299,13 +301,76 @@ function fncClick() {
     })
 
     $("#div-detail-chitietvantai").on("change", ".chitietvantai-data-change", function () {
-        $("#input-baocao-chitietvantai-tenfile").val("BC_KIEMSOATVANTAI_" + $("#select-chitietvantai-dichvu").val() + "_" + $("#select-chitietvantai-nhacungcap").val()  + "_" + convertDate($("#input-baocao-chitietvantai-tu-ngay").datepicker("getDate"))[8] + "_to_" + convertDate($("#input-baocao-chitietvantai-den-ngay").datepicker("getDate"))[8]);
+        $("#input-baocao-chitietvantai-tenfile").val("BC_KIEMSOATVANTAI_" + $("#select-chitietvantai-dichvu").val() + "_" + $("#select-chitietvantai-nhacungcap").val() + "_" + convertDate($("#input-baocao-chitietvantai-tu-ngay").datepicker("getDate"))[8] + "_to_" + convertDate($("#input-baocao-chitietvantai-den-ngay").datepicker("getDate"))[8]);
     })
     /// END  CHI TIẾT VẬN TẢI
+
+    /// CHI TIẾT TÍNH CHARGEWEIGHT
+    ///// click nút dịch vụ Chargeweight
+    $("#baocao-chitietcw").click(function () {
+
+
+        $(".div-thanhtoan-deltail").hide();
+        $("#div-detail-chitietcw").show();
+        $("#input-baocao-chitietcw-tu-ngay").datepicker("setDate", new Date(d_now_20180131.getFullYear(), d_now_20180131.getMonth(), 1));
+        $("#input-baocao-chitietcw-den-ngay").datepicker("setDate", new Date(d_now_20180131.getFullYear(), d_now_20180131.getMonth() + 1, 0));
+        $("#input-baocao-chitietcw-tenfile").val("CHITIETCW_" + $("#select-chitietcw-cargoterminal").val() + "_" + $("#select-chitietcw-fwd").val() + "_" + convertDate($("#input-baocao-chitietcw-tu-ngay").datepicker("getDate"))[8] + "_to_" + convertDate($("#input-baocao-chitietcw-den-ngay").datepicker("getDate"))[8]);
+
+        fncLoadFWD();
+    })
+
+    $("#div-detail-chitietcw").on("change", ".chitietcw-data-change", function () {
+        $("#input-baocao-chitietcw-tenfile").val("CHITIETCW_" + $("#select-chitietcw-cargoterminal").val() + "_" + $("#select-chitietcw-fwd").val() + "_" + convertDate($("#input-baocao-chitietcw-tu-ngay").datepicker("getDate"))[8] + "_to_" + convertDate($("#input-baocao-chitietcw-den-ngay").datepicker("getDate"))[8]);
+    })
+
+       ///// click button kiết xuất bản kê chargeweight
+    $("#btn-baocao-chitietcw-taobaocao").click(function () {
+        //dmy2ymd()
+        var g_tungay = $("#input-baocao-chitietcw-tu-ngay").val();
+        var g_denngay = $("#input-baocao-chitietcw-den-ngay").val();
+        var g_tenfile = $("#input-baocao-chitietcw-tenfile").val().trim();
+        var g_cargoterminal = $("#select-chitietcw-cargoterminal").val();
+        var g_FWD = $("#select-chitietcw-fwd").val();
+        var g_duyetsli = $("#select-chitietcw-duyetsli").val();
+        if (g_tungay == "" || g_denngay == "") {
+            Swal.fire({
+                title: "Ngày báo cáo không được trống!",
+                text: "",
+                type: 'error',
+
+            })
+            return false;
+        }
+        //console.log("fire");
+        // load dữ liệu
+        var ajaxGet6 = { "get1": g_tungay, "get2": g_denngay, "get3": g_cargoterminal, "get4": g_FWD, "get5": g_duyetsli, "get6": g_tenfile };
+        jsonData = JSON.stringify({ ajaxGet6 });
+        $.ajax({
+            type: "POST",
+            url: "/ThanhToan/BaoCao.aspx/ReBaoCaoChargeWeight",
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                d = responsive.d;
+                //console.log(d);
+                window.open("../DownloadFile.aspx?Root=ThanhToan&Folder=BAOCAO&FileName=" + g_tenfile + ".xlsx");
+            },
+            error: function (request, status, error) {
+                console.log(request.responseText);
+            }
+        }).done(function () {
+
+
+
+        });
+    })
+    ///END CHI TIẾT TÍNH CHARGEWEIGHT
 }
 
 function LoadHangThuongCustomersList() {
-   
+
     ajaxGet = { "get": "" };
     jsonData = JSON.stringify({ ajaxGet });
     $.ajax({
@@ -319,7 +384,7 @@ function LoadHangThuongCustomersList() {
             d = responsive.d;
 
             if (d != null && d.length > 0) {
-               
+
                 var customersList = "";
 
                 customersList += "<option value=" + "ALL" + ">" + "ALL" + "</option>";
@@ -329,13 +394,40 @@ function LoadHangThuongCustomersList() {
                 });
                 $("#select-hangthuong-khachhang").empty();
                 $("#select-hangthuong-khachhang").append(customersList);
-            } 
+            }
         },
         error: function () {
             alert("Có lỗi xảy ra! Vui lòng F5(Refresh)");
         }
     }).done(function () {
-       // //$("#div-wait").hide();
+        // //$("#div-wait").hide();
+    });
+}
+
+function fncLoadFWD() {
+    ajaxGet = { "get": "" };
+    jsonData = JSON.stringify({ ajaxGet });
+    $.ajax({
+        type: "POST",
+        url: "BaoCao.aspx/reFWDChargeWeght",
+        data: jsonData,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        success: function (responsive) {
+            d = responsive.d;
+
+            var html_option = "<option value=\"\"></option>"
+            $.each(d, function (key, val) {
+                html_option += "<option value=\"" + val.FWD + "\">" + val.FWD + "</option>"
+            });
+            $("#dataFWD").empty().append(html_option);
+        },
+        error: function () {
+            alert("Có lỗi xảy ra! Vui lòng F5(Refresh)");
+        }
+    }).done(function () {
+        // //$("#div-wait").hide();
     });
 }
 

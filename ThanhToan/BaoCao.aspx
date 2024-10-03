@@ -10,6 +10,7 @@
         <input type="button" id="baocao-dgr" class="btn btn-sm btn-success" value="3. Dịch vụ khai báo DGR" />
         <input type="button" id="baocao-logistics" class="btn btn-sm btn-danger" value="4. Dịch vụ Logistics" />
         <input type="button" id="baocao-chitietvantai" class="btn btn-sm btn-primary" value="5. Bảng kê chi tiết vận tải" />
+        <input type="button" id="baocao-chitietcw" class="btn btn-sm btn-warning" value="6. Bảng kê chi tiết tính Chargeweight" />
     </div>
     <div class="div-thanhtoan-deltail" id="div-detail-hangkhong">
         <h2>XUẤT BÁO CÁO HÀNG KHÔNG</h2>
@@ -312,6 +313,83 @@
         </div>
         <div>
             <table class="table table-bordered" id="tbl-danhsach-baocao-chitietvantai">
+                <thead>
+                    <tr>
+                        <td>STT</td>
+                        <td>Báo cáo</td>
+                        <td>Người tạo</td>
+                        <td>Ngày tạo</td>
+                        <td>Tùy chọn</td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="div-thanhtoan-deltail" id="div-detail-chitietcw">
+        <h2>BẢNG KÊ CHI TIẾT TÍNH CHARGEWEIGHT</h2>
+        <div class="row ">
+            <div class="form-group col-sm-3">
+                <div class="input-group div-thanhtoan-baocao-group width-170px ">
+                    <span class="input-group-addon" id="">Từ ngày</span>
+                    <input type="text" class="form-control input-sm input-baocao-chitietvantai-ngay datepicker input-thanhtoan-baocao-clear chitietcw-data-change" id="input-baocao-chitietcw-tu-ngay" />
+                </div>
+            </div>
+            <div class="form-group col-sm-3">
+                <div class="input-group div-thanhtoan-baocao-group width-170px">
+                    <span class="input-group-addon" id="">Đến ngày</span>
+                    <input type="text" class="form-control input-sm input-baocao-chitietvantai-ngay  datepicker input-thanhtoan-baocao-clear chitietcw-data-change" id="input-baocao-chitietcw-den-ngay" />
+                </div>
+            </div>
+            <div class="form-group col-sm-2 has-success">
+                <div class="input-group div-thanhtoan-baocao-group">
+                    <span class="input-group-addon" id="">Cargo terminal</span>
+                    <select id="select-chitietcw-cargoterminal" class="form-control input-sm chitietcw-data-change">
+                        <option value=""></option>
+                        <option value="ALSC">1. ALSC</option>
+                        <option value="EXP">2. NCTS</option>
+                        <option value="NWH">3. ACS</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-sm-2 has-success">
+                <div class="input-group div-thanhtoan-baocao-group">
+                    <span class="input-group-addon" id="">FWD</span>
+                    <input id="select-chitietcw-fwd" class="form-control input-sm chitietcw-data-change" list="dataFWD"  />
+                    <datalist class="nobdInput" id="dataFWD">
+                    </datalist>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-2 has-success">
+                <div class="input-group div-thanhtoan-baocao-group">
+                    <span class="input-group-addon" id="">Duyệt SLI</span>
+                    <select id="select-chitietcw-duyetsli" class="form-control input-sm chitietcw-data-change">
+                        <option value="99">1. Tất cả</option>
+                        <option selected value="1">1. Đã duyệt</option>
+                        <option value="0">2. Chưa duyệt</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="row ">
+            <div class="form-group col-sm-6">
+                <div class="input-group div-thanhtoan-baocao-group">
+                    <span class="input-group-addon" id="">Tên file</span>
+                    <input type="text" class="form-control input-sm input-baocao-chitietvantai-ngay input-thanhtoan-baocao-clear" value="BC_CHITIETCW_" id="input-baocao-chitietcw-tenfile" />
+                </div>
+            </div>
+            <div class="form-group col-sm-3" id="div-thanhtoan-baocao-groupbutton-chitietcw">
+                <button type="button" class=" btn btn-primary btn-sm" id="btn-baocao-chitietcw-taobaocao" value="">Kiết xuất bảng kê chi tiết tính chargeweight</button>
+            </div>
+            <div class="form-group col-sm-3" id="">
+            </div>
+        </div>
+        <div>
+            <table class="table table-bordered" id="tbl-danhsach-baocao-chitietcw">
                 <thead>
                     <tr>
                         <td>STT</td>
