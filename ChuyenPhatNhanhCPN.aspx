@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="cpn-header text-align-center">
-        <h2 class="color-white">HÀNG CHUYỂN PHÁT NHANH GOERTEK</h2>
+        <h2 class="color-white">HÀNG CHUYỂN PHÁT NHANH</h2>
     </div>
 
     <div class="div-trangthaihangnhap-button">

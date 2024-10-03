@@ -529,6 +529,7 @@ function fncLoad() {
                     html_AlseWarehouse += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\">" + val.HawbAlseWarehouse + textHQGS + "</td>";
                     html_AlseWarehouse += "<td class=\"td-pcs\">" + val.SoKienThucAlseWarehouse + "</td>";
                     html_AlseWarehouse += "<td class=\"td-cm\">" + val.SoCanThucAlseWarehouse + "</td>";
+                    html_AlseWarehouse += "<td class=\"td-cm\">" + val.CW + "</td>";
                     html_AlseWarehouse += "<td class=\"td-flt\">" + val.ChuyenBayTTAlseWarehouse + "</td>";
                     html_AlseWarehouse += "<td class=\"td-date ngaybaytt\">" + convertDate(val.NgayGioBayTTAlseWarehouse)[1] + "</td>";
                     html_AlseWarehouse += "<td class=\"td-time giobaytt\">" + (convertDate(val.NgayGioBayTTAlseWarehouse)[3] == "00:00" ? "" : convertDate(val.NgayGioBayTTAlseWarehouse)[3]) + "</td>";
