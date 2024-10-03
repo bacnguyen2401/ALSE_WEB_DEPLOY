@@ -83,8 +83,8 @@
                         Trọng  lượng </td>
                     <%--<td class="nobodyTop ClassfontSize8" rowspan="2">车型<br />
                         Loại hình xe </td>--%>
-                    <td class="nobodyTop ClassfontSize8" rowspan="2">车型<br />
-                        Loại xe </td>
+                   <%-- <td class="nobodyTop ClassfontSize8" rowspan="2">车型<br />
+                        Loại xe </td>--%>
                     <td class="nobodyTop ClassfontSize8" rowspan="2">送货地址<br />
                         Địa chỉ giao hàng </td>
                     <td class="nobodyTop ClassfontSize8" rowspan="2">货物接收人<br />

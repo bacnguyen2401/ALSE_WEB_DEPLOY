@@ -40,7 +40,7 @@ function Load() {
                 html_tbody += "<td contenteditable  class=\"ClassfontSize8 textDam font-size12\"></td>";
                 html_tbody += "<td contenteditable  class=\"ClassfontSize8 \">" + val.TrongLuong1 + "</td>";
                 //html_tbody += "<td contenteditable  class=\"ClassfontSize8 textleft\"></td>";
-                html_tbody += "<td contenteditable  class=\"ClassfontSize8 textleft\"></td>";
+                //html_tbody += "<td contenteditable  class=\"ClassfontSize8 textleft\"></td>";
                 html_tbody += "<td contenteditable  class=\"ClassfontSize8 textleft\">" + val.DiaChiGiaoHang + "</td>";
                 html_tbody += "<td contenteditable  class=\"ClassfontSize8 textleft\">" + val.NguoiNhan_update_tu_KH + "</td>";
                 html_tbody += "<td contenteditable class=\"ClassfontSize8 textleft tdwidth50\">" + val.SoDTNguoiNhan_update_tu_KH + "</td>";
