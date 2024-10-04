@@ -4,6 +4,7 @@
     <%# Versioned.VersionedFiles.ScriptHelper.Render("css","css/custom/ChuyenPhatNhanh_V2.css") %>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <%--Băc thêm mới--%>
     <div class="cpn-header text-align-center">
         <h2 class="color-white">HÀNG CHUYỂN PHÁT NHANH</h2>
     </div>
