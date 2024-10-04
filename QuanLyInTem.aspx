@@ -8,10 +8,17 @@
         <h2 class="color-white">QUẢN LÝ IN TEM KHÁCH HÀNG</h2>
     </div>
 
-    <div class="div-intem-button" style="margin-bottom: 10px; display:flex">
+    <div class="div-intem-button" style="margin-bottom: 10px; display: flex">
         <button type="button" id="btn-taothongtin" class="mani-btn btn btn-success">Tạo thông tin in tem</button>
 
-        <div style="margin-right:20px" class="btn-pdf">
+        <div style="margin-right: 20px" class="btn-pdf">
+
+
+            <div id="drop-area" class="upload-drop-area">
+                <p>Kéo thả file vào đây để upload</p>
+            </div>
+            <input type="file" id="fileElem" multiple accept=".pdf" style="display: none">
+            <label class="button" for="fileElem">Chọn file</label>
             <input type="file" class="upload" id="f_UploadImage" multiple="multiple" accept=".pdf" />
             <button type="button" id="btn-read-pdf" class="btn btn-info">Đọc file PDF</button>
         </div>
@@ -29,7 +36,7 @@
                 <div class="panel-body">
                     <div class="dataTable_wrappe">
                         <table id="tbl-table-intem" class="table table-bordered table-hover">
-                            <thead style="background-color: #cfeffb !important;border-bottom: 2px solid #808080;">
+                            <thead style="background-color: #cfeffb !important; border-bottom: 2px solid #808080;">
                                 <tr>
                                     <td>STT</td>
                                     <td>MAWB</td>

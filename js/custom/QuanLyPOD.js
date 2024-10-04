@@ -12,7 +12,7 @@ var DataInputUpdate = [];
 
 
 $(document).ready(function () {
-    // ngày hiện tại
+    // ngày hiện tại 1
     var d_now = new Date();
     $("#input-baocao-tu-ngay").datepicker("setDate", new Date(d_now.getFullYear(), d_now.getMonth(), 1));
     $("#input-baocao-den-ngay").datepicker("setDate", new Date(d_now.getFullYear(), d_now.getMonth() + 1, 0));

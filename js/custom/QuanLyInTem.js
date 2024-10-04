@@ -494,3 +494,50 @@ function fncPDF() {
         }, 1000)
     });
 }
+let dropArea = document.getElementById('drop-area');
+
+// Ngăn chặn các sự kiện mặc định
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, preventDefaults, false);
+});
+
+function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+}
+
+// Thêm class khi kéo file vào
+['dragenter', 'dragover'].forEach(eventName => {
+    dropArea.addEventListener(eventName, () => dropArea.classList.add('highlight'), false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, () => dropArea.classList.remove('highlight'), false);
+});
+
+// Xử lý sự kiện drop
+dropArea.addEventListener('drop', handleDrop, false);
+
+function handleDrop(e) {
+    let dt = e.dataTransfer;
+    let files = dt.files;
+
+    handleFiles(files);
+}
+
+function handleFiles(files) {
+    ([...files]).forEach(uploadFile);
+}
+
+function uploadFile(file) {
+    let url = 'AjaxReadFilePDF.ashx';
+    let formData = new FormData();
+    formData.append('file', file);
+
+    fetch(url, {
+        method: 'POST',
+        body: formData
+    })
+        .then(() => alert('File uploaded successfully'))
+        .catch(() => console.error('Error uploading file'));
+}
