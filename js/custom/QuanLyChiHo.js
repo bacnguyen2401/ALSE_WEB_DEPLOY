@@ -637,6 +637,7 @@ function InsertUpdateChiHo(Id) {
         success: function (responsive) {
             d = responsive.d;
             if (d == "1") {
+                //check lại nhà cung cấp
                 $.ajax({
                     type: "POST",
                     url: "QuanLyChiHo.aspx/InsertUpdateChiHo",
