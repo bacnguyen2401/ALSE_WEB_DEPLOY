@@ -61,6 +61,202 @@ function fncLoad() {
 }
 
 function fncClick() {
+    // update
+    $("#btn-capnhatthongtingiaohang").click(function () {
+        var spreadsheet = $("#spreadsheetGiaoHang").data("kendoSpreadsheet");
+        var data = spreadsheet.toJSON().sheets[0].rows;
+        data = data.splice(1, data.length - 1);
+        var keHoachCPNs = [];
+        var cells;
+        var cell_HAWB = "";
+        var cell_TMS = "";
+        var cell_INVOICE = "";
+        var cell_SoKien = "";
+        var cell_CBM = "";
+        var cell_Kholuuhang = "";
+        var cell_BU = "";
+        var cell_Remark = "";
+        data.forEach(function (dataItem, dataIndex) {
+            cells = dataItem.cells;
+            cell_HAWB = "";
+            cells.forEach(function (cellItem, cellIndex) {
+                switch (cellItem.index) {
+                    case 0:
+                        if (cells[cellIndex].value !== undefined) {
+                            cell_HAWB = cells[cellIndex].value;
+                        }
+                        break;
+
+                    case 1:
+                        if (cells[cellIndex].value !== undefined) {
+                            cell_TMS = cells[cellIndex].value;
+                        }
+                        break;
+
+                    case 2:
+                        if (cells[cellIndex].value !== undefined) {
+                            cell_INVOICE = cells[cellIndex].value;
+                        }
+                        break;
+
+                    case 3:
+                        if (cells[cellIndex].value !== undefined) {
+                            cell_SoKien = cells[cellIndex].value;
+                        }
+                        break;
+
+                    case 4:
+                        if (cells[cellIndex].value !== undefined) {
+                            cell_CBM = cells[cellIndex].value;
+                        }
+                        break;
+
+
+                    case 5:
+                        if (cells[cellIndex].value !== undefined) {
+                            cell_Kholuuhang = cells[cellIndex].value;
+                        }
+                        break;
+
+
+                    case 6:
+                        if (cells[cellIndex].value !== undefined) {
+                            cell_BU = cells[cellIndex].value;
+                        }
+                        break;
+                    case 7:
+                        if (cells[cellIndex].value !== undefined) {
+                            cell_Remark = cells[cellIndex].value;
+                        }
+                        break;
+
+                }
+            })
+
+            keHoachCPNs.push(
+                {
+                    "iu": ""
+                    , "Id": ""
+                    , "HAWB": String(cell_HAWB).trim().replace(/ /g, '')
+                    , "PCS": String(cell_SoKien).trim().replace(/ /g, '')
+                    , "GW": ""
+                    , "CBM": String(cell_CBM).trim().replace(/ /g, '')
+                    , "SoTMS": String(cell_TMS).trim().replace(/ /g, '')
+                    , "SoInvoice": String(cell_INVOICE).trim().replace(/ /g, '')
+                    , "NCC": ""
+                    , "NgayGioYeuCauTraHang": ""
+                    , "PIC": ""
+                    , "KhoCPN": ""
+                    , "CDNo": ""
+                    , "BU": String(cell_BU).trim().replace(/ /g, '')
+                    , "KhoGiaoHang": String(cell_Kholuuhang).trim().replace(/ /g, '')
+                    , "FWD": ""
+                    , "BKSXe": ""
+                    , "TenLaiXe": ""
+                    , "SDT": ""
+                    , "CCCD": ""
+                    , "TaiTrong": ""
+                    , "SoSeal": ""
+                    , "GhiChu": String(cell_GhiChu).trim().replace(/ /g, '')
+                    , "NgayGioThucTe": ""
+                }
+            );
+        })
+
+        var jsonData = JSON.stringify({ keHoachCPNs });
+        $.ajax({
+            type: "POST",
+            url: "ChuyenPhatNhanh_V2.aspx/UpdateHAWBCPN",
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                d = responsive.d;
+                console.log(d)
+                if (d == "ok") {
+                    Swal.fire(
+                        'Cập nhật thông tin giao hàng!',
+                        'Bạn đã cập nhật thông tin giao hàng thành công',
+                        'success'
+                    )
+                    fncLoad();
+                    $("#modalTaoKeHoach").modal("hide");
+                }
+            },
+            error: function () {
+                Swal.fire(
+                    'Có lỗi xảy ra!',
+                    'Danh sách hàng chưa được lưu. Thử lại hoặc liên hệ IT',
+                    'error'
+                )
+            }
+        }).done(function () {
+        })
+    });
+    $("#btn-capnhatthongtin").click(function () {
+        $("#modalCapNhatThongTinGiaoHang").modal("show");
+        $("#spreadsheetThongTinGiaoHang").empty();
+        $("#spreadsheetThongTinGiaoHang").kendoSpreadsheet({
+            columns: 1,
+            rows: 100,
+            toolbar: false,
+            sheetsbar: false,
+        });
+        var spreadsheet = $("#spreadsheetThongTinGiaoHang").data("kendoSpreadsheet");
+        var sheet = spreadsheet.activeSheet();
+        sheet.range(kendo.spreadsheet.SHEETREF).clear();
+        $(window).trigger("resize");
+        spreadsheet.fromJSON({
+            sheets: [{
+                name: "KeHoach",
+                //mergedCells: [
+                //    "A1:G1"
+                //],
+                //dataSource: dataSource,
+                rows: [{
+                    height: 40,
+                    cells: [
+                        { value: "Số HAWB", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+                        , { value: "Số TMS", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+                        , { value: "Số INVOICE", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+                        , { value: "Số kiện", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+                        , { value: "CBM", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+                        , { value: "Kho lưu hàng", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+                        , { value: "BU", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+                        , { value: "Remark", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+                    ]
+                }],
+                columns: [
+                    {// HAWB
+                        width: 150
+                    },
+                    {// TMSS
+                        width: 150
+                    },
+                    {// INVOICE
+                        width: 150
+                    },
+                    {// Số kiện
+                        width: 150
+                    },
+                    {//CBM
+                        width: 150
+                    },
+                    {// Kho lưu hàng
+                        width: 150
+                    },
+                    {// BU
+                        width: 150
+                    },
+                    {// Remark
+                        width: 150
+                    },
+                ]
+            }]
+        });
+    })
+
     $("#btn-capnhathawb").click(function () {
         var _bks = $(".input-bks").val();
         var _tenlaixe = $(".input-laixe").val();
@@ -548,6 +744,11 @@ function fncModal() {
         $(window).trigger("resize"); // bug modal > show excel
     });
     $('#modalCapNhatHAWB').on('shown.bs.modal', function () {
+        $(document).off('focusin.bs.modal');
+        $(window).trigger("resize"); // bug modal > show excel
+    });
+
+    $('#modalCapNhatThongTinGiaoHang').on('shown.bs.modal', function () {
         $(document).off('focusin.bs.modal');
         $(window).trigger("resize"); // bug modal > show excel
     });

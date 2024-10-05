@@ -12,7 +12,7 @@
     <div class="div-trangthaihangnhap-button">
         <button type="button" id="btn-taokehoach" class="mani-btn btn btn-primary">Tạo kế hoạch</button>
         <button type="button" id="btn-capnhatchuyenxetheohawb" class="mani-btn btn btn-success">Cập nhật chuyến xe theo HAWB</button>
-        <button type="button" id="btn-showGTK" class="mani-btn btn btn-warning">Nút bấm 3</button>
+        <button type="button" id="btn-capnhatthongtin" class="mani-btn btn btn-warning">Cập nhật thông tin giao hàng</button>
     </div>
 
     <div id="div-TrangThaiHangNhap">
@@ -172,6 +172,27 @@
                         <button type="button" id="btn-capnhathawb" class="btn btn-primary">Lưu</button>
                     </div>
                     <div id="spreadsheetGiaoHang" class="spreadsheet-width-auto spreadsheet-height-400"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="modal fade" id="modalCapNhatThongTinGiaoHang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg fullscreen " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times </span></button>
+                    <h4 class="modal-title" id="">CẬP NHẬT THÔNG TIN GIAO HÀNG</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Đóng</button>
+                        <button type="button" id="btn-capnhatthongtingiaohang" class="btn btn-primary">Lưu</button>
+                    </div>
+                    <div id="spreadsheetThongTinGiaoHang" class="spreadsheet-width-auto spreadsheet-height-400"></div>
                 </div>
                 <div class="modal-footer">
                 </div>
