@@ -15,8 +15,7 @@ $(document).ready(function () {
 
     // load ncc
     loadNCC();
-    // load mawb hawb
-    reMawbHawb();
+  
 });
 
 function fncLoad() {
@@ -48,8 +47,8 @@ function fncLoad() {
                 html_body += "<td>" + convertDate(val.NgayHD)[1] + "</td>";
                 html_body += "<td>" + val.TenNguoiBan + "</td>";
                 html_body += "<td>" + val.PhiChungTuNhap + "</td>";
-                html_body += "<td>" + fncTachPhanNghin(val.SoTruocThue) + "đ" + "</td>";
                 html_body += "<td>" + fncTachPhanNghin(val.ThanhTien) + "đ" + "</td>";
+                html_body += "<td>" + fncTachPhanNghin(val.SoTruocThue) + "đ" + "</td>";
                 html_body += "<td>" + val.Check_ChiHo + "</td>";
                 html_body += "<td>" + val.GhiChu + "</td>";
                 html_body += "<td>" + val.TrangThaiDNTT + "</td>";
@@ -423,29 +422,25 @@ function fncClick() {
 }
 
 function fncChange() {
+    $("#input-chiho-thanhtien").change(function () {
+        var result = parseInt($(this).val().replace(/,/g, "")) /1.08;
+        $("#input-chiho-sotienthue").val(fncTachPhanNghin(result.toFixed(1)))
+    });
 
+    $("#myModalViewChiHo").on("change", "#input-chiho-khachhang", function () {
+        var _loaihinh = $("#select-chiho-loaihinh").val();
+        if (_loaihinh == "") {
+            alert("Vui lòng chọn loại hình xong tiếp tục chọn khách hàng!");
+        } else {
+            // load mawb hawb
+            reMawbHawb($(this).val());
+            loadAWB(_loaihinh);
+        }
+    })
     $("#myModalViewChiHo").on("change", "#select-chiho-loaihinh", function () {
+        reMawbHawb($("#select-chiho-khachhang").val());
         var cb_value = $(this).val();
-        $("#input-chiho-awbbill").val("");
-        if (cb_value == "IMP") {
-            html_option = "<option value=\"\"></option>"
-            $.each(mawbhawb.hawbChiHos, function (key, val) {
-                html_option += "<option value=\"" + val.HAWB + "\">" + val.HAWB + "</option>"
-            });
-            $("#sltawb").empty().append(html_option);
-        }
-
-        if (cb_value == "EXP") {
-            html_option = "<option value=\"\"></option>"
-            $.each(mawbhawb.mawbChiHos, function (key, val) {
-                html_option += "<option value=\"" + val.SoMAWB + "\">" + val.SoMAWB + "</option>"
-            });
-            $("#sltawb").empty().append(html_option);
-        }
-
-        if (cb_value == "TRUCK") {
-            $("#sltawb").empty();
-        }
+        loadAWB(cb_value);
     })
 
     $("#myModalViewChiHo").on("change", "#input-chiho-ncu", function () {
@@ -540,7 +535,7 @@ function loadKH() {
 }
 
 function reMawbHawb() {
-    ajaxGet = { "get": "" };
+    ajaxGet = { "get": $("#input-chiho-khachhang").val() };
     jsonData = JSON.stringify({ ajaxGet });
 
     $.ajax({
@@ -552,7 +547,7 @@ function reMawbHawb() {
         async: false,
         success: function (responsive) {
             d = responsive.d;
-            console.log(d);
+            //console.log(d);
             mawbhawb = d;
             //html_option = "<option value=\"\"></option>"
             //$.each(d, function (key, val) {
@@ -624,7 +619,7 @@ function InsertUpdateChiHo(Id) {
 
     //console.log(chiHo)
 
-    //Check nhà cung cấp có trong cơ sở dữ liệu không
+   ////Check nhà cung cấp có trong cơ sở dữ liệu không
     ajaxGet = { "get": $("#input-chiho-ncu").val() };
     jsonData = JSON.stringify({ ajaxGet })
     $.ajax({
@@ -677,10 +672,29 @@ function InsertUpdateChiHo(Id) {
         }
 
     })
+}
 
+function loadAWB(cb_value) {
+    $("#input-chiho-awbbill").val("");
+    if (cb_value == "IMP") {
+        html_option = "<option value=\"\"></option>"
+        $.each(mawbhawb.hawbChiHos, function (key, val) {
+            html_option += "<option value=\"" + val.HAWB + "\">" + val.HAWB + "</option>"
+        });
+        $("#sltawb").empty().append(html_option);
+    }
 
+    if (cb_value == "EXP") {
+        html_option = "<option value=\"\"></option>"
+        $.each(mawbhawb.mawbChiHos, function (key, val) {
+            html_option += "<option value=\"" + val.SoMAWB + "\">" + val.SoMAWB + "</option>"
+        });
+        $("#sltawb").empty().append(html_option);
+    }
 
-
+    if (cb_value == "TRUCK") {
+        $("#sltawb").empty();
+    }
 }
 
 // Chỉ cho phép nhập số

@@ -32,8 +32,8 @@
                     <td>Ngày HĐ</td>
                     <td>Tên người bán</td>
                     <td>Phí chứng từ</td>
-                    <td>Số trước thuế</td>
                     <td>Thành tiền</td>
+                    <td>Số trước thuế</td>
                     <td>Check</td>
                     <td>Ghi chú</td>
                     <td>Trạng thái DNTT</td>
@@ -159,14 +159,14 @@
                             </div>
                             <div class="form-group col-sm-4">
                                 <div class="input-group div-chiho-group">
-                                    <span class="input-group-addon" id="">Số tiền thuế</span>
-                                    <input type="text" class="form-control input-thanhtoan-number input-chiho-clear" id="input-chiho-sotienthue" />
+                                    <span class="input-group-addon" id="">Thành tiền</span>
+                                    <input type="text" class="form-control input-thanhtoan-number input-chiho-clear" id="input-chiho-thanhtien" />
                                 </div>
                             </div>
                             <div class="form-group col-sm-4">
                                 <div class="input-group div-chiho-group">
-                                    <span class="input-group-addon" id="">Thành tiền</span>
-                                    <input type="text" class="form-control input-thanhtoan-number input-chiho-clear" id="input-chiho-thanhtien" />
+                                    <span class="input-group-addon" id="">Số tiền thuế</span>
+                                    <input type="text" class="form-control input-thanhtoan-number input-chiho-clear" id="input-chiho-sotienthue" />
                                 </div>
                             </div>
                         </div>
@@ -185,7 +185,7 @@
                             <div class="form-group col-sm-4">
                                 <div class="input-group div-chiho-group">
                                     <span class="input-group-addon" id="">AWB/BILL</span>
-                                    <input type="text" class="form-control input-chiho-clear" id="input-chiho-awbbill" list="sltawb"/>
+                                    <input type="text" class="form-control input-chiho-clear" id="input-chiho-awbbill" list="sltawb" />
                                     <datalist class="nobdInput" id="sltawb">
                                     </datalist>
                                 </div>
