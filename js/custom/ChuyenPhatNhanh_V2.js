@@ -205,6 +205,7 @@ function fncClick() {
         });
         var spreadsheet = $("#spreadsheetThongTinGiaoHang").data("kendoSpreadsheet");
         var sheet = spreadsheet.activeSheet();
+
         sheet.range(kendo.spreadsheet.SHEETREF).clear();
         $(window).trigger("resize");
         spreadsheet.fromJSON({
@@ -421,6 +422,31 @@ function fncClick() {
     })
 
     $("#btn-kehoach-luu").click(function () {
+        var arrayHAWB = [];
+        var checkHAWB = true;
+        var messageCheckHawb = "";
+        $.ajax({
+            type: "POST",
+            url: "ChuyenPhatNhanh_V2.aspx/reHAWB",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                d = responsive.d;
+                $.each(d, function (key, val) {
+                    arrayHAWB.push(val.HAWB)
+                })
+            },
+            error: function () {
+                Swal.fire(
+                    'Có lỗi xảy ra!',
+                    'Danh sách hàng chưa được lưu. Thử lại hoặc liên hệ IT',
+                    'error'
+                )
+            }
+        }).done(function () {
+        })
+
         var spreadsheet = $("#spreadsheet").data("kendoSpreadsheet");
         var data = spreadsheet.toJSON().sheets[0].rows;
         data = data.splice(1, data.length - 1);
@@ -567,6 +593,7 @@ function fncClick() {
                         }
                         break;
                 }
+
             })
 
             keHoachCPNs.push(
@@ -597,40 +624,25 @@ function fncClick() {
                     , "NgayGioThucTe": ip_ngaytb + " " + ip_giotb
                 }
             );
-        })
 
-        //console.log(keHoachCPNs)
-
-        var jsonData = JSON.stringify({ keHoachCPNs });
-        $.ajax({
-            type: "POST",
-            url: "ChuyenPhatNhanh_V2.aspx/InsertUpdateCPN",
-            data: jsonData,
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            async: false,
-            success: function (responsive) {
-                d = responsive.d;
-                console.log(d)
-                if (d == "ok") {
-                    Swal.fire(
-                        'Thêm mới!',
-                        'Bạn đã thêm kế hoạch thành công',
-                        'success'
-                    )
-                    fncLoad();
-                    $("#modalTaoKeHoach").modal("hide");
+            if (String(cell_HAWB).trim().replace(/ /g, '') !== ""){
+                if (arrayHAWB.indexOf(String(cell_HAWB).trim().replace(/ /g, '')) == - 1) {
+                    arrayHAWB.push(String(cell_HAWB).trim().replace(/ /g, ''));
+                } else {
+                    checkHAWB = false;
+                    messageCheckHawb += String(cell_HAWB).trim().replace(/ /g, '') + " ,";
                 }
-            },
-            error: function () {
-                Swal.fire(
-                    'Có lỗi xảy ra!',
-                    'Danh sách hàng chưa được lưu. Thử lại hoặc liên hệ IT',
-                    'error'
-                )
             }
-        }).done(function () {
         })
+
+        if (checkHAWB) {
+            insertUpdateKeHoach(keHoachCPNs);
+        } else {
+            var conf = confirm("Các lô hàng có hawb " + messageCheckHawb + " đã tồn tại trong hệ thống hoặc bạn nhập trùng, bạn muốn tiếp tục không?");
+            if (conf) {
+                insertUpdateKeHoach(keHoachCPNs);
+            }
+        }
     });
 
 
@@ -652,8 +664,8 @@ function fncClick() {
             sheetsbar: false,
         });
         var spreadsheet = $("#spreadsheet").data("kendoSpreadsheet");
-        var sheet = spreadsheet.activeSheet();
-        sheet.range(kendo.spreadsheet.SHEETREF).clear();
+        //var sheet = spreadsheet.activeSheet();
+        //sheet.range(kendo.spreadsheet.SHEETREF).clear();
         $(window).trigger("resize");
         spreadsheet.fromJSON({
             sheets: [{
@@ -731,6 +743,14 @@ function fncClick() {
                 ]
             }]
         });
+        var sheet = spreadsheet.activeSheet();
+        // Mảng chứa các phạm vi cột cần tô màu
+        var columns = ["A2:A1000", "B2:B1000", "C2:C1000", "G2:G1000", "J2:J1000", "K2:K1000", "L2:L1000"];
+
+        // Lặp qua các phạm vi cột và thiết lập màu nền
+        columns.forEach(function (range) {
+            sheet.range(range).background("#FFCCCC");
+        });
     });
 }
 
@@ -753,4 +773,36 @@ function fncModal() {
         $(window).trigger("resize"); // bug modal > show excel
     });
 
+}
+
+function insertUpdateKeHoach(keHoachCPNs) {
+    var jsonData = JSON.stringify({ keHoachCPNs });
+    $.ajax({
+        type: "POST",
+        url: "ChuyenPhatNhanh_V2.aspx/InsertUpdateCPN",
+        data: jsonData,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        success: function (responsive) {
+            d = responsive.d;
+            if (d == "ok") {
+                Swal.fire(
+                    'Thêm mới!',
+                    'Bạn đã thêm kế hoạch thành công',
+                    'success'
+                )
+                fncLoad();
+                $("#modalTaoKeHoach").modal("hide");
+            }
+        },
+        error: function () {
+            Swal.fire(
+                'Có lỗi xảy ra!',
+                'Danh sách hàng chưa được lưu. Thử lại hoặc liên hệ IT',
+                'error'
+            )
+        }
+    }).done(function () {
+    })
 }
