@@ -14,10 +14,10 @@
         <button type="button" id="btn-capnhatchuyenxetheohawb" class="mani-btn btn btn-success">Cập nhật chuyến xe theo HAWB</button>
         <button type="button" id="btn-capnhatthongtin" class="mani-btn btn btn-warning">Cập nhật thông tin giao hàng</button>
     </div>
-
     <div id="div-TrangThaiHangNhap">
-        <table class="table table-bordered  table-maxwidth-1024" id="tbl_kehoach">
-            <thead id="thead-ArrivalNotice">
+        <%--Kế hoạch--%>
+        <table class="table table-bordered  table-maxwidth-1024 tbl_click" id="tbl_kehoach">
+            <thead class="thead-ArrivalNotice">
                 <tr>
                     <th class="td-no">No.</th>
                     <th>STATUS</th>
@@ -29,6 +29,37 @@
                     <th>TB.TIME</th>
                     <th>ORDER.D</th>
                     <th>ORDER.T</th>
+                    <th>TMS</th>
+                    <th>INVOICE</th>
+                    <th>BU</th>
+                    <th>KHO GIAO HÀNG</th>
+                    <th>FWD</th>
+                    <th>Kho CPN</th>
+                    <th>CD No</th>
+                    <th>REMARK</th>
+                    <th>FUNCTION</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <table class="table table-bordered  table-maxwidth-1024 tbl_click" id="tbl_chuyenxe">
+            <thead class="thead-ArrivalNotice">
+                <tr>
+                    <th class="td-no">No.</th>
+                    <th>STATUS</th>
+                    <th>HAWB</th>
+                    <th>PCS</th>
+                    <th>G.W</th>
+                    <th>CBM</th>
+                    <th>TB.DATE</th>
+                    <th>TB.TIME</th>
+                    <th>ORDER.D</th>
+                    <th>ORDER.T</th>
+                    <th>TRUCK.D</th>
+                    <th>TRUCK.T</th>
+                    <th>TRUCK ID</th>
                     <th>TMS</th>
                     <th>INVOICE</th>
                     <th>BU</th>
@@ -99,7 +130,7 @@
         </div>
     </div>
 
-    
+
     <div class="modal fade" id="modalCapNhatHAWB" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg fullscreen " role="document">
             <div class="modal-content">
@@ -180,7 +211,7 @@
     </div>
 
 
-        <div class="modal fade" id="modalCapNhatThongTinGiaoHang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="modalCapNhatThongTinGiaoHang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg fullscreen " role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -193,6 +224,222 @@
                         <button type="button" id="btn-capnhatthongtingiaohang" class="btn btn-primary">Lưu</button>
                     </div>
                     <div id="spreadsheetThongTinGiaoHang" class="spreadsheet-width-auto spreadsheet-height-400"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalCPNCapNhat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">CẬP NHẬT THÔNG TIN CHUYỂN PHÁT NHANH</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">FWD</span>
+                                <input type="text" class="form-control input-sm input-capnhat-fwd" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">CD No</span>
+                                <input type="text" class="form-control input-sm input-capnhat-cdno" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Ngày thông báo</span>
+                                <input type="text" class="form-control datepicker input-sm input-capnhat-ngaynhanthongbao" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Giờ thông báo</span>
+                                <input type="text" class="form-control timepicker input-sm input-capnhat-gionhanthongbao" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">HAWB</span>
+                                <input type="text" class="form-control input-sm input-capnhat-hawb" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">PCS</span>
+                                <input type="text" class="form-control input-sm input-capnhat-pcs" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">GW</span>
+                                <input type="text" class="form-control input-sm input-capnhat-gw" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">CBM</span>
+                                <input type="text" class="form-control input-sm input-capnhat-cbm" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">TMS</span>
+                                <input type="text" class="form-control input-sm input-capnhat-tms" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">INVOICE</span>
+                                <input type="text" class="form-control input-sm input-capnhat-invoice" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">BU</span>
+                                <input type="text" class="form-control input-sm input-capnhat-bu" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">KHO GIAO HÀNG</span>
+                                <input type="text" class="form-control input-sm input-capnhat-khogiaohang" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">KHO CPN</span>
+                                <input type="text" class="form-control input-sm input-capnhat-khocpn" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">PIC</span>
+                                <input type="text" class="form-control input-sm input-capnhat-pic" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Ngày trả hàng</span>
+                                <input type="text" class="form-control datepicker  input-sm input-capnhat-ngayyctrahang" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Giờ trả hàng</span>
+                                <input type="text" class="form-control timepicker input-sm input-capnhat-gioyctrahang" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">BKS</span>
+                                <input type="text" class="form-control input-sm input-capnhat-bks" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Tên LX</span>
+                                <input type="text" class="form-control input-sm input-capnhat-tenlaixe" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">SĐT</span>
+                                <input type="text" class="form-control input-sm input-capnhat-sdt" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Số CMND</span>
+                                <input type="text" class="form-control input-sm input-capnhat-cmnd" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Số seal</span>
+                                <input type="text" class="form-control input-sm input-capnhat-seal" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Tải trọng</span>
+                                <input type="text" class="form-control input-sm input-capnhat-taitrong" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Ngày thực tế</span>
+                                <input type="text" class="form-control datepicker  input-sm input-capnhat-ngaythucte" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Giờ thực tế</span>
+                                <input type="text" class="form-control timepicker input-sm input-capnhat-giothucte" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Nhà cung cấp</span>
+                                <input type="text" class="form-control input-sm input-capnhat-ncc" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-8">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Ghi chú</span>
+                                <input type="text" class="form-control input-sm input-capnhat-ghichu" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Đóng</button>
+                        <button type="button" attrId="" id="btn-kehoach-capnhat" class="btn btn-warning">Cập nhật</button>
+                    </div>
                 </div>
                 <div class="modal-footer">
                 </div>

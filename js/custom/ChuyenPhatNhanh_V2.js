@@ -3,7 +3,7 @@ var ajaxGet;
 var html_body;
 var _Id;
 var _HAWB;
-
+var keHoachCPNs;
 $(document).ready(function () {
     fncLoad();
     fncClick();
@@ -23,21 +23,21 @@ function fncLoad() {
         async: false,
         success: function (responsive) {
             d = responsive.d;
+            //console.log(d)
             html_body = "";
-            if (d.length == 0) {
+            if (d.chuyenPhatNhanhKeHoach.length == 0) {
                 html_body += "<tr><td colspan=\"19\">Chưa có dữ liệu</td></tr>"
             } else {
-
-                $.each(d, function (key, val) {
+                $.each(d.chuyenPhatNhanhKeHoach, function (key, val) {
                     html_body += "<tr>";
                     html_body += "<td>" + (key + 1) + "</td>";
-                    html_body += "<td>Status</td>";
+                    html_body += "<td>PLAN</td>";
                     html_body += "<td>" + val.HAWB + "</td>";
                     html_body += "<td>" + val.PCS + "</td>";
                     html_body += "<td>" + val.GW + "</td>";
                     html_body += "<td>" + val.CBM + "</td>";
-                    html_body += "<td>" + convertDate(val.NgayGioThucTe)[1] + "</td>";
-                    html_body += "<td>" + convertDate(val.NgayGioThucTe)[3] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioThongBao)[1] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioThongBao)[3] + "</td>";
                     html_body += "<td>" + convertDate(val.NgayGioYeuCauTraHang)[1] + "</td>";
                     html_body += "<td>" + convertDate(val.NgayGioYeuCauTraHang)[3] + "</td>";
                     html_body += "<td>" + val.SoTMS + "</td>";
@@ -48,11 +48,45 @@ function fncLoad() {
                     html_body += "<td>" + val.KhoCPN + "</td>";
                     html_body += "<td>" + val.CDNo + "</td>";
                     html_body += "<td>" + val.GhiChu + "</td>";
-                    html_body += "<td><button type=\"button\" class=\"btn btn-sm btn-warning\">Sửa</button>  <button attrHawb=\"" + val.HAWB + "\" attrId=\"" + val.Id + "\" type=\"button\" class=\"btn btn-sm btn-danger btn-xoa\">Xóa</button></td>";
+                    html_body += "<td><button type=\"button\"  attrHawb=\"" + val.HAWB + "\" attrId=\"" + val.Id + "\" class=\"btn btn-sm btn-warning btn-sua\"  >Sửa</button>  <button attrHawb=\"" + val.HAWB + "\" attrId=\"" + val.Id + "\" type=\"button\" class=\"btn btn-sm btn-danger btn-xoa\">Xóa</button></td>";
                     html_body += "</tr>";
                 })
             }
             $("#tbl_kehoach tbody").empty().append(html_body);
+
+            html_body = "";
+
+            if (d.chuyenPhatNhanhChuyenXe.length == 0) {
+                html_body += "<tr><td colspan=\"19\">Chưa có dữ liệu</td></tr>"
+            } else {
+                $.each(d.chuyenPhatNhanhChuyenXe, function (key, val) {
+                    html_body += "<tr>";
+                    html_body += "<td>" + (key + 1) + "</td>";
+                    html_body += "<td>TRUCKING</td>";
+                    html_body += "<td>" + val.HAWB + "</td>";
+                    html_body += "<td>" + val.PCS + "</td>";
+                    html_body += "<td>" + val.GW + "</td>";
+                    html_body += "<td>" + val.CBM + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioThongBao)[1] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioThongBao)[3] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioYeuCauTraHang)[1] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioYeuCauTraHang)[3] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioThucTe)[1] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioThucTe)[3] + "</td>";
+                    html_body += "<td>" + val.BKSXe + "</td>";
+                    html_body += "<td>" + val.SoTMS + "</td>";
+                    html_body += "<td>" + val.SoInvoice + "</td>";
+                    html_body += "<td>" + val.BU + "</td>";
+                    html_body += "<td>" + val.KhoGiaoHang + "</td>";
+                    html_body += "<td>" + val.FWD + "</td>";
+                    html_body += "<td>" + val.KhoCPN + "</td>";
+                    html_body += "<td>" + val.CDNo + "</td>";
+                    html_body += "<td>" + val.GhiChu + "</td>";
+                    html_body += "<td><button type=\"button\"  attrHawb=\"" + val.HAWB + "\" attrId=\"" + val.Id + "\" class=\"btn btn-sm btn-warning btn-sua\"  >Sửa</button>  <button attrHawb=\"" + val.HAWB + "\" attrId=\"" + val.Id + "\" type=\"button\" class=\"btn btn-sm btn-danger btn-xoa\">Xóa</button></td>";
+                    html_body += "</tr>";
+                })
+            }
+            $("#tbl_chuyenxe tbody").empty().append(html_body);
         },
         error: function (errormessage) {
             console.log("Lỗi : " + errormessage.responseText);
@@ -61,6 +95,92 @@ function fncLoad() {
 }
 
 function fncClick() {
+    $("#btn-kehoach-capnhat").click(function () {
+        var _Id = $(this).attr("attrid")
+        keHoachCPNs = [];
+       
+        keHoachCPNs.push(
+            {
+                "iu": ""
+                , "Id": _Id
+                , "HAWB": $(".input-capnhat-hawb").val()
+                , "PCS": $(".input-capnhat-pcs").val()
+                , "GW": $(".input-capnhat-gw").val()
+                , "CBM": $(".input-capnhat-cbm").val()
+                , "SoTMS": $(".input-capnhat-tms").val()
+                , "SoInvoice": $(".input-capnhat-invoice").val()
+                , "NCC": $(".input-capnhat-ncc").val()
+                , "NgayGioYeuCauTraHang": dmy2ymd($(".input-capnhat-ngayyctrahang").val()) + " " + $(".input-capnhat-gioyctrahang").val()
+                , "PIC": $(".input-capnhat-pic").val()
+                , "KhoCPN": $(".input-capnhat-khocpn").val()
+                , "CDNo": $(".input-capnhat-cdno").val()
+                , "BU": $(".input-capnhat-bu").val()
+                , "KhoGiaoHang": $(".input-capnhat-khogiaohang").val()
+                , "FWD": $(".input-capnhat-fwd").val()
+                , "BKSXe": $(".input-capnhat-bks").val()
+                , "TenLaiXe": $(".input-capnhat-tenlaixe").val()
+                , "SDT": $(".input-capnhat-sdt").val()
+                , "CCCD": $(".input-capnhat-cmnd").val()
+                , "TaiTrong": $(".input-capnhat-taitrong").val()
+                , "SoSeal": $(".input-capnhat-seal").val()
+                , "GhiChu": $(".input-capnhat-ghichu").val()
+                , "NgayGioThucTe": dmy2ymd($(".input-capnhat-ngaythucte").val()) + " " + $(".input-capnhat-giothucte").val()
+                , "NgayGioThongBao": dmy2ymd($(".input-capnhat-ngaynhanthongbao").val()) + " " + $(".input-capnhat-gionhanthongbao").val()
+            }
+        );
+        insertUpdateKeHoach(keHoachCPNs)
+    });
+    $(".tbl_click").on("click", ".btn-sua", function () {
+        _Id = $(this).attr("attrId");
+        _HAWB = $(this).attr("attrHAWB");
+        $("#btn-kehoach-capnhat").attr("attrId", _Id);
+        $("#modalCPNCapNhat").modal({ static: true }, "show");
+        ajaxGet = { "get": _Id };
+        jsonData = JSON.stringify({ ajaxGet });
+        $.ajax({
+            type: "POST",
+            url: "ChuyenPhatNhanh_V2.aspx/reCPNById",
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                d = responsive.d;
+                //console.log(d)
+                $(".input-capnhat-fwd").val(d.FWD);
+                $(".input-capnhat-cdno").val(d.CDNo);
+                $(".input-capnhat-ngaynhanthongbao").val(convertDate(d.NgayGioThongBao)[1]);
+                $(".input-capnhat-gionhanthongbao").val(convertDate(d.NgayGioThongBao)[3]);
+                $(".input-capnhat-hawb").val(d.HAWB);
+                $(".input-capnhat-pcs").val(d.PCS);
+                $(".input-capnhat-gw").val(d.GW);
+                $(".input-capnhat-cbm").val(d.CBM);
+                $(".input-capnhat-tms").val(d.SoTMS);
+                $(".input-capnhat-invoice").val(d.SoInvoice);
+                $(".input-capnhat-bu").val(d.BU);
+                $(".input-capnhat-khogiaohang").val(d.KhoGiaoHang);
+                $(".input-capnhat-khocpn").val(d.KhoCPN);
+                $(".input-capnhat-pic").val(d.PIC);
+                $(".input-capnhat-ngayyctrahang").val(convertDate(d.NgayGioYeuCauTraHang)[1]);
+                $(".input-capnhat-gioyctrahang").val(convertDate(d.NgayGioYeuCauTraHang)[3]);
+                $(".input-capnhat-bks").val(d.BKSXe);
+                $(".input-capnhat-tenlaixe").val(d.TenLaiXe);
+                $(".input-capnhat-sdt").val(d.SDT);
+                $(".input-capnhat-cmnd").val(d.CCCD);
+                $(".input-capnhat-seal").val(d.SoSeal);
+                $(".input-capnhat-taitrong").val(d.TaiTrong);
+                $(".input-capnhat-ngaythucte").val(convertDate(d.NgayGioThucTe)[1]);
+                $(".input-capnhat-giothucte").val(convertDate(d.NgayGioThucTe)[3]);
+                $(".input-capnhat-ncc").val(d.NCC);
+                $(".input-capnhat-ghichu").val(d.GhiChu);
+            },
+            error: function (responsive) {
+                alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
+            }
+        });
+
+    });
+
     // update
     $("#btn-capnhatthongtingiaohang").click(function () {
         var spreadsheet = $("#spreadsheetGiaoHang").data("kendoSpreadsheet");
@@ -223,7 +343,7 @@ function fncClick() {
                         , { value: "Số INVOICE", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
                         , { value: "Số kiện", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
                         , { value: "CBM", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
-                        , { value: "Kho lưu hàng", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+                        , { value: "Kho giao hàng", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
                         , { value: "BU", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
                         , { value: "Remark", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
                     ]
@@ -320,7 +440,7 @@ function fncClick() {
         var jsonData = JSON.stringify({ keHoachCPNs });
         $.ajax({
             type: "POST",
-            url: "ChuyenPhatNhanh_V2.aspx/UpdateHAWBCPN",
+            url: "ChuyenPhatNhanh_V2.aspx/UpdateHAWBCPNChuyenXe",
             data: jsonData,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -386,7 +506,7 @@ function fncClick() {
             }]
         });
     })
-    $("#tbl_kehoach").on("click", ".btn-xoa", function () {
+    $(".tbl_click").on("click", ".btn-xoa", function () {
         _Id = $(this).attr("attrId");
         _HAWB = $(this).attr("attrHAWB");
 
@@ -425,6 +545,7 @@ function fncClick() {
         var arrayHAWB = [];
         var checkHAWB = true;
         var messageCheckHawb = "";
+        var _fwd = "";
         $.ajax({
             type: "POST",
             url: "ChuyenPhatNhanh_V2.aspx/reHAWB",
@@ -596,53 +717,67 @@ function fncClick() {
 
             })
 
-            keHoachCPNs.push(
-                {
-                    "iu": ""
-                    , "Id": ""
-                    , "HAWB": String(cell_HAWB).trim().replace(/ /g, '')
-                    , "PCS": String(cell_PCS).trim().replace(/ /g, '')
-                    , "GW": String(cell_GW).trim().replace(/ /g, '')
-                    , "CBM": String(cell_CBM).trim().replace(/ /g, '')
-                    , "SoTMS": String(cell_SoTMS).trim().replace(/ /g, '')
-                    , "SoInvoice": String(cell_SoInvoice).trim().replace(/ /g, '')
-                    , "NCC": String(cell_NCC).trim().replace(/ /g, '')
-                    , "NgayGioYeuCauTraHang": String(cell_NgayYeuCauTraHang).trim().replace(/ /g, '') + " " + String(cell_GioYeuCauTraHang).trim().replace(/ /g, '')
-                    , "PIC": String(cell_PIC).trim().replace(/ /g, '')
-                    , "KhoCPN": String(cell_KhoCPN).trim().replace(/ /g, '')
-                    , "CDNo": String(cell_CDNo).trim().replace(/ /g, '')
-                    , "BU": String(cell_BU).trim().replace(/ /g, '')
-                    , "KhoGiaoHang": String(cell_KhoGiaoHang).trim().replace(/ /g, '')
-                    , "FWD": ip_fwd
-                    , "BKSXe": ""
-                    , "TenLaiXe": ""
-                    , "SDT": ""
-                    , "CCCD": ""
-                    , "TaiTrong": ""
-                    , "SoSeal": ""
-                    , "GhiChu": String(cell_GhiChu).trim().replace(/ /g, '')
-                    , "NgayGioThucTe": ip_ngaytb + " " + ip_giotb
-                }
-            );
+            if (String(cell_HAWB).trim().replace(/ /g, '') !== "") {
 
-            if (String(cell_HAWB).trim().replace(/ /g, '') !== ""){
-                if (arrayHAWB.indexOf(String(cell_HAWB).trim().replace(/ /g, '')) == - 1) {
-                    arrayHAWB.push(String(cell_HAWB).trim().replace(/ /g, ''));
-                } else {
-                    checkHAWB = false;
-                    messageCheckHawb += String(cell_HAWB).trim().replace(/ /g, '') + " ,";
+                keHoachCPNs.push(
+                    {
+                        "iu": ""
+                        , "Id": ""
+                        , "HAWB": String(cell_HAWB).trim().replace(/ /g, '')
+                        , "PCS": String(cell_PCS).trim().replace(/ /g, '')
+                        , "GW": String(cell_GW).trim().replace(/ /g, '')
+                        , "CBM": String(cell_CBM).trim().replace(/ /g, '')
+                        , "SoTMS": String(cell_SoTMS).trim().replace(/ /g, '')
+                        , "SoInvoice": String(cell_SoInvoice).trim().replace(/ /g, '')
+                        , "NCC": String(cell_NCC).trim().replace(/ /g, '')
+                        , "NgayGioYeuCauTraHang": String(cell_NgayYeuCauTraHang).trim().replace(/ /g, '') + " " + String(cell_GioYeuCauTraHang).trim().replace(/ /g, '')
+                        , "PIC": String(cell_PIC).trim().replace(/ /g, '')
+                        , "KhoCPN": String(cell_KhoCPN).trim().replace(/ /g, '')
+                        , "CDNo": String(cell_CDNo).trim().replace(/ /g, '')
+                        , "BU": String(cell_BU).trim().replace(/ /g, '')
+                        , "KhoGiaoHang": String(cell_KhoGiaoHang).trim().replace(/ /g, '')
+                        , "FWD": ip_fwd
+                        , "BKSXe": ""
+                        , "TenLaiXe": ""
+                        , "SDT": ""
+                        , "CCCD": ""
+                        , "TaiTrong": ""
+                        , "SoSeal": ""
+                        , "GhiChu": String(cell_GhiChu).trim().replace(/ /g, '')
+                        , "NgayGioThucTe": ""
+                        , "NgayGioThongBao": ip_ngaytb + " " + ip_giotb
+                    }
+                );
+
+                if (String(cell_HAWB).trim().replace(/ /g, '') !== "") {
+                    if (arrayHAWB.indexOf(String(cell_HAWB).trim().replace(/ /g, '')) == - 1) {
+                        arrayHAWB.push(String(cell_HAWB).trim().replace(/ /g, ''));
+                    } else {
+                        checkHAWB = false;
+                        messageCheckHawb += String(cell_HAWB).trim().replace(/ /g, '') + " ,";
+                    }
                 }
             }
         })
 
-        if (checkHAWB) {
-            insertUpdateKeHoach(keHoachCPNs);
-        } else {
-            var conf = confirm("Các lô hàng có hawb " + messageCheckHawb + " đã tồn tại trong hệ thống hoặc bạn nhập trùng, bạn muốn tiếp tục không?");
-            if (conf) {
-                insertUpdateKeHoach(keHoachCPNs);
+        //console.log(keHoachCPNs)
+        if (ip_fwd != "") {
+            if (keHoachCPNs.length != 0) {
+                if (checkhawb) {
+                    insertupdatekehoach(kehoachcpns);
+                } else {
+                    var conf = confirm("các lô hàng có hawb " + messagecheckhawb + " đã tồn tại trong hệ thống hoặc bạn nhập trùng, bạn muốn tiếp tục không?");
+                    if (conf) {
+                        insertupdatekehoach(kehoachcpns);
+                    }
+                }
+            } else {
+                alert("Vui lòng nhập thông tin lô hàng!");
             }
+        } else {
+            alert("Vui lòng nhập FWD!");
         }
+
     });
 
 
@@ -698,7 +833,7 @@ function fncClick() {
                         width: 110
                     },
                     {// Số kiện
-                        width: 110
+                        width: 50
                     }, {// G.W
                         width: 50
                     },
@@ -706,10 +841,10 @@ function fncClick() {
                         width: 50
                     },
                     {// So tms
-                        width: 70
+                        width: 150
                     },
                     {// Số Invoice
-                        width: 110
+                        width: 150
                     }
                     ,
                     {// Số Invoice
@@ -722,13 +857,13 @@ function fncClick() {
                         width: 100
                     },
                     {//PIC
-                        width: 50
+                        width: 150
                     },
                     {// Kho CPN
                         width: 100
                     },
                     {// CD No
-                        width: 50
+                        width: 150
                     },
                     {// BU
                         width: 50
@@ -745,7 +880,7 @@ function fncClick() {
         });
         var sheet = spreadsheet.activeSheet();
         // Mảng chứa các phạm vi cột cần tô màu
-        var columns = ["A2:A1000", "B2:B1000", "C2:C1000", "G2:G1000", "J2:J1000", "K2:K1000", "L2:L1000"];
+        var columns = ["A2:A1000", "B2:B1000", "C2:C1000", "G2:G1000", "J2:J1000", "K2:K1000", "F2:F1000"];
 
         // Lặp qua các phạm vi cột và thiết lập màu nền
         columns.forEach(function (range) {
@@ -788,12 +923,13 @@ function insertUpdateKeHoach(keHoachCPNs) {
             d = responsive.d;
             if (d == "ok") {
                 Swal.fire(
-                    'Thêm mới!',
-                    'Bạn đã thêm kế hoạch thành công',
+                    'Thành công!',
+                    'Bạn đã thêm hoặc sửa kế hoạch thành công',
                     'success'
                 )
                 fncLoad();
                 $("#modalTaoKeHoach").modal("hide");
+                $("#modalCPNCapNhat").modal("hide");
             }
         },
         error: function () {
