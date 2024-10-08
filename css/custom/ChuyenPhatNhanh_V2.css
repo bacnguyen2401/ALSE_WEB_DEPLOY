@@ -13,6 +13,10 @@ body {
     width: 100%;
 }
 
+.thead-ArrivalNotice {
+    background-color: #A3C0E8 !important;
+}
+
 .hide-show-table {
     display: none;
     font-size: 85%;
