@@ -763,12 +763,12 @@ function fncClick() {
         //console.log(keHoachCPNs)
         if (ip_fwd != "") {
             if (keHoachCPNs.length != 0) {
-                if (checkhawb) {
-                    insertupdatekehoach(kehoachcpns);
+                if (checkHAWB) {
+                    insertupdatekehoach(keHoachCPNs);
                 } else {
-                    var conf = confirm("các lô hàng có hawb " + messagecheckhawb + " đã tồn tại trong hệ thống hoặc bạn nhập trùng, bạn muốn tiếp tục không?");
+                    var conf = confirm("các lô hàng có hawb " + messageCheckHawb + " đã tồn tại trong hệ thống hoặc bạn nhập trùng, bạn muốn tiếp tục không?");
                     if (conf) {
-                        insertupdatekehoach(kehoachcpns);
+                        insertupdatekehoach(keHoachCPNs);
                     }
                 }
             } else {
