@@ -10,9 +10,12 @@
     </div>
 
     <div class="div-trangthaihangnhap-button">
-        <button type="button" id="btn-taokehoach" class="mani-btn btn btn-primary">Tạo kế hoạch</button>
-        <button type="button" id="btn-capnhatchuyenxetheohawb" class="mani-btn btn btn-success">Cập nhật chuyến xe theo HAWB</button>
-        <button type="button" id="btn-capnhatthongtin" class="mani-btn btn btn-warning">Cập nhật thông tin giao hàng</button>
+        <button type="button" id="btn-taokehoach" class="mani-btn btn btn-primary">1. Tạo kế hoạch</button>
+        <button type="button" id="btn-capnhatthongtin" class="mani-btn btn btn-warning">2. Cập nhật thông tin giao hàng</button>
+        <button type="button" id="btn-capnhatchuyenxetheohawb" class="mani-btn btn btn-info">3. Tạo chuyến xe CPN theo HAWB</button>
+        <button type="button" id="btn-quanlychuyenPOD" class="mani-btn btn btn-success">4. Quản lý chuyến POD</button>
+        <button type="button" id="btn-truyvan" class="mani-btn btn btn-primary">6. Truy vấn</button>
+
     </div>
     <div id="div-TrangThaiHangNhap">
         <%--Kế hoạch--%>
@@ -438,7 +441,7 @@
 
                     <div class="row">
                         <button type="button" class="btn btn-link" data-dismiss="modal">Đóng</button>
-                        <button type="button" attrId="" id="btn-kehoach-capnhat" class="btn btn-warning">Cập nhật</button>
+                        <button type="button" attrid="" id="btn-kehoach-capnhat" class="btn btn-warning">Cập nhật</button>
                     </div>
                 </div>
                 <div class="modal-footer">
