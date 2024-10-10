@@ -326,8 +326,8 @@ function fncClick() {
     ///// click button kiết xuất bản kê chargeweight
     $("#btn-baocao-chitietcw-taobaocao").click(function () {
         //dmy2ymd()
-        var g_tungay = dmy2ymd($("#input-baocao-chitietcw-tu-ngay").val());
-        var g_denngay = dmy2ymd($("#input-baocao-chitietcw-den-ngay").val());
+        var g_tungay = $("#input-baocao-chitietcw-tu-ngay").val();
+        var g_denngay = $("#input-baocao-chitietcw-den-ngay").val();
         var g_tenfile = $("#input-baocao-chitietcw-tenfile").val().trim();
         var g_cargoterminal = $("#select-chitietcw-cargoterminal").val();
         var g_FWD = $("#select-chitietcw-fwd").val();
@@ -341,7 +341,8 @@ function fncClick() {
             })
             return false;
         }
-        //console.log("fire");
+        //console.log(g_tungay);
+        //console.log(g_denngay);
         // load dữ liệu
         var ajaxGet6 = { "get1": g_tungay, "get2": g_denngay, "get3": g_cargoterminal, "get4": g_FWD, "get5": g_duyetsli, "get6": g_tenfile };
         jsonData = JSON.stringify({ ajaxGet6 });
@@ -361,9 +362,6 @@ function fncClick() {
                 console.log(request.responseText);
             }
         }).done(function () {
-
-
-
         });
     })
     ///END CHI TIẾT TÍNH CHARGEWEIGHT
