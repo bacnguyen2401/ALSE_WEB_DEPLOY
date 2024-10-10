@@ -4,6 +4,10 @@
     <%# Versioned.VersionedFiles.ScriptHelper.Render("css","../css/custom/thanhtoan-baocao.css") %>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+     <!-- Phần loading sẽ hiển thị khi cần -->
+    <div id="loading">
+        <div class="spinner"></div>
+    </div>
     <div class="row" id="div-row-button">
         <input type="button" id="baocao-hangkhong" class="btn btn-sm btn-primary" value="1. Dịch vụ hàng không kéo dài" />
         <input type="button" id="baocao-hangthuong" class="btn btn-sm btn-warning" value="2. Dịch vụ kho thường" />

@@ -352,7 +352,10 @@ function fncClick() {
             data: jsonData,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            async: false,
+            beforeSend: function () {
+                // Hiển thị loading trước khi gửi request
+                showLoading();
+            },
             success: function (responsive) {
                 d = responsive.d;
                 //console.log(d);
@@ -360,9 +363,15 @@ function fncClick() {
             },
             error: function (request, status, error) {
                 console.log(request.responseText);
+            },
+            complete: function () {
+                // Ẩn loading khi hoàn tất request
+                hideLoading();
             }
         }).done(function () {
         });
+       
+
     })
     ///END CHI TIẾT TÍNH CHARGEWEIGHT
 }
@@ -468,3 +477,12 @@ function fncLoadFWD() {
 //    });
 
 //}
+// Hàm để hiển thị hiệu ứng loading
+function showLoading() {
+    document.getElementById('loading').style.display = 'flex';
+}
+
+// Hàm để ẩn hiệu ứng loading
+function hideLoading() {
+    document.getElementById('loading').style.display = 'none';
+}
