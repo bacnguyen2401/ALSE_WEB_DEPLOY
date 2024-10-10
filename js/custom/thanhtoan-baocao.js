@@ -6,7 +6,7 @@
 
 
 function fncClick() {
-    // ngày hiện tại deploy 10/10/2024
+    // ngày hiện tại deploy 10/10/2024 version 2
     var d_now_20180131 = new Date();
     //>>>>> hàng không
     ///// click nút báo cáo hàng không
@@ -323,11 +323,11 @@ function fncClick() {
         $("#input-baocao-chitietcw-tenfile").val("CHITIETCW_" + $("#select-chitietcw-cargoterminal").val() + "_" + $("#select-chitietcw-fwd").val() + "_" + convertDate($("#input-baocao-chitietcw-tu-ngay").datepicker("getDate"))[8] + "_to_" + convertDate($("#input-baocao-chitietcw-den-ngay").datepicker("getDate"))[8]);
     })
 
-       ///// click button kiết xuất bản kê chargeweight
+    ///// click button kiết xuất bản kê chargeweight
     $("#btn-baocao-chitietcw-taobaocao").click(function () {
         //dmy2ymd()
-        var g_tungay = $("#input-baocao-chitietcw-tu-ngay").val();
-        var g_denngay = $("#input-baocao-chitietcw-den-ngay").val();
+        var g_tungay = dmy2ymd($("#input-baocao-chitietcw-tu-ngay").val());
+        var g_denngay = dmy2ymd($("#input-baocao-chitietcw-den-ngay").val());
         var g_tenfile = $("#input-baocao-chitietcw-tenfile").val().trim();
         var g_cargoterminal = $("#select-chitietcw-cargoterminal").val();
         var g_FWD = $("#select-chitietcw-fwd").val();
@@ -417,7 +417,10 @@ function fncLoadFWD() {
         success: function (responsive) {
             d = responsive.d;
 
-            var html_option = "<option value=\"\"></option>"
+            var html_option = "<option value=\"\"></option>";
+            html_option += "<option value=\"DHL.%\">DHL.%</option>";
+            html_option += "<option value=\"SCK.%\">SCK.%</option>";
+            html_option += "<option value=\"EI.%\">EI.%</option>";
             $.each(d, function (key, val) {
                 html_option += "<option value=\"" + val.FWD + "\">" + val.FWD + "</option>"
             });
