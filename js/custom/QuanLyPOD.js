@@ -638,57 +638,57 @@ function fncClick() {
     });
 
     // Click show excel cập nhất số TMS
-    $("#btn-capnhatTMS").click(function () {
-        $("#modalCapNhatSoTMS").modal(
-            {
-                show: true,
-                backdrop: "static",
-                keyboard: false
-            });
-        $("#spreadsheetSoTMS").empty();
-        $("#spreadsheetSoTMS").kendoSpreadsheet({
-            columns: 2,
-            rows: 50,
-            toolbar: false,
-            sheetsbar: false,
-        });
-        var spreadsheet = $("#spreadsheetSoTMS").data("kendoSpreadsheet");
-        var sheet = spreadsheet.activeSheet();
-        sheet.range(kendo.spreadsheet.SHEETREF).clear();
-        $(window).trigger("resize");
-        spreadsheet.fromJSON({
-            sheets: [{
-                name: "KeHoach",
-                rows: [{
-                    height: 40,
-                    cells: [
-                        { value: "TMS", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
-                        , { value: "INVOICE", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
-                        , { value: "Địa chỉ giao hàng", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
-                        , { value: "BU", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
-                        , { value: "Ghi chú", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
-                    ]
-                }],
-                columns: [
-                    {// TMS
-                        width: 150
-                    },
-                    {// INVOICE
-                        width: 150
-                    },
-                    {// Địa chỉ giao hàng
-                        width: 100
-                    },
-                    {// BU
-                        width: 100
-                    },
-                    {// Ghi chú
-                        width: 100
-                    }
-                ]
-            }]
-        });
-    })
+    //$("#btn-capnhatTMS").click(function () {
+    //    $("#modalCapNhatSoTMS").modal(
+    //        {
+    //            show: true,
+    //            backdrop: "static",
+    //            keyboard: false
+    //        });
+    //    $("#spreadsheetSoTMS").empty();
+    //    $("#spreadsheetSoTMS").kendoSpreadsheet({
+    //        columns: 2,
+    //        rows: 50,
+    //        toolbar: false,
+    //        sheetsbar: false,
+    //    });
+    //    var spreadsheet = $("#spreadsheetSoTMS").data("kendoSpreadsheet");
+    //    var sheet = spreadsheet.activeSheet();
+    //    sheet.range(kendo.spreadsheet.SHEETREF).clear();
+    //    $(window).trigger("resize");
+    //    spreadsheet.fromJSON({
+    //        sheets: [{
+    //            name: "KeHoach",
+    //            rows: [{
+    //                height: 40,
+    //                cells: [
+    //                    { value: "TMS", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+    //                    , { value: "INVOICE", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+    //                    , { value: "Địa chỉ giao hàng", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+    //                    , { value: "BU", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+    //                    , { value: "Ghi chú", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+    //                ]
+    //            }],
+    //            columns: [
+    //                {// TMS
+    //                    width: 150
+    //                },
+    //                {// INVOICE
+    //                    width: 150
+    //                },
+    //                {// Địa chỉ giao hàng
+    //                    width: 100
+    //                },
+    //                {// BU
+    //                    width: 100
+    //                },
+    //                {// Ghi chú
+    //                    width: 100
+    //                }
+    //            ]
+    //        }]
+    //    });
+    //})
 
     // Click xem POD
     $("#tbl_POD").on("click", ".btn-xem", function () {

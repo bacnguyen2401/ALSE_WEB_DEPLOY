@@ -12,7 +12,7 @@
             <div class="form-group col-sm-8 div-action">
                 <div>
                     <button type="button" id="btn-capnhatgiaohang" class="mani-btn btn btn-info">Tạo POD</button>
-                    <button type="button" id="btn-capnhatTMS" class="mani-btn btn btn-success">Cập nhật số TMS</button>
+                    <%--<button type="button" id="btn-capnhatTMS" class="mani-btn btn btn-success">Cập nhật số TMS</button>--%>
                     <button type="button" id="btn-xuatbangkeGTT" class="mani-btn btn btn-danger">Xuất bảng kê</button>
                     <button type="button" id="btn-xuatbaocao" class="mani-btn btn btn-warning">Xuất báo cáo</button>
                     <button type="button" id="btn-truck" class="mani-btn btn btn-info">Truck POD</button>

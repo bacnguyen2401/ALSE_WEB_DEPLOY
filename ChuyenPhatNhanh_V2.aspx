@@ -13,8 +13,10 @@
         <button type="button" id="btn-taokehoach" class="mani-btn btn btn-primary">1. Tạo kế hoạch</button>
         <button type="button" id="btn-capnhatthongtin" class="mani-btn btn btn-warning">2. Cập nhật thông tin giao hàng</button>
         <button type="button" id="btn-capnhatchuyenxetheohawb" class="mani-btn btn btn-info">3. Tạo chuyến xe CPN theo HAWB</button>
-        <button type="button" id="btn-quanlychuyenPOD" class="mani-btn btn btn-success">4. Quản lý chuyến POD</button>
+        <button type="button" id="btn-quanlychuyenxe" class="mani-btn btn btn-success">4. Quản lý chuyến xe</button>
+        <button type="button" id="btn-chuyenkvgiamsat" class="mani-btn btn btn-primary">5. Cập nhật hàng qua KV giám sát</button>
         <button type="button" id="btn-truyvan" class="mani-btn btn btn-primary">6. Truy vấn</button>
+        <button type="button" id="btn-baocao" class="mani-btn btn btn-primary">7. Báo cáo</button>
 
     </div>
     <div id="div-TrangThaiHangNhap">
