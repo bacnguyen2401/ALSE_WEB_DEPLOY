@@ -145,7 +145,30 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="form-group col-sm-3">
+                        <div class="form-group col-sm-2">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Mã theo dõi</span>
+                                <input type="text" class="form-control input-sm input-matheodoi" disabled/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Ngày giao xong</span>
+                                <input type="text" class="form-control datepicker input-sm input-ngaygiaoxong" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Giờ giao xong</span>
+                                <input type="text" class="form-control timepicker input-sm input-giogiaoxong" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-2">
                             <div class="input-group div-thanhtoan-group">
                                 <span class="input-group-addon" id="">BKS</span>
                                 <input type="text" class="form-control input-sm input-bks" list="sltBKSXe" />
@@ -153,7 +176,7 @@
                                 </datalist>
                             </div>
                         </div>
-                        <div class="form-group col-sm-3">
+                        <div class="form-group col-sm-2">
                             <div class="input-group div-thanhtoan-group">
                                 <span class="input-group-addon" id="">Tên LX</span>
                                 <input type="text" class="form-control input-sm input-laixe" />
@@ -180,25 +203,46 @@
                                 <input type="text" class="form-control input-sm input-taitrong" />
                             </div>
                         </div>
+
+                        <div class="form-group col-sm-2">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Đơn vị vận tải</span>
+                                <input type="text" class="form-control input-sm input-donvivantai" />
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-sm-3">
+                        <div class="form-group col-sm-2">
                             <div class="input-group div-thanhtoan-group">
                                 <span class="input-group-addon" id="">Số seal</span>
                                 <input type="text" class="form-control input-sm input-seal" />
                             </div>
                         </div>
 
-                        <div class="form-group col-sm-3">
+                        <div class="form-group col-sm-2">
                             <div class="input-group div-thanhtoan-group">
-                                <span class="input-group-addon" id="">Ngày thực tế</span>
+                                <span class="input-group-addon" id="">Số niêm phong</span>
+                                <input type="text" class="form-control input-sm input-niemphong" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Đơn điều phối</span>
+                                <input type="text" class="form-control input-sm input-dondieuphoi" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Ngày giao hàng</span> <%-- ngày thực tế --%>
                                 <input type="text" class="form-control datepicker input-sm input-ngaythucte" />
                             </div>
                         </div>
 
                         <div class="form-group col-sm-2">
                             <div class="input-group div-thanhtoan-group">
-                                <span class="input-group-addon" id="">Giờ thực tế</span>
+                                <span class="input-group-addon" id="">Giờ giao hàng</span>
                                 <input type="text" class="form-control timepicker input-sm input-giothucte" />
                             </div>
                         </div>

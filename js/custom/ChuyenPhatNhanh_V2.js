@@ -387,6 +387,12 @@ function fncClick() {
         var _soseal = $(".input-seal").val();
         var _ngaytt = dmy2ymd($(".input-ngaythucte").val());
         var _giott = $(".input-giothucte").val();
+        var _matheodoi = $(".input-matheodoi").val();
+        var _donvivantai = $(".input-donvivantai").val();
+        var _soniemphong = $(".input-niemphong").val();
+        var _dondieuphoi = $(".input-dondieuphoi").val();
+        var _ngaygiaohangxong = dmy2ymd($(".input-ngaygiaoxong").val());
+        var _giogiaohangxong = $(".input-giogiaoxong").val();
 
         var spreadsheet = $("#spreadsheetGiaoHang").data("kendoSpreadsheet");
         var data = spreadsheet.toJSON().sheets[0].rows;
@@ -433,6 +439,11 @@ function fncClick() {
                     , "SoSeal": _soseal
                     , "GhiChu": ""
                     , "NgayGioThucTe": _ngaytt + " " + _giott
+                    , "MaTheoDoi": _matheodoi
+                    , "DonViVanTai": _donvivantai
+                    , "SoNiemPhong": _soniemphong
+                    , "DonDieuPhoi": _dondieuphoi
+                    , "NgayGioGiaoHangXong": _ngaygiaohangxong + " " + _giogiaohangxong
                 }
             );
         })
@@ -470,9 +481,13 @@ function fncClick() {
     });
 
     $("#btn-capnhatchuyenxetheohawb").click(function () {
+        showMaTheoDoi();
         $("#modalCapNhatHAWB").modal("show");
         $(".input-ngaythucte").val(moment().format("DD/MM/YYYY"));
         $(".input-giothucte").val(moment().format("HH:mm"));
+
+        //$(".input-ngaygiaoxong").val(moment().format("DD/MM/YYYY"));
+        //$(".input-giogiaoxong").val(moment().format("HH:mm"));
 
         $("#spreadsheetGiaoHang").empty();
         $("#spreadsheetGiaoHang").kendoSpreadsheet({
@@ -930,6 +945,39 @@ function insertUpdateKeHoach(keHoachCPNs) {
                 fncLoad();
                 $("#modalTaoKeHoach").modal("hide");
                 $("#modalCPNCapNhat").modal("hide");
+            }
+        },
+        error: function () {
+            Swal.fire(
+                'Có lỗi xảy ra!',
+                'Danh sách hàng chưa được lưu. Thử lại hoặc liên hệ IT',
+                'error'
+            )
+        }
+    }).done(function () {
+    })
+}
+
+function showMaTheoDoi() {
+    ajaxGet = { "get": "" }
+    jsonData = JSON.stringify({ ajaxGet });
+    $.ajax({
+        type: "POST",
+        url: "ChuyenPhatNhanh_V2.aspx/showMatheoDoi",
+        data: jsonData,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        success: function (responsive) {
+            d = responsive.d;
+            if (d.length == 1) {
+                $(".input-matheodoi").val("000" + d)
+            } else if (d.length == 2) {
+                $(".input-matheodoi").val("00" + d)
+            } else if (d.length == 3) {
+                $(".input-matheodoi").val("0" + d)
+            } else if (d.length == 4) {
+                $(".input-matheodoi").val("" + d)
             }
         },
         error: function () {
