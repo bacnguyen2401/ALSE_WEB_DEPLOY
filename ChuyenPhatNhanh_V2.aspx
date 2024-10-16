@@ -15,8 +15,8 @@
         <button type="button" id="btn-capnhatchuyenxetheohawb" class="mani-btn btn btn-info">3. Tạo chuyến xe CPN theo HAWB</button>
         <button type="button" id="btn-quanlychuyenxe" class="mani-btn btn btn-success">4. Quản lý chuyến xe</button>
         <button type="button" id="btn-chuyenkvgiamsat" class="mani-btn btn btn-primary">5. Cập nhật hàng qua KV giám sát</button>
-        <button type="button" id="btn-truyvan" class="mani-btn btn btn-primary">6. Truy vấn</button>
-        <button type="button" id="btn-baocao" class="mani-btn btn btn-primary">7. Báo cáo</button>
+        <button type="button" id="btn-truyvan" class="mani-btn btn btn-warning">6. Truy vấn</button>
+        <button type="button" id="btn-baocao" class="mani-btn btn btn-info">7. Báo cáo</button>
 
     </div>
     <div id="div-TrangThaiHangNhap">
