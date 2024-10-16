@@ -6,17 +6,17 @@
 });
 
 function fncLoad(){
-    // Đây là load
+    // Đây là load 1 
 }
 
 function fncChange(){
-    // Đây là change
+    // Đây là change 1 
 }
 
 function fncClick(){
-    // Đây là click
+    // Đây là click 1 
 }
 
 function fncModal(){
-    // Đây là modal
+    // Đây là modal 1
 }
