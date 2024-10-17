@@ -859,7 +859,7 @@ function fncClick() {
             async: false,
             success: function (responsive) {
                 d = responsive.d;
-                console.log(d)
+                //console.log(d)
                 $.each(d, function (key, val) {
                     dataSource.push({
                         "SoKien": val.SoKien,

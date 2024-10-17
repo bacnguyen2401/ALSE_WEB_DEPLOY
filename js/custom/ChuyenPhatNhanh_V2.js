@@ -87,6 +87,40 @@ function fncLoad() {
                 })
             }
             $("#tbl_chuyenxe tbody").empty().append(html_body);
+
+            html_body = "";
+
+            if (d.chuyenPhatNhanhCargoready.length == 0) {
+                html_body += "<tr><td colspan=\"19\">Chưa có dữ liệu</td></tr>"
+            } else {
+                $.each(d.chuyenPhatNhanhCargoready, function (key, val) {
+                    html_body += "<tr>";
+                    html_body += "<td>" + (key + 1) + "</td>";
+                    html_body += "<td>CARGO READY</td>";
+                    html_body += "<td>" + val.HAWB + "</td>";
+                    html_body += "<td>" + val.PCS + "</td>";
+                    html_body += "<td>" + val.GW + "</td>";
+                    html_body += "<td>" + val.CBM + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioThongBao)[1] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioThongBao)[3] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioYeuCauTraHang)[1] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioYeuCauTraHang)[3] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioThucTe)[1] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioThucTe)[3] + "</td>";
+                    html_body += "<td>" + val.BKSXe + "</td>";
+                    html_body += "<td>" + val.SoTMS + "</td>";
+                    html_body += "<td>" + val.SoInvoice + "</td>";
+                    html_body += "<td>" + val.BU + "</td>";
+                    html_body += "<td>" + val.KhoGiaoHang + "</td>";
+                    html_body += "<td>" + val.FWD + "</td>";
+                    html_body += "<td>" + val.KhoCPN + "</td>";
+                    html_body += "<td>" + val.CDNo + "</td>";
+                    html_body += "<td>" + val.GhiChu + "</td>";
+                    html_body += "<td><button type=\"button\"  attrHawb=\"" + val.HAWB + "\" attrId=\"" + val.Id + "\" class=\"btn btn-sm btn-warning btn-sua\"  >Sửa</button>  <button attrHawb=\"" + val.HAWB + "\" attrId=\"" + val.Id + "\" type=\"button\" class=\"btn btn-sm btn-danger btn-xoa\">Xóa</button></td>";
+                    html_body += "</tr>";
+                })
+            }
+            $("#tbl_cargoready tbody").empty().append(html_body);
         },
         error: function (errormessage) {
             console.log("Lỗi : " + errormessage.responseText);
@@ -95,6 +129,127 @@ function fncLoad() {
 }
 
 function fncClick() {
+
+    $("#btn-capnhatkvgs").click(function () {
+        var spreadsheet = $("#spreadsheetKVG").data("kendoSpreadsheet");
+        var data = spreadsheet.toJSON().sheets[0].rows;
+        data = data.splice(1, data.length - 1);
+        var keHoachCPNs = [];
+        var cells;
+        var cell_HAWB = "";
+        data.forEach(function (dataItem, dataIndex) {
+            cells = dataItem.cells;
+            cell_HAWB = "";
+            cells.forEach(function (cellItem, cellIndex) {
+                switch (cellItem.index) {
+                    case 0:
+                        if (cells[cellIndex].value !== undefined) {
+                            cell_HAWB = cells[cellIndex].value;
+                        }
+                        break;
+                }
+            })
+            keHoachCPNs.push(
+                {
+                    "iu": ""
+                    , "Id": ""
+                    , "HAWB": String(cell_HAWB).trim().replace(/ /g, '')
+                    , "PCS": ""
+                    , "GW": ""
+                    , "CBM": ""
+                    , "SoTMS": ""
+                    , "SoInvoice": ""
+                    , "NCC": ""
+                    , "NgayGioYeuCauTraHang": ""
+                    , "PIC": ""
+                    , "KhoCPN": ""
+                    , "CDNo": ""
+                    , "BU": ""
+                    , "KhoGiaoHang": ""
+                    , "FWD": ""
+                    , "BKSXe": ""
+                    , "TenLaiXe": ""
+                    , "SDT": ""
+                    , "CCCD": ""
+                    , "TaiTrong": ""
+                    , "SoSeal": ""
+                    , "GhiChu": ""
+                    , "NgayGioThucTe": ""
+                    , "MaTheoDoi": ""
+                    , "DonViVanTai": ""
+                    , "SoNiemPhong": ""
+                    , "DonDieuPhoi": ""
+                    , "NgayGioGiaoHangXong": "" 
+                }
+            );
+        })
+
+        jsonData = JSON.stringify({ keHoachCPNs });
+        $.ajax({
+            type: "POST",
+            url: "ChuyenPhatNhanh_V2.aspx/UpdateCargoReady",
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                d = responsive.d;
+                console.log(d)
+                if (d == "ok") {
+                    Swal.fire(
+                        'Cập nhật!',
+                        'Bạn đã cập nhật kế cargo ready thành công',
+                        'success'
+                    )
+                    fncLoad();
+                    $("#modalCapNhatKVGS").modal("hide");
+                }
+            },
+            error: function () {
+                Swal.fire(
+                    'Có lỗi xảy ra!',
+                    'Danh sách hàng chưa được lưu. Thử lại hoặc liên hệ IT',
+                    'error'
+                )
+            }
+        }).done(function () {
+        })
+    })
+    $("#btn-chuyenkvgiamsat").click(function () {
+        $("#modalCapNhatKVGS").modal("show");
+        $("#spreadsheetKVG").empty();
+        $("#spreadsheetKVG").kendoSpreadsheet({
+            columns: 1,
+            rows: 100,
+            toolbar: false,
+            sheetsbar: false,
+        });
+        var spreadsheet = $("#spreadsheetKVG").data("kendoSpreadsheet");
+        var sheet = spreadsheet.activeSheet();
+        sheet.range(kendo.spreadsheet.SHEETREF).clear();
+        $(window).trigger("resize");
+        spreadsheet.fromJSON({
+            sheets: [{
+                name: "KeHoach",
+                //mergedCells: [
+                //    "A1:G1"
+                //],
+                //dataSource: dataSource,
+                rows: [{
+                    height: 40,
+                    cells: [
+                        { value: "Số HAWB", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+                    ]
+                }],
+                columns: [
+                    {// Số kiện
+                        width: 150
+                    }
+                ]
+            }]
+        });
+    })
+
     $("#btn-kehoach-capnhat").click(function () {
         var _Id = $(this).attr("attrid")
         keHoachCPNs = [];
@@ -919,6 +1074,10 @@ function fncModal() {
     });
 
     $('#modalCapNhatThongTinGiaoHang').on('shown.bs.modal', function () {
+        $(document).off('focusin.bs.modal');
+        $(window).trigger("resize"); // bug modal > show excel
+    });
+    $('#modalCapNhatKVGS').on('shown.bs.modal', function () {
         $(document).off('focusin.bs.modal');
         $(window).trigger("resize"); // bug modal > show excel
     });

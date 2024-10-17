@@ -30,7 +30,7 @@ function Load() {
             var loaihinhxe = "";
             $.each(d, function (key, val) {
                 html_tbody += "<tr>";
-                html_tbody += "<td  class=\"ClassfontSize8 textleft\">" + (key + 1) + "</td>";
+                html_tbody += "<td class=\"ClassfontSize8 textleft\">" + (key + 1) + "</td>";
                 html_tbody += "<td contenteditable  class=\"ClassfontSize8 textleft textDam font-size12\">" + val.SoTMS + "</td>";
                 html_tbody += "<td contenteditable  class=\"ClassfontSize8 textleft textDam font-size12\">" + val.Invoice + "</td>";
                 html_tbody += "<td contenteditable  class=\"ClassfontSize8 textleft textDam font-size12\">" + val.HAWB + "</td>";

@@ -23,7 +23,7 @@
     </div>
 
     <div class="table-chuyenxecpn">
-        <table class="table table-bordered background-color-white">
+        <table class="table table-bordered background-color-white" id="tbl_chuyenxecpn">
             <thead>
                 <tr class="backgroudColor-red">
                     <td>STT</td>
@@ -43,42 +43,105 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>TD001</td>
-                    <td>51A-12345</td>
-                    <td>16/10/2024</td>
-                    <td>08:30</td>
-                    <td>10 Tấn</td>
-                    <td>Công ty Vận Tải ABC</td>
-                    <td>NP123456</td>
-                    <td>16/10/2024</td>
-                    <td>11:00</td>
-                    <td>DP001</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>15/10/2024</td>
-                    <td>
-                        <button class="btn btn-primary">Chỉnh sửa</button></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>TD002</td>
-                    <td>29B-67890</td>
-                    <td>16/10/2024</td>
-                    <td>09:00</td>
-                    <td>15 Tấn</td>
-                    <td>Công ty Vận Tải XYZ</td>
-                    <td>NP654321</td>
-                    <td>16/10/2024</td>
-                    <td>13:00</td>
-                    <td>DP002</td>
-                    <td>Trần Thị B</td>
-                    <td>15/10/2024</td>
-                    <td>
-                        <button class="btn btn-primary">Chỉnh sửa</button></td>
-                </tr>
             </tbody>
         </table>
+    </div>
+
+
+    <%-- Modal cập nhật giao hàng--%>
+
+    <div class="modal fade" id="modalCapNhatGiaoHang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg fullscreen " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times </span></button>
+                    <h4 class="modal-title" id=""></h4>
+                </div>
+                <div class="modal-body">
+                  <%--  <div class="row">
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Số POD</span>
+                                <input type="text" disabled class="form-control input-sm input-pod" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Số Đơn Điều Phôi</span>
+                                <input type="text" class="form-control input-sm input-dondieuphoi" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">BKS</span>
+                                <input type="text" class="form-control input-sm input-bks" list="sltBKSXe" />
+                                <datalist class="nobdInput" id="sltBKSXe">
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Tên LX</span>
+                                <input type="text" class="form-control input-sm input-laixe" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">SĐT</span>
+                                <input type="text" class="form-control input-sm input-sdt" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Số CMND</span>
+                                <input type="text" class="form-control input-sm input-cmnd" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Tải trọng</span>
+                                <input type="text" class="form-control input-sm input-taitrong" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Số seal</span>
+                                <input type="text" class="form-control input-sm input-seal" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Ngày giao hàng</span>
+                                <input type="text" class="form-control datepicker input-sm input-ngaygiaohang" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Giờ giao hàng</span>
+                                <input type="text" class="form-control timepicker input-sm input-giogiaohang" />
+                            </div>
+                        </div>
+                    </div>--%>
+                    <div class="row">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Đóng</button>
+                        <button type="button" id="btn-capnhatgiaohang-luu" class="btn btn-primary">Lưu</button>
+                    </div>
+                    <div id="spreadsheetGiaoHang" class="spreadsheet-width-auto spreadsheet-height-400"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
     </div>
 
     <%# Versioned.VersionedFiles.ScriptHelper.Render("js","js/custom/QuanLyChuyenXeCPN.js") %>

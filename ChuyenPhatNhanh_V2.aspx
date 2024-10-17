@@ -13,7 +13,7 @@
         <button type="button" id="btn-taokehoach" class="mani-btn btn btn-primary">1. Tạo kế hoạch</button>
         <button type="button" id="btn-capnhatthongtin" class="mani-btn btn btn-warning">2. Cập nhật thông tin giao hàng</button>
         <button type="button" id="btn-capnhatchuyenxetheohawb" class="mani-btn btn btn-info">3. Tạo chuyến xe CPN theo HAWB</button>
-        <button type="button" id="btn-quanlychuyenxe" class="mani-btn btn btn-success">4. Quản lý chuyến xe</button>
+        <a href="QuanLyChuyenXeCPN.aspx" type="button" id="btn-quanlychuyenxe" class="mani-btn btn btn-success">4. Quản lý chuyến xe</a>
         <button type="button" id="btn-chuyenkvgiamsat" class="mani-btn btn btn-primary">5. Cập nhật hàng qua KV giám sát</button>
         <button type="button" id="btn-truyvan" class="mani-btn btn btn-warning">6. Truy vấn</button>
         <button type="button" id="btn-baocao" class="mani-btn btn btn-info">7. Báo cáo</button>
@@ -50,6 +50,37 @@
         </table>
 
         <table class="table table-bordered  table-maxwidth-1024 tbl_click" id="tbl_chuyenxe">
+            <thead class="thead-ArrivalNotice">
+                <tr>
+                    <th class="td-no">No.</th>
+                    <th>STATUS</th>
+                    <th>HAWB</th>
+                    <th>PCS</th>
+                    <th>G.W</th>
+                    <th>CBM</th>
+                    <th>TB.DATE</th>
+                    <th>TB.TIME</th>
+                    <th>ORDER.D</th>
+                    <th>ORDER.T</th>
+                    <th>TRUCK.D</th>
+                    <th>TRUCK.T</th>
+                    <th>TRUCK ID</th>
+                    <th>TMS</th>
+                    <th>INVOICE</th>
+                    <th>BU</th>
+                    <th>KHO GIAO HÀNG</th>
+                    <th>FWD</th>
+                    <th>Kho CPN</th>
+                    <th>CD No</th>
+                    <th>REMARK</th>
+                    <th>FUNCTION</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <table class="table table-bordered  table-maxwidth-1024 tbl_click" id="tbl_cargoready">
             <thead class="thead-ArrivalNotice">
                 <tr>
                     <th class="td-no">No.</th>
@@ -148,7 +179,7 @@
                         <div class="form-group col-sm-2">
                             <div class="input-group div-thanhtoan-group">
                                 <span class="input-group-addon" id="">Mã theo dõi</span>
-                                <input type="text" class="form-control input-sm input-matheodoi" disabled/>
+                                <input type="text" class="form-control input-sm input-matheodoi" disabled />
                             </div>
                         </div>
 
@@ -489,6 +520,27 @@
                         <button type="button" class="btn btn-link" data-dismiss="modal">Đóng</button>
                         <button type="button" attrid="" id="btn-kehoach-capnhat" class="btn btn-warning">Cập nhật</button>
                     </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modalCapNhatKVGS" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times </span></button>
+                    <h4 class="modal-title" id="">CẬP NHẬT HÀNG QUA KHU VỤC GIÁM SÁT</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Đóng</button>
+                        <button type="button" id="btn-capnhatkvgs" class="btn btn-primary">Lưu</button>
+                    </div>
+                    <div id="spreadsheetKVG" class="spreadsheet-width-auto spreadsheet-height-400"></div>
                 </div>
                 <div class="modal-footer">
                 </div>
