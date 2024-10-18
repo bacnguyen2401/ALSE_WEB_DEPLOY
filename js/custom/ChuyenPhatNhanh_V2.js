@@ -372,7 +372,7 @@ function fncClick() {
 
     // update
     $("#btn-capnhatthongtingiaohang").click(function () {
-        var spreadsheet = $("#spreadsheetGiaoHang").data("kendoSpreadsheet");
+        var spreadsheet = $("#spreadsheetThongTinGiaoHang").data("kendoSpreadsheet");
         var data = spreadsheet.toJSON().sheets[0].rows;
         data = data.splice(1, data.length - 1);
         var keHoachCPNs = [];
@@ -466,7 +466,7 @@ function fncClick() {
                     , "CCCD": ""
                     , "TaiTrong": ""
                     , "SoSeal": ""
-                    , "GhiChu": String(cell_GhiChu).trim().replace(/ /g, '')
+                    , "GhiChu": String(cell_Remark).trim().replace(/ /g, '')
                     , "NgayGioThucTe": ""
                 }
             );
@@ -482,7 +482,6 @@ function fncClick() {
             async: false,
             success: function (responsive) {
                 d = responsive.d;
-                console.log(d)
                 if (d == "ok") {
                     Swal.fire(
                         'Cập nhật thông tin giao hàng!',
@@ -490,7 +489,7 @@ function fncClick() {
                         'success'
                     )
                     fncLoad();
-                    $("#modalTaoKeHoach").modal("hide");
+                    $("#modalCapNhatThongTinGiaoHang").modal("hide");
                 }
             },
             error: function () {
