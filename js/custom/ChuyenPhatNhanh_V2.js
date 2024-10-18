@@ -656,7 +656,7 @@ function fncClick() {
                         'success'
                     )
                     fncLoad();
-                    $("#modalTaoKeHoach").modal("hide");
+                    $("#modalCapNhatHAWB").modal("hide");
                 }
             },
             error: function () {
