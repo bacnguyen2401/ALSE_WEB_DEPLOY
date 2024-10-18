@@ -110,6 +110,37 @@
             <tbody>
             </tbody>
         </table>
+
+        <table class="table table-bordered  table-maxwidth-1024 tbl_click" id="tbl_complete">
+            <thead class="thead-ArrivalNotice">
+                <tr>
+                    <th class="td-no">No.</th>
+                    <th>STATUS</th>
+                    <th>HAWB</th>
+                    <th>PCS</th>
+                    <th>G.W</th>
+                    <th>CBM</th>
+                    <th>TB.DATE</th>
+                    <th>TB.TIME</th>
+                    <th>ORDER.D</th>
+                    <th>ORDER.T</th>
+                    <th>TRUCK.D</th>
+                    <th>TRUCK.T</th>
+                    <th>TRUCK ID</th>
+                    <th>TMS</th>
+                    <th>INVOICE</th>
+                    <th>BU</th>
+                    <th>KHO GIAO HÀNG</th>
+                    <th>FWD</th>
+                    <th>Kho CPN</th>
+                    <th>CD No</th>
+                    <th>REMARK</th>
+                    <th>FUNCTION</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
 
 
@@ -383,36 +414,6 @@
                     <div class="row">
                         <div class="form-group col-sm-3">
                             <div class="input-group div-thanhtoan-group">
-                                <span class="input-group-addon" id="">TMS</span>
-                                <input type="text" class="form-control input-sm input-capnhat-tms" />
-                            </div>
-                        </div>
-
-                        <div class="form-group col-sm-3">
-                            <div class="input-group div-thanhtoan-group">
-                                <span class="input-group-addon" id="">INVOICE</span>
-                                <input type="text" class="form-control input-sm input-capnhat-invoice" />
-                            </div>
-                        </div>
-
-                        <div class="form-group col-sm-3">
-                            <div class="input-group div-thanhtoan-group">
-                                <span class="input-group-addon" id="">BU</span>
-                                <input type="text" class="form-control input-sm input-capnhat-bu" />
-                            </div>
-                        </div>
-
-                        <div class="form-group col-sm-3">
-                            <div class="input-group div-thanhtoan-group">
-                                <span class="input-group-addon" id="">KHO GIAO HÀNG</span>
-                                <input type="text" class="form-control input-sm input-capnhat-khogiaohang" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-sm-3">
-                            <div class="input-group div-thanhtoan-group">
                                 <span class="input-group-addon" id="">KHO CPN</span>
                                 <input type="text" class="form-control input-sm input-capnhat-khocpn" />
                             </div>
@@ -496,6 +497,36 @@
                             <div class="input-group div-thanhtoan-group">
                                 <span class="input-group-addon" id="">Giờ thực tế</span>
                                 <input type="text" class="form-control timepicker input-sm input-capnhat-giothucte" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">TMS</span>
+                                <input type="text" class="form-control input-sm input-capnhat-tms" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">INVOICE</span>
+                                <input type="text" class="form-control input-sm input-capnhat-invoice" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">BU</span>
+                                <input type="text" class="form-control input-sm input-capnhat-bu" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">KHO GH</span>
+                                <input type="text" class="form-control input-sm input-capnhat-khogiaohang" />
                             </div>
                         </div>
                     </div>

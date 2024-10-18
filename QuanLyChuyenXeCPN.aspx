@@ -58,7 +58,7 @@
                     <h4 class="modal-title" id=""></h4>
                 </div>
                 <div class="modal-body">
-                  <%--  <div class="row">
+                    <%--  <div class="row">
                         <div class="form-group col-sm-3">
                             <div class="input-group div-thanhtoan-group">
                                 <span class="input-group-addon" id="">Số POD</span>
@@ -137,6 +137,68 @@
                         <button type="button" id="btn-capnhatgiaohang-luu" class="btn btn-primary">Lưu</button>
                     </div>
                     <div id="spreadsheetGiaoHang" class="spreadsheet-width-auto spreadsheet-height-400"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modalDuyetChuyenXe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times </span></button>
+                    <h4 class="modal-title" id="">DUYỆT CHUYẾN XE GIAO HÀNG</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Ngày giao hàng</span>
+                                <input type="text" class="form-control datepicker input-sm input-ngaygiaohang" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Giờ giao hàng</span>
+                                <input type="text" class="form-control timepicker input-sm input-giogiaohang" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Ngày giao hàng xong</span>
+                                <input type="text" class="form-control datepicker input-sm input-ngaygiaohangxong" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Giờ giao hàng xong</span>
+                                <input type="text" class="form-control timepicker input-sm input-giogiaohangxong" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <div class="input-group div-thanhtoan-group">
+                                <span class="input-group-addon" id="">Người nhận</span>
+                                <input type="text" class="form-control input-sm input-nguoinhan" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Đóng</button>
+                        <button type="button" id="btn-duyet-quanlyxe" attrmatheodoi="" class="btn btn-primary">Duyệt</button>
+                    </div>
                 </div>
                 <div class="modal-footer">
                 </div>

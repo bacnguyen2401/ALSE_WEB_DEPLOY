@@ -121,6 +121,40 @@ function fncLoad() {
                 })
             }
             $("#tbl_cargoready tbody").empty().append(html_body);
+
+            html_body = "";
+
+            if (d.chuyenPhatNhanhComplete.length == 0) {
+                html_body += "<tr><td colspan=\"19\">Chưa có dữ liệu</td></tr>"
+            } else {
+                $.each(d.chuyenPhatNhanhComplete, function (key, val) {
+                    html_body += "<tr>";
+                    html_body += "<td>" + (key + 1) + "</td>";
+                    html_body += "<td>COMPLETE</td>";
+                    html_body += "<td>" + val.HAWB + "</td>";
+                    html_body += "<td>" + val.PCS + "</td>";
+                    html_body += "<td>" + val.GW + "</td>";
+                    html_body += "<td>" + val.CBM + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioThongBao)[1] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioThongBao)[3] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioYeuCauTraHang)[1] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioYeuCauTraHang)[3] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioThucTe)[1] + "</td>";
+                    html_body += "<td>" + convertDate(val.NgayGioThucTe)[3] + "</td>";
+                    html_body += "<td>" + val.BKSXe + "</td>";
+                    html_body += "<td>" + val.SoTMS + "</td>";
+                    html_body += "<td>" + val.SoInvoice + "</td>";
+                    html_body += "<td>" + val.BU + "</td>";
+                    html_body += "<td>" + val.KhoGiaoHang + "</td>";
+                    html_body += "<td>" + val.FWD + "</td>";
+                    html_body += "<td>" + val.KhoCPN + "</td>";
+                    html_body += "<td>" + val.CDNo + "</td>";
+                    html_body += "<td>" + val.GhiChu + "</td>";
+                    html_body += "<td><button type=\"button\"  attrHawb=\"" + val.HAWB + "\" attrId=\"" + val.Id + "\" class=\"btn btn-sm btn-warning btn-sua\"  >Sửa</button>  <button attrHawb=\"" + val.HAWB + "\" attrId=\"" + val.Id + "\" type=\"button\" class=\"btn btn-sm btn-danger btn-xoa\">Xóa</button></td>";
+                    html_body += "</tr>";
+                })
+            }
+            $("#tbl_complete tbody").empty().append(html_body);
         },
         error: function (errormessage) {
             console.log("Lỗi : " + errormessage.responseText);

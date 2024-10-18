@@ -1,5 +1,6 @@
 ﻿var jsonData;
 var ajaxGet;
+var ajaxGet4;
 var d;
 var html_body;
 
@@ -39,8 +40,8 @@ function fncLoad() {
                 html_body += "<td>" + convertDate(val.NgayGioGiaoHangXong)[3] + "</td>";
                 html_body += "<td>" + val.DonDieuPhoi + "</td>";
                 html_body += "<td>" + val.FullName2 + "</td>";
-                html_body += "<td>" + val.NgayTao + "</td>";
-                html_body += "<td><button type=\"button\" attrMaTheoDoi=\"" + val.MaTheoDoi + "\" class=\"btn btn-primary btn-xem\">Xem</button> <button attrMaTheoDoi=\"" + val.MaTheoDoi + "\" type=\"button\" class=\"btn btn-warning btn-sua\">Sửa</button> <button attrMaTheoDoi=\"" + val.MaTheoDoi + "\" type=\"button\" class=\"btn btn-danger btn-xoa\">Xóa</button></td>";
+                html_body += "<td>" + convertDate(val.NgayTao)[1] + "</td>";
+                html_body += "<td> <button type=\"button\" attrMaTheoDoi=\"" + val.MaTheoDoi + "\" class=\"btn btn-success btn-duyet\">Duyệt</button>  <button type=\"button\" attrMaTheoDoi=\"" + val.MaTheoDoi + "\" class=\"btn btn-primary btn-xem\">Xem</button> <button attrMaTheoDoi=\"" + val.MaTheoDoi + "\" type=\"button\" class=\"btn btn-warning btn-sua\">Sửa</button> <button attrMaTheoDoi=\"" + val.MaTheoDoi + "\" type=\"button\" class=\"btn btn-danger btn-xoa\">Xóa</button></td>";
                 html_body += "</tr>";
             });
 
@@ -57,6 +58,41 @@ function fncChange() {
 }
 
 function fncClick() {
+    $("#btn-duyet-quanlyxe").click(function () {
+        var _matheodoi = $(this).attr("attrmatheodoi");
+        var _ngaygiogiaohang = dmy2ymd($(".input-ngaygiaohang").val()) + " " + $(".input-giogiaohang ").val();
+        var _ngaygiogiaohangxong = dmy2ymd($(".input-ngaygiaohangxong").val()) + " " + $(".input-giogiaohangxong").val();
+        var _nguoinhan = $(".input-nguoinhan").val();
+
+        ajaxGet4 = { "get1": _matheodoi, "get2": _ngaygiogiaohang, "get3": _ngaygiogiaohangxong, "get4": _nguoinhan }
+        jsonData = JSON.stringify({ ajaxGet4 });
+        $.ajax({
+            type: "POST",
+            url: "QuanLyChuyenXeCPN.aspx/UpdateDuyetChuyenXe",
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                d = responsive.d;
+                console.log(d)
+            }, error: function (err) {
+                console.log(err.Message);
+            }
+        }).done(function () {
+        });
+    });
+
+    $("#tbl_chuyenxecpn").on("click", ".btn-duyet", function () {
+        var _matheodoi = $(this).attr("attrMaTheoDoi");
+        $("#modalDuyetChuyenXe").modal("show");
+        $("#btn-duyet-quanlyxe").attr("attrmatheodoi", _matheodoi)
+        $(".input-ngaygiaohang").val(moment().format("DD/MM/YYYY"));
+        $(".input-giogiaohang").val(moment().format("HH:mm"));
+        $(".input-ngaygiaohangxong").val(moment().format("DD/MM/YYYY"));
+        $(".input-giogiaohangxong").val(moment().format("HH:mm"));
+    });
+
     $("#btn-capnhatgiaohang-luu").click(function () {
         var spreadsheet = $("#spreadsheetGiaoHang").data("kendoSpreadsheet");
         var data = spreadsheet.toJSON().sheets[0].rows;
@@ -78,6 +114,7 @@ function fncClick() {
         var cell_CBM = "";
         var cell_PIC = "";
         var cell_BU = "";
+        var cell_Hawb = "";
 
         data.forEach(function (dataItem, dataIndex) {
             cell_Sokien = "";
@@ -95,6 +132,7 @@ function fncClick() {
             cell_CBM = "";
             cell_PIC = "";
             cell_BU = "";
+            cell_Hawb = "";
             cells = dataItem.cells;
 
             cells.forEach(function (cellItem, cellIndex) {
@@ -106,35 +144,40 @@ function fncClick() {
                         break;
                     case 1:
                         if (cells[cellIndex].value !== undefined && cells[cellIndex].value !== "") {
-                            cell_SoTMS = cells[cellIndex].value;
+                            cell_Hawb = cells[cellIndex].value;
                         }
                         break;
                     case 2:
                         if (cells[cellIndex].value !== undefined && cells[cellIndex].value !== "") {
-                            cell_Invoice = cells[cellIndex].value;
+                            cell_SoTMS = cells[cellIndex].value;
                         }
                         break;
                     case 3:
                         if (cells[cellIndex].value !== undefined && cells[cellIndex].value !== "") {
-                            cell_Diachigiao = cells[cellIndex].value;
+                            cell_Invoice = cells[cellIndex].value;
                         }
                         break;
                     case 4:
                         if (cells[cellIndex].value !== undefined && cells[cellIndex].value !== "") {
-                            cell_BU = cells[cellIndex].value;
+                            cell_Diachigiao = cells[cellIndex].value;
                         }
                         break;
                     case 5:
                         if (cells[cellIndex].value !== undefined && cells[cellIndex].value !== "") {
-                            cell_Remark = cells[cellIndex].value;
+                            cell_BU = cells[cellIndex].value;
                         }
                         break;
                     case 6:
                         if (cells[cellIndex].value !== undefined && cells[cellIndex].value !== "") {
-                            cell_PIC = cells[cellIndex].value;
+                            cell_Remark = cells[cellIndex].value;
                         }
                         break;
                     case 7:
+                        if (cells[cellIndex].value !== undefined && cells[cellIndex].value !== "") {
+                            cell_PIC = cells[cellIndex].value;
+                        }
+                        break;
+                    case 8:
                         if (cells[cellIndex].value !== undefined && cells[cellIndex].value !== "") {
                             cellId = cells[cellIndex].value;
                         }
@@ -152,7 +195,8 @@ function fncClick() {
                     PCS: cell_Sokien,
                     DiaChiGiaoHang: cell_Diachigiao,
                     GhiChu: cell_Remark,
-                    PIC: cell_PIC
+                    PIC: cell_PIC,
+                    HAWB: cell_Hawb
                 });
             }
 
@@ -189,10 +233,11 @@ function fncClick() {
             async: false,
             success: function (responsive) {
                 d = responsive.d;
-                console.log(d)
+                //console.log(d)
                 $.each(d, function (key, val) {
                     dataSource.push({
                         "SoKien": val.PCS,
+                        "HAWB": val.HAWB,
                         //"GW": val.GW,
                         //"CBM": val.CBM,
                         "SoTMS": val.SoTMS,
@@ -223,7 +268,7 @@ function fncClick() {
             });
         $("#spreadsheetGiaoHang").empty();
         $("#spreadsheetGiaoHang").kendoSpreadsheet({
-            columns: 8,
+            columns: 9,
             rows: 100,
             toolbar: false,
             sheetsbar: false,
@@ -243,6 +288,7 @@ function fncClick() {
                     height: 40,
                     cells: [
                         { value: "Số kiện", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
+                        , { value: "HAWB", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
                         //, { value: "GW", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
                         //, { value: "CBM", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
                         , { value: "Số TMS", textAlign: "center", verticalAlign: "center", bold: true, wrap: true, enable: false }
@@ -261,11 +307,14 @@ function fncClick() {
                     {// Số kiện
                         width: 80
                     }
+                    , {// HAWB
+                        width: 120
+                    }
                     , {// GW
-                        width: 80
+                        width: 140
                     }
                     , {// CBM
-                        width: 80
+                        width: 120
                     },
                     {// Số TMS
                         width: 150
