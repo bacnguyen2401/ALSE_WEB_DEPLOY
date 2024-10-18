@@ -968,11 +968,11 @@ function fncClick() {
         if (ip_fwd != "") {
             if (keHoachCPNs.length != 0) {
                 if (checkHAWB) {
-                    insertupdatekehoach(keHoachCPNs);
+                    insertUpdateKeHoach(keHoachCPNs);
                 } else {
                     var conf = confirm("các lô hàng có hawb " + messageCheckHawb + " đã tồn tại trong hệ thống hoặc bạn nhập trùng, bạn muốn tiếp tục không?");
                     if (conf) {
-                        insertupdatekehoach(keHoachCPNs);
+                        insertUpdateKeHoach(keHoachCPNs);
                     }
                 }
             } else {
