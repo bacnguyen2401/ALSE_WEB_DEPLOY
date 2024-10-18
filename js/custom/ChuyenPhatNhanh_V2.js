@@ -671,6 +671,7 @@ function fncClick() {
     });
 
     $("#btn-capnhatchuyenxetheohawb").click(function () {
+        fncLoadTruckPOD();
         showMaTheoDoi();
         $("#modalCapNhatHAWB").modal("show");
         $(".input-ngaythucte").val(moment().format("DD/MM/YYYY"));
@@ -1100,10 +1101,57 @@ function fncClick() {
 }
 
 function fncChange() {
+    $(".container").on("change", ".input-bks", function () {
+        if ($(this).val() === "") {
+            $(".input-laixe").val("");
+            $(".input-sdt").val("");
+            $(".input-cmnd").val("");
+            $(".input-taitrong").val("");
+        } else {
+            fncLoadOrigin($(this).val());
+        }
+    });
+}
 
+function fncLoadOrigin(input) {
+    // BEGIN AJAX LOAD
+    //TODO 1.
+    //TODO 2.
+    //TODO 3.
+    ajaxGet = { "get": input };
+    jsonData = JSON.stringify({ ajaxGet });
+    $.ajax({
+        type: "POST",
+        url: "PODView.aspx/LoadOrigin",
+        data: jsonData,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        success: function (responsive) {
+            d = responsive.d;
+            //console.log(d);
+            $(".input-laixe").val(d.LaiXe);
+            $(".input-sdt").val(d.SoDienThoai);
+            $(".input-cmnd").val(d.SoCMND);
+            $(".input-taitrong").val(d.TaiTrong);
+        },
+        error: function (request, status, error) {
+            console.log(request.responseText);
+        }
+    }).done(function () {
+    });
+    /// END AJAX LOAD
 }
 
 function fncModal() {
+    $('#modalCapNhatHAWB').on('hide.bs.modal', function () {
+        $(".input-bks").val("");
+        $(".input-laixe").val("");
+        $(".input-sdt").val("");
+        $(".input-cmnd").val("");
+        $(".input-taitrong").val("");
+    });
+
     $('#modalTaoKeHoach').on('shown.bs.modal', function () {
         $(document).off('focusin.bs.modal');
         $(window).trigger("resize"); // bug modal > show excel
@@ -1183,6 +1231,37 @@ function showMaTheoDoi() {
             Swal.fire(
                 'Có lỗi xảy ra!',
                 'Danh sách hàng chưa được lưu. Thử lại hoặc liên hệ IT',
+                'error'
+            )
+        }
+    }).done(function () {
+    })
+}
+
+function fncLoadTruckPOD() {
+    var ajaxGet = { "get": "" };
+    jsonData = JSON.stringify({ ajaxGet });
+    //$("#div-wait").show();rehangNhapPODTimKiem
+    $.ajax({
+        type: "POST",
+        url: "PODView.aspx/reTruckPOD",
+        data: jsonData,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        success: function (responsive) {
+            d = responsive.d;
+            var html_selectBKS;
+            html_selectBKS += "<option value=\"\"></option>"
+            $.each(d, function (key, val) {
+                html_selectBKS += "<option value=\"" + val.BienSoXe + "\">" + val.BienSoXe + "</option>"
+            });
+            $("#sltBKSXe").empty().append(html_selectBKS);
+        },
+        error: function () {
+            Swal.fire(
+                'Có lỗi xảy ra!',
+                'Thử lại hoặc liên hệ IT',
                 'error'
             )
         }

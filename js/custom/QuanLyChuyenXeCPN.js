@@ -58,6 +58,250 @@ function fncChange() {
 }
 
 function fncClick() {
+    $(".container").on("click", ".span-xoakho", function () {
+        var conf = confirm("Bạn có muốn xóa thông tin kho này không ?");
+        if (conf == true) {
+            var ajaxGet = { "get": $(this).attr("idattr") };
+
+            jsonData = JSON.stringify({ ajaxGet });
+            //$("#div-wait").show();rehangNhapPODTimKiem
+            $.ajax({
+                type: "POST",
+                url: "QuanLyPOD.aspx/deleteThongTinKho",
+                data: jsonData,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                success: function (responsive) {
+                    d = responsive.d;
+                    alert('Xóa thành công!')
+                    $("#modalThongTinKho").modal("hide");
+                },
+                error: function () {
+                    Swal.fire(
+                        'Có lỗi xảy ra!',
+                        'Thử lại hoặc liên hệ IT',
+                        'error'
+                    )
+                }
+            }).done(function () {
+            });
+        }
+
+    });
+    //Click view modal sua thongtinkho
+    $(".container").on("click", ".span-suakho", function () {
+        $("#btn-luukho").attr("attrid", $(this).attr("idattr"));
+
+        $("#modalThongTinKho").modal("hide");
+        $("#ModalAddKho").modal("show");
+
+        var ajaxGet = { "get": $(this).attr("idattr") };
+
+        jsonData = JSON.stringify({ ajaxGet });
+        $.ajax({
+            type: "POST",
+            url: "QuanLyPOD.aspx/reThongTinKhoById",
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                d = responsive.d;
+                $("#input-diachigiaohang").val(d.DiaChiGiaoHang)
+                $("#input-nguoinhan").val(d.NguoiNhan)
+                $("#input-sdtkho").val(d.SDT)
+                $("#input-soBU").val(d.SoBU)
+            },
+            error: function () {
+                Swal.fire(
+                    'Có lỗi xảy ra!',
+                    'Thử lại hoặc liên hệ IT',
+                    'error'
+                )
+            }
+        }).done(function () {
+        });
+    })
+
+
+    // Thêm mới thông tin kho
+    $("#btn-luukho").click(function () {
+        var AttrId = $(this).attr("attrid");
+        var item = {};
+        item = {
+            "Id": AttrId,
+            "DiaChiGiaoHang": $("#input-diachigiaohang").val(),
+            "NguoiNhan": $("#input-nguoinhan").val(),
+            "SDT": $("#input-sdtkho").val(),
+            "SoBU": $("#input-soBU").val(),
+            "ThoiGianNhanHang": $("#input-thoigiannhanhang").val(),
+        }
+        jsonData = JSON.stringify({ item });
+        //$("#div-wait").show();rehangNhapPODTimKiem
+
+        //console.log(jsonData)
+        $.ajax({
+            type: "POST",
+            url: "QuanLyPOD.aspx/InsertUpdateThongTinKho",
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                d = responsive.d;
+                if (d == "ok") {
+                    alert("Thêm mới thành công!");
+                    $("#ModalAddKho").modal("hide");
+                };
+            },
+            error: function () {
+                Swal.fire(
+                    'Có lỗi xảy ra!',
+                    'Thử lại hoặc liên hệ IT',
+                    'error'
+                )
+            }
+        }).done(function () {
+        })
+
+    });
+    //Add kho modal show
+    $("#btn-themkho").click(function () {
+        $("#modalThongTinKho").modal("hide");
+        $("#ModalAddKho").modal({ show: true, backdrop: "static", keyboard: false });
+        $("#btn-luukho").attr("attrid", "");
+    });
+
+
+    //Show ThongTinKho
+    $("#btn-thongtinkho").click(function () {
+
+        var userId = $("#username").attr("userid");
+        if (userId == "1" || userId == "21" || userId == "78" || userId == "13" || userId == "95") {
+            $("#modalThongTinKho").modal({ show: true, backdrop: "static", keyboard: false });
+            fncThongTinKho();
+        } else {
+            alert("Bạn không có quyền");
+        }
+
+    });
+
+    //click xóa truck
+    $(".container").on("click", ".span-xoa", function () {
+        var conf = confirm("Bạn có muốn xóa lái xe này không ?");
+        if (conf == true) {
+            var ajaxGet = { "get": $(this).attr("idattr") };
+
+            jsonData = JSON.stringify({ ajaxGet });
+            //$("#div-wait").show();rehangNhapPODTimKiem
+            $.ajax({
+                type: "POST",
+                url: "PODView.aspx/deleteTruckPOD",
+                data: jsonData,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                success: function (responsive) {
+                    d = responsive.d;
+                    alert('Xóa thành công!')
+                    fncLoadTruckPOD()
+                    $("#ModalAddTruck").modal("hide");
+                },
+                error: function () {
+                    Swal.fire(
+                        'Có lỗi xảy ra!',
+                        'Thử lại hoặc liên hệ IT',
+                        'error'
+                    )
+                }
+            }).done(function () {
+            });
+        }
+
+    });
+    //Click view modal sua
+    $(".container").on("click", ".span-sua", function () {
+        $("#btn-luu").attr("attrid", $(this).attr("idattr"));
+
+        $("#ModalAddTruck").modal("show");
+        $("#ModalTruck").modal("hide");
+
+        var ajaxGet = { "get": $(this).attr("idattr") };
+
+        jsonData = JSON.stringify({ ajaxGet });
+        $.ajax({
+            type: "POST",
+            url: "PODView.aspx/reTruckPODByID",
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                d = responsive.d;
+                $("#input-laixe").val(d.LaiXe)
+                $("#input-bks").val(d.BienSoXe)
+                $("#input-sdt").val(d.SoDienThoai)
+                $("#input-cmnd").val(d.SoCMND)
+                $("#input-taitrong").val(d.TaiTrong)
+            },
+            error: function () {
+                Swal.fire(
+                    'Có lỗi xảy ra!',
+                    'Thử lại hoặc liên hệ IT',
+                    'error'
+                )
+            }
+        }).done(function () {
+        });
+    })
+    // Click add truck
+    $("#btn-luu").click(function () {
+        var tennhanvien = $("#input-laixe").val();
+        var biensoxe = $("#input-bks").val();
+        var sodienthoai = $("#input-sdt").val();
+        var cmnd = $("#input-cmnd").val();
+        var taitrong = $("#input-taitrong").val();
+
+        var ajaxGet6 = { "get1": biensoxe, "get2": tennhanvien, "get3": sodienthoai, "get4": $(this).attr("attrid"), "get5": cmnd, "get6": taitrong };
+
+        jsonData = JSON.stringify({ ajaxGet6 });
+        //$("#div-wait").show();rehangNhapPODTimKiem
+        $.ajax({
+            type: "POST",
+            url: "PODView.aspx/insertTruckPOD",
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                d = responsive.d;
+                if (d == "ok") {
+                    alert("Thêm mới thành công!");
+                    $("#ModalAddTruck").modal("hide");
+                };
+            },
+            error: function () {
+                Swal.fire(
+                    'Có lỗi xảy ra!',
+                    'Thử lại hoặc liên hệ IT',
+                    'error'
+                )
+            }
+        }).done(function () {
+        })
+    });
+
+    //Click view modal sua
+    $("#btn-themlaixe").click(function () {
+        $("#ModalTruck").modal("hide");
+        $("#ModalAddTruck").modal({ show: true, backdrop: "static", keyboard: false });
+        $("#btn-luu").attr("attrid", "");
+    });
+    $("#btn-truckpod").click(function () {
+        $("#ModalTruck").modal({ show: true, backdrop: "static", keyboard: false });
+        fncLoadTruckPOD();
+    });
     $("#btn-duyet-quanlyxe").click(function () {
         var _matheodoi = $(this).attr("attrmatheodoi");
         var _ngaygiogiaohang = dmy2ymd($(".input-ngaygiaohang").val()) + " " + $(".input-giogiaohang ").val();
@@ -394,5 +638,95 @@ function fncModal() {
     $('#modalCapNhatGiaoHang').on('shown.bs.modal', function () {
         $(document).off('focusin.bs.modal');
         $(window).trigger("resize"); // bug modal > show excel
+    });
+
+    $("#ModalAddTruck").on('hidden.bs.modal', function () {
+        $("#ModalTruck").modal('show');
+        $("#input-laixe").val("");
+        $("#input-bks").val("");
+        $("#input-sdt").val("");
+        $("#input-cmnd").val("");
+        $("#input-taitrong").val("");
+        fncLoadTruckPOD();
+    })
+    $('#ModalAddKho').on('hidden.bs.modal', function () {
+        $("#input-diachigiaohang").val("");
+        $("#input-nguoinhan").val("");
+        $("#input-sdtkho").val("");
+        $("#input-soBU").val("");
+    });
+}
+
+function fncLoadTruckPOD() {
+    var ajaxGet = { "get": "" };
+    jsonData = JSON.stringify({ ajaxGet });
+    //$("#div-wait").show();rehangNhapPODTimKiem
+    $.ajax({
+        type: "POST",
+        url: "PODView.aspx/reTruckPOD",
+        data: jsonData,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        success: function (responsive) {
+            d = responsive.d;
+            var html_tbody = "";
+            $.each(d, function (key, val) {
+                html_tbody += "<tr>";
+                html_tbody += "<td>" + (key + 1) + "</td>";
+                html_tbody += "<td>" + val.LaiXe + "</td>";
+                html_tbody += "<td>" + val.BienSoXe + "</td>";
+                html_tbody += "<td>" + val.SoDienThoai + "</td>";
+                html_tbody += "<td>" + val.SoCMND + "</td>";
+                html_tbody += "<td>" + val.TaiTrong + "</td>";
+                html_tbody += "<td><span class=\"span-sua\" IdAttr=\"" + val.ID + "\">Sửa</span> <span class=\"span-xoa\"  IdAttr=\"" + val.ID + "\">Xóa</span></td>";
+                html_tbody += "</tr>";
+            });
+            $("#tbl-truckpod tbody").empty().append(html_tbody);
+        },
+        error: function () {
+            Swal.fire(
+                'Có lỗi xảy ra!',
+                'Thử lại hoặc liên hệ IT',
+                'error'
+            )
+        }
+    }).done(function () {
+    })
+}
+
+// Load Thông tin kho
+function fncThongTinKho() {
+    ajaxGet = { "get": "" };
+    jsonData = JSON.stringify({ ajaxGet });
+    $.ajax({
+        type: "POST",
+        url: "QuanLyPOD.aspx/reThongTinKho",
+        data: jsonData,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        success: function (responsive) {
+            d = responsive.d;
+            //console.log(d);
+            var html_body = "";
+            $.each(d, function (key, val) {
+                html_body += "<tr>";
+                html_body += "<td>" + (key + 1) + "</td>";
+                html_body += "<td class=\"text-left\">" + val.SoBU + "</td>";
+                html_body += "<td class=\"text-left\">" + val.DiaChiGiaoHang + "</td>";
+                html_body += "<td class=\"text-left\">" + val.ThoiGianNhanHang + "</td>";
+                html_body += "<td class=\"text-left\">" + val.NguoiNhan + "</td>";
+                html_body += "<td class=\"text-left\">" + val.SDT + "</td>";
+                html_body += "<td><span class=\"span-suakho span-dodgerblue\" IdAttr=\"" + val.Id + "\">Sửa</span> <span class=\"span-xoakho span-red\"  IdAttr=\"" + val.Id + "\">Xóa</span></td>";
+                html_body += "</tr>";
+            });
+
+            $("#tbl-thongtinkho tbody").empty().append(html_body);
+        },
+        error: function (request, status, error) {
+            console.log(request.responseText);
+        }
+    }).done(function () {
     });
 }

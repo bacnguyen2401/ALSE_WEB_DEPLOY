@@ -1,8 +1,29 @@
 ﻿.radio-button {
     display: flex;
-    padding-left: 20px;
+    justify-content: center;
 }
 
 .title-radio {
     color: white;
+}
+
+
+.span-sua {
+    color: dodgerblue;
+    cursor: pointer;
+}
+
+.span-xoa {
+    color: red;
+    cursor: pointer;
+}
+
+.span-red {
+    cursor: pointer;
+    color: red;
+}
+
+.span-dodgerblue {
+    cursor: pointer;
+    color: dodgerblue;
 }

@@ -7,6 +7,12 @@
     <div class="cpn-header text-align-center">
         <h2 class="color-white">QUẢN LÝ CHUYẾN XE CHUYỂN PHÁT NHANH</h2>
     </div>
+
+    <div class="div-trangthaihangnhap-button">
+        <button type="button" id="btn-truckpod" class="mani-btn btn btn-primary">1. Truck POD</button>
+        <button type="button" id="btn-thongtinkho" class="mani-btn btn btn-warning">2. Thông tin kho</button>
+    </div>
+
     <div class="radio-button">
         <div>
             <input type="radio" id="all" class="change-data-radio" name="fav_language" value="tatca" />
@@ -201,6 +207,186 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal  Truck-->
+    <div class="modal fade" id="ModalTruck" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h5 class="modal-title" id="exampleModalLabel">TRUCK DRIVER</h5>
+                    <button type="button" class="btn btn-primary" id="btn-themlaixe">Thêm lái xe</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered" id="tbl-truckpod">
+                        <thead>
+                            <tr>
+                                <td>STT</td>
+                                <td>Họ và tên</td>
+                                <td>Biển kiểm soát</td>
+                                <td>Số điện thoại</td>
+                                <td>CMND</td>
+                                <td>Tải Trọng</td>
+                                <td>Chức năng</td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal  Add Truck-->
+    <div class="modal fade" id="ModalAddTruck" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="">ADD TRUCK DRIVER</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <div class="input-group div-nhanvien-group">
+                                <span class="input-group-addon" id="">Tên lái xe</span>
+                                <input type="text" class="form-control " id="input-laixe" />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="input-group div-nhanvien-group">
+                                <span class="input-group-addon" id="">BKS</span>
+                                <input type="text" class="form-control " id="input-bks" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <div class="input-group div-nhanvien-group">
+                                <span class="input-group-addon" id="">Số điên thoại</span>
+                                <input type="text" class="form-control " id="input-sdt" />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="input-group div-nhanvien-group">
+                                <span class="input-group-addon" id="">CMND/CCCD</span>
+                                <input type="text" class="form-control " id="input-cmnd" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <div class="input-group div-nhanvien-group">
+                                <span class="input-group-addon" id="">Tải Trọng</span>
+                                <input type="text" class="form-control " id="input-taitrong" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" attrid="" id="btn-luu">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%-- Modal Thông tin kho --%>
+    <div id="modalThongTinKho" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h5 class="modal-title" id="exampleKho">THÔNG TIN KHO</h5>
+                    <button type="button" class="btn btn-primary" id="btn-themkho">Thêm Kho</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered" id="tbl-thongtinkho">
+                        <thead>
+                            <tr>
+                                <td>STT</td>
+                                <td>Số BU</td>
+                                <td>Kho giao hàng</td>
+                                <td>Thời gian nhận hàng</td>
+                                <td>Người nhận</td>
+                                <td>Số điện thoại</td>
+                                <td>Chức năng</td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal  Add Truck-->
+    <div class="modal fade" id="ModalAddKho" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="">ADD KHO</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <div class="input-group div-nhanvien-group">
+                                <span class="input-group-addon" id="">Địa chỉ giao hàng</span>
+                                <input type="text" class="form-control " id="input-diachigiaohang" />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="input-group div-nhanvien-group">
+                                <span class="input-group-addon" id="">Người nhận</span>
+                                <input type="text" class="form-control " id="input-nguoinhan" />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="input-group div-nhanvien-group">
+                                <span class="input-group-addon" id="">Số điên thoại</span>
+                                <input type="text" class="form-control " id="input-sdtkho" />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="input-group div-nhanvien-group">
+                                <span class="input-group-addon" id="">Số BU</span>
+                                <input type="text" class="form-control " id="input-soBU" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <div class="input-group div-nhanvien-group">
+                                <span class="input-group-addon" id="">Thời gian nhận hàng</span>
+                                <input type="text" class="form-control " id="input-thoigiannhanhang" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" attrid="" id="btn-luukho">Lưu</button>
                 </div>
             </div>
         </div>
