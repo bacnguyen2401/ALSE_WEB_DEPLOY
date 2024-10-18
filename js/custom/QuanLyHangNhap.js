@@ -714,7 +714,7 @@ function fncLoad() {
                     html_Delyvering += "<td class=\"td-time gioyctrahang " + tomauNgayGioYeuCauTraHang + "\">" + (convertDate(val.NgayGioYeuCauTraHangDelyvering)[3] == "00:00" ? "" : convertDate(val.NgayGioYeuCauTraHangDelyvering)[3]) + "</td>";
                     html_Delyvering += "<td class=\"td-date font-weight-css " + tomauSTA + "\">" + convertDate(val.NgayGioGiaoDelyvering)[1] + "</td>";
                     html_Delyvering += "<td class=\"td-time font-weight-css " + tomauSTA + "\">" + (convertDate(val.NgayGioGiaoDelyvering)[3] == "00:00" ? "" : convertDate(val.NgayGioGiaoDelyvering)[3]) + "</td>";
-                    html_Delyvering += "<td class=\"td-truckID\">" + val.BKSXeGiaoDelyvering + "</td>";
+                    html_Delyvering += "<td class=\"td-truckID\">" + val.BKSXeGiaoDelyvering + "<br/> <span class=\"color-red\">" + val.SoDienThoaiLaiXeGiao + "</span> </td>";
                     html_Delyvering += "<td class=\"td-code\">" + val.CodeDelyvering + "</td>";
                     html_Delyvering += "<td class=\"td-fwd\">" + val.MaDonViNhanDelyvering + "</td>";
                     html_Delyvering += "<td class=\"td-wh " + tomauWH + "\">" + val.MaKho + "</td>";
@@ -828,7 +828,7 @@ function fncLoad() {
             var html_DanhSachFWDS = "";
             html_DanhSachFWDS += "<label class=\"checkbox-inline  lable-title\">FWD: </label>";
             html_DanhSachFWDS += "<label class=\"checkbox-inline color-white\"><input type=\"checkbox\" class=\"cb-qll cb-qll-child\" checked id=\"cb-ALL\" value=\"ALL\" />" + "ALL" + "</label>";
-            var count  = 0;
+            var count = 0;
             $.each(d.danhSachFWDs, function (item, val) {
                 if (count == 0) {
                     if (val.fwd == "GTT" || val.fwd == "GTV" || val.fwd == "GTE" || val.fwd == "GTS") {
@@ -841,7 +841,7 @@ function fncLoad() {
                     if (val.fwd != "GTT" && val.fwd != "GTV" && val.fwd != "GTE" && val.fwd != "GTS") {
                         html_DanhSachFWDS += "<label class=\"checkbox-inline color-white\"><input type=\"checkbox\" class=\"cb-qll cb-qll-child\" checked id=\"cb-" + val.fwd.replace(".", "-") + "\" value=\"" + val.fwd.replace(".", "-") + "\" />" + val.fwd + "</label>";
                     }
-                  
+
                 }
             })
             $("#div-checkbox").append(html_DanhSachFWDS);
@@ -1899,7 +1899,7 @@ function fncChanges() {
                         }
                     })
                 }
-              
+
 
             } else {
                 if (cb_value == "GTT") {
