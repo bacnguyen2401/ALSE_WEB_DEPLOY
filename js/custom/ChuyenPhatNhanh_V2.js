@@ -512,9 +512,7 @@ function fncClick() {
             sheetsbar: false,
         });
         var spreadsheet = $("#spreadsheetThongTinGiaoHang").data("kendoSpreadsheet");
-        var sheet = spreadsheet.activeSheet();
-
-        sheet.range(kendo.spreadsheet.SHEETREF).clear();
+      
         $(window).trigger("resize");
         spreadsheet.fromJSON({
             sheets: [{
@@ -564,6 +562,10 @@ function fncClick() {
                 ]
             }]
         });
+
+        var sheet = spreadsheet.activeSheet();
+        sheet.range("E2:E100").format("0.###");
+        //sheet.range(kendo.spreadsheet.SHEETREF).clear();
     })
 
     $("#btn-capnhathawb").click(function () {
@@ -1082,6 +1084,11 @@ function fncClick() {
             }]
         });
         var sheet = spreadsheet.activeSheet();
+
+        sheet.range("C2:C100").format("0.###");
+        sheet.range("D2:D100").format("0.###");
+        //sheet.range(kendo.spreadsheet.SHEETREF).clear();
+
         // Mảng chứa các phạm vi cột cần tô màu
         var columns = ["A2:A1000", "B2:B1000", "C2:C1000", "G2:G1000", "J2:J1000", "K2:K1000", "F2:F1000"];
 
