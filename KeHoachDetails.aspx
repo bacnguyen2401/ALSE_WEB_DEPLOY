@@ -45,6 +45,9 @@
                                     <td>Ngày giờ cân xong</td>
                                     <td>Vị trí</td>
                                     <td>FWD</td>
+                                    <td>Kiện số</td>
+                                    <td>PLT ID</td>
+                                    <td>TT In</td>
                                     <td>Ghi chú DNN</td>
                                 </tr>
                             </thead>

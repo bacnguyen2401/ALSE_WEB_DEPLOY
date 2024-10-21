@@ -165,6 +165,9 @@ function showTalbe(d) {
         html_body += "<td>" + convertDate(val.NgayGioCanXong)[2] + "</td>";
         html_body += "<td>" + val.ViTri + "</td>";
         html_body += "<td>" + val.FWD + "</td>";
+        html_body += "<td>" + val.Kien + "</td>";
+        html_body += "<td>" + val.barcode_id + "</td>";
+        html_body += "<td>" + val.InTemDHL + "</td>";
         html_body += "<td>" + val.GhiChuDNN + "</td>";
         html_body += "</tr>";
         totalSoKien += parseInt(val.SoKien)

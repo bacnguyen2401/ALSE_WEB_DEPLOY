@@ -190,7 +190,7 @@ function fncClick() {
                     break;
                 }
 
-              
+
             }
 
             if (dataInputBooks.items[i].ngaybaycheck == "") {
@@ -216,48 +216,48 @@ function fncClick() {
                 if (checkDatetime) {
                     alert("Vui lòng kiểm tra lại ngày bay nhập thiếu hoặc sai định dạng!")
                 } else {
-                    var HAWBSame = "";
-                    for (var i = 0; i < dataInputBooks.items.length; i++) {
-                        ajaxGet = { "get": dataInputBooks.items[i].hawb };
-                        jsonData = JSON.stringify({ ajaxGet });
+                    //var HAWBSame = "";
+                    //for (var i = 0; i < dataInputBooks.items.length; i++) {
+                    //    ajaxGet = { "get": dataInputBooks.items[i].hawb };
+                    //    jsonData = JSON.stringify({ ajaxGet });
 
-                        $.ajax({
-                            type: "POST",
-                            url: "InputExcelBookVsip.aspx/checkTrungHawb",
-                            data: jsonData,
-                            contentType: "application/json; charset=utf-8",
-                            dataType: "json",
-                            async: false,
-                            success: function (res) {
-                                //console.log((res))
-                                if (res.d != "") {
-                                    HAWBSame += dataInputBooks.items[i].hawb + " ";
-                                    checkSame = true;
-                                }
-                            },
-                            error: function (error) {
-                                console.log((error))
-                            }
-                        })
-                    }
+                    //    $.ajax({
+                    //        type: "POST",
+                    //        url: "InputExcelBookVsip.aspx/checkTrungHawb",
+                    //        data: jsonData,
+                    //        contentType: "application/json; charset=utf-8",
+                    //        dataType: "json",
+                    //        async: false,
+                    //        success: function (res) {
+                    //            //console.log((res))
+                    //            if (res.d != "") {
+                    //                HAWBSame += dataInputBooks.items[i].hawb + " ";
+                    //                checkSame = true;
+                    //            }
+                    //        },
+                    //        error: function (error) {
+                    //            console.log((error))
+                    //        }
+                    //    })
+                    //}
 
-                    if (checkSame) {
-                        alert("Vui lòng kiểm tra hawb " + HAWBSame + " đã có trong cơ sở dữ liệu");
-                    } else {
-                        var jsonData = JSON.stringify({ dataInputBooks });
-                        //console.log(jsonData)
+                    //if (checkSame) {
+                    //    alert("Vui lòng kiểm tra hawb " + HAWBSame + " đã có trong cơ sở dữ liệu");
+                    //} else {
+                    var jsonData = JSON.stringify({ dataInputBooks });
+                    //console.log(jsonData)
 
-                        $.ajax({
-                            type: "POST",
-                            url: "InputExcelBookVsip.aspx/inputBookings",
-                            data: jsonData,
-                            contentType: "application/json; charset=utf-8",
-                            dataType: "json",
-                            async: false,
-                            success: InputExcelBookingSuccess,
-                            error: InputExcelBookingError
-                        })
-                    }
+                    $.ajax({
+                        type: "POST",
+                        url: "InputExcelBookVsip.aspx/inputBookings",
+                        data: jsonData,
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: InputExcelBookingSuccess,
+                        error: InputExcelBookingError
+                    })
+                    //}
                 }
             }
         }
