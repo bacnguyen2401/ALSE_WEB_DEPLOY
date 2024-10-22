@@ -22,6 +22,7 @@ var ajaxGet = { "get": "1" };
 var jsonDataGet = JSON.stringify({ ajaxGet });
 
 $(document).ready(function () {
+    // sửa backend
     fncLoad();
     fncClick();
 });
