@@ -4,7 +4,7 @@
     <%# Versioned.VersionedFiles.ScriptHelper.Render("css","../css/custom/thanhtoan-baocao.css") %>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-     <!-- Phần loading sẽ hiển thị khi cần -->
+    <!-- Phần loading sẽ hiển thị khi cần -->
     <div id="loading">
         <div class="spinner"></div>
     </div>
@@ -361,7 +361,7 @@
             <div class="form-group col-sm-2 has-success">
                 <div class="input-group div-thanhtoan-baocao-group">
                     <span class="input-group-addon" id="">FWD</span>
-                    <input id="select-chitietcw-fwd" class="form-control input-sm chitietcw-data-change" list="dataFWD"  />
+                    <input id="select-chitietcw-fwd" class="form-control input-sm chitietcw-data-change" list="dataFWD" />
                     <datalist class="nobdInput" id="dataFWD">
                     </datalist>
                 </div>
