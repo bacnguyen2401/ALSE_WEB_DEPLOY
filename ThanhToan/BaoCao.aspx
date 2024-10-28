@@ -353,8 +353,8 @@
                     <select id="select-chitietcw-cargoterminal" class="form-control input-sm chitietcw-data-change">
                         <option value=""></option>
                         <option value="ALSC">1. ALSC</option>
-                        <option value="EXP">2. NCTS</option>
-                        <option value="NWH">3. ACS</option>
+                        <option value="NCTS">2. NCTS</option>
+                        <option value="ACS">3. ACS</option>
                     </select>
                 </div>
             </div>
