@@ -1150,6 +1150,9 @@ function fncModal() {
         $(".input-sdt").val("");
         $(".input-cmnd").val("");
         $(".input-taitrong").val("");
+        $(".input-seal").val("");
+        $(".input-niemphong").val("");
+        $(".input-dondieuphoi").val("");
     });
 
     $('#modalTaoKeHoach').on('shown.bs.modal', function () {

@@ -46,6 +46,12 @@ function fncLoad() {
             });
 
             $("#tbl_chuyenxecpn tbody").empty().append(html_body);
+
+            if (!$.fn.dataTable.isDataTable('#tbl_chuyenxecpn')) {
+                table = $('#tbl_chuyenxecpn').DataTable({
+                    paging: false
+                });
+            }
         }, error: function (err) {
             console.log(err.Message);
         }

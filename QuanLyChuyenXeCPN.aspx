@@ -28,6 +28,10 @@
         </div>
     </div>
 
+   <%-- <div>
+        <label>Search:<input type="search" id="input-search" class="ip-search" placeholder="" /></label>
+    </div>--%>
+
     <div class="table-chuyenxecpn">
         <table class="table table-bordered background-color-white" id="tbl_chuyenxecpn">
             <thead>
