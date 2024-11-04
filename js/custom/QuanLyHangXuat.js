@@ -4286,7 +4286,7 @@ function fncLoadThongKeSanLuong(ngaythongke) {
                 }
                 //$("#td-" + fncReplaceKyTuDacBiet(item.KhachHang) + "-" + fncReplaceKyTuDacBiet(item.FWD) + "-" + item.month).attr("trongluong", item.TrongLuong);
                 //$("#td-" + fncReplaceKyTuDacBiet(item.KhachHang) + "-" + fncReplaceKyTuDacBiet(item.FWD) + "-" + item.month).attr("sokien", item.SoKien);
-                $("#td-" + fncReplaceKyTuDacBiet(item.KhachHang) + "-" + fncReplaceKyTuDacBiet(item.FWD) + "-" + item.month).append("<span class=\"color-blue\">" + numberWithCommas(item.SoKien) + "</span><span> / </span><span  class=\"color-red\">" + numberWithCommas(item.TrongLuong) + "</span>");
+                $("#td-" + fncReplaceKyTuDacBiet(item.KhachHang) + "-" + fncReplaceKyTuDacBiet(item.FWD) + "-" + item.month).append("<span class=\"color-blue\">" + numberWithCommas(item.SoKien) + "</span><span> / </span><span  class=\"color-red\">" + numberWithCommas(Math.round(item.TrongLuong)) + "</span>");
 
                 //----Bắc bỏ -1
                 sl_tong_sk[parseInt(item.month) - 1] += parseFloat(item.SoKien);
@@ -4302,7 +4302,7 @@ function fncLoadThongKeSanLuong(ngaythongke) {
                 //}
 
                 //if (sl_tong_sk[i] != 0 && sl_tong_tl[i] != 0) {
-                $("#td-tong-" + (i + 1)).append("<span class=\"color-blue\">" + numberWithCommas(sl_tong_sk[i]) + "</span> " + "<span >/</span>" + " <span class=\"color-red\">" + numberWithCommas(sl_tong_tl[i]) + "</span>");
+                $("#td-tong-" + (i + 1)).append("<span class=\"color-blue\">" + numberWithCommas(sl_tong_sk[i]) + "</span> " + "<span >/</span>" + " <span class=\"color-red\">" + numberWithCommas(Math.round(sl_tong_tl[i])) + "</span>");
                 //}
             }
             $(".td-KhachHang-Tong").each(function (index, item) {
@@ -4311,7 +4311,7 @@ function fncLoadThongKeSanLuong(ngaythongke) {
                 //}
 
                 //if ($(this).attr("sokien") != "0" && $(this).attr("trongluong") != "0") {
-                $(this).append("<span class=\"color-blue\">" + numberWithCommas($(this).attr("sokien")) + "</span> " + "<span >/</span>" + " <span class=\"color-red\">" + numberWithCommas($(this).attr("trongluong")) + "</span>");
+                $(this).append("<span class=\"color-blue\">" + numberWithCommas($(this).attr("sokien")) + "</span> " + "<span >/</span>" + " <span class=\"color-red\">" + numberWithCommas(Math.round($(this).attr("trongluong"))) + "</span>");
                 //}
             })
         },
