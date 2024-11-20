@@ -24,3 +24,101 @@ thead td {
 tr:hover {
     background-color: #f1f1f1;
 }
+
+/*CSS duyệt thanh toán chi hộ*/
+.container-duyetthanhtoanchiho {
+    background-color: #fff;
+    width: 560px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.info {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+    .info p {
+        margin: 5px 0;
+    }
+
+.info-title {
+    font-weight: bold;
+    color: #333;
+}
+
+.info-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f3f3f3;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.copy-button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+    .copy-button:hover {
+        background-color: #45a049;
+    }
+
+.qr-section {
+    margin: 20px 0;
+}
+
+.qr-code {
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+    margin: 0 auto;
+    display: block;
+}
+
+.note {
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.expiry-info {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.download-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+    .download-btn:hover {
+        background-color: #0056b3;
+    }
+
+.instructions {
+    font-size: 12px;
+    color: #333;
+    margin-top: 10px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.highlight {
+    font-weight: bold;
+}

@@ -15,7 +15,7 @@ $(document).ready(function () {
 
     // load ncc
     loadNCC();
-  
+
 });
 
 function fncLoad() {
@@ -32,12 +32,13 @@ function fncLoad() {
         success: function (responsive) {
             d = responsive.d;
             html_body = "";
-            //console.log(d)
+            console.log(d)
 
             $.each(d, function (key, val) {
                 html_body += "<tr>";
+                html_body += "<td class=\"\">" + "<input class=\"td-checkbox td-checkbox-child \" id=\"td-checkbox-" + val.AWBBILL + "\" type=\"checkbox\" value=\"" + val.HAWB + "\" tr-attr-sohoadon=\"" + val.SoHD + "\"  tr-attr-kihieu=\"" + val.KiHieuHD + "\" tr-attr-awbbill=\"" + val.AWBBILL + "\"/>" + "</td>";
                 html_body += "<td>" + (key + 1) + "</td>";
-                html_body += "<td>" + val.NCU + "</td>";
+                html_body += "<td class=\"td-awb\">" + val.NCU + "</td>";
                 html_body += "<td>" + val.LoaiHinh + "</td>";
                 html_body += "<td>" + convertDate(val.NgayCK)[1] + "</td>";
                 html_body += "<td>" + val.KhachHang + "</td>";
@@ -49,12 +50,15 @@ function fncLoad() {
                 html_body += "<td>" + val.PhiChungTuNhap + "</td>";
                 html_body += "<td>" + fncTachPhanNghin(val.ThanhTien) + "đ" + "</td>";
                 html_body += "<td>" + fncTachPhanNghin(val.SoTruocThue) + "đ" + "</td>";
-                html_body += "<td>" + val.Check_ChiHo + "</td>";
+                //html_body += "<td>" + val.Check_ChiHo + "</td>";
                 html_body += "<td>" + val.GhiChu + "</td>";
-                html_body += "<td>" + val.TrangThaiDNTT + "</td>";
-                html_body += "<td>" + val.TrangThaiDoiChieuKhach + "</td>";
-                html_body += "<td>" + val.IdNhap + "</td>";
-                html_body += "<td><button type=\"button\" class=\"btn btn-warning btn-chiho-sua\" attrID=\"" + val.Id + "\">Sửa</button>  <button type=\"button\" class=\"btn btn-danger btn-chiho-xoa\" attrID=\"" + val.Id + "\">Xóa</button></td>";
+                html_body += "<td>" + (val.DuyetThanhToan == 0 ? "<span style=\"color:red\">Chưa thanh toán</span>" : "<span style=\"color:#4CAF50\">Đã thanh toán</span>") + "<br/><a class=\"btn btn-default\" id=\"a-btn-attachfile\"><i class=\"glyphicon glyphicon-paperclip\"></i>Đính Kèm</a>" + "</td>";
+                //html_body += "<td>" + val.TrangThaiDoiChieuKhach + "</td>";
+                //html_body += "<td>" + val.IdNhap + "</td>";
+                html_body += "<td>";
+                html_body += "<button type =\"button\" class=\"btn btn-success btn-chiho-duyet\" attrThanhToan=\"" + val.ThanhTien + "\" attrKiHieuHD=\"" + val.KiHieuHD + "\" attrID=\"" + val.Id + "\">Duyệt</button> ";
+                html_body += "<button type =\"button\" class=\"btn btn-warning btn-chiho-sua\" attrID=\"" + val.Id + "\">Sửa</button> ";
+                html_body += "<button type=\"button\" class=\"btn btn-danger btn-chiho-xoa\" attrID=\"" + val.Id + "\">Xóa</button></td>";
                 html_body += "</tr>";
             });
 
@@ -68,6 +72,80 @@ function fncLoad() {
 }
 
 function fncClick() {
+    // Click show modal upload file
+    $("#tbl-chiho").on("click", "", function () {
+
+    })
+
+    // Click duyệt thanh toán
+    $("#btn-duyetthanhtoan").click(function () {
+        var _Id = $(this).attr("attrid");
+        ajaxGet = { "get": _Id };
+        jsonData = JSON.stringify({ ajaxGet });
+
+        $.ajax({
+            type: "POST",
+            url: "QuanLyChiHo.aspx/UpdateDuyetThanhToan",
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                d = responsive.d;
+                if (d == "ok") {
+                    swal.fire({
+                        title: "Duyệt thanh toán thành công",
+                        text: "hệ thống sẽ tự tải lại sau 2s",
+                        type: 'success',
+                        timer: 2000,
+                    })
+                    fncLoad();
+                }
+
+            },
+            error: function (responsive) {
+                alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
+            }
+        });
+    })
+
+    // Clicl show modal duyệt thanh toán 
+    $("#tbl-chiho").on("click", ".btn-chiho-duyet", function () {
+        var _Id = $(this).attr("attrid");
+        var _KihieuHD = $(this).attr("attrKiHieuHD");
+        var _Thanhtien = $(this).attr("attrThanhToan");
+
+        $("#modalDuyetThanhToanChiHo").modal("show");
+        $("#btn-duyetthanhtoan").attr("attrID", _Id);
+
+        $(".text-amount").empty().append(fncTachPhanNghin(_Thanhtien))
+
+        ajaxGet = { "get": _KihieuHD };
+        jsonData = JSON.stringify({ ajaxGet });
+
+        $.ajax({
+            type: "POST",
+            url: "QuanLyChiHoNCC.aspx/reChiHoByHoaDonKH",
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                d = responsive.d;
+                //console.log(d)
+                $(".text-content").empty().append(d.content);
+                $("#text-account").empty().append(d.SoTK);
+                $("#text-name").empty().append(d.NguoiHuongThu);
+                document.getElementById("imgQRCode").src = "https://img.vietqr.io/image/" + d.bin + "-" + d.SoTK + "-compact.png?amount=" + _Thanhtien + "&addInfo=test&accountName=" + d.NguoiHuongThu + "";
+
+            },
+            error: function (responsive) {
+                alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
+            }
+        });
+
+    });
+    // Lưu chi hộ excel
     $("#btn-chiho-excel-luu").click(function () {
         var spreadsheet = $("#spreadsheet").data("kendoSpreadsheet");
         var data = spreadsheet.toJSON().sheets[0].rows;
@@ -223,7 +301,7 @@ function fncClick() {
             })
         }
     })
-
+    // Show excel chi hộ
     $(".btn-chiho-kehoach-excel").click(function () {
         $("#modalQuanLyChiHoExcel").modal(
             {
@@ -298,7 +376,7 @@ function fncClick() {
             }]
         });
     })
-
+    // Chi hộ xóa
     $("#tbl-chiho").on("click", ".btn-chiho-xoa", function () {
         var Id = $(this).attr("attrID");
         var conf = confirm("Bạn có muốn xóa đơn chi hộ này không?")
@@ -332,7 +410,7 @@ function fncClick() {
             });
         }
     })
-
+    // Lưu chi hộ 
     $("#btn-luu-chiho").click(function () {
         if ($("#input-chiho-ncu").val() === "") {
             swal.fire({
@@ -345,6 +423,7 @@ function fncClick() {
             InsertUpdateChiHo("");
         }
     });
+    // Cập nhật chi hộ
     $("#btn-capnhat-chiho").click(function () {
         if ($("#input-chiho-ncu").val() === "") {
             swal.fire({
@@ -359,7 +438,7 @@ function fncClick() {
 
         }
     });
-
+    // Sửa chi hộ
     $("#tbl-chiho").on("click", ".btn-chiho-sua", function () {
         $("#myModalViewChiHo").modal({ backdrop: 'static' }, "show");
         $("#btn-capnhat-chiho").attr("attrid", $(this).attr("attrID"))
@@ -381,7 +460,7 @@ function fncClick() {
             async: false,
             success: function (responsive) {
                 d = responsive.d;
-                //console.log(d)
+                console.log(d)
                 $("#input-chiho-ncu").val(d.NCU);
                 $("#select-chiho-loaihinh").val(d.PhiChungTuNhap);
                 $("#input-chiho-ngaychuyenkhoan").val(convertDate(d.NgayCK)[1]);
@@ -398,6 +477,7 @@ function fncClick() {
                 $("#input-chiho-tt-dntt").val(d.TrangThaiDNTT);
                 $("#input-chiho-idnhap").val(d.IdNhap);
                 $("#input-chiho-ghichu").val(d.GhiChu);
+                $("#input-chiho-phichungtunhap").val(d.PhiChungTuNhap);
             },
             error: function (responsive) {
                 alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
@@ -406,7 +486,7 @@ function fncClick() {
         });
 
     });
-
+    // Show modal lưu cho hộ kế hoạch
     $(".btn-chiho-kehoach").click(function () {
         $("#myModalViewChiHo").modal({ backdrop: 'static' }, "show");
         $("#h4-chiho-view-tieude").empty().append("Thêm mới chi hộ");
@@ -423,7 +503,7 @@ function fncClick() {
 
 function fncChange() {
     $("#input-chiho-thanhtien").change(function () {
-        var result = parseInt($(this).val().replace(/,/g, "")) /1.08;
+        var result = parseInt($(this).val().replace(/,/g, "")) / 1.08;
         $("#input-chiho-sotienthue").val(fncTachPhanNghin(result.toFixed(1)))
     });
 
@@ -619,7 +699,7 @@ function InsertUpdateChiHo(Id) {
 
     //console.log(chiHo)
 
-   ////Check nhà cung cấp có trong cơ sở dữ liệu không
+    ////Check nhà cung cấp có trong cơ sở dữ liệu không
     ajaxGet = { "get": $("#input-chiho-ncu").val() };
     jsonData = JSON.stringify({ ajaxGet })
     $.ajax({
@@ -695,6 +775,18 @@ function loadAWB(cb_value) {
     if (cb_value == "TRUCK") {
         $("#sltawb").empty();
     }
+}
+
+function copyToClipboard(spanId) {
+    // Lấy phần tử input
+    const inputElement = document.getElementById(spanId).innerText;
+
+    // Sao chép nội dung vào clipboard
+    navigator.clipboard.writeText(inputElement).then(() => {
+        alert("Đã sao chép: " + inputElement);
+    }).catch((err) => {
+        console.error("Không thể sao chép", err);
+    });
 }
 
 // Chỉ cho phép nhập số

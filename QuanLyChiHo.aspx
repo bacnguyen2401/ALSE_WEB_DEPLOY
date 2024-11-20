@@ -21,6 +21,8 @@
         <table class="table table-bordered" id="tbl-chiho">
             <thead>
                 <tr>
+                    <td>
+                        <input type="checkbox" id="cb-print-all" class="td-checkbox" value="ALL" /></td>
                     <td>ID</td>
                     <td>NCU</td>
                     <td>Loại hình</td>
@@ -34,11 +36,12 @@
                     <td>Phí chứng từ</td>
                     <td>Thành tiền</td>
                     <td>Số trước thuế</td>
-                    <td>Check</td>
+                    <%--<td>Check</td>--%>
                     <td>Ghi chú</td>
-                    <td>Trạng thái DNTT</td>
-                    <td>Trạng thái đối chiếu khách</td>
-                    <td>ID nhập</td>
+                    <td>Thanh Toán</td>
+                    <%--<td>Trạng thái DNTT</td>
+                    <td>Trạng thái đối chiếu khách</td>--%>
+                    <%--<td>ID nhập</td>--%>
                     <td>Chức năng</td>
                 </tr>
             </thead>
@@ -191,9 +194,18 @@
                                 </div>
                             </div>
                             <div class="form-group col-sm-4">
-                                <div class="input-group div-chiho-group">
+                                <%-- <div class="input-group div-chiho-group">
                                     <span class="input-group-addon" id="">Check</span>
                                     <input type="text" class="form-control input-chiho-clear" id="input-chiho-check" />
+                                </div>--%>
+                                <div class="has-warning">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="checkboxSuccess-check-chiho" class="input-duyetthanhtoan" value="">
+                                            Check chi hộ
+       
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -202,21 +214,44 @@
                         <%--Trạng thái DNTT , Trạng thái đối chiếu khách , ID nhập--%>
                         <div class="row">
                             <div class="form-group col-sm-4">
-                                <div class="input-group div-chiho-group">
+                                <%--<div class="input-group div-chiho-group">
                                     <span class="input-group-addon" id="">Trạng thái DNTT</span>
                                     <input type="text" class="form-control input-chiho-clear" id="input-chiho-tt-dntt" />
+                                </div>--%>
+                                <div class="has-warning">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="checkboxSuccess-dntt" class="input-duyetthanhtoan" value="">
+                                            Đề nghị thanh toán
+       
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-sm-4">
-                                <div class="input-group div-chiho-group">
+                                <%--  <div class="input-group div-chiho-group">
                                     <span class="input-group-addon" id="">Trạng thái đối chiếu khách</span>
                                     <input type="text" class="form-control input-chiho-clear" id="input-chiho-tt-dck" />
+                                </div>--%>
+                                <div class="has-warning">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="checkboxSuccess-doichieukhach" class="input-duyetthanhtoan" value="">
+                                            Đối chiếu khách
+       
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-sm-4">
-                                <div class="input-group div-chiho-group">
-                                    <span class="input-group-addon" id="">ID nhập</span>
-                                    <input type="text" class="form-control input-chiho-clear" id="input-chiho-idnhap" />
+                                <div class="has-warning">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="checkboxSuccess-duyetthanhtoan" class="input-duyetthanhtoan" value="">
+                                            Duyệt thanh toán
+       
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -265,6 +300,114 @@
         </div>
     </div>
 
+    <div class="modal fade" id="modalDuyetThanhToanChiHo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">DUYỆT THANH TOÁN</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-duyetthanhtoanchiho">
+                        <div class="info">
+                            <p class="info-title">Chủ tài khoản</p>
+                            <div class="info-content">
+                                <span id="text-name">HKD SAO THANG TAM</span>
+                            </div>
+
+                            <p class="info-title">Số tài khoản</p>
+                            <div class="info-content">
+                                <span id="text-account">345816698</span>
+                                <button class="copy-button" type="button" onclick="copyToClipboard('text-account')">Sao chép</button>
+                            </div>
+
+                            <p class="info-title">Số tiền</p>
+                            <div class="info-content">
+                                <span class="text-amount" id="text-amount">10,000,000 VND</span>
+                                <button class="copy-button"  type="button" onclick="copyToClipboard('text-amount')">Sao chép</button>
+                            </div>
+
+                            <p class="info-title">Nội dung (bắt buộc)</p>
+                            <div class="info-content">
+                                <span class="text-content" id="text-content">DGM223285565</span>
+                                <button class="copy-button"  type="button" onclick="copyToClipboard('text-content')">Sao chép</button>
+                            </div>
+                        </div>
+
+                        <div class="qr-section">
+                            <img id="imgQRCode" alt="QR Code" class="qr-code">
+                        </div>
+
+                        <%--<button class="download-btn">Tải QR thanh toán</button>--%>
+
+                        <div class="expiry-info">
+                            <span class="text-content"></span><br>
+                            <span class="text-amount"></span> VND
+                            <%--<br>
+                            Hết hạn : 10:48 14/11/2024--%>
+                        </div>
+
+                        <p class="note">(*) Đây là mã QR chỉ sử dụng 1 lần duy nhất</p>
+                        <p class="instructions">Hướng dẫn chuyển khoản nhanh sử dụng QR Code trên <span class="highlight">ALSE</span></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" id="btn-duyetthanhtoan" attrID="">Duyệt</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Modal Upload -->
+ <div class="modal fade" id="myModalUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+     <div class="modal-dialog " role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 <h4 class="modal-title" id="">Upload File: <span id="span-upload-tilte" class="color-red font-weight-bold"></span></h4>
+             </div>
+             <div class="modal-body">
+                 <div id="div-upload-btn" class="div-upload-group">
+                     <label for="f_UploadImage" class="btn btn-success btn-sm">
+                         <i class="glyphicon glyphicon-plus"></i>Chọn ảnh...
+                     </label>
+                     <a class="btn btn-primary btn-sm" id="a-upload-startupload"><i class="glyphicon glyphicon-upload"></i>Bắt đầu tải lên</a>
+                     <a class="btn btn-danger btn-sm" id="a-upload-delete-all"><i class="glyphicon glyphicon-trash"></i>Xóa hết</a>
+                     <input type="file" class="upload" id="f_UploadImage" multiple="multiple" accept="image/jpg, image/png, image/gif, image/jpeg" /><br />
+                 </div>
+                 <div class="progress">
+                     <div class="progress-bar progress-bar-striped active" role="progressbar"
+                         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 0%" id="div-upload-process-bar">
+                         0%
+                     </div>
+                 </div>
+                 <div id="div-upload-imgzone" class="div-upload-group">
+                     <table class="table table-bordered table-responsive" id="tbl-upload-imgzone">
+                         <thead>
+                             <tr>
+                                 <td>Trạng Thái</td>
+                                 <td>Ảnh</td>
+                                 <td>Tên File</td>
+                                 <td>Kích Thước</td>
+                                 <td>Xóa</td>
+                             </tr>
+                         </thead>
+                         <tbody>
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+             <div class="modal-footer">
+
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             </div>
+         </div>
+     </div>
+ </div>
+ <!-- Modal -->
 
     <%# Versioned.VersionedFiles.ScriptHelper.Render("js","js/custom/QuanLyChiHo.js") %>
 </asp:Content>

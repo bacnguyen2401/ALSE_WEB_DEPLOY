@@ -429,6 +429,7 @@ function fncLoadFWD() {
             html_option += "<option value=\"SCK%\">SCK%</option>";
             html_option += "<option value=\"EI%\">EI%</option>";
             html_option += "<option value=\"PT%\">PT%</option>";
+            html_option += "<option value=\"KN%\">KN%</option>";
             $.each(d, function (key, val) {
                 html_option += "<option value=\"" + val.FWD + "\">" + val.FWD + "</option>"
             });
