@@ -39,6 +39,7 @@
                     <th>PCS TRUE</th>
                     <th>LACK</th>--%>
                     <th>FWD</th>
+                    <th>PIC</th>
                     <%--<th>W.H</th>--%>
                     <%--<th>LOCATION</th>--%>
                     <th>INVOICE</th>
@@ -75,6 +76,7 @@
                     <th>FWD</th>
                     <%--<th>W.H</th>--%>
                     <%--<th>LOCATION</th>--%>
+                      <th>PIC</th>
                     <th>INVOICE</th>
                     <th>REMARK</th>
                     <%--<th>CNEE MAWB</th>--%>
@@ -110,6 +112,7 @@
                     <th>FWD</th>
                     <%--<th>W.H</th>--%>
                     <%--<th>LOCATION</th>--%>
+                      <th>PIC</th>
                     <th>INVOICE</th>
                     <th>R.M</th>
                     <%--<th>CNEE MAWB</th>--%>
@@ -145,6 +148,7 @@
                     <th>FWD</th>
                     <%--<th>W.H</th>--%>
                     <%--<th>LOCATION</th>--%>
+                      <th>PIC</th>
                     <th>INVOICE</th>
                     <th>R.M</th>
                     <%--<th>CNEE MAWB</th>--%>
@@ -181,6 +185,7 @@
                     <th>FWD</th>
                     <%--<th>W.H</th>--%>
                     <%--<th>LOCATION</th>--%>
+                      <th>PIC</th>
                     <th>INVOICE</th>
                     <th>R.M</th>
                     <%--<th>CNEE MAWB</th>--%>
@@ -215,6 +220,7 @@
                     <th>FWD</th>
                     <%--<th>W.H</th>--%>
                     <%--<th>LOCATION</th>--%>
+                      <th>PIC</th>
                     <th>INVOICE</th>
                     <th>REMARK</th>
                     <%--<th>CNEE MAWB</th>--%>
@@ -248,6 +254,7 @@
                     <th>FWD</th>
                     <%--<th>W.H</th>--%>
                     <%--<th>LOCATION</th>--%>
+                      <th>PIC</th>
                     <th>INVOICE</th>
                     <th>REMARK</th>
                     <%--<th>CNEE MAWB</th>--%>
@@ -284,6 +291,7 @@
                     <th>FWD</th>
                     <%--<th>W.H</th>--%>
                     <%--<th>LOCATION</th>--%>
+                      <th>PIC</th>
                     <th>INVOICE</th>
                     <th>REMARK</th>
                     <%--<th>CNEE MAWB</th>--%>

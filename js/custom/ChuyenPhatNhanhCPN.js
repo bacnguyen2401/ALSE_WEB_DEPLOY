@@ -30,7 +30,7 @@ function fncLoad() {
         success: function (responsive) {
             d = responsive.d;
             //console.log(d.danhSachFWDs);
-            //console.log(d);
+            console.log(d);
 
             var ArrivalNotice = d.ArrivalNotice.length;
             var DelyveryPlan = d.DelyveryPlan.length;
@@ -115,6 +115,7 @@ function fncLoad() {
                     html_ArrivalNotice += "<td class=\"td-fwd\">" + val.FWDSArrivalNotice + "</td>";
                     //html_ArrivalNotice += "<td class=\"td-wh " + tomauWH + "\">" + val.MaKho + "</td>";
                     //html_ArrivalNotice += "<td>" + val.TinhTrangTB + "</td>";
+                    html_ArrivalNotice += "<td>" + val.PIC + "</td>";
                     html_ArrivalNotice += "<td>" + val.Invoice + "</td>";
                     html_ArrivalNotice += "<td>" + val.GhiChuTBArrivalNotice + "</td>";
                     //html_ArrivalNotice += "<td>" + val.CNEEMAWB + "</td>";
@@ -210,6 +211,7 @@ function fncLoad() {
                     html_DelyvryPlan += "<td class=\"td-fwd\">" + val.FWDSDelyveryPlan + "</td>";
                     //html_DelyvryPlan += "<td class=\"td-wh " + tomauWH + "\">" + val.MaKho + "</td>";
                     //html_DelyvryPlan += "<td>" + val.TinhTrangTB + "</td>";
+                    html_DelyvryPlan += "<td>" + val.PIC + "</td>";
                     html_DelyvryPlan += "<td>" + val.Invoice + "</td>";
                     html_DelyvryPlan += "<td>" + val.GhiChuTBDelyveryPlan + "</td>";
                     //html_DelyvryPlan += "<td>" + val.CNEEMAWB + "</td>";
@@ -275,6 +277,7 @@ function fncLoad() {
                     html_CargoReady += "<td class=\"td-fwd\">" + val.FWDSCargoReady + "</td>";
                     //html_CargoReady += "<td class=\"td-wh " + tomauWH + "\">" + val.MaKho + "</td>";
                     //html_CargoReady += "<td>" + val.TinhTrangTB + "</td>";
+                    html_CargoReady += "<td>" + val.PIC + "</td>";
                     html_CargoReady += "<td>" + val.Invoice + "</td>";
                     html_CargoReady += "<td>" + val.GhiChuTBCargoReady + "</td>";
                     //html_CargoReady += "<td>" + val.CNEEMAWB + "</td>";
@@ -339,6 +342,7 @@ function fncLoad() {
                     html_LoadingOnTruck += "<td class=\"td-fwd\">" + val.FWDSLoadingOnTruck + "</td>";
                     //html_LoadingOnTruck += "<td class=\"td-wh " + tomauWH + "\">" + val.MaKho + "</td>";
                     //html_LoadingOnTruck += "<td>" + val.TinhTrangTB + "</td>";
+                    html_LoadingOnTruck += "<td>" + val.PIC + "</td>";
                     html_LoadingOnTruck += "<td>" + val.Invoice + "</td>";
                     html_LoadingOnTruck += "<td>" + val.GhiChuTBLoadingOnTruck + "</td>";
                     //html_LoadingOnTruck += "<td>" + val.CNEEMAWB + "</td>";
@@ -403,6 +407,7 @@ function fncLoad() {
                     html_TruckingAlse += "<td class=\"td-fwd\">" + val.FWDSTruckingALSE + "</td>";
                     //html_TruckingAlse += "<td class=\"td-wh " + tomauWH + "\">" + val.MaKho + "</td>";
                     //html_TruckingAlse += "<td>" + val.TinhTrangTB + "</td>";
+                    html_TruckingAlse += "<td>" + val.PIC + "</td>";
                     html_TruckingAlse += "<td>" + val.Invoice + "</td>";
                     html_TruckingAlse += "<td>" + val.GhiChuTBTruckingALSE + "</td>";
                     //html_TruckingAlse += "<td>" + val.CNEEMAWB + "</td>";
@@ -489,6 +494,7 @@ function fncLoad() {
                     html_AlseWarehouse += "<td class=\"td-fwd\">" + val.FWDSAlseWarehouse + "</td>";
                     //html_AlseWarehouse += "<td class=\"td-wh " + tomauWH + "\">" + val.MaKho + "</td>";
                     //html_AlseWarehouse += "<td>" + val.TinhTrangTB + "</td>";
+                    html_AlseWarehouse += "<td>" + val.PIC + "</td>";
                     html_AlseWarehouse += "<td>" + notspecialcharacters(val.Invoice) + "</td>";
                     html_AlseWarehouse += "<td>" + val.GhiChuAlseWarehouse + "</td>";
                     //html_AlseWarehouse += "<td>" + val.CNEEMAWB + "</td>";
@@ -579,6 +585,7 @@ function fncLoad() {
                     html_ClearCustom += "<td class=\"td-fwd\">" + val.MaDonViNhanClearCustom + "</td>";
                     //html_ClearCustom += "<td class=\"td-wh " + tomauWH + "\">" + val.MaKho + "</td>";
                     //html_ClearCustom += "<td>" + val.TinhTrangTB + "</td>";
+                    html_ClearCustom += "<td>" + val.PIC + "</td>";
                     html_ClearCustom += "<td>" + val.Invoice + "</td>";
                     html_ClearCustom += "<td>" + val.GhiChuClearCustom + "</td>";
                     //html_ClearCustom += "<td>" + val.CNEEMAWB + "</td>";
@@ -671,6 +678,7 @@ function fncLoad() {
                     html_Delyvering += "<td class=\"td-fwd\">" + val.MaDonViNhanDelyvering + "</td>";
                     //html_Delyvering += "<td class=\"td-wh " + tomauWH + "\">" + val.MaKho + "</td>";
                     //html_Delyvering += "<td>" + val.TinhTrangTB + "</td>";
+                    html_Delyvering += "<td>" + val.PIC + "</td>";
                     html_Delyvering += "<td>" + val.Invoice + "</td>";
                     html_Delyvering += "<td>" + val.GhiChuDelyvering + "</td>";
                     //html_Delyvering += "<td>" + val.CNEEMAWB + "</td>";
@@ -766,6 +774,7 @@ function fncLoad() {
                     html_Complete += "<td class=\"td-fwd\">" + val.MaDonViNhanComplete + "</td>";
                     //html_Complete += "<td class=\"td-wh " + tomauWH + "\">" + val.MaKho + "</td>";
                     //html_Complete += "<td>" + val.TinhTrangTB + "</td>";
+                    html_Complete += "<td>" + val.PIC + "</td>";
                     html_Complete += "<td>" + val.Invoice + "</td>";
                     html_Complete += "<td>" + val.GhiChuComplete + "</td>";
                     //html_Complete += "<td>" + val.CNEEMAWB + "</td>";
