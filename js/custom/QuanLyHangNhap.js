@@ -167,7 +167,7 @@ function fncLoad() {
                     html_ArrivalNotice += "<td class=\"td-no\">" + (item + 1) + "</td>";
                     html_ArrivalNotice += "<td class=\"td-img\" attrMAWB=\"" + val.MawbArrivalNotice + "\"  attrHAWB=\"" + val.HawbArrivalNotice + "\" attrSoKien=\"" + val.SoKienTBArrivalNotice + "\">" + "<img src=\"images/mail_web.png\"  />" + "</td>";
                     html_ArrivalNotice += "<td class=\"td-mawb1  mawban " + tomaucotMaWb + "\" attrMAWB=\"" + val.MawbArrivalNotice + "\" attrHAWB=\"" + val.HawbArrivalNotice + "\">" + val.MawbArrivalNotice + textPhatDO + "</td>";
-                    html_ArrivalNotice += "<td class=\"td-hawb  " + tomauWH + "\">" + val.HawbArrivalNotice + textHQGS + "</td>";
+                    html_ArrivalNotice += "<td class=\"td-hawb " + tomauWH + "\" attrMAWB=\"" + val.MawbArrivalNotice + "\"  attrHAWB=\"" + val.HawbArrivalNotice + "\" attrSoKien=\"" + val.SoKienTBArrivalNotice + "\">" + val.HawbArrivalNotice + textHQGS + "</td>";
                     html_ArrivalNotice += "<td class=\"td-pcs\">" + val.SoKienTBArrivalNotice + "</td>";
                     html_ArrivalNotice += "<td class=\"td-cm\">" + val.GMArrivalNotice + "</td>";
                     html_ArrivalNotice += "<td class=\"td-cm\">" + val.CMArrivalNotice + "</td>";
@@ -320,7 +320,7 @@ function fncLoad() {
                     html_CargoReady += "<td class=\"td-no\">" + (item + 1) + "</td>";
                     html_CargoReady += "<td class=\"td-img\" attrMAWB=\"" + val.MawbCargoReady + "\"  attrHAWB=\"" + val.HawbCargoReady + "\" attrSoKien=\"" + val.SoKienDSVCMDCargoReady + "\">" + "<img src=\"images/CARGO_READY.png\"  />" + "</td>"; //
                     html_CargoReady += "<td class=\"td-mawb1 font-weight-css\" attrMAWB=\"" + val.MawbCargoReady + "\" attrHAWB=\"" + val.HawbCargoReady + "\">" + val.MawbCargoReady + textPhatDO + "</td>";
-                    html_CargoReady += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\">" + val.HawbCargoReady + textHQGS + "</span>" + "</td>";
+                    html_CargoReady += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\" attrMAWB=\"" + val.MawbArrivalNotice + "\"  attrHAWB=\"" + val.HawbArrivalNotice + "\" attrSoKien=\"" + val.SoKienTBArrivalNotice + "\">" + val.HawbCargoReady + textHQGS + "</span>" + "</td>";
                     html_CargoReady += "<td class=\"td-pcs\">" + val.SoKienTBCargoReady + "</td>";
                     html_CargoReady += "<td class=\"td-cm\">" + val.GMCargoReady + "</td>";
                     html_CargoReady += "<td class=\"td-cm\">" + val.CMCargoReady + "</td>";
@@ -381,7 +381,7 @@ function fncLoad() {
                     html_LoadingOnTruck += "<td class=\"td-no\">" + (item + 1) + "</td>";
                     html_LoadingOnTruck += "<td class=\"td-img\"  attrMAWB=\"" + val.MawbLoadingOnTruck + "\"  attrHAWB=\"" + val.HawbLoadingOnTruck + "\" attrSoKien=\"" + val.SoKienDSVCMDLoadingOnTruck + "\">" + "<img src=\"images/truck.png\"  />" + "</td>";
                     html_LoadingOnTruck += "<td class=\"td-mawb1 font-weight-css\" attrMAWB=\"" + val.MawbLoadingOnTruck + "\" attrHAWB=\"" + val.HawbLoadingOnTruck + "\">" + val.MawbLoadingOnTruck + textPhatDO + "</td>";
-                    html_LoadingOnTruck += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\">" + val.HawbLoadingOnTruck + textHQGS + "</td>";
+                    html_LoadingOnTruck += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\" attrMAWB=\"" + val.MawbArrivalNotice + "\"  attrHAWB=\"" + val.HawbArrivalNotice + "\" attrSoKien=\"" + val.SoKienTBArrivalNotice + "\">" + val.HawbLoadingOnTruck + textHQGS + "</td>";
                     html_LoadingOnTruck += "<td class=\"td-pcs\">" + val.SoKienTBLoadingOnTruck + "</td>";
                     html_LoadingOnTruck += "<td class=\"td-cm\">" + val.GMLoadingOnTruck + "</td>";
                     html_LoadingOnTruck += "<td class=\"td-cm\">" + val.CMLoadingOnTruck + "</td>";
@@ -442,7 +442,7 @@ function fncLoad() {
                     html_TruckingAlse += "<td class=\"td-no\">" + (item + 1) + "</td>";
                     html_TruckingAlse += "<td class=\"td-img\" attrMAWB=\"" + val.MawbTruckingALSE + "\"  attrHAWB=\"" + val.HawbTruckingALSE + "\" attrSoKien=\"" + val.SoKienDSVCMDTruckingALSE + "\">" + "<img src=\"images/TRUCKING ALSE.png\"  />" + "</td>";
                     html_TruckingAlse += "<td class=\"td-mawb1 font-weight-css\" attrMAWB=\"" + val.MawbTruckingALSE + "\" attrHAWB=\"" + val.HawbTruckingALSE + "\">" + val.MawbTruckingALSE + textPhatDO + "</td>";
-                    html_TruckingAlse += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\">" + val.HawbTruckingALSE + textHQGS + "</td>";
+                    html_TruckingAlse += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\" attrMAWB=\"" + val.MawbArrivalNotice + "\"  attrHAWB=\"" + val.HawbArrivalNotice + "\" attrSoKien=\"" + val.SoKienTBArrivalNotice + "\">" + val.HawbTruckingALSE + textHQGS + "</td>";
                     html_TruckingAlse += "<td class=\"td-pcs\">" + val.SoKienTBTruckingALSE + "</td>";
                     html_TruckingAlse += "<td class=\"td-cm\">" + val.GMTruckingALSE + "</td>";
                     html_TruckingAlse += "<td class=\"td-cm\">" + val.CMTruckingALSE + "</td>";
@@ -527,7 +527,7 @@ function fncLoad() {
                     html_AlseWarehouse += "<td class=\"td-no\">" + (item + 1) + "</td>";
                     html_AlseWarehouse += "<td class=\"td-img\" attrMAWB=\"" + val.MawbAlseWarehouse + "\"  attrHAWB=\"" + val.HawbAlseWarehouse + "\" attrSoKien=\"" + val.SoKienThucAlseWarehouse + "\">" + "<img src=\"images/alsewh.png\"  />" + "</td>";
                     html_AlseWarehouse += "<td class=\"td-mawb1 font-weight-css\" attrMAWB=\"" + val.MawbAlseWarehouse + "\" attrHAWB=\"" + val.HawbAlseWarehouse + "\">" + val.MawbAlseWarehouse + textPhatDO + "</td>";
-                    html_AlseWarehouse += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\">" + val.HawbAlseWarehouse + textHQGS + "</td>";
+                    html_AlseWarehouse += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\" attrMAWB=\"" + val.MawbArrivalNotice + "\"  attrHAWB=\"" + val.HawbArrivalNotice + "\" attrSoKien=\"" + val.SoKienTBArrivalNotice + "\">" + val.HawbAlseWarehouse + textHQGS + "</td>";
                     html_AlseWarehouse += "<td class=\"td-pcs\">" + val.SoKienThucAlseWarehouse + "</td>";
                     html_AlseWarehouse += "<td class=\"td-cm\">" + val.SoCanThucAlseWarehouse + "</td>";
                     html_AlseWarehouse += "<td class=\"td-cm\">" + val.CW + "</td>";
@@ -615,7 +615,7 @@ function fncLoad() {
                     html_ClearCustom += "<td class=\"td-no\">" + (item + 1) + "</td>";
                     html_ClearCustom += "<td class=\"td-img\" attrMAWB=\"" + val.MawbClearCustom + "\"  attrHAWB=\"" + val.HawbClearCustom + "\" attrSoKien=\"" + val.SoKienThucClearCustom + "\">" + "<img src=\"images/hoanthanhhaiquan.png\"  />" + "</td>";
                     html_ClearCustom += "<td class=\"td-mawb font-weight-css somawb\" attrMAWB=\"" + val.MawbClearCustom + "\" attrHAWB=\"" + val.HawbClearCustom + "\">" + val.MawbClearCustom + textPhatDO + "</td>";
-                    html_ClearCustom += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\">" + val.HawbClearCustom + textHQGS + "</span>" + "</td>";
+                    html_ClearCustom += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\" attrMAWB=\"" + val.MawbArrivalNotice + "\"  attrHAWB=\"" + val.HawbArrivalNotice + "\" attrSoKien=\"" + val.SoKienTBArrivalNotice + "\">" + val.HawbClearCustom + textHQGS + "</span>" + "</td>";
                     html_ClearCustom += "<td class=\"td-pcs\">" + val.SoKienThucClearCustom + "</td>";
                     html_ClearCustom += "<td class=\"td-cm\">" + val.SoCanThucClearCustom + "</td>";
                     html_ClearCustom += "<td class=\"td-cm\">" + val.CW + "</td>";
@@ -703,7 +703,7 @@ function fncLoad() {
                     html_Delyvering += "<td class=\"td-no\">" + (item + 1) + "</td>";
                     html_Delyvering += "<td class=\"td-img\" attrMAWB=\"" + val.MawbDelyvering + "\"  attrHAWB=\"" + val.HawbDelyvering + "\" attrSoKien=\"" + val.SoKienThucDelyvering + "\">" + "<img src=\"images/DELYVERING.png\"  />" + "</td>";
                     html_Delyvering += "<td class=\"td-mawb font-weight-css somawb\" attrMAWB=\"" + val.MawbDelyvering + "\" attrHAWB=\"" + val.HawbDelyvering + "\">" + val.MawbDelyvering + textPhatDO + "</td>";
-                    html_Delyvering += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\">" + val.HawbDelyvering + textHQGS + "</td>";
+                    html_Delyvering += "<td class=\"td-hawb font-weight-css  " + tomauWH + "\" attrMAWB=\"" + val.MawbArrivalNotice + "\"  attrHAWB=\"" + val.HawbArrivalNotice + "\" attrSoKien=\"" + val.SoKienTBArrivalNotice + "\">" + val.HawbDelyvering + textHQGS + "</td>";
                     html_Delyvering += "<td class=\"td-pcs\">" + val.SoKienThucDelyvering + "</td>";
                     html_Delyvering += "<td class=\"td-cm\">" + val.SoCanThucDelyvering + "</td>";
                     html_Delyvering += "<td class=\"td-cm\">" + val.CW + "</td>";
@@ -795,7 +795,7 @@ function fncLoad() {
                     html_Complete += "<td class=\"td-no\">" + (item + 1) + "</td>";
                     html_Complete += "<td class=\"td-img\" attrMAWB=\"" + val.MawbComplete + "\"  attrHAWB=\"" + val.HawbComplete + "\" attrSoKien=\"" + val.SoKienThucComplete + "\">" + "<img src=\"images/COMPLETE.png\"  /> </br>" + textGetOut + "" + "</td>";
                     html_Complete += "<td class=\"td-mawb " + tomauMAWBHAWB + " font-weight-css\" attrMAWB=\"" + val.MawbComplete + "\" attrHAWB=\"" + val.HawbComplete + "\">" + val.MawbComplete + textPhatDO + "</td >";
-                    html_Complete += "<td class=\"td-hawb " + tomauMAWBHAWB + " font-weight-css  " + tomauWH + "\">" + val.HawbComplete + textHQGS + "</td>";
+                    html_Complete += "<td class=\"td-hawb " + tomauMAWBHAWB + " font-weight-css  " + tomauWH + "\" attrMAWB=\"" + val.MawbArrivalNotice + "\"  attrHAWB=\"" + val.HawbArrivalNotice + "\" attrSoKien=\"" + val.SoKienTBArrivalNotice + "\">" + val.HawbComplete + textHQGS + "</td>";
                     html_Complete += "<td class=\"td-pcs\">" + val.SoKienThucComplete + "</td>";
                     html_Complete += "<td class=\"td-cm\">" + val.SoCanThucComplete + "</td>";
                     html_Complete += "<td class=\"td-cm\">" + val.CW + "</td>";
@@ -1020,6 +1020,98 @@ function fncLoad() {
 }
 
 function fncClick() {
+    $(".btn-luu-batthuong").click(function () {
+        var _Mawb = $(this).attr("attrmawb");
+        var _Hawb = $(this).attr("attrhawb");
+        var _SoKien = $(this).attr("attrsokien");
+
+        var batThuong = {};
+        batThuong = {
+            "Mawb": _Mawb
+            , "Hawb": _Hawb
+            , "SoKien": _SoKien
+            , "MSCA": $("#mcsa").is(':checked')
+            , "Crushed": $("#crushed").is(':checked')
+            , "Wet": $("#wet").is(':checked')
+            , "FDCA": $("#fdca").is(':checked')
+            , "Torn": $("#torn").is(':checked')
+            , "Broken": $("#broken").is(':checked')
+            , "OVCD": $("#ovcd").is(':checked')
+            , "Others": $("#other").is(':checked')
+            , "Witchoutlabel": $("#without").is(':checked')
+            , "GhiChu": $("#batthuong-ghichu").val()
+            , "TrangThai": $("input[name=trangthai-batthuong]:checked").val()
+        };
+        //console.log(JSON.stringify({ batThuong }))
+        $.ajax({
+            type: "POST",
+            url: "QuanLyHangNhap.aspx/UpdateBatThuong",
+            data: JSON.stringify({ batThuong }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                d = responsive.d;
+                console.log(d);
+                if (d == "ok") {
+                    $("#modalBatthuong").modal("hide")
+                    Swal.fire(
+                        {
+                            title: 'Cập nhật bất thường!',
+                            text: 'Cập nhật hàng bất thường thành công',
+                            type: 'success',
+                            timer: 2000,
+                        }
+                    )
+                }
+            },
+            error: function (request, status, error) {
+                console.log(request.responseText);
+            }
+        }).done(function () {
+        });
+    });
+
+    $(".container").on("click", ".td-hawb", function () {
+        var _Mawb = $(this).attr("attrmawb");
+        var _Hawb = $(this).attr("attrhawb");
+        var _SoKien = $(this).attr("attrsokien");
+
+        $(".btn-luu-batthuong").attr("attrmawb", _Mawb);
+        $(".btn-luu-batthuong").attr("attrhawb", _Hawb);
+        $(".btn-luu-batthuong").attr("attrsokien", _SoKien);
+        $("#modalBatthuong").modal("show")
+
+        ajaxGet3 = { "get1": _Mawb, "get2": _Hawb, "get3": _SoKien };
+        var JsonData = JSON.stringify({ ajaxGet3 });
+        $.ajax({
+            type: "POST",
+            url: "QuanLyHangNhap.aspx/reBatThuong",
+            data: JsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                d = responsive.d;
+                $("#batthuong-ghichu").val(d.GhiChu);
+                $("#mcsa").prop('checked', (d.MSCA == "True" ? true : false))
+                $("#crushed").prop('checked', (d.Crushed == "True" ? true : false))
+                $("#wet").prop('checked', (d.Wet == "True" ? true : false))
+                $("#fdca").prop('checked', (d.FDCA == "True" ? true : false))
+                $("#torn").prop('checked', (d.Torn == "True" ? true : false))
+                $("#broken").prop('checked', (d.Broken == "True" ? true : false))
+                $("#ovcd").prop('checked', (d.OVCD == "True" ? true : false))
+                $("#other").prop('checked', (d.Others == "True" ? true : false))
+                $("#without").prop('checked', (d.Witchoutlabel == "True" ? true : false))
+                $('input[name="trangthai-batthuong"][value="' + (d.TrangThai == "True" ? 1 : 0) + '"]').prop('checked', true);
+            },
+            error: function (request, status, error) {
+                console.log(request.responseText);
+            }
+        }).done(function () {
+        });
+    })
+
     //In lưu kho
     $("#btn-kiemton").click(function () {
         var ajaxGet = { "get": "" };
@@ -1981,6 +2073,18 @@ function fncChanges() {
 }
 
 function fncModalActions() {
+    $('#modalBatthuong').on('hide.bs.modal', function () {
+        $("#mcsa").prop('checked', false)
+        $("#crushed").prop('checked', false)
+        $("#wet").prop('checked', false)
+        $("#fdca").prop('checked', false)
+        $("#torn").prop('checked', false)
+        $("#broken").prop('checked', false)
+        $("#ovcd").prop('checked', false)
+        $("#other").prop('checked', false)
+        $("#without").prop('checked', false)
+        $("#batthuong-ghichu").val("")
+    });
     $('#modalCapNhatGiaoHang').on('shown.bs.modal', function () {
         $(document).off('focusin.bs.modal');
         $(window).trigger("resize"); // bug modal > show excel

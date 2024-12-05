@@ -47,7 +47,7 @@
         <a href="QuanLyCongVanHQ.aspx" id="btn-CVHQ" class="mani-btn btn btn-primary">Công văn HQ</a>
         <a href="#" id="btn-guiXML" class="mani-btn btn btn-info">Hiển thị lô hàng gửi XML</a>
         <a href="#" id="btn-baocaoHQ" class="mani-btn btn btn-success">Báo cáo HQ</a>
-        <a href="#" id="btn-kiemton" class="mani-btn btn btn-primary"> DS hàng lưu kho</a>
+        <a href="#" id="btn-kiemton" class="mani-btn btn btn-primary">DS hàng lưu kho</a>
     </div>
     <div class="div-ThongKeHangNhap">
         <table class="table table-bordered tablehx" id="tbl-ThongKeHangNhap">
@@ -141,13 +141,13 @@
         <label class="checkbox-inline color-white">
             <input type="checkbox" class="cb-makho" checked="checked" id="cb-makho-all" value="ALL" />ALL</label>
         <label class="checkbox-inline color-white">
-            <input type="checkbox" class="cb-makho cb-makho-child" checked="checked"  id="cb-makho-ALSC" value="ALSC" />ALSC</label>
+            <input type="checkbox" class="cb-makho cb-makho-child" checked="checked" id="cb-makho-ALSC" value="ALSC" />ALSC</label>
         <label class="checkbox-inline color-white">
-            <input type="checkbox" class="cb-makho cb-makho-child" checked="checked"  id="cb-makho-NCTS" value="NCTS" />NCTS</label>
+            <input type="checkbox" class="cb-makho cb-makho-child" checked="checked" id="cb-makho-NCTS" value="NCTS" />NCTS</label>
         <label class="checkbox-inline color-white">
-            <input type="checkbox" class="cb-makho cb-makho-child" checked="checked"  id="cb-makho-ACS" value="ACS" />ACS</label>
+            <input type="checkbox" class="cb-makho cb-makho-child" checked="checked" id="cb-makho-ACS" value="ACS" />ACS</label>
         <label class="checkbox-inline color-white">
-            <input type="checkbox" class="cb-makho cb-makho-child" checked="checked"  id="cb-makho-CPN" value="CPN" />CPN</label>
+            <input type="checkbox" class="cb-makho cb-makho-child" checked="checked" id="cb-makho-CPN" value="CPN" />CPN</label>
     </div>
     <%-- <div class="col-sm-12" id="div-checkbox-hq">
         <label class="checkbox-inline  lable-title">SERVICE: </label>
@@ -809,13 +809,111 @@
                     <td>FWD</td>
                 </tr>
             </thead>
-           <tbody></tbody>
+            <tbody></tbody>
         </table>
         <div class="main-luukho-chuky">
             <div>Nhân viên kiểm tồn</div>
             <div>(Ký ghi rõ họ tên)</div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalBatthuong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="">BÁO CÁO HÀNG BẤT THƯỜNG</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-batthuong">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <td>MAWB</td>
+                                    <td>HAWB</td>
+                                    <td>Số kiến</td>
+                                    <td>Ghi chú</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <td>73800684040</td>
+                                <td>G3662401671</td>
+                                <td>3</td>
+                                <td>
+                                    <input type="text" class="form-control" id="batthuong-ghichu" /></td>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div style="display:flex; justify-content: space-between;">
+                        <div>
+                            <h5><span class="fw-bold font-weight-bold">BẤT THƯỜNG / IRREGULARITY</span></h5>
+                        </div>
+                        <div>
+                             <span class="fw-bold font-weight-bold">Trạng thái:</span>
+                            <input type="radio" id="noibai" name="trangthai-batthuong" value="0" checked/>
+                            <label for="noibai">Nội bài</label>
+                            <input type="radio" id="vsip" name="trangthai-batthuong" value="1" />
+                            <label for="vsip">Vsip</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="mcsa" />
+                                <label class="form-check-label" for="mcsa">Thiếu kiện/ MSCA/MSMB</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="crushed" />
+                                <label class="form-check-label" for="crushed">Bẹp/ Crushed</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="wet" />
+                                <label class="form-check-label" for="wet">Ướt/ Wet</label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="fdca" />
+                                <label class="form-check-label" for="fdca">Thừa kiện/ FDCA/FDMB</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="torn" />
+                                <label class="form-check-label" for="torn">Rách/ Torn</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="broken" />
+                                <label class="form-check-label" for="broken">Vỡ/ Broken</label>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="ovcd" />
+                                <label class="form-check-label" for="ovcd">Lạc tuyến/ OVCD</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="other">
+                                <label class="form-check-label" for="other">Lý do khác/ Others</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="without">
+                                <label class="form-check-label" for="without">Thiếu/không có nhãn/dấu/ Without label, mark</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary btn-luu-batthuong" attrmawb="" attrhawb="" attrsokien="">Cập nhật</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
     <%# Versioned.VersionedFiles.ScriptHelper.Render("js","js/custom/QuanLyHangNhap.js") %>
 </asp:Content>
