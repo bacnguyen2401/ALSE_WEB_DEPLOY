@@ -1072,11 +1072,16 @@ function fncClick() {
         });
     });
 
-    $(".container").on("click", ".td-hawb", function () {
+
+    $(".container").on("click", ".td-img", function () {
         var _Mawb = $(this).attr("attrmawb");
         var _Hawb = $(this).attr("attrhawb");
         var _SoKien = $(this).attr("attrsokien");
 
+
+        $(".td-mawb-batthuong").empty().append(_Mawb)
+        $(".td-hawb-batthuong").empty().append(_Hawb)
+        $(".td-sokien-batthuong").empty().append(_SoKien)
         $(".btn-luu-batthuong").attr("attrmawb", _Mawb);
         $(".btn-luu-batthuong").attr("attrhawb", _Hawb);
         $(".btn-luu-batthuong").attr("attrsokien", _SoKien);

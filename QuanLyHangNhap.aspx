@@ -839,9 +839,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <td>73800684040</td>
-                                <td>G3662401671</td>
-                                <td>3</td>
+                                <td class="td-mawb-batthuong">73800684040</td>
+                                <td class="td-hawb-batthuong">G3662401671</td>
+                                <td class="td-sokien-batthuong">3</td>
                                 <td>
                                     <input type="text" class="form-control" id="batthuong-ghichu" /></td>
                             </tbody>
