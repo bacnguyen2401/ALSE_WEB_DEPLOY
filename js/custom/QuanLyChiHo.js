@@ -7,68 +7,52 @@ var html_option;
 var chiHo;
 var arrayNCC;
 var mawbhawb;
+var listKhachHang;
+var listNCC;
+var fileData;
+var arrTempData = {};
+var arrUploadData = {};
+var fileitem = "";
+var count_item = 0;
+const chDateNow = new Date();
 $(document).ready(function () {
     fncLoad();
     fncClick();
     fncChange();
     fncModal();
+    let dropArea = document.getElementById('drop-area');
 
-    // load ncc
-    loadNCC();
+    // Ngăn chặn hành vi mặc định khi kéo thả
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, preventDefaults, false);
+        document.body.addEventListener(eventName, preventDefaults, false);
+    });
 
+    function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    // Thay đổi kiểu dáng khi kéo tệp vào khu vực
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropArea.addEventListener(eventName, () => dropArea.classList.add('hover'), false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, () => dropArea.classList.remove('hover'), false);
+    });
+    // Xử lý tệp khi thả
+    dropArea.addEventListener('drop', handleDrop, false);
+    dropArea.addEventListener('click', () => document.getElementById('f_UploadImage').click());
 });
 
 function fncLoad() {
-    ajaxGet = { "get": "" };
-    jsonData = JSON.stringify({ ajaxGet });
+    document.title = "Quản Lý Chi Hộ";
+    loadMainView();
+    loadKH();
+    loadNCC();
+    
 
-    $.ajax({
-        type: "POST",
-        url: "QuanLyChiHo.aspx/ReChiHo",
-        data: jsonData,
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        async: false,
-        success: function (responsive) {
-            d = responsive.d;
-            html_body = "";
-            console.log(d)
-
-            $.each(d, function (key, val) {
-                html_body += "<tr>";
-                html_body += "<td class=\"\">" + "<input class=\"td-checkbox td-checkbox-child \" id=\"td-checkbox-" + val.AWBBILL + "\" type=\"checkbox\" value=\"" + val.HAWB + "\" tr-attr-sohoadon=\"" + val.SoHD + "\"  tr-attr-kihieu=\"" + val.KiHieuHD + "\" tr-attr-awbbill=\"" + val.AWBBILL + "\"/>" + "</td>";
-                html_body += "<td>" + (key + 1) + "</td>";
-                html_body += "<td class=\"td-awb\">" + val.NCU + "</td>";
-                html_body += "<td>" + val.LoaiHinh + "</td>";
-                html_body += "<td>" + convertDate(val.NgayCK)[1] + "</td>";
-                html_body += "<td>" + val.KhachHang + "</td>";
-                html_body += "<td>" + val.AWBBILL + "</td>";
-                html_body += "<td>" + val.KiHieuHD + "</td>";
-                html_body += "<td>" + val.SoHD + "</td>";
-                html_body += "<td>" + convertDate(val.NgayHD)[1] + "</td>";
-                html_body += "<td>" + val.TenNguoiBan + "</td>";
-                html_body += "<td>" + val.PhiChungTuNhap + "</td>";
-                html_body += "<td>" + fncTachPhanNghin(val.ThanhTien) + "đ" + "</td>";
-                html_body += "<td>" + fncTachPhanNghin(val.SoTruocThue) + "đ" + "</td>";
-                //html_body += "<td>" + val.Check_ChiHo + "</td>";
-                html_body += "<td>" + val.GhiChu + "</td>";
-                html_body += "<td>" + (val.DuyetThanhToan == 0 ? "<span style=\"color:red\">Chưa thanh toán</span>" : "<span style=\"color:#4CAF50\">Đã thanh toán</span>") + "<br/><a class=\"btn btn-default\" id=\"a-btn-attachfile\"><i class=\"glyphicon glyphicon-paperclip\"></i>Đính Kèm</a>" + "</td>";
-                //html_body += "<td>" + val.TrangThaiDoiChieuKhach + "</td>";
-                //html_body += "<td>" + val.IdNhap + "</td>";
-                html_body += "<td>";
-                html_body += "<button type =\"button\" class=\"btn btn-success btn-chiho-duyet\" attrThanhToan=\"" + val.ThanhTien + "\" attrKiHieuHD=\"" + val.KiHieuHD + "\" attrID=\"" + val.Id + "\">Duyệt</button> ";
-                html_body += "<button type =\"button\" class=\"btn btn-warning btn-chiho-sua\" attrID=\"" + val.Id + "\">Sửa</button> ";
-                html_body += "<button type=\"button\" class=\"btn btn-danger btn-chiho-xoa\" attrID=\"" + val.Id + "\">Xóa</button></td>";
-                html_body += "</tr>";
-            });
-
-            $("#tbl-chiho tbody").empty().append(html_body);
-        },
-        error: function (responsive) {
-            alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
-        }
-
-    });
 }
 
 function fncClick() {
@@ -110,7 +94,7 @@ function fncClick() {
     })
 
     // Clicl show modal duyệt thanh toán 
-    $("#tbl-chiho").on("click", ".btn-chiho-duyet", function () {
+    $("#tbl-chiho").on("click", ".btn-chiho-qr", function () {
         var _Id = $(this).attr("attrid");
         var _KihieuHD = $(this).attr("attrKiHieuHD");
         var _Thanhtien = $(this).attr("attrThanhToan");
@@ -440,15 +424,15 @@ function fncClick() {
     });
     // Sửa chi hộ
     $("#tbl-chiho").on("click", ".btn-chiho-sua", function () {
+        var chiHoId= $(this).attr("attrID");
+        var chiHoAWBBILL= $(this).attr("AWBBILL");
         $("#myModalViewChiHo").modal({ backdrop: 'static' }, "show");
-        $("#btn-capnhat-chiho").attr("attrid", $(this).attr("attrID"))
-        $("#h4-chiho-view-tieude").empty().append("Cập nhật chi hộ");
+        $("#btn-capnhat-chiho").attr("attrid", chiHoId)
+        $("#h4-chiho-view-tieude").empty().append("Cập nhật chi hộ - " + chiHoAWBBILL);
         $("#btn-luu-chiho").hide();
         $("#btn-capnhat-chiho").show();
-        loadNCC();
-        loadKH();
 
-        ajaxGet = { "get": $(this).attr("attrID") };
+        ajaxGet = { "get": chiHoId };
         jsonData = JSON.stringify({ ajaxGet });
 
         $.ajax({
@@ -460,9 +444,9 @@ function fncClick() {
             async: false,
             success: function (responsive) {
                 d = responsive.d;
-                console.log(d)
+                console.log(d);
                 $("#input-chiho-ncu").val(d.NCU);
-                $("#select-chiho-loaihinh").val(d.PhiChungTuNhap);
+                $("#select-chiho-loaihinh").val(d.LoaiHinh);
                 $("#input-chiho-ngaychuyenkhoan").val(convertDate(d.NgayCK)[1]);
                 $("#input-chiho-khachhang").val(d.KhachHang);
                 $("#input-chiho-awbbill").val(d.AWBBILL);
@@ -478,12 +462,15 @@ function fncClick() {
                 $("#input-chiho-idnhap").val(d.IdNhap);
                 $("#input-chiho-ghichu").val(d.GhiChu);
                 $("#input-chiho-phichungtunhap").val(d.PhiChungTuNhap);
+                $("#input-chiho-sodenghithanhtoan").val(d.SoDeNghiThanhToan);
             },
             error: function (responsive) {
                 alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
             }
 
         });
+        // load file dinh kem
+        fncLoadFileDinhKem(chiHoId);
 
     });
     // Show modal lưu cho hộ kế hoạch
@@ -493,12 +480,108 @@ function fncClick() {
         $("#btn-luu-chiho").show();
         $("#btn-capnhat-chiho").hide();
         // ngày hiện tại deploy 20/09
-        var d_now_20180131 = new Date();
-        $("#input-chiho-ngaychuyenkhoan").datepicker("setDate", new Date(d_now_20180131.getFullYear(), d_now_20180131.getMonth() + 1, 0));
-        $("#input-chiho-ngayhd").datepicker("setDate", new Date(d_now_20180131.getFullYear(), d_now_20180131.getMonth() + 1, 0));
-        loadNCC();
-        loadKH();
+        
+        $("#input-chiho-ngaychuyenkhoan").datepicker("setDate", new Date(chDateNow.getFullYear(), chDateNow.getMonth() + 1, 0));
+        $("#input-chiho-ngayhd").datepicker("setDate", new Date(chDateNow.getFullYear(), chDateNow.getMonth() + 1, 0));
+
+        $("#input-chiho-khachhang").prop('disabled', true);
+        $("#input-chiho-awbbill").prop('disabled', true);
+        if ($("#tbl-upload-imgzone tbody tr").length === 0) {
+            $("#tbl-upload-imgzone tbody").append("<tr><td colspan=\"4\" class=\"text-center\">Không có file upload</td></tr>");
+        }
+
+
     });
+    // delete ảnh trên server 
+    ///
+    $("#myModalViewChiHo").on("click", "#a-dinhkem-xoa", function () {
+        if (confirm("Bạn có chắc chắn muốn xóa tài liệu này không? \r\nHành động này không thể hoàn tác! \r\nTên tài liệu: " + $(this).closest("tr").attr("filename"))) {
+            //$("#div-wait").show();
+            var xoa_folder = $(this).closest("tr").attr("folder");
+            var ajaxGet2 = { "get1": xoa_folder, "get2": $(this).closest("tr").attr("filename") };
+            jsonData = JSON.stringify({ ajaxGet2 });
+            $.ajax({
+                type: "POST",
+                url: "QuanLyChiHo.aspx/DeleteFile",
+                data: jsonData,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                success: function (responsive) {
+                    d = responsive.d;
+                    //fncModalSua($("#myModalViewThanhToan").attr("id-thanhtoan"), $("#myModalViewThanhToan").attr("loai-thanhtoan"));
+                    fncLoadFileDinhKem(xoa_folder);
+                    alert("Xóa thành công");
+
+                },
+                error: function () {
+                    alert("Đã có lỗi trong quá trình xóa file!\r\nVui lòng tải lại trang(F5)!\r\nNếu sự cố lặp lại xin liên hệ nhân viên IT");
+                }
+            }).done(function () {
+                //$("#div-wait").hide();
+            })
+        }
+    })
+    // Tải ảnh trên server về máy tính
+    $("#myModalViewChiHo").on("click", "#a-dinhkem-taixuong", function () {
+        window.open("../DownloadFile.aspx?Root=ChiHo&Folder=" + $(this).closest("tr").attr("folder") + "&FileName=" + $(this).closest("tr").attr("filename"));
+    })
+    
+    //delete ảnh
+    $("#myModalViewChiHo").on("click", "#a-upload-delete-all", function () {
+        arrTempData = {};
+        arrUploadData = {};
+        $("#tbl-upload-imgzone tbody tr").remove();
+        fncResetProcessBar();
+    })
+    $("#myModalViewChiHo").on('hidden.bs.modal', function () {
+        $("#tbl-upload-imgzone tbody").empty();
+    })
+    // Show ảnh
+
+    $("#myModalViewChiHo").on("change", "#f_UploadImage", function (e) {
+        fncResetProcessBar();
+        html_imgzone = "";
+        var file, img;
+        count_item = $("#tbl-upload-imgzone tbody tr.tr-upload-chuaupload").length + $("#tbl-upload-imgzone tbody tr.tr-upload-daupload").length;
+        //console.log(count_item);
+        $.each(e.target.files, function (item, val) {
+            if (val.size < 10000000) {
+                var fileExtension = val.name.split('.').pop();
+                var awb = $("#input-chiho-awbbill").val();
+                var ncc = $("#input-chiho-ncu").val();
+                var khachhang = $("#input-chiho-khachhang").val();
+                var sohoadon = $("#input-chiho-sohd").val();
+                var newFileName = awb + "-" + ncc + "-" + khachhang + "-" + sohoadon + "-" + String(count_item + 1) + "." + fileExtension;
+                var newFile = new File([val], newFileName, { type: val.type });
+                arrUploadData["file" + count_item] = newFile;
+                arrTempData["file" + count_item] = val;
+                tmppath = URL.createObjectURL(val);
+                html_imgzone += "<tr class=\"tr-upload-chuaupload\">";
+                html_imgzone += "<td>" + "<span class=\"span-upload-trangthai label label-default\">" + "Chưa upload" + "</span>" + "</td>";
+                //html_imgzone += "<td>" + "<img class=\"img-pre-upload\" src=\"" + tmppath + "\"  alt=\"Photo\" />" + "</td>";
+                html_imgzone += "<td>" + newFileName + "</td>";
+                html_imgzone += "<td>" + fncConvertSize(val.size) + "</td>";
+                html_imgzone += "<td>" + "<a class=\"btn btn-danger btn-sm btn-upload-delete\" fileitem=\"file" + count_item + "\" ><i class=\"glyphicon glyphicon-trash\"></i> Xóa</a>" + "</td>";
+                html_imgzone += "</tr>";
+                count_item += 1;
+            }
+        })
+        $("#tbl-upload-imgzone").append(html_imgzone);
+
+        $("#tbl-upload-imgzone").on("click", ".btn-upload-delete", function () {
+            event.stopPropagation();
+            fileitem = $(this).attr("fileitem");
+            delete arrTempData[fileitem];
+            delete arrUploadData[fileitem];
+            $(this).closest("tr").remove();
+            fncResetProcessBar();
+        })
+    })
+    $("#tbl-chiho tr td").click(function () {
+        $(".tr-highlight").removeClass("tr-highlight");
+        $(this).closest("tr").addClass("tr-highlight");
+    })
 }
 
 function fncChange() {
@@ -508,28 +591,63 @@ function fncChange() {
     });
 
     $("#myModalViewChiHo").on("change", "#input-chiho-khachhang", function () {
-        var _loaihinh = $("#select-chiho-loaihinh").val();
-        if (_loaihinh == "") {
-            alert("Vui lòng chọn loại hình xong tiếp tục chọn khách hàng!");
-        } else {
-            // load mawb hawb
-            reMawbHawb($(this).val());
-            loadAWB(_loaihinh);
+        // var _loaihinh = $("#select-chiho-loaihinh").val();
+        // if (_loaihinh == "") {
+        //     alert("Vui lòng chọn loại hình xong tiếp tục chọn khách hàng!");
+        // } else {
+        //     // load mawb hawb
+        //     reMawbHawb($(this).val());
+        //     loadAWB(_loaihinh);
+        // }
+        // Tạo dropdown list Người mua
+       var html_option_nguoimua = "<option value=\"ALSE\">ALSE</option>";
+       html_option_nguoimua += "<option value=\""+$(this).val()+"\">"+$(this).val()+"</option>";
+       html_option_nguoimua += "<option value=\"OTHER\">OTHER</option>";
+        $("#sltNguoiMua").empty().append(html_option_nguoimua);
+        var khachHangSelected = $(this).val();
+        if(khachHangSelected != ""){
+            getBillAWB();
+            $("#input-chiho-awbbill").prop('disabled', false);
+        }else{
+            $("#input-chiho-awbbill").prop('disabled', true);
         }
+       
     })
     $("#myModalViewChiHo").on("change", "#select-chiho-loaihinh", function () {
-        reMawbHawb($("#select-chiho-khachhang").val());
-        var cb_value = $(this).val();
-        loadAWB(cb_value);
+        //reMawbHawb($("#select-chiho-khachhang").val());
+        //var cb_value = $(this).val();
+        //loadAWB(cb_value);
+        var loaiHinhSelected = $(this).val();
+        if(loaiHinhSelected != ""){
+            loadKH(loaiHinhSelected);
+            $("#input-chiho-khachhang").prop('disabled', false);
+        }else{
+            $("#input-chiho-khachhang").prop('disabled', true);
+            $("#input-chiho-awbbill").prop('disabled', true);
+        }
+        
     })
 
     $("#myModalViewChiHo").on("change", "#input-chiho-ncu", function () {
-        if ($(this).val() === "") {
+        var nccSelected = $(this).val();
+        if (nccSelected === "") {
             $("#input-chiho-kihieuhd").val("");
             $("#input-chiho-tennguoiban").val("");
         } else {
-            fncLoadOrigin($(this).val());
+            
+            var tempListNCC = listNCC.filter(function(ncc){
+                return ncc.NCC == nccSelected;
+            });
+            if (tempListNCC.length > 0) {
+                $("#input-chiho-kihieuhd").val(tempListNCC[0].KiHieuHoaDon1);
+                $("#input-chiho-tennguoiban").val(tempListNCC[0].TenCty);
+            }
+            
         }
+    });
+    $('#input-chiho-uploadfile').on('change', function() {
+       
+        $('#input-chiho-tentep').val($('#input-chiho-awbbill').val() + '-' + $('#input-chiho-ncu').val() + '-' + $('#input-chiho-khachhang').val() + '-' + $('#input-chiho-sodenghithanhtoan').val());
     });
 }
 
@@ -556,7 +674,70 @@ function fncModal() {
         $("#input-chiho-tt-dck").val("");
         $("#input-chiho-idnhap").val("");
         $("#input-chiho-ghichu").val("");
+        $("#input-chiho-sodenghithanhtoan").val("");
+        arrTempData = {};
+        arrUploadData = {};
+        $("#tbl-upload-imgzone tbody tr").remove();
     })
+}
+
+function loadMainView(){
+    ajaxGet = { "get": "" };  // note get top 10
+    jsonData = JSON.stringify({ ajaxGet });
+
+    $.ajax({
+        type: "POST",
+        url: "QuanLyChiHo.aspx/ReChiHo",
+        data: jsonData,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        success: function (responsive) {
+            d = responsive.d;
+            html_body = "";
+            //console.log(d)
+
+            $.each(d, function (key, val) {
+                html_body += "<tr>";
+                html_body += "<td class=\"\">" + "<input class=\"td-checkbox td-checkbox-child \" id=\"td-checkbox-" + val.AWBBILL + "\" type=\"checkbox\" value=\"" + val.HAWB + "\" tr-attr-sohoadon=\"" + val.SoHD + "\"  tr-attr-kihieu=\"" + val.KiHieuHD + "\" tr-attr-awbbill=\"" + val.AWBBILL + "\"/>" + "</td>";
+                html_body += "<td class=\"td-awb\">" + val.NCU.toUpperCase() + "</td>";
+                html_body += "<td>" + val.LoaiHinh + "</td>";
+                html_body += "<td>" + val.KhachHang.toUpperCase() + "</td>";
+                html_body += "<td>" + val.AWBBILL + "</td>";
+                // html_body += "<td>" + convertDate(val.NgayCK)[1] + "</td>";
+                html_body += "<td>" + val.KiHieuHD + "</td>";
+                html_body += "<td>" + val.SoHD + "</td>";
+                // html_body += "<td>" + convertDate(val.NgayHD)[1] + "</td>";
+                html_body += "<td>" + val.TenNguoiBan + "</td>";
+                html_body += "<td>" + val.HoaDonKhach + "</td>";
+                html_body += "<td>" + val.PhiChungTuNhap + "</td>";
+                html_body += "<td>" + fncTachPhanNghin(val.ThanhTien) + "đ" + "</td>";
+                html_body += "<td>" + fncTachPhanNghin(val.SoTruocThue) + "đ" + "</td>";
+                //html_body += "<td>" + val.Check_ChiHo + "</td>";
+                html_body += "<td>" + val.SoDeNghiThanhToan + "</td>";  
+                html_body += "<td>" + val.GhiChu + "</td>";
+                // html_body += "<td>" + (val.DuyetThanhToan == 0 ? "<span style=\"color:red\">Chưa thanh toán</span>" : "<span style=\"color:#4CAF50\">Đã thanh toán</span>") + "<br/><a class=\"btn btn-default\" id=\"a-btn-attachfile\"><i class=\"glyphicon glyphicon-paperclip\"></i>Đính Kèm</a>" + "</td>";
+                //html_body += "<td>" + val.TrangThaiDoiChieuKhach + "</td>";
+                //html_body += "<td>" + val.IdNhap + "</td>";
+                html_body += "<td class=\"td-chucnang\">" + "<a class=\"label label-info btn-chiho-dinhkem\" attrID=\"" + val.Id + "\">Đính kèm</a>";
+                html_body +=  "<a class=\"label label-success btn-chiho-qr\" attrID=\"" + val.Id + "\" attrThanhToan=\"" + val.ThanhTien + "\" attrKiHieuHD=\"" + val.KiHieuHD + "\">Xem QR</a>";
+                // html_body += "<button type =\"button\" class=\"btn btn-success btn-chiho-duyet\" attrThanhToan=\"" + val.ThanhTien + "\" attrKiHieuHD=\"" + val.KiHieuHD + "\" attrID=\"" + val.Id + "\">Duyệt</button> ";
+                // html_body += "<button type =\"button\" class=\"btn btn-warning btn-chiho-sua\" attrID=\"" + val.Id + "\">Sửa</button> ";
+                // html_body += "<button type=\"button\" class=\"btn btn-danger btn-chiho-xoa\" attrID=\"" + val.Id + "\">Xóa</button></td>";
+                html_body += "</br>";
+                html_body += "<a class=\"label label-warning btn-chiho-sua\" AWBBILL=\""+ val.AWBBILL+"\" attrID=\"" + val.Id + "\">Sửa</a>";
+                html_body += "<a class=\"label label-danger btn-chiho-xoa\" attrID=\"" + val.Id + "\">Xóa</a>" + "</td>";
+                html_body += "</tr>";
+            });
+
+            $("#tbl-chiho tbody").empty().append(html_body);
+        },
+        error: function (responsive) {
+            alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
+            console.error("Lỗi xảy ra trong hàm loadMainView: ", responsive);
+        }
+
+    });
 }
 
 function loadNCC() {
@@ -572,55 +753,70 @@ function loadNCC() {
         dataType: "json",
         async: false,
         success: function (responsive) {
-            d = responsive.d;
+            listNCC  = responsive.d;
             html_option = "<option value=\"\"></option>"
-            $.each(d, function (key, val) {
-                html_option += "<option value=\"" + val.NCC + "\">" + val.NCC + "</option>"
+            $.each(listNCC, function (key, val) {
+                html_option += "<option value=\"" + val.NCC.toUpperCase() + "\">" + val.TenCty.toUpperCase()+ "</option>"
 
-                arrayNCC.push(val.NCC);
+                arrayNCC.push(val.NCC.toUpperCase());
             });
             $("#sltNCC").empty().append(html_option);
         },
         error: function (responsive) {
             alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
+            console.error("Lỗi xảy ra trong hàm loadNCC: ", responsive);
         }
 
     });
 }
 
-function loadKH() {
-    ajaxGet = { "get": "" };
-    jsonData = JSON.stringify({ ajaxGet });
+function loadKH(loaiHinh) {
+    if(loaiHinh == "" || loaiHinh == null){
+        ajaxGet = { "get": "" };
+        jsonData = JSON.stringify({ ajaxGet });
+    
+        $.ajax({
+            type: "POST",
+            url: "QuanLyChiHo.aspx/reKhachHang",
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (responsive) {
+                listKhachHang = responsive.d; 
+                //console.log(listKhachHang);
+                html_option = "<option value=\"\"></option>"
+                $.each(listKhachHang, function (key, val) {
+                    html_option += "<option value=\"" + val.KhachHang + "\">" + val.KhachHang + "</option>"
+                });
+                $("#sltKhachHang").empty().append(html_option);
+            },
+            error: function (responsive) {
+                alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
+            }
+    
+        });
+    }else{
+        var tempListKhachHang = listKhachHang.filter(function(khachHang){
+            return khachHang.LoaiHinh == loaiHinh;
+        });
+        html_option = "<option value=\"\"></option>"
+        $.each(tempListKhachHang, function (key, val) {
+            html_option += "<option value=\"" + val.KhachHang + "\">" + val.KhachHang + "</option>"
+        });
+        $("#sltKhachHang").empty().append(html_option);
+    }
 
-    $.ajax({
-        type: "POST",
-        url: "QuanLyChiHo.aspx/reKhachHang",
-        data: jsonData,
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        async: false,
-        success: function (responsive) {
-            d = responsive.d;
-            html_option = "<option value=\"\"></option>"
-            $.each(d, function (key, val) {
-                html_option += "<option value=\"" + val.KhachHang + "\">" + val.KhachHang + "</option>"
-            });
-            $("#sltKhachHang").empty().append(html_option);
-        },
-        error: function (responsive) {
-            alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
-        }
-
-    });
+    
 }
 
-function reMawbHawb() {
-    ajaxGet = { "get": $("#input-chiho-khachhang").val() };
-    jsonData = JSON.stringify({ ajaxGet });
+function getBillAWB() {
+    ajaxGet2 = { "get1": $("#select-chiho-loaihinh").val(), "get2": $("#input-chiho-khachhang").val() };
+    jsonData = JSON.stringify({ ajaxGet2 });
 
     $.ajax({
         type: "POST",
-        url: "QuanLyChiHo.aspx/reMawbHawb",
+        url: "QuanLyChiHo.aspx/getBillAWB",
         data: jsonData,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -628,12 +824,12 @@ function reMawbHawb() {
         success: function (responsive) {
             d = responsive.d;
             //console.log(d);
-            mawbhawb = d;
-            //html_option = "<option value=\"\"></option>"
-            //$.each(d, function (key, val) {
-            //    html_option += "<option value=\"" + val.KhachHang + "\">" + val.KhachHang + "</option>"
-            //});
-            //$("#sltKhachHang").empty().append(html_option);
+            //mawbhawb = d;
+            html_option = "<option value=\"\"></option>"
+            $.each(d, function (key, val) {
+                html_option += "<option value=\"" + val + "\">" + val + "</option>"
+            });
+            $("#sltawb").empty().append(html_option);
         },
         error: function (responsive) {
             alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
@@ -685,97 +881,128 @@ function InsertUpdateChiHo(Id) {
         "PhiChungTuNhap": $("#input-chiho-phichungtunhap").val(),
         "SoTruocThue": $("#input-chiho-sotienthue").val().replace(/,/g, ""),
         "ThanhTien": $("#input-chiho-thanhtien").val().replace(/,/g, ""),
-        "HoaDonKhach": $("#input-chiho-tt-dck").val(),
+        "HoaDonKhach": $("#input-chiho-nguoimua").val(),
         "TrangThaiDNTT": $("#input-chiho-tt-dntt").val(),
         "TrangThaiDoiChieuKhach": $("#input-chiho-tt-dck").val(),
         "IdNhap": $("#input-chiho-idnhap").val(),
         "GhiChu": $("#input-chiho-ghichu").val(),
+        "SoDeNghiThanhToan": $("#input-chiho-sodenghithanhtoan").val(),
     }
 
     var messageTitle = "Thêm mới chi hộ thành công!";
     if (Id != "") {
         messageTitle = "Cập nhật chi hộ thành công!";
     }
-
+    var fileChuaUpload = $("#tbl-upload-imgzone tbody tr.tr-upload-chuaupload").length;
     //console.log(chiHo)
 
-    ////Check nhà cung cấp có trong cơ sở dữ liệu không
-    ajaxGet = { "get": $("#input-chiho-ncu").val() };
-    jsonData = JSON.stringify({ ajaxGet })
     $.ajax({
         type: "POST",
-        url: "QuanLyChiHoNCC.aspx/checkNCC",
-        data: jsonData,
+        url: "QuanLyChiHo.aspx/InsertUpdateChiHo",
+        data: JSON.stringify({ chiHo }),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         async: false,
         success: function (responsive) {
             d = responsive.d;
-            if (d == "1") {
-                //check lại nhà cung cấp
-                $.ajax({
-                    type: "POST",
-                    url: "QuanLyChiHo.aspx/InsertUpdateChiHo",
-                    data: JSON.stringify({ chiHo }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    async: false,
-                    success: function (responsive) {
-                        d = responsive.d;
-                        //console.log(d)
-                        if (d == "ok") {
-                            fncLoad();
-                            $("#myModalViewChiHo").modal("hide");
-                            swal.fire({
-                                title: messageTitle,
-                                text: "hệ thống sẽ tự tải lại sau 2s",
-                                type: 'success',
-                                timer: 2000,
-                            })
-                        }
-                    },
-                    error: function (responsive) {
-                        alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
+            //console.log(d)
+            if (d && d != "-1") {
+                if(fileChuaUpload > 0){
+                    
+                    // trả lại data là ID của chiho
+                //console.log($("#tbl-upload-imgzone tbody tr.tr-upload-chuaupload").length);
+                
+                    $("#div-wait").show();
+                    for (var t = 0; t < 10; t++) {
+                        $("#div-upload-process-bar").attr("style", "width:" + t + "%");
+                        $("#div-upload-process-bar").text(t + "%");
                     }
-                })
-            } else {
+                    fileData = new FormData();
+                    //console.log(arrUploadData);
+                    for (var val in arrUploadData) {
+                        //console.log(arrUploadData[val]);
+                        fileData.append("file", arrUploadData[val]);
+                    }
+                    fileData.append("folder", d);
+                    fileData.append("root", "ChiHo");
+                    for (var t = 10; t < 30; t++) {
+                        $("#div-upload-process-bar").attr("style", "width:" + t + "%");
+                        $("#div-upload-process-bar").text(t + "%");
+                    }
+                    if (fileData.getAll("file").length === 0) {
+                        alert("Không có file nào để upload!");
+                        return;
+                    }else{
+                        $.ajax({
+                            type: "POST",
+                            url: "AjaxFileUploader.ashx",
+                            data: fileData,
+                            contentType: false,
+                            processData: false,
+                            async: false,
+                            success: function (responsive) {
+                                for (var t = 30; t <= 100; t++) {
+                                    $("#div-upload-process-bar").attr("style", "width:" + t + "%");
+                                    $("#div-upload-process-bar").text(t + "%");
+                                    if (t == 100) {
+                                        setTimeout(function () {
+                                            $("#div-upload-process-bar").text("HOÀN THÀNH");
+                                        }, 1000);
+                                    }
+                                }
+                                $("#tbl-upload-imgzone tbody tr.tr-upload-chuaupload .span-upload-trangthai").addClass("label-success")
+                                    .removeClass("label-default")
+                                    .text("Đã Upload");
+                                $("#tbl-upload-imgzone tbody tr.tr-upload-chuaupload").addClass("tr-upload-daupload")
+                                    .removeClass("tr-upload-chuaupload");
+            
+                                arrTempData = {};
+                                arrUploadData = {};
+                            },
+                            error: function (responsive) {
+                                alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
+                            }
+                        }).done(function () {
+                            $("#div-wait").hide();
+                            
+                        })
+                    }
+
+                }
+                fncLoad();
                 swal.fire({
-                    title: "Nhà cung cấp chưa có trong cơ sở dữ liệu",
-                    text: "hệ thống sẽ tự tải lại sau 5s",
-                    type: 'warning',
-                    timer: 5000,
-                })
+                    title: messageTitle,
+                    //text: "Hệ thống sẽ tự tải lại sau 2s",
+                    type: 'success',
+                    confirmButtonText: 'OK'
+                }).then(function(){
+                    fncResetProcessBar();
+                    if(Id == ""){
+                        $("#btn-luu-chiho").hide();
+                    }
+                    //$("#myModalViewChiHo").modal("hide");
+                    
+                });
+                
+            }else{
+                swal.fire({
+                    title: "Thêm mới chi hộ thất bại",
+                    text: "Báo lại cho admin để xử lý",
+                    type: 'error',
+                    confirmButtonText: 'OK'
+                });
             }
+
+
+
         },
         error: function (responsive) {
             alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
         }
-
     })
 }
 
-function loadAWB(cb_value) {
-    $("#input-chiho-awbbill").val("");
-    if (cb_value == "IMP") {
-        html_option = "<option value=\"\"></option>"
-        $.each(mawbhawb.hawbChiHos, function (key, val) {
-            html_option += "<option value=\"" + val.HAWB + "\">" + val.HAWB + "</option>"
-        });
-        $("#sltawb").empty().append(html_option);
-    }
 
-    if (cb_value == "EXP") {
-        html_option = "<option value=\"\"></option>"
-        $.each(mawbhawb.mawbChiHos, function (key, val) {
-            html_option += "<option value=\"" + val.SoMAWB + "\">" + val.SoMAWB + "</option>"
-        });
-        $("#sltawb").empty().append(html_option);
-    }
-
-    if (cb_value == "TRUCK") {
-        $("#sltawb").empty();
-    }
-}
 
 function copyToClipboard(spanId) {
     // Lấy phần tử input
@@ -789,6 +1016,7 @@ function copyToClipboard(spanId) {
     });
 }
 
+
 // Chỉ cho phép nhập số
 $('.input-thanhtoan-number').keyup(function (e) {
     FormatCurrency(this);
@@ -797,3 +1025,106 @@ $('.input-thanhtoan-number').keypress(function (e) {
     return CheckNumeric();
 });
 // END Chỉ cho phép nhập số
+function fncConvertOverSizeText(text) {
+    if (text.length > 20) {
+        text = text.substring(0, 10) + "..." + text.substring((text.length - 10), text.length);
+    }
+    return text;
+}
+function fncConvertSize(size) {
+    var size_float = parseFloat(size);
+    var size_return = "";
+    if (size_float <= 1000000) {
+        size_return = (size_float / 1024).toFixed(2) + " KB";
+    } else {
+        size_return = (size_float / 1048576).toFixed(2) + " MB";
+    }
+
+    return size_return;
+}
+
+function fncResetProcessBar() {
+    $("#div-upload-process-bar").attr("style", "width:" + 0 + "%");
+    $("#div-upload-process-bar").text(0 + "%");
+}
+function fncLoadFileDinhKem(chiHoId) {
+    //$("#div-wait").show();
+    $("#tbl-upload-imgzone tbody").empty();
+    //$("#div-filedinhkem-list").append("<tr id=\"tr-filedinhkem-loading\"><td colspan=\"6\"> <img alt=\"\" src=\"images/squares.gif\" id=\"img-checklist-box-loading\"/></td> </tr>");
+
+    ajaxGet = { "get": chiHoId };
+    jsonData = JSON.stringify({ ajaxGet });
+    $.ajax({
+        type: "POST",
+        url: "QuanLyChiHo.aspx/reFileDinhKem",
+        data: jsonData,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        success: function (responsive) {
+            d = responsive.d;
+            var html_filedinhkem = "";
+            //console.log(d);
+            $.each(d, function (item, val) {
+                html_filedinhkem += "<tr class=\"tr-upload-daupload\" filename=\"" + val.filename + "\" folder=\"" + chiHoId + "\">";
+                html_filedinhkem += "<td>" + "<span class=\"span-upload-trangthai label label-success\">" + "Đã upload" + "</span>" + "</td>";
+                //html_filedinhkem += "<td>" + "<img class=\"img-pre-upload\" src=\"" + "" + "\"  alt=\"Photo\" />" + "</td>";
+                html_filedinhkem += "<td>" + val.filename + "</td>";
+                html_filedinhkem += "<td>" + fncConvertSize(val.filesize) + "</td>";
+                html_filedinhkem += "<td>" + "<a class=\"label label-info\" id=\"a-dinhkem-taixuong\">Tải xuống</a>" +"<a class=\"label label-danger\" id=\"a-dinhkem-xoa\">Xóa</a>" + "</td>";
+                html_filedinhkem += "</tr>";
+            })
+
+            setTimeout(function () {
+                $("#tr-filedinhkem-loading").remove();
+                $("#tbl-upload-imgzone tbody").empty();
+                $("#tbl-upload-imgzone tbody").append(html_filedinhkem);
+                //$("#myModalLabelActivity").append("<span> (Có " + d.length + " file đính kèm)</span>")
+            }, 400);
+        },
+        error: function (responsive) {
+            alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
+        }
+    }).done(function () {
+        if ($("#tbl-upload-imgzone tbody tr").length === 0) {
+            $("#tbl-upload-imgzone tbody").append("<tr><td colspan=\"4\" class=\"text-center\">Không có file upload</td></tr>");
+        }
+        //$("#div-wait").hide();
+    })
+}
+
+function handleDrop(e) {
+    let dt = e.dataTransfer;
+    let files = dt.files;
+    //console.log(dt);
+    //console.log(files);
+    count_item = $("#tbl-upload-imgzone tbody tr.tr-upload-chuaupload").length + $("#tbl-upload-imgzone tbody tr.tr-upload-daupload").length;
+    if(count_item == 0){
+        $("#tbl-upload-imgzone tbody").empty();
+    }
+    $.each(files, function (item, val) {
+        html_imgzone = "";
+        if (val.size < 10000000) {
+            var fileExtension = val.name.split('.').pop();
+            var awb = $("#input-chiho-awbbill").val();
+            var ncc = $("#input-chiho-ncu").val();
+            var khachhang = $("#input-chiho-khachhang").val();
+            var sohoadon = $("#input-chiho-sohd").val();
+            var newFileName = awb + "-" + ncc + "-" + khachhang + "-" + sohoadon + "-" + String(count_item + 1) + "." + fileExtension;
+            var newFile = new File([val], newFileName, { type: val.type });
+            arrUploadData["file" + count_item] = newFile;
+            arrTempData["file" + count_item] = val;
+            tmppath = URL.createObjectURL(val);
+            html_imgzone += "<tr class=\"tr-upload-chuaupload\">";
+            html_imgzone += "<td>" + "<span class=\"span-upload-trangthai label label-default\">" + "Chưa upload" + "</span>" + "</td>";
+            //html_imgzone += "<td>" + "<img class=\"img-pre-upload\" src=\"" + tmppath + "\"  alt=\"Photo\" />" + "</td>";
+            html_imgzone += "<td>" + newFileName + "</td>";
+            html_imgzone += "<td>" + fncConvertSize(val.size) + "</td>";
+            html_imgzone += "<td>" + "<a class=\"btn btn-danger btn-sm btn-upload-delete\" fileitem=\"file" + count_item + "\" ><i class=\"glyphicon glyphicon-trash\"></i> Xóa</a>" + "</td>";
+            html_imgzone += "</tr>";
+            count_item += 1;
+        }
+    })
+    $("#tbl-upload-imgzone").append(html_imgzone);
+    //handleFiles(files);
+}
