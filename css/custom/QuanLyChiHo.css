@@ -192,3 +192,7 @@ tr:hover {
 .tr-highlight{
     background-color: #f1f1f1;
 }
+.span-upload-trangthai{
+    display: inline-block;
+    width: 80px;
+}

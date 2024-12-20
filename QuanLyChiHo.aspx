@@ -48,7 +48,7 @@
         </div>
 
 
-        <div class="modal fade" id="myModalViewChiHo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal fade" id="myModalViewChiHo" tabindex="-1" data-keyboard="false" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -510,35 +510,7 @@
                                 class="color-red font-weight-bold"></span></h4>
                     </div>
                     <div class="modal-body">
-                        <!-- <div id="div-upload-btn" class="div-upload-group">
-                     <label for="f_UploadImage" class="btn btn-w-200px btn-success btn-sm">
-                         <i class="glyphicon glyphicon-plus"></i>Ch��n ảnh...
-                     </label>
-                     <a class="btn btn-w-200px btn-primary btn-sm" id="a-upload-startupload"><i class="glyphicon glyphicon-upload"></i>Bắt đầu tải lên</a>
-                     <a class="btn btn-w-200px btn-danger btn-sm" id="a-upload-delete-all"><i class="glyphicon glyphicon-trash"></i>Xóa hết</a>
-                     <input type="file" class="upload" id="f_UploadImage" multiple="multiple" accept="image/jpg, image/png, image/gif, image/jpeg" /><br />
-                 </div>
-                 <div class="progress">
-                     <div class="progress-bar progress-bar-striped active" role="progressbar"
-                         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 0%" id="div-upload-process-bar">
-                         0%
-                     </div>
-                 </div>
-                 <div id="div-upload-imgzone" class="div-upload-group">
-                     <table class="table table-bordered table-responsive" id="tbl-upload-imgzone">
-                         <thead>
-                             <tr>
-                                 <td>Trạng Thái</td>
-                                 <td>Ảnh</td>
-                                 <td>Tên File</td>
-                                 <td>Kích Thước</td>
-                                 <td>Xóa</td>
-                             </tr>
-                         </thead>
-                         <tbody>
-                         </tbody>
-                     </table>
-                 </div> -->
+                        
                     </div>
                     <div class="modal-footer">
 

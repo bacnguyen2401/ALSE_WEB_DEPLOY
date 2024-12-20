@@ -43,7 +43,7 @@ $(document).ready(function () {
     });
     // Xử lý tệp khi thả
     dropArea.addEventListener('drop', handleDrop, false);
-    dropArea.addEventListener('click', () => document.getElementById('f_UploadImage').click());
+    //dropArea.addEventListener('click', () => document.getElementById('f_UploadImage').click());
 });
 
 function fncLoad() {
@@ -57,9 +57,9 @@ function fncLoad() {
 
 function fncClick() {
     // Click show modal upload file
-    $("#tbl-chiho").on("click", "", function () {
+    // $("#tbl-chiho").on("click", "", function () {
 
-    })
+    // })
 
     // Click duyệt thanh toán
     $("#btn-duyetthanhtoan").click(function () {
@@ -473,6 +473,20 @@ function fncClick() {
         fncLoadFileDinhKem(chiHoId);
 
     });
+    $("#tbl-chiho").on("click", ".btn-chiho-dinhkem", function () {
+        var chiho_dinhkem = $(this);
+        var chonFile = document.getElementById("f_UploadImage");
+        chonFile.click();
+        //console.log("click");   
+        chonFile.onchange = function(){ 
+            if(this.files.length > 0){  
+                //console.log($(this).parents(".td-chucnang"));
+                chiho_dinhkem.parents(".td-chucnang").find(".btn-chiho-sua").click();
+            }
+            // console.log("onchange");
+        }
+        
+    })
     // Show modal lưu cho hộ kế hoạch
     $(".btn-chiho-kehoach").click(function () {
         $("#myModalViewChiHo").modal({ backdrop: 'static' }, "show");
@@ -544,7 +558,9 @@ function fncClick() {
         html_imgzone = "";
         var file, img;
         count_item = $("#tbl-upload-imgzone tbody tr.tr-upload-chuaupload").length + $("#tbl-upload-imgzone tbody tr.tr-upload-daupload").length;
-        //console.log(count_item);
+        console.log("chua upload: " + $("#tbl-upload-imgzone tbody tr.tr-upload-chuaupload").length);
+        console.log("da upload: " + $("#tbl-upload-imgzone tbody tr.tr-upload-daupload").length);
+        console.log("total: " + count_item);
         $.each(e.target.files, function (item, val) {
             if (val.size < 10000000) {
                 var fileExtension = val.name.split('.').pop();
@@ -586,8 +602,9 @@ function fncClick() {
 
 function fncChange() {
     $("#input-chiho-thanhtien").change(function () {
-        var result = parseInt($(this).val().replace(/,/g, "")) / 1.08;
-        $("#input-chiho-sotienthue").val(fncTachPhanNghin(result.toFixed(1)))
+        var parseSoTienSauVAT = parseInt($(this).val().replace(/,/g, ""));
+        var soTienTruocVAT = tinhSoTienTruocVAT(parseSoTienSauVAT);
+        $("#input-chiho-sotienthue").val(fncTachPhanNghin(soTienTruocVAT));
     });
 
     $("#myModalViewChiHo").on("change", "#input-chiho-khachhang", function () {
@@ -678,7 +695,8 @@ function fncModal() {
         arrTempData = {};
         arrUploadData = {};
         $("#tbl-upload-imgzone tbody tr").remove();
-    })
+    });
+    
 }
 
 function loadMainView(){
@@ -719,7 +737,7 @@ function loadMainView(){
                 // html_body += "<td>" + (val.DuyetThanhToan == 0 ? "<span style=\"color:red\">Chưa thanh toán</span>" : "<span style=\"color:#4CAF50\">Đã thanh toán</span>") + "<br/><a class=\"btn btn-default\" id=\"a-btn-attachfile\"><i class=\"glyphicon glyphicon-paperclip\"></i>Đính Kèm</a>" + "</td>";
                 //html_body += "<td>" + val.TrangThaiDoiChieuKhach + "</td>";
                 //html_body += "<td>" + val.IdNhap + "</td>";
-                html_body += "<td class=\"td-chucnang\">" + "<a class=\"label label-info btn-chiho-dinhkem\" attrID=\"" + val.Id + "\">Đính kèm</a>";
+                html_body += "<td class=\"td-chucnang\">" + "<a class=\"label label-"+(val.FileDinhKem == 0 ? "default" : "info")+" btn-chiho-dinhkem\" attrID=\"" + val.Id + "\">Đính kèm</a>";
                 html_body +=  "<a class=\"label label-success btn-chiho-qr\" attrID=\"" + val.Id + "\" attrThanhToan=\"" + val.ThanhTien + "\" attrKiHieuHD=\"" + val.KiHieuHD + "\">Xem QR</a>";
                 // html_body += "<button type =\"button\" class=\"btn btn-success btn-chiho-duyet\" attrThanhToan=\"" + val.ThanhTien + "\" attrKiHieuHD=\"" + val.KiHieuHD + "\" attrID=\"" + val.Id + "\">Duyệt</button> ";
                 // html_body += "<button type =\"button\" class=\"btn btn-warning btn-chiho-sua\" attrID=\"" + val.Id + "\">Sửa</button> ";
@@ -894,6 +912,7 @@ function InsertUpdateChiHo(Id) {
         messageTitle = "Cập nhật chi hộ thành công!";
     }
     var fileChuaUpload = $("#tbl-upload-imgzone tbody tr.tr-upload-chuaupload").length;
+    var fileDaUpload = $("#tbl-upload-imgzone tbody tr.tr-upload-daupload").length;
     //console.log(chiHo)
 
     $.ajax({
@@ -908,7 +927,7 @@ function InsertUpdateChiHo(Id) {
             //console.log(d)
             if (d && d != "-1") {
                 if(fileChuaUpload > 0){
-                    
+                    var totalFile = fileChuaUpload + fileDaUpload;
                     // trả lại data là ID của chiho
                 //console.log($("#tbl-upload-imgzone tbody tr.tr-upload-chuaupload").length);
                 
@@ -964,6 +983,27 @@ function InsertUpdateChiHo(Id) {
                             }
                         }).done(function () {
                             $("#div-wait").hide();
+                            var ajaxGet2 = { "get1": d, "get2": totalFile };
+                            var jsonData = JSON.stringify({ ajaxGet2 });
+                            // cập nhật file đính kèm
+                            $.ajax({
+                                type: "POST",
+                                url: "QuanLyChiHo.aspx/UpdateFileDinhKem",
+                                data: jsonData,
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                async: false,
+                                success: function (responsive) {
+                                    if (responsive.d === "ok") {
+                                        console.log("Cập nhật file đính kèm thành công");
+                                    } else {
+                                        console.log("Cập nhật file đính kèm thất bại");
+                                    }
+                                },
+                                error: function () {
+                                    console.log("Có lỗi xảy ra trong quá trình cập nhật file đính kèm");
+                                }
+                            }); 
                             
                         })
                     }
@@ -1075,12 +1115,12 @@ function fncLoadFileDinhKem(chiHoId) {
                 html_filedinhkem += "</tr>";
             })
 
-            setTimeout(function () {
+            
                 $("#tr-filedinhkem-loading").remove();
                 $("#tbl-upload-imgzone tbody").empty();
                 $("#tbl-upload-imgzone tbody").append(html_filedinhkem);
                 //$("#myModalLabelActivity").append("<span> (Có " + d.length + " file đính kèm)</span>")
-            }, 400);
+            
         },
         error: function (responsive) {
             alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
@@ -1127,4 +1167,20 @@ function handleDrop(e) {
     })
     $("#tbl-upload-imgzone").append(html_imgzone);
     //handleFiles(files);
+}
+function tinhSoTienTruocVAT(soTienSauVAT) {
+    if( soTienSauVAT != null && soTienSauVAT != 0){
+        const lamTronXuong = Math.floor(soTienSauVAT / 1.08);
+        const lamTronLen = Math.ceil(soTienSauVAT / 1.08);
+
+        if (Math.round(lamTronXuong * 1.08) === soTienSauVAT) {
+            return lamTronXuong;
+        } else if (Math.round(lamTronLen * 1.08) === soTienSauVAT) {
+            return lamTronLen;
+        } else {
+            return 0; 
+        }
+    }else{
+        return 0;
+    }   
 }

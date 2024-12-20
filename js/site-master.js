@@ -575,7 +575,7 @@ function FormatCurrency(ctrl) {
     ctrl.value = fncTachPhanNghin(val);
 }
 function fncTachPhanNghin(val) {
-    val = val.replace(/,/g, "");
+    val = String(val).replace(/,/g, "");
     val += '';
     x = val.split('.');
     x1 = x[0];
