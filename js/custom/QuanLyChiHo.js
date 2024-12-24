@@ -463,6 +463,7 @@ function fncClick() {
                 $("#input-chiho-ghichu").val(d.GhiChu);
                 $("#input-chiho-phichungtunhap").val(d.PhiChungTuNhap);
                 $("#input-chiho-sodenghithanhtoan").val(d.SoDeNghiThanhToan);
+                $("#checkboxSuccess-dathanhtoanncc").prop("checked", d.ThanhToanNCC == "True" ? true : false);
             },
             error: function (responsive) {
                 alert("Có lỗi xảy ra! Vui lòng F5(Refresh)!");
@@ -724,7 +725,7 @@ function loadMainView(){
                 html_body += "<td>" + val.AWBBILL + "</td>";
                 // html_body += "<td>" + convertDate(val.NgayCK)[1] + "</td>";
                 html_body += "<td>" + val.KiHieuHD + "</td>";
-                html_body += "<td>" + val.SoHD + "</td>";
+                html_body += "<td "+(val.ThanhToanNCC == "True" ? "style=\"background-color:#428bcabf\"" : "") + ">" + val.SoHD +"</td>";
                 // html_body += "<td>" + convertDate(val.NgayHD)[1] + "</td>";
                 html_body += "<td>" + val.TenNguoiBan + "</td>";
                 html_body += "<td>" + val.HoaDonKhach + "</td>";
@@ -905,6 +906,7 @@ function InsertUpdateChiHo(Id) {
         "IdNhap": $("#input-chiho-idnhap").val(),
         "GhiChu": $("#input-chiho-ghichu").val(),
         "SoDeNghiThanhToan": $("#input-chiho-sodenghithanhtoan").val(),
+        "ThanhToanNCC": $("#checkboxSuccess-dathanhtoanncc").is(":checked") ? 1 : 0,
     }
 
     var messageTitle = "Thêm mới chi hộ thành công!";

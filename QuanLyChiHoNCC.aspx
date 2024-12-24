@@ -11,6 +11,7 @@
     </div>
 
     <div class="chiho-button margin-bottom-5px">
+        <button type="button" class="btn btn-warning btn-chiho" onclick="location.href='QuanLyChiHo.aspx'">Quản Lý Chi Hộ</button>
         <button type="button" class="btn btn-primary btn-chiho-ncc">Thêm nhà cung cấp</button>
     </div>
 
