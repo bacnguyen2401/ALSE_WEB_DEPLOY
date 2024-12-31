@@ -16,6 +16,7 @@
             <button type="button" class="btn btn-w-200px btn-primary btn-chiho-kehoach">Thêm chi hộ</button>
             <button type="button" class="btn btn-w-200px btn-info btn-chiho-kehoach-excel">Thêm chi hộ excel</button>
             <a href="QuanLyChiHoNCC.aspx" type="button" class="btn btn-w-200px btn-success btn-chiho-ncc">Nhà cung cấp</a>
+            <button type="button" class="btn btn-w-200px btn-info btn-chiho-taihoadon">Tải hoá đơn</button>
         </div>
 
         <div class="main-chiho-body">
@@ -520,6 +521,30 @@
             </div>
         </div>
         <!-- Modal -->
+
+        <!-- Modal Tải Hoá Đơn -->
+        <div class="modal fade" id="modalTaiHoaDon" tabindex="-1"  data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modalTaiHoaDonLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="modalTaiHoaDonLabel">Tải Hoá Đơn</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="multiTextBoxAWB">Nhập nhiều AWB:</label>
+                            <textarea class="form-control" id="multiTextBoxAWB" rows="5" placeholder="Dán các AWB vào đây, mỗi dòng một AWB"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-w-200px btn-primary" id="btnDownloadHoaDon">Download</button>
+                        <button type="button" class="btn btn-w-200px btn-default" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <%# Versioned.VersionedFiles.ScriptHelper.Render("js","js/custom/QuanLyChiHo.js") %>
     </asp:Content>

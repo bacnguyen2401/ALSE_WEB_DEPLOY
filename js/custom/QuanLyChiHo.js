@@ -56,6 +56,41 @@ function fncLoad() {
 }
 
 function fncClick() {
+    $(".btn-chiho-taihoadon").click(function () {
+        $("#modalTaiHoaDon").modal("show");
+    });
+    $("#btnDownloadHoaDon").click(function () {
+        var awbBills = [];
+        $("#multiTextBoxAWB").val().split('\n').forEach(line => {
+            if (line.trim() !== '') {
+                awbBills.push({ param1: line.trim() });
+            }
+        });
+        if (awbBills.length > 0) {
+            var jsonData = JSON.stringify({ listAwbBill: awbBills });
+            $.ajax({
+                type: "POST",
+                url: "QuanLyChiHo.aspx/TaiHoaDon",
+                data: jsonData,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                success: function (responsive) {
+                    if (responsive.d != "error") {
+                        window.open("../DownloadCacheFile.aspx?FileName=" + responsive.d);
+                    } else {
+                        alert("Có lỗi xảy ra trong quá trình tải hóa đơn!");
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error("Có lỗi xảy ra trong quá trình tải hóa đơn: " + textStatus + " - " + errorThrown);
+                }
+            });
+        } else {
+            alert("Vui lòng nhập ít nhất một số AWB để tải hóa đơn!");
+        }
+    });
+
     // Click show modal upload file
     // $("#tbl-chiho").on("click", "", function () {
 
@@ -664,8 +699,11 @@ function fncChange() {
         }
     });
     $('#input-chiho-uploadfile').on('change', function() {
-       
         $('#input-chiho-tentep').val($('#input-chiho-awbbill').val() + '-' + $('#input-chiho-ncu').val() + '-' + $('#input-chiho-khachhang').val() + '-' + $('#input-chiho-sodenghithanhtoan').val());
+    });
+    $('#multiTextBoxAWB').on('input', function () {
+        var lines = $(this).val().split('\n').filter(line => line.trim() !== '').length;
+        $('#btnDownloadHoaDon').text('Download ' + lines + ' AWB/BILL');
     });
 }
 
@@ -697,7 +735,13 @@ function fncModal() {
         arrUploadData = {};
         $("#tbl-upload-imgzone tbody tr").remove();
     });
-    
+    $('#modalTaiHoaDon').on('shown.bs.modal', function () {
+        $('#multiTextBoxAWB').focus();
+    });
+    $('#modalTaiHoaDon').on('hidden.bs.modal', function () {
+        $('#multiTextBoxAWB').val('');
+        $('#btnDownloadHoaDon').text('Download');
+    });
 }
 
 function loadMainView(){
