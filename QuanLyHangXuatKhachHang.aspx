@@ -43,6 +43,7 @@
                 <td colspan="2" class="text-center-button">
 
                     <%--<a class="mani-btn btn btn-info btn-sm btn-printPage">Print</a>--%>
+                    <a href="DanhSachDNN.aspx" class="mani-btn btn btn-success btn-sm">Tồn kho</a>
                     <a href="InputExcelBookVsip.aspx" class="mani-btn btn btn-info btn-sm">Thêm mới BOOKING</a>
                     <a href="TruyVanHangXuat.aspx" class="mani-btn btn btn-primary btn-sm">Truy Vấn Hàng Xuất</a>
                     <a href="DanhSachDNN.aspx" class="mani-btn btn btn-danger btn-sm">DS DNN</a>
